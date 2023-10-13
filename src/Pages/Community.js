@@ -1,7 +1,13 @@
+/*소스명 : Community.js
+작성자 : 정은정
+이 페이지 용도 : 그룹 커뮤니티 화면
+생성일자(수정일자) :*/
+
 import React from "react";
 import "./styles/Community.css";
 import { Link } from "react-router-dom";
 import PopularRank from "../components/Community/PopularRank";
+import Groupintro from "../components/Community/Groupintro";
 
 function Community() {
   return (
@@ -29,21 +35,7 @@ function Community() {
       </div>
       <div className="GroupList">
         <div className="Grouplists">
-          <div id="gallery">
-            <figure class="groupList">
-              <img
-                src=""
-                alt=""
-                title="Photo by Jeremy Doddridge for Unsplash"
-              />
-              <figcaption>8 PM, Summer</figcaption>
-              <div class="caption">
-                <p id="name">피버 타임</p>
-                <p>하루에 물 3번 마시기</p>
-                <p>86명</p>
-              </div>
-            </figure>
-          </div>
+          <Groupintro />
         </div>
         <div className="Grouplistbtn"></div>
       </div>
