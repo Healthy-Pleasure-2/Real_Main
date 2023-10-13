@@ -1,4 +1,9 @@
-/* 그룹 생성하기 페이지 CSS */
+/* 소스명 : GroupPage.css */
+/* 작성자: 강수진, 이진경 */
+/* 이 페이지 용도 : 그룹 페이지 CSS */
+/* 생성일자(수정일자) : 
+  - 23.10.13: 수정_이진경 */
+
 .group_create {
   width: 100%;
   height: 100%;
@@ -21,18 +26,16 @@
 
 .group_create h1 {
   text-align: center;
-  padding-bottom: 3%;
-
   /* 추가 */
   color: #01352C;
   font-size: 1.7rem;
-  height: 13%;
+  height: 15%;
 }
 
 /* 그룹 입력 칸 */
 .group {
-  width: 95%;
-  height: 78%;
+  width: 80%;
+  height: 75%;
   margin: 0 auto;
 }
 
@@ -104,7 +107,7 @@
 
 .group_int input {
   width: 70%;
-  height: 90px;
+  height: 120px;
 }
 
 /*대표이미지*/
@@ -141,7 +144,7 @@
 }
 
 .create a {
-  width: 50%;
+  width: 80%;
   height: 50px;
   background-color: #729642;
   border-radius: 25px;
