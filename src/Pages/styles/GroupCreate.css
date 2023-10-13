@@ -1,0 +1,154 @@
+/* 그룹 생성하기 페이지 CSS */
+.group_create {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.group_create #frame {
+  width: 90%;
+  height: 95%;
+  background-color: #F4F4F4;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+
+  font-size: 0.8rem;
+  color: #5c5c5c;
+}
+
+.group_create h1 {
+  text-align: center;
+  padding-bottom: 3%;
+
+  /* 추가 */
+  color: #01352C;
+  font-size: 1.7rem;
+  height: 13%;
+}
+
+/* 그룹 입력 칸 */
+.group {
+  width: 95%;
+  height: 78%;
+  margin: 0 auto;
+}
+
+.group p {
+  width: 15%;
+  min-width: 80px;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.group input {
+  border-radius: 5px;
+  border: 1px solid #b8b3b3;
+}
+
+
+/*그룹명*/
+.group_name {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 3%;
+}
+
+.group_name input {
+  width: 70%;
+  height: 30px;
+}
+
+.group_name button {
+  width: 10%;
+  margin: 0 0 0 1vw;
+  border-radius: 5px;
+  border: 1px solid #5c5c5c;
+  background-color: #c5c5c5;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+/*카테고리*/
+.category {
+  display: flex;
+  align-items: center;
+  padding-bottom: 3%;
+}
+
+.category input {
+  width: 70%;
+  height: 30px;
+}
+
+/*목표*/
+.goal {
+  display: flex;
+  align-items: center;
+  padding-bottom: 3%;
+}
+
+.goal input {
+  width: 70%;
+  height: 30px;
+}
+
+/*그룹 소개 */
+.group_int {
+  display: flex;
+  padding-bottom: 3%;
+}
+
+.group_int input {
+  width: 70%;
+  height: 90px;
+}
+
+/*대표이미지*/
+.rep_img {
+  display: flex;
+}
+
+.rep_img input {
+  height: 12vh;
+  width: 12vh;
+  background-color: #86a3da;
+}
+
+.rep_img button {
+  width: 5vw;
+  /* 버튼 높이 설정 필요 */
+  margin: 0 0 0 3%;
+  align-self: flex-end;
+
+  border-radius: 5px;
+  border: 1px solid #5c5c5c;
+  background-color: #c5c5c5;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+/* 생성 버튼 */
+.create {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create button {
+  width: 100%;
+  background-color: #729642;
+  color: #fff;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.create button:hover {
+  background-color: #397242;
+}

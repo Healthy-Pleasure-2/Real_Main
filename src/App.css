@@ -1,0 +1,165 @@
+/*  import google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+
+  text-decoration: none;
+  list-style: none;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  min-width: 1024px;
+  min-height: 700px;
+}
+
+/* 큰 네모 */
+.wrap {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  width: 90vw;
+  height: 90vh;
+
+  min-width: 1024px;
+  min-height: 700px;
+}
+
+/************* SideMenu 왼쪽 부분 *************/
+#navigation {
+  height: 100%;
+  width: 100px;
+  background: #8CBA51;
+  padding: 6px 25px;
+  transition: all 0.5s ease;
+  float: left;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin: 30px 0;
+  background-color: #fff;
+}
+
+/* 네비게이션 리스트 */
+.nav-list {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-list svg {
+  color: #fff;
+  height: 25px;
+  min-width: 50px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 25px;
+}
+
+.nav-list li {
+  position: relative;
+  margin: 1em 0;
+}
+
+.nav-list li a {
+  display: flex;
+  height: 50px;
+  width: 100%;
+  border-radius: 10px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.nav-list li a:hover {
+  background: #FFF;
+}
+
+.nav-list li a:hover svg {
+  color: #8CBA51;
+}
+
+/* 로그아웃 */
+#navigation .logout {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 30px;
+}
+
+#navigation .logout svg {
+  color: #fff;
+  height: 25px;
+  min-width: 50px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 25px;
+
+}
+
+/************* SideMenu 끝 *************/
+
+
+
+/************* PageContent 중간부분 *************/
+#PageContent {
+  width: calc(100% - 450px);
+  height: 100%;
+  float: left;
+  padding: 30px;
+}
+
+
+/************* PageContent 끝 *************/
+
+
+
+/************* SideContent 오른쪽부분 *************/
+#SideContent {
+  background-color: #f3f3f3;
+  width: 350px;
+  height: 100%;
+  float: left;
+}
+
+.right-sidebar {
+  margin: 30px;
+}
+
+/* 데일리 상태 박스 */
+#daily-box {
+  height: 300px;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+/* 추천식단/ 뉴스 */
+#news {
+  height: 250px;
+  background-color: #fff;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+/* footer */
+#SideContent footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #7b7b7b;
+  padding: 15px 30px 30px;
+  font-size: 12px;
+}
+
+/************* PageContent 끝 *************/
