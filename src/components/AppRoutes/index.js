@@ -12,10 +12,9 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<Main />}></Route>
       <Route path="/todo" element={<Todo />}></Route>
-      {/*  페이지 확인용으로 임시 위치 */}
-      <Route path="/community" element={<GroupPage />}></Route>
-      <Route path="/ask" element={<GroupCreate />}></Route>
-      <Route path="/mypage" element={<Community />}></Route>
+      <Route path="/community" element={<Community />}></Route>
+      <Route path="/GroupCreate" element={<GroupCreate />}></Route>
+      <Route path="/GroupPage" element={<GroupPage />}></Route>
     </Routes>
   );
 }
