@@ -1,5 +1,6 @@
 // src/components/GroupCreate.js
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./styles/GroupCreate.css";
 
 function GroupCreate() {
@@ -49,7 +50,7 @@ function GroupCreate() {
           </div>
         </div>
         <div className="create">
-          <button>생성하기</button>
+          <Link to="/GroupPage">생성하기</Link>
         </div>
       </div>
     </div>
