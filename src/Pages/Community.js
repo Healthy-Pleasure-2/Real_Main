@@ -12,6 +12,7 @@ import Groupintro from "../components/Community/Groupintro";
 function Community() {
   return (
     <div className="main">
+      {/*상단 메뉴(카테고리), 그룹 생성*/}
       <div className="menu">
         <div className="groupcreate">
           <button>운동</button>
@@ -27,12 +28,14 @@ function Community() {
           </button>
         </div>
       </div>
+      {/*인기 랭킹*/}
       <div className="rank">
         <div className="title">
           <p>인기 상승 그룹</p>
         </div>
         <PopularRank />
       </div>
+      {/*그룹목록*/}
       <div className="GroupList">
         <div className="Grouplists">
           <Groupintro />

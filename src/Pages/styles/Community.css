@@ -127,6 +127,7 @@ button {
     width: 100%;
     height: 140px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 .Groupname {
@@ -160,21 +161,17 @@ button {
     height: 93%;
     background: #dfe680;
     margin-bottom: 10px;
-}
-
-.img {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
+    position: relative;
+    overflow: hidden;
 }
 
 .gallery {
-    position: relative;
+    position: absolute;
     left: calc(-1 * var(--adjust-size));
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(6, 1fr); /* 2열로 설정 */
+  grid-template-rows: repeat(2, 1fr);
     gap: 20px;
     max-width: 100vw;
     padding: 20px;
@@ -182,82 +179,16 @@ button {
     perspective: 0;
     box-sizing: border-box;
 }
-
-#gallery figure {
-    position: relative;
-    display: inline-block;
-    margin: var(--adjust-size);
-    padding: 0.5rem;
-    border-radius: 5px;
-    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: auto;
-    text-align: center;
-    background-color: ghostwhite;
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: multiply;
-    transform-origin: center 0.22rem;
-    will-change: transform;
-    break-inside: avoid;
+.gallery .Gitem {
+    background-color: #fff;
+    border-radius:15px;
+    border: 2px solid #e4e4e4;
     overflow: hidden;
-    outline: 1px solid transparent;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-figure img {
-    aspect-ratio: 1 /1;
-    width: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    z-index: 1;
-}
-
-figure figcaption {
-    font-size: 14px;
-    font-weight: 400;
-    z-index: 1;
-}
-
-
-.groupList .caption {
-    position: absolute;
-    top: 200px;
-    width: 92%;
-    /*해당 크기 값은 본 코드에서 크기가 바뀔수 있다.*/
-    height: 79%;
-    margin: 8px 0px 0px;
-    padding-top: 30px;
-    background-color: rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    -ms-transition: all 0.2s ease-in-out;
-    z-index: 10;
-}
-
-.groupList:hover .caption {
-    opacity: 1;
-    transform: translateY(-200px);
-    -moz-transform: translateY(-200px);
-    -webkit-transform: translateY(-200px);
-    -o-transform: translateY(-200px);
-    -ms-transform: translateY(-200px);
-}
-
-.groupList .caption #name {
-    font-size: 20px;
-}
-
-.groupList .caption #name,
-.groupList .caption p {
-    color: #fff;
-    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 5px;
+    display: flex;
+  flex-direction: column;
 }
 
 .Grouplistbtn {
