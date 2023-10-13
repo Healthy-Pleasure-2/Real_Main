@@ -113,8 +113,10 @@
 }
 
 .rep_img input {
-  height: 12vh;
   width: 12vh;
+  height: 12vh;
+  min-width: 100px;
+  min-height: 100px;
   background-color: #86a3da;
 }
 
@@ -138,17 +140,22 @@
   justify-content: center;
 }
 
-.create button {
-  width: 100%;
+.create a {
+  width: 50%;
+  height: 50px;
   background-color: #729642;
-  color: #fff;
   border-radius: 25px;
-  border: none;
   cursor: pointer;
+
+  color: #fff;
   font-size: 1.1rem;
   font-weight: 900;
+  text-align: center;
+  line-height: 50px;
 }
 
-.create button:hover {
+.create a:hover {
   background-color: #397242;
 }
+
+.create a button {}
