@@ -1,3 +1,8 @@
+/* 소스명 : GroupPage.css */
+/* 작성자: 이진경 */
+/* 이 페이지 용도 : 그룹 페이지 CSS */
+/* 생성일자(수정일자) : 23.10.13 */
+
 #GroupPage {
   width: 100%;
   height: 100%;
@@ -12,7 +17,7 @@
   background-color: #F4F4F4;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 10px #33333367, inset 0 0 5px #33333367;
 
   font-size: 0.8rem;
   color: #5c5c5c;
@@ -63,38 +68,24 @@
   background-color: #397242;
 }
 
+
+
 /******* 그룹 목표 및 소개 *******/
 #GroupPage .intro {
   height: 30%;
   width: 100%;
 }
 
+/* 목표 */
 #GroupPage .intro .goal {
   display: flex;
   height: 40px;
-  background-color: #fff;
-  border: 2px solid #729642;
-  border-radius: 20px;
-  margin-bottom: 10px;
-  padding: 7px;
-}
-
-#GroupPage .intro .groupIntro {
-  display: flex;
-  height: 50%;
-  background-color: #fff;
+  background-color: #cdf0a0;
+  box-shadow: inset 0 0 10px #98c959;
   border: 2px solid #729642;
   border-radius: 10px;
+  margin-bottom: 10px;
   padding: 7px;
-}
-
-
-#GroupPage .intro #title {
-  border-right: 1px solid #729642;
-  width: 8vw;
-  text-align: center;
-  font-size: 0.9rem;
-  font-weight: 700;
 }
 
 #GroupPage .intro .goal .content {
@@ -106,12 +97,46 @@
   white-space: nowrap;
 }
 
+/* 소개글 */
+#GroupPage .intro .groupIntro {
+  display: flex;
+  height: 50%;
+  background-color: #fff;
+  border: 2px solid #729642;
+  border-radius: 10px;
+  padding: 7px;
+}
+
 #GroupPage .intro .groupIntro .content {
   width: 70vw;
   margin-left: 10px;
   /* 텍스트 넘칠시 스크롤 */
   overflow: auto;
 }
+
+#GroupPage .intro .groupIntro .content::-webkit-scrollbar {
+  width: 8px;
+  background-color: #d6e6c3;
+  border-radius: 10px;
+}
+
+/* 썸(thumb) 추가 */
+#GroupPage .intro .groupIntro .content::-webkit-scrollbar-thumb {
+  height: 50%;
+  background: #729642;
+  border-radius: 10px;
+}
+
+
+/* 목표, 소개 타이틀 */
+#GroupPage .intro #title {
+  border-right: 1px solid #729642;
+  width: 8vw;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 
 
 /******* 댓글 *******/
@@ -128,10 +153,79 @@
   border-bottom: 1px solid #729642;
   font-weight: 700;
   font-size: 0.9rem;
+  height: 10%;
 }
 
-.commentList {}
+/* 댓글 리스트 */
+.commentList {
+  padding: 10px;
+  height: 70%;
+  overflow: auto;
+}
 
-.commentform {
-  align-self: flex-end;
+/* 스크롤바 디자인 */
+.commentList::-webkit-scrollbar {
+  width: 8px;
+  background-color: #d6e6c3;
+  border-radius: 10px;
+}
+
+.commentList::-webkit-scrollbar-thumb {
+  height: 50%;
+  background: #729642;
+  border-radius: 10px;
+}
+
+
+.commentList .commentIndex {
+  position: relative;
+  display: flex;
+  height: 30px;
+  margin: 0 10px 10px 0;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+.commentList .commentIndex h4 {
+  width: 15%;
+  padding: 0 10px;
+}
+
+.commentList .commentIndex .delete {
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  min-height: fit-content;
+  margin: 0;
+  padding-right: 10px;
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+}
+
+/* 댓글 작성란 */
+.commentInput {
+  display: flex;
+  border-top: 1px solid #729642;
+  padding: 10px;
+  height: 20%;
+}
+
+.commentInput input:nth-child(1) {
+  width: 15%;
+  margin-right: 10px;
+}
+
+.commentInput input:nth-child(2) {
+  width: 75%;
+  margin-right: 10px;
+}
+
+.commentInput button {
+  width: 15%;
+  height: 100%;
+  min-height: fit-content;
+  margin: 0;
+  background-color: #98c959;
 }
