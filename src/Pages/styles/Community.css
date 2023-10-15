@@ -48,7 +48,7 @@ button {
     margin-right: 10px;
 }
 
-.groupbtn button {
+.groupbtn .save {
     width: 150px;
     height: 55px;
     font-size: 20px;
