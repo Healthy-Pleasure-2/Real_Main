@@ -6,6 +6,7 @@
 
 import React from "react";
 import "./styles/Ask.css";
+import Notice from "../components/notice"
 
 function Ask() {
   return (
@@ -19,6 +20,7 @@ function Ask() {
         <label for="tab3">온라인 문의</label>
       </div>
       <div id="notice_N" className="tabcontent">
+        <Notice></Notice>
         <p>____검색</p>
         <p>작성</p>
 
