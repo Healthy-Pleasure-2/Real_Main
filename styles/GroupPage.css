@@ -1,0 +1,137 @@
+#GroupPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#GroupPage #frame {
+  width: 90%;
+  height: 95%;
+  background-color: #F4F4F4;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+
+  font-size: 0.8rem;
+  color: #5c5c5c;
+}
+
+/******* 상단 부분 및 참여버튼 *******/
+#GroupPage .top {
+  width: 100%;
+  height: 20%;
+  padding-bottom: 20px;
+}
+
+#GroupPage .top h2 {
+  color: #01352C;
+  font-size: 1.5rem;
+  width: 80%;
+  padding-bottom: 8px;
+
+}
+
+#GroupPage .top #category {
+  width: 80px;
+  height: 25px;
+  background-color: #dbdbdb;
+  border-radius: 15px;
+
+  text-align: center;
+  color: #7b7b7b;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+#GroupPage .top button {
+  float: right;
+  width: 20%;
+  height: 50%;
+  background-color: #729642;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+#GroupPage .top button:hover {
+  background-color: #397242;
+}
+
+/******* 그룹 목표 및 소개 *******/
+#GroupPage .intro {
+  height: 30%;
+  width: 100%;
+}
+
+#GroupPage .intro .goal {
+  display: flex;
+  height: 40px;
+  background-color: #fff;
+  border: 2px solid #729642;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  padding: 7px;
+}
+
+#GroupPage .intro .groupIntro {
+  display: flex;
+  height: 50%;
+  background-color: #fff;
+  border: 2px solid #729642;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+
+#GroupPage .intro #title {
+  border-right: 1px solid #729642;
+  width: 8vw;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+#GroupPage .intro .goal .content {
+  width: 70vw;
+  margin-left: 10px;
+  /* 텍스트 넘칠시 숨김 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#GroupPage .intro .groupIntro .content {
+  width: 70vw;
+  margin-left: 10px;
+  /* 텍스트 넘칠시 스크롤 */
+  overflow: auto;
+}
+
+
+/******* 댓글 *******/
+#GroupPage .comment {
+  height: 50%;
+  background-color: #fff;
+  border: 2px solid #397242;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.commentTitle {
+  padding: 0 0 7px 7px;
+  border-bottom: 1px solid #729642;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+
+
+.commentform {
+  align-self: flex-end;
+}
