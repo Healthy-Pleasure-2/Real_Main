@@ -1,0 +1,417 @@
+/* 작성자: 이제형
+소스명 todo.js
+페이지 용도:
+생성 일자(수정 용도): 10/14 */
+
+/* 가운데 화면 컨텐츠 */
+#container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+/* 위젯들의 제목 */
+h1 {
+  font-size: 35px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ********  좌측 컨텐츠 ************** */
+#container #left_contents {
+  box-shadow: 3px 3px 7px rgb(131, 131, 131);
+  border: 1px solid #7B7B7B;
+  border-radius: 15px;
+  flex: 1;
+  float: left;
+  padding: 20px;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 달력이 들어갈 공간 */
+.calendar {
+  border: 1px solid #7B7B7B;
+  border-radius: 15px;
+  height: 45%;
+  box-shadow: 3px 3px 7px rgb(131, 131, 131);
+}
+
+/* 추가될 to-do list가 들어갈 공간 */
+.checkLists {
+  height: 30%;
+  margin-top: 15px;
+  overflow-y: scroll;
+  /* 넘칠 경우 스크롤*/
+  padding: 0 10px;
+}
+
+/*  to-do list의 스크롤바 스타일 */
+.checkLists::-webkit-scrollbar {
+  width: 10px;
+  /* 세로축 스크롤바 폭 너비 */
+}
+
+.checkLists::-webkit-scrollbar-thumb {
+  background: #D9D9D9;
+  /* 스크롤바 막대 색상 */
+  border: none;
+  /* 스크롤바 막대 테두리 설정  */
+  border-radius: 12px 12px 12px 12px;
+}
+
+
+/* 체크리스트 작성공간 */
+.checkList {
+  font-size: 20px;
+  border: 1px solid #7B7B7B;
+  border-radius: 15px;
+  width: 100%;
+  height: 70px;
+  margin-bottom: 15px;
+  align-items: center;
+  position: relative;
+  box-shadow: 3px 3px 7px rgb(131, 131, 131);
+}
+
+
+.checked,
+.delete {
+  width: 30px;
+  height: 30px;
+  border: none;
+  color: #000;
+  border-radius: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+/* to do list 완료 버튼 */
+.checked {
+  background: #a2a1a1;
+  top: 50%;
+  left: 10px;
+}
+
+/* to do list 삭제 버튼 */
+.delete {
+  background: #F93838;
+  top: 50%;
+  right: 10px;
+}
+
+
+/* to do list 추가되는 내용 */
+.checkList p {
+  /* flex: 1; */
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  width: calc(100% - 80px);
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+}
+
+
+/* to do list 항목 추가 */
+.addList {
+  border: 1px solid #7B7B7B;
+  border-radius: 15px;
+  width: calc(100% - 30px);
+  margin-top: auto;
+  margin-left: 10px;
+  position: relative;
+  box-shadow: 3px 3px 7px rgb(131, 131, 131);
+}
+
+/* to-do 작성공간 */
+input {
+  font-size: 20px;
+  width: 80%;
+  height: 70px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  padding: 0 15px
+}
+
+/* to-do 작성완료 버튼 */
+.addList .save {
+  font-size: 35px;
+  background: #fff;
+  border: none;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+}
+
+
+/* ********  우측 컨텐츠 ************** */
+#container #right_contents {
+  float: left;
+  position: relative;
+  flex: 1;
+}
+
+/* ********  목표 설정  ************** */
+#container #goal {
+  background: #F5F5F5;
+  box-shadow: 3px 3px 7px rgb(131, 131, 131);
+  border: 1px solid #7B7B7B;
+  height: 50%;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 몸무게, 운동, 식단 위젯 */
+.weight,
+.exercise,
+.eating {
+  border: 1px solid #7B7B7B;
+  background: #fff;
+  border-radius: 15px;
+  flex: 1;
+  /* 같은 높이로 설정하기 위해 flex:1 부여*/
+  box-shadow: 3px 3px 7px rgb(131, 131, 131);
+  padding: 10px 40px;
+}
+
+/* 3개의 위젯간의 간격을 부여 */
+.exercise {
+  margin: 20px 0;
+}
+
+
+/* 위젯 안의 콘텐츠 */
+/* leftSide: 위젯안의 아이콘과 옆의 타이틀을 감싸고 있는 영역  */
+/* rightSide: 위젯안의 데이터와 단위 감싸고 있는 영역 설정 */
+.data_leftSide,
+.data_rightSide {
+  width: 50%;
+  float: left;
+  height: 100%;
+  position: relative;
+}
+
+
+/* 아이콘을 감싸고 있는 원 */
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #F3F3F3;
+  line-height: 50px;
+  text-align: center;
+}
+
+/* 아이콘 */
+.icon svg:first-child {
+  width: 30px;
+}
+
+.icon svg {
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.data_leftSide div {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 체중, 운동, 식단이 적힌 div */
+.data_leftSide div:last-child {
+  width: calc(100% - 50px);
+  float: left;
+  right: 0;
+  padding-left: 15px;
+  font-size: 25px;
+  color: #4c4b4b;
+  font-weight: bold;
+}
+
+/* 데이터 적혀있는 공간 */
+.data_rightSide #data_record {
+  font-size: 25px;
+  text-align: center;
+  width: 65%;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  right: 0;
+}
+
+/* 데이터 가져와서 들어갈 공간 */
+#data_record span {
+  margin-right: 10px;
+}
+
+
+/* ********  나의 그룹 ************** */
+#container #my_group {
+  background: #F5F5F5;
+  box-shadow: 3px 3px 7px rgb(131, 131, 131);
+  border: 1px solid #7B7B7B;
+  width: 100%;
+  height: 45%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#my_group .group_container {
+  border: 1px solid black;
+  flex: 1;
+  border-radius: 15px;
+  box-shadow: 3px 3px 7px rgb(131, 131, 131);
+  padding: 5px;
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.group_container::-webkit-scrollbar {
+  width: 12px;
+  /* 세로축 스크롤바 폭 너비 */
+}
+
+.group_container::-webkit-scrollbar-thumb {
+  background: #D9D9D9;
+  /* 스크롤바 막대 색상 */
+  border: none;
+  /* 스크롤바 막대 테두리 설정  */
+  border-radius: 12px 12px 12px 12px;
+}
+
+
+.group_container div {
+  font-size: 20px;
+}
+
+/* 나의 그룹 데이터 항목 별로 flex로 수직 배치 */
+.group_contents {
+  flex: 1;
+  float: left;
+}
+
+/* 나의 그룹 데이터 항목 제목 */
+.group_title {
+  width: 30%;
+  float: left;
+  color: #4c4b4b;
+  font-weight: bold;
+}
+
+/* 나의 그룹 데이터 들어갈 부분 */
+.data {
+  width: 70%;
+  float: left;
+}
+
+
+/* 캐러셀 버튼 감싸는 영역 */
+.btns {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* 캐러셀 버튼 */
+.btns button {
+  background-color: #D9D9D9;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* 캐러셀 버튼 간의 간격 조정 위한 설정 */
+.btns button:nth-child(2) {
+  margin: 0 10px;
+}
+
+
+/* 미디어 쿼리 */
+@media screen and (max-width: 1430px) {
+
+  /**************** 목표설정 ***********************/
+  /* 목표설정의 아이콘과 타이틀을 감싸고 있는 영역 */
+  /* 패딩값 변경 */
+  .weight,
+  .exercise,
+  .eating {
+    padding: 10px;
+  }
+
+  /* 목표설정의 왼쪽과 오른쪽 영역의 float 값 삭제하여 줄바꿈 */
+  .data_leftSide,
+  .data_rightSide {
+    float: none;
+    width: 100%;
+    height: 50%;
+  }
+
+  /* 데이터와 제목간의 간격 설정 */
+  .data_leftSide {
+    margin-bottom: 10px;
+  }
+
+  /* 데이터 들어가는 곳  */
+  .data_rightSide #data_record {
+    font-size: 20px;
+    width: 100%;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .data_leftSide div:last-child {
+    padding-left: 0;
+    /* 아이콘이 삭제되므로 패딩값 삭제*/
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 아이콘 삭제 */
+  .icon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+
+  .group_title {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 25px;
+  }
+
+  .group_contents:nth-child(2) {
+    margin: 20px 0;
+  }
+
+  .data {
+    width: 100%;
+  }
+}

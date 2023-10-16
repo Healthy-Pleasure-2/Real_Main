@@ -96,7 +96,7 @@ function GroupPage() {
               />
               <input
                 type="text"
-                maxlength="25"
+                maxlength="100"
                 placeholder="댓글달기"
                 value={newComment.text}
                 onChange={(e) =>

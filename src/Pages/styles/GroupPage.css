@@ -1,7 +1,7 @@
-/* 소스명 : GroupPage.css */
-/* 작성자: 이진경 */
-/* 이 페이지 용도 : 그룹 페이지 CSS */
-/* 생성일자(수정일자) : 23.10.13 */
+/* 소스명 : GroupPage.css 
+작성자: 이진경
+이 페이지 용도 : 그룹 페이지 CSS
+생성일자(수정일자) : 23.10.13  */
 
 #GroupPage {
   width: 100%;
@@ -20,7 +20,7 @@
   box-shadow: 0 0 10px #33333367, inset 0 0 5px #33333367;
 
   font-size: 0.8rem;
-  color: #5c5c5c;
+  color: #313131;
 }
 
 /******* 상단 부분 및 참여버튼 *******/
@@ -54,7 +54,7 @@
   float: right;
   width: 20%;
   height: 50%;
-  background-color: #729642;
+  background-color: #8CBA51;
   border: none;
   border-radius: 25px;
   cursor: pointer;
@@ -70,6 +70,7 @@
 
 
 
+
 /******* 그룹 목표 및 소개 *******/
 #GroupPage .intro {
   height: 30%;
@@ -81,8 +82,8 @@
   display: flex;
   height: 40px;
   background-color: #cdf0a0;
-  box-shadow: inset 0 0 10px #98c959;
-  border: 2px solid #729642;
+  box-shadow: inset 0 0 6px #8CBA51;
+  border: 2px solid #55752b;
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 7px;
@@ -91,6 +92,7 @@
 #GroupPage .intro .goal .content {
   width: 70vw;
   margin-left: 10px;
+  font-weight: 700;
   /* 텍스트 넘칠시 숨김 */
   overflow: hidden;
   text-overflow: ellipsis;
@@ -159,7 +161,7 @@
 /* 댓글 리스트 */
 .commentList {
   padding: 10px;
-  height: 70%;
+  height: 75%;
   overflow: auto;
 }
 
@@ -180,27 +182,29 @@
 .commentList .commentIndex {
   position: relative;
   display: flex;
-  height: 30px;
-  margin: 0 10px 10px 0;
+  margin-bottom: 10px;
   background-color: #f1f1f1;
   border-radius: 5px;
+  min-height: 25px;
 }
 
 .commentList .commentIndex h4 {
-  width: 15%;
+  width: 80px;
   padding: 0 10px;
+}
+
+.commentList .commentIndex p {
+  width: 75%;
 }
 
 .commentList .commentIndex .delete {
   position: absolute;
   right: 0;
   width: 30px;
-  height: 30px;
-  min-height: fit-content;
-  margin: 0;
-  padding-right: 10px;
-  background-color: unset;
+  height: 100%;
+  padding: 0 5px;
   border: none;
+  background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
 }
 
@@ -209,23 +213,28 @@
   display: flex;
   border-top: 1px solid #729642;
   padding: 10px;
-  height: 20%;
+  height: 18%;
+}
+
+.commentInput input {
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #5c5c5c;
 }
 
 .commentInput input:nth-child(1) {
   width: 15%;
-  margin-right: 10px;
 }
 
 .commentInput input:nth-child(2) {
   width: 75%;
-  margin-right: 10px;
 }
 
 .commentInput button {
-  width: 15%;
+  width: 10%;
   height: 100%;
-  min-height: fit-content;
   margin: 0;
   background-color: #98c959;
+  border: none;
+  border-radius: 5px;
 }

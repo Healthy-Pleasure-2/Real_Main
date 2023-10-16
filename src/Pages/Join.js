@@ -1,12 +1,12 @@
-// 소스명 : Mypage.js
+// 소스명 : Join.js
 // 작성자 : 이진경
-// 이 페이지 용도 : 회원정보 수정
+// 이 페이지 용도 : 회원가입
 // 생성일자(수정일자) : 23.10.16
 
 import React, { useState } from "react";
-import "./styles/Mypage.css";
+import "./styles/Join.css";
 
-function Mypage() {
+function Join() {
   const [formData, setFormData] = useState({
     id: "",
     password: "",
@@ -29,22 +29,24 @@ function Mypage() {
   return (
     <div id="Mypage">
       <div id="frame">
-        <h1>회원정보 수정</h1>
+        <h1>회원가입</h1>
         <form onSubmit={handleSubmit}>
           <div>
             <label>아이디</label>
             <input
               type="text"
               name="id"
-              placeholder="수정 불가능"
               value={formData.id}
+              onChange={handleChange}
             />
+            <button>중복확인</button>
           </div>
           <div>
             <label>비밀번호</label>
             <input
               type="password"
               name="password"
+              placeholder="영문자+숫자+특수문자 조합 8 ~ 25자리 입력하세요."
               value={formData.password}
               onChange={handleChange}
             />
@@ -54,6 +56,7 @@ function Mypage() {
             <input
               type="password"
               name="passwordCheck"
+              placeholder="비밀번호를 다시 입력해 주세요."
               value={formData.passwordCheck}
               onChange={handleChange}
             />
@@ -94,11 +97,11 @@ function Mypage() {
           </div>
         </form>
         <div className="signbtn">
-          <button type="submit">수정하기</button>
+          <button type="submit">회원가입하기</button>
         </div>
       </div>
     </div>
   );
 }
 
-export default Mypage;
+export default Join;

@@ -1,7 +1,6 @@
 import React from "react";
 import Goal_Circle from "./Goal_Circle"; //Goal_Circle 컴포넌트 임포트
 import News from "./News";
-import Diet from "./Diet";
 
 function SideContent() {
   return (
@@ -33,7 +32,6 @@ function SideContent() {
         {/* 추천 식단 / 건강뉴스 박스 */}
         <div id="news">
           <News></News>
-          <Diet></Diet>
         </div>
       </div>
 

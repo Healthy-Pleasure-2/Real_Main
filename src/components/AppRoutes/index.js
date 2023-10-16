@@ -5,7 +5,8 @@ import Community from "../../Pages/Community";
 import GroupCreate from "../../Pages/GroupCreate";
 import GroupPage from "../../Pages/GroupPage";
 // import Ask from "../../Pages/Ask";
-// import Mypage from "../../Pages/Mypage";
+import Mypage from "../../Pages/Mypage";
+import Join from "../../Pages/Join";
 
 function AppRoutes() {
   return (
@@ -15,6 +16,8 @@ function AppRoutes() {
       <Route path="/community" element={<Community />}></Route>
       <Route path="/GroupCreate" element={<GroupCreate />}></Route>
       <Route path="/GroupPage" element={<GroupPage />}></Route>
+      <Route path="/mypage" element={<Mypage />}></Route>
+      <Route path="/join" element={<Join />}></Route>
     </Routes>
   );
 }
