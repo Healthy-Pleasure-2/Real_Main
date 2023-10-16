@@ -6,8 +6,12 @@
 import React, { useState, useEffect, useMemo } from "react";
 import "../../Pages/styles/Community.css";
 
-function PopularRank() {
-  const initialGroups = useMemo(() => [1, 2, 3, 4, 5], []); // 초기 그룹 목록
+function PopularRank({ groupData }) {
+  const initialGroups = useMemo(() => {
+    const sortedData = [...groupData];
+    sortedData.sort((a, b) => b.grouptotal - a.grouptotal);
+    return sortedData.slice(0, 5);
+  }, [groupData]); // 초기 그룹 목록
   const [groups, setGroups] = useState(initialGroups);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -35,13 +39,9 @@ function PopularRank() {
       {groups.map((group) => (
         <div className="Rgroup" key={group}>
           <div className="item">
-            <img
-              className="cardimg"
-              src="https://cdn.pixabay.com/photo/2015/07/02/20/37/cup-829527_1280.jpg"
-              alt="그룹 "
-            />
+            <img className="cardimg" src={group.img} alt={group.name} />
             <div className="cardcontent">
-              <h1 className="Groupname">차 1한잔의 여유</h1>
+              <h1 className="Groupname">{group.name}</h1>
             </div>
           </div>
         </div>

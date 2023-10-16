@@ -3,13 +3,24 @@
 이 페이지 용도 : 그룹 커뮤니티 화면
 생성일자(수정일자) : 10/16*/
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/Community.css";
 import { Link } from "react-router-dom";
 import PopularRank from "../components/Community/PopularRank";
 import Groupintro from "../components/Community/Groupintro";
+import getGroupData from "../components/Community/getGroupData";
 
 function Community() {
+  const [groupData, setGroupData] = useState([]);
+
+  useEffect(() => {
+    const fetchGroupData = async () => {
+      const result = await getGroupData();
+      setGroupData(result);
+    };
+    fetchGroupData();
+  }, []);
+
   return (
     <div className="main">
       {/*상단 메뉴(카테고리), 그룹 생성*/}
@@ -33,10 +44,10 @@ function Community() {
         <div className="communitytitle">
           <p>인기 상승 그룹</p>
         </div>
-        <PopularRank />
+        <PopularRank groupData={groupData} />
       </div>
       {/*그룹목록*/}
-      <Groupintro />
+      <Groupintro groupData={groupData} />
     </div>
   );
 }
