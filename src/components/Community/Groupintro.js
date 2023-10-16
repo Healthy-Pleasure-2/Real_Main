@@ -114,10 +114,11 @@ function Groupintro() {
   // 현재 화면 가로 크기에 따라 동적으로 결정할 최소 갤러리 아이템 수
   const calculateItemsCount = () => {
     const windowWidth = window.innerWidth;
-    if (windowWidth >= 1200) return 12; // 대형 화면에서 10개 표시
-    if (windowWidth >= 992) return 8; // 중형 화면에서 8개 표시
-    if (windowWidth >= 768) return 6; // 중소형 화면에서 6개 표시
-    return 4; // 작은 화면에서 4개 표시
+    if (windowWidth >= 1700) return 12; // 초대형 화면에서 10개 표시
+    if (windowWidth >= 1400) return 10; // 대형 화면에서 8개 표시
+    if (windowWidth >= 1200) return 8; // 중형 화면에서 6개 표시
+    if (windowWidth >= 800) return 6; // 중소형 화면에서 6개 표시
+    return 4; // 중소형 화면에서 6개 표시
   };
 
   const [itemsCount, setItemsCount] = useState(calculateItemsCount());
@@ -137,16 +138,30 @@ function Groupintro() {
   }, []);
   const visibleGalleryItems = Community_group.slice(0, itemsCount);
   return (
-    <div className="Grouplists">
-      <div className="gallery">
-        {visibleGalleryItems.map((item) => (
-          <div className="Gitem" key={item.id}>
-            <img className="cardimg" src={item.img} alt={item.name} />
-            <div className="cardcontent">
-              <h1 className="Groupname">{item.name}</h1>
+    <div className="GroupList">
+      <div className="Grouplists">
+        <div className="gallery">
+          {visibleGalleryItems.map((item) => (
+            <div className="Gitem" key={item.id}>
+              <img className="Gcardimg" src={item.img} alt={item.name} />
+              <div className="cardcontent">
+                <h1 className="Ggroupname">{item.name}</h1>
+              </div>
+              <div className="caption">
+                <p className="captionname">{item.name}</p>
+                <p>하루에 물 3번 마시기</p>
+                <p>86명</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+      <div className="Grouplistbtn">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
       </div>
     </div>
   );

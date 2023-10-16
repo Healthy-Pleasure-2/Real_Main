@@ -30,18 +30,13 @@ function Community() {
       </div>
       {/*인기 랭킹*/}
       <div className="rank">
-        <div className="title">
+        <div className="communitytitle">
           <p>인기 상승 그룹</p>
         </div>
         <PopularRank />
       </div>
       {/*그룹목록*/}
-      <div className="GroupList">
-        <div className="Grouplists">
-          <Groupintro />
-        </div>
-        <div className="Grouplistbtn"></div>
-      </div>
+      <Groupintro />
     </div>
   );
 }
