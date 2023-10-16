@@ -12,57 +12,7 @@ function Groupintro() {
     {
       id: 1,
       name: "갤러리 1",
-      img: "https://cdn.pixabay.com/photo/2015/10/30/12/23/sport-1014049_1280.jpg",
-    },
-    {
-      id: 2,
-      name: "갤러리 2",
-      img: "https://cdn.pixabay.com/photo/2015/10/30/12/23/sport-1014049_1280.jpg",
-    },
-    {
-      id: 3,
-      name: "갤러리 3",
-      img: "https://cdn.pixabay.com/photo/2015/10/30/12/23/sport-1014049_1280.jpg",
-    },
-    {
-      id: 4,
-      name: "갤러리 4",
-      img: "https://cdn.pixabay.com/photo/2015/10/30/12/23/sport-1014049_1280.jpg",
-    },
-    {
-      id: 5,
-      name: "갤러리 5",
-      img: "https://cdn.pixabay.com/photo/2015/10/30/12/23/sport-1014049_1280.jpg",
-    },
-    {
-      id: 6,
-      name: "갤러리 6",
-      img: "https://cdn.pixabay.com/photo/2015/10/30/12/23/sport-1014049_1280.jpg",
-    },
-    {
-      id: 7,
-      name: "갤러리 7",
-      img: "https://cdn.pixabay.com/photo/2015/10/30/12/23/sport-1014049_1280.jpg",
-    },
-    {
-      id: 8,
-      name: "갤러리 8",
-      img: "https://cdn.pixabay.com/photo/2015/10/30/12/23/sport-1014049_1280.jpg",
-    },
-    {
-      id: 9,
-      name: "갤러리 9",
-      img: "https://cdn.pixabay.com/photo/2015/10/30/12/23/sport-1014049_1280.jpg",
-    },
-    {
-      id: 10,
-      name: "갤러리 10",
-      img: "https://cdn.pixabay.com/photo/2015/10/30/12/23/sport-1014049_1280.jpg",
-    },
-    {
-      id: 1,
-      name: "갤러리 1",
-      img: "https://cdn.pixabay.com/photo/2015/10/30/12/23/sport-1014049_1280.jpg",
+      img: "https://cdn.pixabay.com/photo/2017/06/05/11/01/males-2373730_1280.jpg",
     },
     {
       id: 2,

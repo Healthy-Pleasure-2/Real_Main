@@ -1,0 +1,292 @@
+{
+    "group": [
+      {
+        "id": 1,
+        "name": "채식을 위하여",
+        "category": "식단",
+        "img":"https://cdn.pixabay.com/photo/2015/10/30/12/23/sport-1014049_1280.jpg",
+        "goal": "일주일에 3번 채소 먹기",
+        "grouptotal": 86
+      },
+      {
+        "id": 2,
+        "name": "독서왕",
+        "category": "습관",
+        "img":"https://cdn.pixabay.com/photo/2016/06/16/08/39/cat-1460882_1280.png",
+        "goal": "주당 2권의 책 읽기",
+        "grouptotal": 32
+      },
+      {
+        "id": 3,
+        "name": "크로스핏",
+        "category": "운동",
+        "img":"https://cdn.pixabay.com/photo/2016/01/08/01/53/gymer-1126999_1280.jpg",
+        "goal": "매일 2시간 크로스핏 운동하기",
+        "grouptotal": 55
+      },
+      {
+        "id": 4,
+        "name": "건강을 위하여",
+        "category": "다이어트",
+        "img":"https://cdn.pixabay.com/photo/2016/01/08/01/53/gymer-1126999_1280.jpg",
+        "goal": "건강을 위해 체중 감량",
+        "grouptotal": 45
+      },
+      {
+        "id": 5,
+        "name": "저탄고지식단",
+        "category": "식단",
+        "img": "https://cdn.pixabay.com/photo/2019/05/12/18/56/starter-4198752_1280.jpg",
+        "goal": "당뇨 식단 관리",
+        "grouptotal": 18
+      },
+      {
+        "id": 6,
+        "name": "간헐적 단식",
+        "category": "다이어트",
+        "img": "https://i.namu.wiki/i/x16DB1M8uO_sMOetKsS_G1qJvgL6Xc9j49D8Edd0czEr9h1dXxI0V-hHeKieLsuX_PTxjPvNOWtfXeVdWIwZhVzm8jlHF6iF9rgpJARhx_Ump8CJE7gsCaeP8xlMPIQzPqu0KNzfI1Qtnwj99Cb72A.webp",
+        "goal": "간헐적 단식 16:8",
+        "grouptotal": 55
+      },
+      {
+        "id": 7,
+        "name": "물고기 파티",
+        "category": "운동",
+        "img": "https://cdn.pixabay.com/photo/2013/02/09/04/23/swimmers-79592_1280.jpg",
+        "goal": "매일 1시간 이상 수영",
+        "grouptotal": 28
+      },
+      {
+        "id": 8,
+        "name": "수분 보충",
+        "category": "습관",
+        "img": "https://cdn.pixabay.com/photo/2020/04/03/11/28/water-4998513_1280.png",
+        "goal": "하루에 물 2L이상 마시기",
+        "grouptotal": 37
+      },
+      {
+        "id": 9,
+        "name": "건강을 위한 발걸음",
+        "category": "습관",
+        "img": "https://cdn.pixabay.com/photo/2023/06/17/16/22/man-8070372_1280.jpg",
+        "goal": "하루 30분 산책",
+        "grouptotal": 42
+      },
+      {
+        "id": 10,
+        "name": "바른 필라테스",
+        "category": "운동",
+        "img": "https://cdn.pixabay.com/photo/2022/09/08/13/20/yoga-7440988_1280.jpg",
+        "goal": "필라테스로 자세교정",
+        "grouptotal": 60
+      },
+      {
+        "id": 11,
+        "name": "지중해식 식단",
+        "category": "식단",
+        "img": "https://cdn.pixabay.com/photo/2017/12/15/16/04/food-3021300_1280.jpg",
+        "goal": "지중해식으로 식단을 조절하기",
+        "grouptotal": 45
+      },
+      {
+        "id": 12,
+        "name": "신년을 목표로",
+        "category": "다이어트",
+        "img": "https://cdn.pixabay.com/photo/2018/10/07/13/03/new-year-3730033_1280.jpg",
+        "goal": "신년까지 -5~10kg 감량",
+        "grouptotal": 30
+      },
+      {
+        "id": 13,
+        "name": "일찍 일어나는 새",
+        "category": "습관",
+        "img": "https://cdn.pixabay.com/photo/2017/07/18/18/24/dove-2516641_1280.jpg",
+        "goal": "아침 6시에 기상하기",
+        "grouptotal": 21
+      },
+      {
+        "id": 14,
+        "name": "비타민 충전",
+        "category": "습관",
+        "img": "https://cdn.pixabay.com/photo/2017/05/11/19/44/fresh-fruits-2305192_1280.jpg",
+        "goal": "매일 과일을 먹는 습관",
+        "grouptotal": 28
+      },
+      {
+        "id": 15,
+        "name": "OO동 농구팟",
+        "category": "운동",
+        "img": "https://search.pstatic.net/common?type=o&size=174x242&quality=100&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fkeypage%2Fimage%2Fdss%2F57%2F0%2F0%2F187%2F187858.jpg",
+        "goal": "월수금 저녁 7시 농구",
+        "grouptotal": 22
+      },
+      {
+        "id": 16,
+        "name": "소식좌 식단",
+        "category": "식단",
+        "img": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEyMTNfMTcx%2FMDAxNjcwODk0ODgwNDA5.YCjqi2PiLKOTuhX7PyhICnIZIdmpJtqKG3v0H4XSj1gg.5pzoAA8AoBuU-FG4jn5k20e1TwdOYEwx5__cW4_hWygg.JPEG.dythezone%2F%25BC%25D2%25BD%25C4%25C1%25C2_%25B9%25E4%25B1%25D7%25B8%25A9.jpg&type=a340",
+        "goal": "소식좌 식단 일기쓰기",
+        "grouptotal": 38
+      },
+      {
+        "id": 17,
+        "name": "홈트레이닝",
+        "category": "다이어트",
+        "img": "https://cdn.pixabay.com/photo/2015/01/10/17/32/physiotherapy-595529_1280.jpg",
+        "goal": "매일 홈트레이닝으로 10Kg감량",
+        "grouptotal": 15
+      },
+      {
+        "id": 18,
+        "name": "3:500",
+        "category": "운동",
+        "img": "https://cdn.pixabay.com/photo/2018/03/30/22/58/silhouette-3276824_1280.png",
+        "goal": "3대 운동 증량 목표",
+        "grouptotal": 50
+      },
+      {
+        "id": 19,
+        "name": "아침 먹기",
+        "category": "습관",
+        "img": "https://cdn.pixabay.com/photo/2016/03/27/21/59/bread-1284438_1280.jpg",
+        "goal": "매일 아침 챙겨먹기",
+        "grouptotal": 29
+      },
+      {
+        "id": 20,
+        "name": "힐링명상",
+        "category": "습관",
+        "img": "https://cdn.pixabay.com/photo/2016/03/29/00/22/meditation-1287207_1280.jpg",
+        "goal": "하루에 1시간 명상하기",
+        "grouptotal": 36
+      },
+      {
+        "id": 21,
+        "name": "유산소 운동",
+        "category": "운동",
+        "img": "https://cdn.pixabay.com/photo/2017/05/25/15/08/jogging-2343558_1280.jpg",
+        "goal": "하루 1시간 유산소 운동",
+        "grouptotal": 45
+      },
+      {
+        "id": 22,
+        "name": "건강한 수면",
+        "category": "습관",
+        "img": "https://cdn.pixabay.com/photo/2019/10/13/18/52/moon-4546977_1280.png",
+        "goal": "하루에 8시간 수면",
+        "grouptotal": 48
+      },
+      {
+        "id": 23,
+        "name": "근력훈련",
+        "category": "운동",
+        "img": "https://cdn.pixabay.com/photo/2017/08/07/14/02/man-2604149_1280.jpg",
+        "goal": "주 3-4회 근력 훈련",
+        "grouptotal": 33
+      },
+      {
+        "id": 24,
+        "name": "스트레스 관리",
+        "category": "습관",
+        "img": "https://cdn.pixabay.com/photo/2023/10/07/23/39/girl-8301168_1280.png",
+        "goal": "스트레스 해소법을 정해 실천! ",
+        "grouptotal": 51
+      },
+      {
+        "id": 25,
+        "name": "건강한 간식",
+        "category": "식단",
+        "img": "https://cdn.pixabay.com/photo/2017/01/11/11/33/cookies-1971549_1280.jpg",
+        "goal": "건강한 간식으로 건강 관리",
+        "grouptotal": 60
+      },
+      {
+        "id": 26,
+        "name": "규칙적인 식사",
+        "category": "식단",
+        "img": "https://cdn.pixabay.com/photo/2017/08/30/07/56/clock-2696234_1280.jpg",
+        "goal": "하루 3번 정해진 시간에 식사",
+        "grouptotal": 42
+      },
+      {
+        "id": 27,
+        "name": "칼로리 관리",
+        "category": "식단",
+        "img": "https://cdn.pixabay.com/photo/2015/03/28/10/21/diet-695723_1280.jpg",
+        "goal": "하루 권장 칼로리 관리",
+        "grouptotal": 34
+      },
+      {
+        "id": 28,
+        "name": "체지방 감소",
+        "category": "다이어트",
+        "img": "https://cdn.pixabay.com/photo/2014/07/28/11/18/scale-403585_1280.jpg",
+        "goal": "체지방률 15%만들기",
+        "grouptotal": 70
+      },
+      {
+        "id": 29,
+        "name": "운동 일정 계획",
+        "category": "운동",
+        "img": "https://cdn.pixabay.com/photo/2019/03/12/20/27/work-4051777_1280.jpg",
+        "goal": "목표 달성을 위한 운동 계획 수립하기 ",
+        "grouptotal": 27
+      },
+      {
+        "id": 30,
+        "name": "유기농 식품",
+        "category": "식단",
+        "img": "https://cdn.pixabay.com/photo/2015/12/09/17/11/vegetable-1085065_1280.jpg",
+        "goal": "유기농 식품으로 식단 만들기",
+        "grouptotal": 48
+      },
+      {
+        "id": 31,
+        "name": "NO설탕 다이어트",
+        "category": "다이어트",
+        "img": "https://cdn.pixabay.com/photo/2016/07/13/11/52/sugar-1514247_1280.jpg",
+        "goal": "무설탕 다이어트로 목표치 감량!",
+        "grouptotal": 72
+      },
+      {
+        "id": 32,
+        "name": "신체 유연성 향상",
+        "category": "운동",
+        "img": "https://cdn.pixabay.com/photo/2017/02/26/14/12/cat-2100306_1280.jpg",
+        "goal": "하루 15분 스트레칭",
+        "grouptotal": 34
+      },
+      {
+        "id": 33,
+        "name": "건강검진",
+        "category": "슴관",
+        "img": "https://cdn.pixabay.com/photo/2015/07/30/14/36/hypertension-867855_1280.jpg",
+        "goal": "건강 검진 결과에 따라 건강 관리",
+        "grouptotal": 60
+      },
+      {
+        "id": 34,
+        "name": "슬림다이어트",
+        "category": "다이어트",
+        "img": "https://cdn.pixabay.com/photo/2018/02/27/21/55/woman-3186730_1280.jpg",
+        "goal": "10일 슬림다이어트",
+        "grouptotal": 42
+      },
+      {
+        "id": 35,
+        "name": "소화 건강",
+        "category": "식단",
+        "img": "https://cdn.pixabay.com/photo/2015/10/30/12/22/eat-1014025_1280.jpg",
+        "goal": "소화 건강을 위한 식단 조절",
+        "grouptotal": 53
+      },
+      {
+        "id": 36,
+        "name": "식품레시피",
+        "category": "식단",
+        "img": "https://cdn.pixabay.com/photo/2012/04/11/17/31/vegetables-29063_1280.png",
+        "goal": "건강한 식품으로 만든 레시피 공유",
+        "grouptotal": 44
+      }
+    ]
+  }

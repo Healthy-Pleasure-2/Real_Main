@@ -1,7 +1,7 @@
 /*소스명 : Community.js
 작성자 : 정은정
 이 페이지 용도 : 그룹 커뮤니티 화면
-생성일자(수정일자) :*/
+생성일자(수정일자) : 10/16*/
 
 import React from "react";
 import "./styles/Community.css";
