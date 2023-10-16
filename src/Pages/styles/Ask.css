@@ -1,0 +1,48 @@
+.notice{
+    display: flex;
+    float: center;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    background-color: #ffffff;
+    height: 15%;
+}
+
+/*안에 내용들 */
+
+.notice input{
+    display: none;
+}
+.notice label {
+    display: inline-block; /* 라벨을 인라인 블록으로 설정(탭을 가로로 배치) */
+    margin: 0 0; /* 라벨의 바깥 여백을 없앰 */
+    padding: 15px 25px; /* 라벨의 안쪽 여백을 설정 */
+    color: #000000; /* 라벨의 글자 색상 */
+    text-align: center; /* 라벨의 텍스트 정렬 방식 */
+    font-weight: 40%; /* 탭 메뉴의 너비 */
+    border: 1px solid transparent; /* 라벨의 테두리를 없앰 */
+}
+.notice label:hover {
+    background-color: bisque; /* 라벨에 마우스를 올리면 글자 색상을 검은색으로 변경 */
+    cursor: pointer; /* 커서 모양을 손가락 모양으로 변경 */
+}
+.notice input:checked + label{
+    color: rgb(0, 0, 0); /* 선택된 라벨의 글자 색상을 빨간색으로 변경 */
+    border: 1px solid #ddd; /* 선택된 라벨의 테두리를 회색으로 설정 */
+    background-color: #eee; /* 선택된 라벨의 배경 색상을 회색으로 설정 */
+}
+
+.tabcontent {
+    /* display: none;  */
+    padding: 20px 0 0; /* padding-top: 20px;  탭 내용의 위쪽 패딩 */
+    border-top: 1px solid #ddd; /* 탭 내용의 위쪽 테두리 */
+}
+
+
+
+
+#tab1:checked ~ #notice_N,   /* 탭1이 선택되면 공지사항을 보이게 함 */
+#tab2:checked ~ #notice_ask,
+#tab3:checked ~ #notice_inquiry { 
+    display: block;
+}

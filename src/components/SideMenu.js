@@ -36,7 +36,7 @@ function SideMenu() {
           </Link>
         </li>
         <li>
-          <Link to="/ask">
+          <Link to="/Ask">
             <FontAwesomeIcon icon={faHeadset} />
           </Link>
         </li>

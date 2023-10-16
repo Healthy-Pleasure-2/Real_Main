@@ -24,7 +24,7 @@ function Diet() {
 
   return (
     <div className="diet-container">
-      <h1 className="diet-title">식단</h1>
+      <h1 className="diet-title"></h1>
       <ul className="diet-list">
         {diet.map((article, index) => (
           <li key={index} className="diet-item">

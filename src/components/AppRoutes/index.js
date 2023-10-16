@@ -4,7 +4,7 @@ import Todo from "../../Pages/Todo";
 import Community from "../../Pages/Community";
 import GroupCreate from "../../Pages/GroupCreate";
 import GroupPage from "../../Pages/GroupPage";
-// import Ask from "../../Pages/Ask";
+import Ask from "../../Pages/Ask";
 // import Mypage from "../../Pages/Mypage";
 
 function AppRoutes() {
@@ -15,6 +15,7 @@ function AppRoutes() {
       <Route path="/community" element={<Community />}></Route>
       <Route path="/GroupCreate" element={<GroupCreate />}></Route>
       <Route path="/GroupPage" element={<GroupPage />}></Route>
+      <Route path="/Ask" element={<Ask />}></Route>
     </Routes>
   );
 }
