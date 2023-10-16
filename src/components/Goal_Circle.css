@@ -1,3 +1,18 @@
+/*
+-소스명 : Goal_Circle.css
+-작성자 : 김장훈
+-이 페이지 용도 : 페이지 우측 원형 시각화, Goal_Circle.css
+-생성일자(수정일자) : 231011 최초 HTML로 생성, 231013 컴포넌트 완료
+--------------------------------------------------------------------------------------------------------------
+-로그
+231013 김장훈 - 차후 DB연결 시 개선 예정.
+--------------------------------------------------------------------------------------------------------------
+*참고 사이트
+1. https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705 = 개념
+2. https://codepen.io/sergiopedercini/pen/jmKdbj = 여기 코드 기반으로 시작함.
+3. https://blog.naver.com/rdh6327/222587794846 = 참고용
+*/
+
 .flex-wrapper {
   position: relative;
   /* left:10px; */
