@@ -52,7 +52,7 @@ function SideMenu() {
       </ul>
       {/* 로그아웃 */}
       <div className="logout">
-        <Link to="/Join">
+        <Link to="/signup">
           <FontAwesomeIcon icon={faRightFromBracket} />
         </Link>
       </div>

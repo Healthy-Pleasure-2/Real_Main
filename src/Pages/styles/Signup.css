@@ -1,9 +1,9 @@
-/* 소스명 : Mypage.css 
+/* 소스명 : Signup.css
 작성자: 이진경
-이 페이지 용도 : Mypage CSS
+이 페이지 용도 : Join CSS
 생성일자(수정일자) : 23.10.16  */
 
-#Mypage {
+#Signup {
   width: 100%;
   height: 100%;
   display: flex;
@@ -11,7 +11,7 @@
   justify-content: center;
 }
 
-#Mypage #frame {
+#Signup #frame {
   width: 80%;
   height: 90%;
   background-color: #F4F4F4;
@@ -21,34 +21,35 @@
 
   font-size: 0.85rem;
   color: #313131;
+
 }
 
-#Mypage h1 {
+#Signup h1 {
   text-align: center;
   color: #01352C;
   font-size: 1.7rem;
   height: 10%;
 }
 
-/* 회원정보 수정 입력란 */
-#Mypage form {
+/* 회원가입 입력란 */
+#Signup form {
   width: 80%;
   height: 90%;
   margin: 0 auto;
   position: relative;
 }
 
-#Mypage form div {
+#Signup form div {
   margin-bottom: 10px;
 }
 
-#Mypage form label {
+#Signup form label {
   display: inline-block;
   width: 20%;
   font-weight: 800;
 }
 
-#Mypage form input {
+#Signup form input {
   display: inline-block;
   width: 65%;
   height: 30px;
@@ -58,7 +59,7 @@
 }
 
 /* 성별 라디오 */
-#Mypage form .gender input {
+#Signup form .gender input {
   width: 10%;
   height: 20px;
 }
@@ -68,8 +69,13 @@
   vertical-align: middle;
 }
 
+#Signup form .gender input {
+  accent-color: #397242;
+}
+
+
 /* 중복확인 버튼 */
-#Mypage form button {
+#Signup form button {
   width: 12%;
   height: 25px;
   margin-left: 2%;
@@ -81,24 +87,43 @@
   font-size: 0.7rem;
 }
 
+/* 이용약관 */
+#Signup form .user-term label {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#Signup form .user-term input {
+  width: 10%;
+  height: 20px;
+}
+
+#Signup form .user-term input {
+  accent-color: #397242;
+}
+
+
 /* 에러 메세지 */
 .error-message {
   color: red;
   text-align: center;
 }
 
-/* 수정하기 버튼 */
-#Mypage .signbtn {
+
+/* 회원가입 버튼 */
+#Signup .signbtn {
   display: flex;
   position: absolute;
   bottom: 0;
   width: 100%;
 }
 
-#Mypage .signbtn button {
+#Signup .signbtn button {
   width: 100%;
   height: 50px;
   margin: 40px 0 0 0;
+
   background-color: #8CBA51;
   border: none;
   border-radius: 25px;

@@ -48,7 +48,7 @@ function Todo() {
           </div>
         </div>
         <div className="addList">
-          <input type="text" />
+          <input type="text" className="addListInput" />
           <button
             type="submit"
             className="save"

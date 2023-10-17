@@ -1,11 +1,14 @@
 // 소스명 : GroupPage.js
 // 작성자 : 이진경
 // 이 페이지 용도 : 그룹 페이지
-// 생성일자(수정일자) : 23.10.13
-// 수정 내용: 별도 컴포넌트가 아닌 해당 파일에서 해결,,,,
+// 생성일자 : 23.10.13
+// 수정일자: 수정 내용 별도 컴포넌트가 아닌 해당 파일에서 해결
+// 수정 일자: 23.10.17 / 정은정 / 그룹 연결
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/GroupPage.css";
+import { useParams } from "react-router-dom";
+import getGroupData from "../components/Community/getGroupData";
 
 function GroupPage() {
   // 버튼 클릭시 댓글창 보이기
@@ -30,35 +33,48 @@ function GroupPage() {
     setComments(updatedComments);
   };
 
+  //-----------23.10.17 / 정은정 / 그룹연결--------
+  const { groupID } = useParams();
+  console.log("그룹 아이디는", groupID);
+  const [groupInfo, setGroupInfo] = useState({});
+  useEffect(() => {
+    const fetchGroupData = async () => {
+      try {
+        const data = await getGroupData(); // getGroupData 함수로 그룹 데이터 가져오기
+        const group = data.find((item) => item.id === parseInt(groupID, 10));
+        console.log("그룹의 값은", groupID);
+        console.log("데이트 find값", data);
+        if (group) {
+          setGroupInfo(group);
+          // 그룹 정보를 이용한 다른 로직 처리
+        } else {
+          // 해당 그룹이 없을 때의 처리
+        }
+      } catch (error) {
+        // 에러 핸들링
+        console.error(error);
+      }
+    };
+    fetchGroupData();
+  }, [groupID]);
+
   return (
     <div id="GroupPage">
       <div id="frame">
         <div className="top">
           <button onClick={toggleDiv}>참여하기</button>
-          <h2>그룹명이 들어올 자리입니다.</h2>
-          <div id="category">카테고리</div>
+          <h2>{groupInfo.name}</h2>
+          <div id="category">{groupInfo.category}</div>
         </div>
 
         <div className="intro">
           <div className="goal">
             <div id="title">목 표</div>
-            <div className="content">
-              해당 그룹 목표입니다. 해당 그룹 목표입니다.해당 그룹
-              목표입니다.해당 그룹 목표입니다.해당 그룹 목표입니다.해당 그룹
-              목표입니다.해당 그룹 목표입니다.
-            </div>
+            <div className="content">{groupInfo.goal}</div>
           </div>
           <div className="groupIntro">
             <div id="title">소 개</div>
-            <div className="content">
-              해당 그룹 소개글 입니다.해당 그룹 소개글 입니다.해당 그룹 소개글
-              입니다.해당 그룹 소개글 입니다.해당 그룹 소개글 입니다.해당 그룹
-              소개글 입니다.해당 그룹 소개글 입니다.해당 그룹 소개글 입니다.해당
-              그룹 소개글 입니다.해당 그룹 소개글 입니다.해당 그룹 소개글
-              입니다.해당 그룹 소개글 입니다.해당 그룹 소개글 입니다..해당 그룹
-              소개글 입니다.해당 그룹 소개글 입니다.해당 그룹 소개글 입니다.해당
-              그룹 소개글 입니다
-            </div>
+            <div className="content">{groupInfo.groupintro}</div>
           </div>
         </div>
 
