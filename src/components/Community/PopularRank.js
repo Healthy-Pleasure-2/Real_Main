@@ -5,6 +5,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import "../../Pages/styles/Community.css";
+import { Link } from "react-router-dom";
 
 function PopularRank({ groupData }) {
   const initialGroups = useMemo(() => {
@@ -35,14 +36,20 @@ function PopularRank({ groupData }) {
   }, [windowWidth, initialGroups]);
 
   return (
-    <div className="popularRank">
+    <div className="Community_popularRank">
       {groups.map((group) => (
-        <div className="Rgroup" key={group}>
-          <div className="item">
-            <img className="cardimg" src={group.img} alt={group.name} />
-            <div className="cardcontent">
-              <h1 className="Groupname">{group.name}</h1>
-            </div>
+        <div className="Community_Rgroup" key={group}>
+          <div className="Community_item">
+            <Link to="/GroupPage" key={group.id}>
+              <img
+                className="Community_cardimg"
+                src={group.img}
+                alt={group.name}
+              />
+              <div className="Community_cardcontent">
+                <h1 className="Community_Groupname">{group.name}</h1>
+              </div>
+            </Link>
           </div>
         </div>
       ))}

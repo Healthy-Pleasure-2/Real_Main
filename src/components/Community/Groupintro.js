@@ -5,12 +5,16 @@
 
 import React, { useState, useEffect } from "react";
 import "../../Pages/styles/Community.css";
+import { Link } from "react-router-dom";
 
-function Groupintro({ groupData }) {
+function Groupintro({ groupData, selectedCategory }) {
   /*데이터값 확인*/
   console.log("데이터 값", groupData);
+  console.log("카테고리 값", selectedCategory);
 
   const [itemsCount, setItemsCount] = useState(4); // 초기 갤러리 아이템 수
+  const [filteredGroups, setFilteredGroups] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     // 화면 크기 변경 이벤트 리스너 등록
@@ -33,34 +37,63 @@ function Groupintro({ groupData }) {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  // 카테고리에 따라 그룹 필터링
+  useEffect(() => {
+    if (selectedCategory) {
+      const filteredGroups = groupData.filter(
+        (item) => item.category === selectedCategory
+      );
+      setFilteredGroups(filteredGroups);
+    } else {
+      // 선택된 카테고리가 없을 경우, 전체 그룹을 표시
+      setFilteredGroups(groupData);
+    }
+  }, [selectedCategory, groupData]);
 
+  // 페이지에 따라 그룹 필터링
+  const itemsPerPage = itemsCount;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
   // 데이터를 itemsCount에 따라 잘라서 표시
-  const visibleGalleryItems = groupData.slice(0, itemsCount);
+  const visibleGalleryItems = filteredGroups.slice(startIndex, endIndex);
+
+  // 그룹리스트 버튼 클릭 시 페이지 번호 업데이트
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
   return (
-    <div className="GroupList">
-      <div className="Grouplists">
-        <div className="gallery">
+    <div className="Community_GroupList">
+      <div className="Community_Grouplists">
+        <div className="Community_gallery">
           {visibleGalleryItems.map((item) => (
-            <div className="Gitem" key={item.id}>
-              <img className="Gcardimg" src={item.img} alt={item.name} />
-              <div className="cardcontent">
-                <h1 className="Ggroupname">{item.name}</h1>
-              </div>
-              <div className="caption">
-                <p className="captionname">{item.name}</p>
-                <p>{item.goal}</p>
-                <p>{item.grouptotal}명</p>
-              </div>
+            <div className="Community_Gitem" key={item.id}>
+              <Link to="/GroupPage" key={item.id}>
+                <img
+                  className="Community_Gcardimg"
+                  src={item.img}
+                  alt={item.name}
+                />
+                <div className="Community_cardcontent">
+                  <h1 className="Community_Ggroupname">{item.name}</h1>
+                </div>
+                <div className="Community_caption">
+                  <p className="Community_captionname">{item.name}</p>
+                  <p>{item.goal}</p>
+                  <p>{item.grouptotal}명</p>
+                </div>
+              </Link>
             </div>
           ))}
         </div>
       </div>
-      <div className="Grouplistbtn">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
+      <div className="Community_Grouplistbtn">
+        {Array.from({
+          length: Math.ceil(filteredGroups.length / itemsPerPage),
+        }).map((_, index) => (
+          <button key={index + 1} onClick={() => handlePageClick(index + 1)}>
+            {index + 1}
+          </button>
+        ))}
       </div>
     </div>
   );
