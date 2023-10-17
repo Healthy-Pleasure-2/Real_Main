@@ -1,20 +1,29 @@
-import React from "react";
-import Goal_Circle from "./Goal_Circle"; //Goal_Circle 컴포넌트 임포트
+import React, { useState } from "react";
+import GoalCircle from "./Goal_Circle"; //Goal_Circle 컴포넌트 임포트
 import News from "./News";
 import Diet from "./Diet";
+import Login from "./Login";
 
 function SideContent() {
+  // 로그인 상태를 관리
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const handleLogout = () => {
+    // 로그아웃 처리 로직
+    setIsLoggedIn(false);
+  };
+
   return (
     <div id="SideContent">
       <div className="right-sidebar">
         {/* 데일리 상태 박스 */}
-        <div id="daily-box">
-          <p>HELLO! 김멀플님</p>
-          <Goal_Circle></Goal_Circle>
-          {/* 일일 목표랑 그래프 */}
-          {/* <div id="graph"></div> */}
-          {/* 일일 목표량 확인란 */}
-          {/* <div id="daily_container">
+        {isLoggedIn ? (
+          <div id="daily-box">
+            <p>HELLO! 김멀플님</p>
+            <GoalCircle />
+            {/* 일일 목표랑 그래프 */}
+            {/* <div id="graph"></div> */}
+            {/* 일일 목표량 확인란 */}
+            {/* <div id="daily_container">
             <div>
               <p>체중</p>
               <p>kg</p>
@@ -28,7 +37,10 @@ function SideContent() {
               <p>kcal</p>
             </div>
           </div> */}
-        </div>
+          </div>
+        ) : (
+          <Login />
+        )}
 
         {/* 추천 식단 / 건강뉴스 박스 */}
         <div id="news">

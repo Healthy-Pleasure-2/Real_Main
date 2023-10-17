@@ -15,6 +15,8 @@ function SideMenu() {
   // const location = useLocation();
   // const navigate = useNavigate();
 
+  //로그아웃 버튼 클릭시 로그아웃
+
   return (
     <div id="navigation">
       {/* logo */}

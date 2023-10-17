@@ -14,7 +14,6 @@
     display: flex;
     flex-direction: row;
     min-height: 25px;
-
 }
 
 .Community_groupcreate button{
@@ -36,7 +35,6 @@
     align-items: center;
     margin-left: 10px;
     margin-right: 10px;
-
 }
 
 .Community_groupbtn {
@@ -68,7 +66,7 @@
 
 /*인기랭크*/
 .Community_rank {
-    height: 35%;
+    height: 31%;
     width: 100%;
     background: #ffffff;
     margin-bottom: 20px;
@@ -115,7 +113,7 @@
     overflow: hidden;
     cursor: pointer;
     transition: 0.2s;
-    padding: 5px;
+    padding: 10px;
 }
 
 .Community_item:hover {
@@ -126,16 +124,16 @@
 .Community_cardimg {
     display: block;
     width: 100%;
-    height: 140px;
+    height: 120px;
     object-fit: cover;
     border-radius: 10px;
 }
 
 .Community_Groupname {
-    font-size: 1.7vh;
+    font-size: 17px;
     font-weight: 500;
     color: #0d0d0d;
-    margin-bottom: 1.5px;
+    margin-bottom: -7px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -144,12 +142,14 @@
 /*그룹 목록*/
 .Community_GroupList {
     width: 100%;
-    height: 50%;
+    height: 45vh;
     box-sizing: border-box;
     padding: 10px;
     border: 2px solid #397242;
     border-radius: 15px;
     box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.3);
+    margin-bottom: 5px;
+    min-height: 330px;
 }
 
 /*그룹 리스트 스타일*/
@@ -158,11 +158,10 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 95%;
+    height: 93%;
     overflow: hidden;
     padding: 0px 10px 0px 10px;
-    
-}
+    }
 .Community_gallery {
     display: grid;
     width: 100%;
@@ -170,7 +169,6 @@
     grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
     align-items: start;
 }
-
 .Community_gallery .Community_Gitem {
     background-color: #fff;
     border-radius: 15px;
@@ -182,7 +180,6 @@
     padding: 5px;
     
 }
-
 /* 1행의 아이템은 왼쪽에서 오른쪽으로 배치 */
 .Community_gallery .Community_Gitem:nth-child(1), .Community_gallery .Community_Gitem:nth-child(3), .Community_gallery .Community_Gitem:nth-child(5), .Community_gallery .Community_Gitem:nth-child(7), .Community_gallery .Community_Gitem:nth-child(9), .Community_gallery .Community_Gitem:nth-child(11) {
     grid-row: 1;
@@ -195,12 +192,13 @@
 .Community_Gcardimg {
     display: block;
     width: 100%;
-    height: 115px;
+    height: 14vh;
+    min-height: 100px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 .Community_Ggroupname {
-    font-size: 1.6vh;
+    font-size: 14px;
     font-weight: 500;
     color: #0d0d0d;
     margin-bottom: 1.5px;
@@ -213,7 +211,7 @@
     position: absolute;
     width: 93%;
     /*해당 크기 값은 본 코드에서 크기가 바뀔수 있다.*/
-    height: 93%;
+    height: 94%;
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
     border-radius: 15px;
@@ -233,11 +231,11 @@
 }
 .Community_Gitem:hover .Community_caption {
     opacity: 1;
-    transform: translateY(-140px);
+    transform: translateY(-200px);
     -moz-transform: translateY(-140px);
-    -webkit-transform: translateY(-140px);
-    -o-transform: translateY(-140px);
-    -ms-transform: translateY(-140px);
+    -webkit-transform: translateY(-101%);
+    -o-transform: translateY(-200px);
+    -ms-transform: translateY(-500px);
 }
 
 .Community_captionname {
@@ -252,11 +250,7 @@
 /*이동 버튼*/
 .Community_Grouplistbtn {
     width: 100%;
-    height: 5%;
-}
-.Community_Grouplistbtn {
-    width: 100%;
-    height: 5%;
+    height: 7%;
     display: flex;
     align-items: center;
     justify-content: center;

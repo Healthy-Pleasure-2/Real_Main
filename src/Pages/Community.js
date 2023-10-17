@@ -11,8 +11,8 @@ import Groupintro from "../components/Community/Groupintro";
 import getGroupData from "../components/Community/getGroupData";
 
 function Community() {
-  const [groupData, setGroupData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(""); // 추가: 선택된 카테고리 상태
+  const [groupData, setGroupData] = useState([]);
 
   useEffect(() => {
     const fetchGroupData = async () => {
@@ -21,6 +21,7 @@ function Community() {
     };
     fetchGroupData();
   }, []);
+
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
@@ -53,7 +54,10 @@ function Community() {
         <PopularRank groupData={groupData} />
       </div>
       {/*그룹목록*/}
-      <Groupintro groupData={groupData} selectedCategory={selectedCategory} />
+      <Groupintro
+        groupData={groupData}
+        setSelectedCategory={selectedCategory}
+      />
     </div>
   );
 }

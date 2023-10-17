@@ -9,7 +9,7 @@ import "./Goal_Circle.css";
 // *23.10.11 HTML 샘플 완성. 좀 더 개선이 필요함. 차후 DB연결 시 개선 예정.
 // *23.10.13 컴포넌트 완료
 
-function Goal_Circle() {
+function GoalCircle() {
   return (
     <div className="flex-wrapper">
       <div className="single-chart">
@@ -51,4 +51,4 @@ function Goal_Circle() {
     </div>
   );
 }
-export default Goal_Circle;
+export default GoalCircle;
