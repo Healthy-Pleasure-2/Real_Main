@@ -6,6 +6,7 @@
 --------------------------------------------------------------------------------------------------------------
 -로그
 231013 김장훈 - 차후 DB연결 시 개선 예정.
+231017 김장훈 - 입력창 및 입력버튼을 통한 시각화 변화하도록 수정. UI다듬기 등 추가작업 필요
 --------------------------------------------------------------------------------------------------------------
 *참고 사이트
 1. https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705 = 개념
@@ -59,7 +60,7 @@
   0% {
     stroke-dasharray: 0 100;
   }
-}
+} 
 
 .circular-chart.orange .circle {
   stroke: #81ff38;
@@ -71,4 +72,24 @@
 
 .circular-chart2.blue .circle2 {
   stroke: #ff3da8;
+}
+
+.inputbox {
+  position: absolute;
+  flex-direction: column;
+  display: flex;
+  top: 250px;
+  left:80px;
+}
+
+.inputbox1 {
+  width: 50px;
+}
+
+.inputbox2 {
+  width: 50px;
+}
+
+.inputbox3 {
+  width: 50px;
 }
