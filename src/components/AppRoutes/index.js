@@ -14,7 +14,7 @@ function AppRoutes() {
       <Route path="/todo" element={<Todo />}></Route>
       <Route path="/community" element={<Community />}></Route>
       <Route path="/GroupCreate" element={<GroupCreate />}></Route>
-      <Route path="/GroupPage" element={<GroupPage />}></Route>
+      <Route path="/GroupPage/:groupID" element={<GroupPage />}></Route>
     </Routes>
   );
 }

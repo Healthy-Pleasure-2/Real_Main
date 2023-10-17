@@ -40,7 +40,7 @@ function PopularRank({ groupData }) {
       {groups.map((group) => (
         <div className="Community_Rgroup" key={group}>
           <div className="Community_item">
-            <Link to="/GroupPage" key={group.id}>
+            <Link to={`/GroupPage/${group.id}`} key={group.id}>
               <img
                 className="Community_cardimg"
                 src={group.img}

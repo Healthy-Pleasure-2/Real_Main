@@ -65,21 +65,21 @@ function Groupintro({ groupData, selectedCategory }) {
     <div className="Community_GroupList">
       <div className="Community_Grouplists">
         <div className="Community_gallery">
-          {visibleGalleryItems.map((item) => (
-            <div className="Community_Gitem" key={item.id}>
-              <Link to="/GroupPage" key={item.id}>
+          {visibleGalleryItems.map((group) => (
+            <div className="Community_Gitem" key={group.id}>
+              <Link to={`/GroupPage/${group.id}`} key={group.id}>
                 <img
                   className="Community_Gcardimg"
-                  src={item.img}
-                  alt={item.name}
+                  src={group.img}
+                  alt={group.name}
                 />
                 <div className="Community_cardcontent">
-                  <h1 className="Community_Ggroupname">{item.name}</h1>
+                  <h1 className="Community_Ggroupname">{group.name}</h1>
                 </div>
                 <div className="Community_caption">
-                  <p className="Community_captionname">{item.name}</p>
-                  <p>{item.goal}</p>
-                  <p>{item.grouptotal}명</p>
+                  <p className="Community_captionname">{group.name}</p>
+                  <p>{group.goal}</p>
+                  <p>{group.grouptotal}명</p>
                 </div>
               </Link>
             </div>
