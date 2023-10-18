@@ -7,6 +7,7 @@
 -로그
 231013 김장훈 - 차후 DB연결 시 개선 예정.
 231017 김장훈 - 입력창 및 입력버튼을 통한 시각화 변화하도록 수정. UI다듬기 등 추가작업 필요
+231018 김장훈 - 입력버튼 삭제(input 박스에 입력되면 시각화 바로 변화되도록 수정), UI 다듬기, 차후 Todo 페이지에서 최대값 불러오기 추가예정 
 --------------------------------------------------------------------------------------------------------------
 *참고 사이트
 1. https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705 = 개념
@@ -21,22 +22,23 @@
 
 .single-chart {
   position: relative;
-  left: 18px;
-  width: 300px;
+  left: 40px;
+  width: 240px;
+  bottom: 10px;
 }
 
 .single-chart1 {
   position: relative;
-  width: 247px;
-  left: 39px;
-  bottom: 245px;
+  width: 198px;
+  left: 57px;
+  bottom: 212px;
 }
 
 .single-chart2 {
   position: relative;
-  width: 204px;
-  left: 55.5px;
-  bottom: 453px;
+  width: 162px;
+  left: 71px;
+  bottom: 383px;
 }
 
 .circular-chart,
@@ -78,18 +80,34 @@
   position: absolute;
   flex-direction: column;
   display: flex;
-  top: 250px;
+  top: 200px;
   left:80px;
+}
+
+.inputbox div {
+  font-weight: bold;
 }
 
 .inputbox1 {
   width: 50px;
+  color: #3a9e26;
+  border: 2px solid #3a9e26;
+  font-weight: bold;
+  text-align: center;
 }
 
 .inputbox2 {
   width: 50px;
+  color: #1a90a6;
+  border: 2px solid #1a90a6;
+  font-weight: bold;
+  text-align: center;
 }
 
 .inputbox3 {
   width: 50px;
+  color: #ad115c;
+  border: 2px solid #ad115c;
+  font-weight: bold;
+  text-align: center;
 }
