@@ -319,87 +319,118 @@ button {
   position: absolute;
   bottom: 0;
   border-radius: 15px;
-  padding: 15px;
-}
-
-#my_group .group_container {
-  border: 1px solid black;
-  height: 60%;
-  border-radius: 15px;
-  box-shadow: 3px 3px 7px rgb(131, 131, 131);
-  padding: 5px;
-  background: #fff;
   padding: 20px;
-  display: flex;
-  overflow: hidden;
 }
 
-.group_container .slide_contents {
-  /* border: 1px solid black; */
-  width: 100%;
-  min-width: 100%;
-  overflow: hidden;
-  margin-right: 35px;
+
+.slider_container {
+  height: calc(100% - 68px);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.slide_contents div {
-  font-size: 20px;
+.slick-slide div {
+  height: 100%;
 }
 
-/* 나의 그룹 데이터 항목 별로 flex로 수직 배치 */
-.group_contents {
-  flex: 1;
+.slick-list {
+  height: 100%;
 }
 
-.group_contents:nth-child(2) {
-  margin: 10px 0;
+.slick-track {
+  height: 100%;
 }
 
-.group_goal {
-  flex: 2
-}
-
-.group_goal .data {
-  line-height: 1.6;
-}
-
-/* 나의 그룹 데이터 항목 제목 */
-.group_title {
+.group_neam,
+.group_category {
   width: 30%;
   float: left;
-  color: #4c4b4b;
+  height: 25%;
+  font-size: 25px;
   font-weight: bold;
 }
 
-/* 나의 그룹 데이터 들어갈 부분 */
-.data {
+.group_goal {
+  width: 30%;
+  float: left;
+  height: 50%;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.group_data {
   width: 70%;
   float: left;
 }
 
-
-/* 캐러셀 버튼 감싸는 영역 */
-.btns {
-  text-align: center;
-  margin-top: 20px;
+.title_data,
+.category_data {
+  position: relative;
+  top: 3px;
+  height: 25%;
+  font-size: 20px;
 }
 
-/* 캐러셀 버튼 */
-.btns .carousel {
-  background-color: #D9D9D9;
+.goal_data {
+  position: relative;
+  top: 3px;
+  height: 50%;
+  font-size: 20px;
+}
+
+
+/* 화살표 커스텀  */
+button.slick-arrow::before {
+  position: relative;
+  font-size: 30px;
+  color: #7b7b7b
+}
+
+.slick-prev::before {
+  left: -15px;
+}
+
+.slick-next::before {
+  right: -5px;
+}
+
+/* .group_content:-webkit-scrollbar {
+  width: 12px;
+} */
+
+/* .group_content::-webkit-scrollbar-thumb {
+  background: #D9D9D9;
   border: none;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
+  border-radius: 12px 12px 12px 12px;
+} */
 
-/* 캐러셀 버튼 간의 간격 조정 위한 설정 */
-.btns .carousel:nth-child(2) {
-  margin: 0 10px;
-}
+
+/* 나의 그룹 데이터 항목 별로 flex로 수직 배치 */
+/* .group_contents {
+  width: 100%;
+  float: left;
+  flex: 1;
+} */
+
+/* 나의 그룹 데이터 항목 제목 */
+/* .group_title {
+  width: 30%;
+  float: left;
+  font-size: 20px;
+  color: #4c4b4b;
+  font-weight: bold;
+} */
+
+/* 나의 그룹 데이터 들어갈 부분 */
+/* .data {
+  width: 70%;
+  float: left;
+} */
+
+
+
+
 
 
 /* 미디어 쿼리 */
