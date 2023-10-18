@@ -3,19 +3,27 @@ import GoalCircle from "./Goal_Circle"; //Goal_Circle 컴포넌트 임포트
 import News from "./News";
 import Diet from "./Diet";
 import Login from "./Login";
-
+import SideMenu from "./SideMenu";
 function SideContent() {
   // 로그인 상태를 관리
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [menuHidden, setMenuHidden] = useState(true);
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
   const handleLogout = () => {
     // 로그아웃 처리 로직
     setIsLoggedIn(false);
+    setMenuHidden(true);
   };
 
   return (
     <div id="SideContent">
       <div className="right-sidebar">
         {/* 데일리 상태 박스 */}
+        {isLoggedIn && !menuHidden ? (
+          <SideMenu onLogout={handleLogout} />
+        ) : null}
         {isLoggedIn ? (
           <div id="daily-box">
             <p>HELLO! 김멀플님</p>
@@ -39,7 +47,7 @@ function SideContent() {
           </div> */}
           </div>
         ) : (
-          <Login />
+          <Login onLogin={handleLogin} />
         )}
 
         {/* 추천 식단 / 건강뉴스 박스 */}

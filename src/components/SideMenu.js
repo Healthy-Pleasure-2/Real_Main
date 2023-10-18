@@ -11,14 +11,19 @@ import { Link } from "react-router-dom";
 // import { useEffect, useState } from "react";
 // import { useLocation, useNavigate } from "react-router-dom";
 
-function SideMenu() {
+function SideMenu({ onLogout, hidden }) {
   // const location = useLocation();
   // const navigate = useNavigate();
-
-  //로그아웃 버튼 클릭시 로그아웃
+  const handleLogout = () => {
+    // 로그아웃 버튼을 클릭하면 onLogout 함수를 호출하여 로그아웃 상태를 변경
+    onLogout();
+  };
+  const menuStyle = {
+    display: hidden ? "none" : "block",
+  };
 
   return (
-    <div id="navigation">
+    <div id="navigation" style={menuStyle}>
       {/* logo */}
       <div className="logoPlace">
         <div className="logo">
@@ -50,7 +55,7 @@ function SideMenu() {
       </ul>
       {/* 로그아웃 */}
       <div className="logout">
-        <Link to="/">
+        <Link to="/" onClick={handleLogout}>
           <FontAwesomeIcon icon={faRightFromBracket} />
         </Link>
       </div>

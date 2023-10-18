@@ -221,13 +221,15 @@
   height: 135px;
   padding: 10px 0px;
 }
-.Logininputid{
+.Logininputid,
+.Logininputpassword{
   width: 250px;
   height: 45px;
   margin-bottom: 15px;
   background-color: #F4F4F4;
   border: 1px solid #7B7B7B;
-}
+  font-size: 17px;
+  }
 .Loginbtn{
   padding-top: 2.5px;
   width: 250px;
@@ -238,4 +240,35 @@
   font-size: 36px;
   font-weight: 900;
   text-align: center;
+  border: 0px solid;
+}
+.Loginbtn:hover{
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);  
+}
+.LoginFind{
+  margin: 10px;
+  text-align: center;
+  padding: 5px;
+}
+
+.LoginFind button{
+  background:none;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.LoginbtnLink{
+  text-decoration: none;
+    /* 밑줄 제거 */
+    color: inherit;
+}
+.LoginIdPwFind{
+  height: 20px;
+  border-left: none;
+  border-top: none;
+  border-right: 1px solid #000000;
+  border-bottom: none;
+}
+.Loginsingnup{
+  border: none;
+  
 }
