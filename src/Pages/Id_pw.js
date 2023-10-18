@@ -12,7 +12,7 @@ function IdFind() {
   return (
     <div>
       <div id="idFind">
-        <input type="text" id="name" placeholder="Name" />
+        <input type="text" id="name" placeholder="Name" maxLength={5} />
         <input type="email" id="email" placeholder="Email" />
         <button id="send">ID 찾기</button>
         <div>
@@ -28,7 +28,7 @@ function PwFind() {
   return (
     <div>
       <div id="pwFind">
-        <input type="text" id="user-id" placeholder="ID" />
+        <input type="text" id="user-id" placeholder="ID" maxLength={10} />
         <input type="email" id="email" placeholder="Email" />
         <button id="send">PW 찾기</button>
         <div>
@@ -58,18 +58,18 @@ function IdPw() {
     <div id="IdPw">
       <div id="frame">
         <div id="buttons">
-          <p
+          <div
             onClick={() => switchTab("idFind")}
             className={idFind ? "green" : "gray"}
           >
             ID 찾기
-          </p>
-          <p
+          </div>
+          <div
             onClick={() => switchTab("pwFind")}
             className={pwFind ? "green" : "gray"}
           >
             PW 찾기
-          </p>
+          </div>
         </div>
 
         {idFind && <IdFind />}

@@ -32,6 +32,9 @@ function Mypage() {
     });
   };
 
+  // focus 이동
+  const InputRef = React.createRef();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -44,18 +47,21 @@ function Mypage() {
 
     if (!passwordRegex.test(formData.password)) {
       newErrors.password = "올바른 형식으로 입력해주세요.";
+      InputRef.current.focus();
     } else {
       newErrors.password = "";
     }
 
     if (formData.password !== formData.confirmPassword) {
       newErrors.confirmPassword = "비밀번호가 일치하지 않습니다.";
+      InputRef.current.focus();
     } else {
       newErrors.confirmPassword = "";
     }
 
     if (!emailRegex.test(formData.email)) {
       newErrors.email = "올바른 형식으로 작성해주세요.";
+      InputRef.current.focus();
     } else {
       newErrors.email = "";
     }
@@ -64,6 +70,7 @@ function Mypage() {
 
     if (Object.values(newErrors).every((error) => error === "")) {
       console.log("Form data submitted:", formData);
+      alert("수정이 완료되었습니다.");
     }
   };
 
@@ -102,6 +109,7 @@ function Mypage() {
               value={formData.password}
               onChange={handleChange}
               required
+              ref={InputRef}
             />
             <p className="error-message">{errors.password}</p>
           </div>
@@ -109,10 +117,11 @@ function Mypage() {
             <label>비밀번호 확인</label>
             <input
               type="password"
-              name="passwordCheck"
-              value={formData.passwordCheck}
+              name="confirmPassword"
+              value={formData.confirmPassword}
               onChange={handleChange}
               required
+              ref={InputRef}
             />
             <p className="error-message">{errors.confirmPassword}</p>
           </div>
@@ -155,6 +164,7 @@ function Mypage() {
               value={formData.email}
               onChange={handleChange}
               required
+              ref={InputRef}
             />
             <p className="error-message">{errors.email}</p>
           </div>

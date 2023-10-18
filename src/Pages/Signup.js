@@ -7,6 +7,7 @@
 import React, { useState } from "react";
 import "./styles/Signup.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Signup() {
   const navigate = useNavigate();
@@ -31,7 +32,6 @@ function Signup() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setFormData({
       ...formData,
       [name]: value,
@@ -44,7 +44,6 @@ function Signup() {
     // 정규식
     const idRegex = /^[a-zA-Z0-9_]+$/; //공백없는 숫자와 대소문자
     const passwordRegex = /^[A-Za-z0-9]{6,20}$/; //영문, 숫자 조합 6글자 이상
-
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     // Validate the form data
@@ -82,8 +81,51 @@ function Signup() {
 
     if (Object.values(newErrors).every((error) => error === "")) {
       console.log("Form data submitted:", formData);
+      alert("회원가입 성공! HP에 오신걸 환영합니다.");
       navigate("/");
     }
+  };
+
+  // 회원가입 요청(request, 클라이언트 -> 서버) 미들웨어
+  const signupAPI = (email, password, username) => {
+    return function (dispatch, getState, { history }) {
+      console.log(email, password, username);
+
+      const API = "http://localhost:3000/signup";
+      console.log(API);
+
+      axios
+        .post(
+          API,
+          // 클라이언트에서 서버로 request(요청)하며 보내주는 데이터
+          // 회원가입창에서 클라이언트가 입력하는 데이터
+          {
+            email: email,
+            password: password, // 숫자, 영어 대문자, 소문자, 특수기호, 8-20자  1234567#Aaa
+            username: username, // id개념, 한글이 아니라 영어로 보내기, 영어+숫자, 4-12글자
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        // 그러면 서버에서 클라이언트로 response(응답)으로
+        // {ok: true} 아니면 {ok: false}가 온다.
+        // .then((response) => {
+        //   console.log(response); // response.data로 해야?
+        // })
+        .then((result) => {
+          console.log(result);
+          console.log("singupDB!");
+          window.alert("회원가입이 되었습니다! 로그인 해주세요.");
+          history.replace("/login");
+        })
+        .catch((error) => {
+          window.alert("회원가입이 정상적으로 되지 않았습니다.");
+          console.log(error);
+        });
+    };
   };
 
   return (

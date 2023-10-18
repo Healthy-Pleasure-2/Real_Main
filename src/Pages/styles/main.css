@@ -30,6 +30,7 @@
   text-align: center;
   margin-top: 30px;
   margin-bottom: 15px;
+  font-weight: bold;
 }
 
 .bt1 {
@@ -49,6 +50,10 @@
   border: 2px solid #397242;
   border-radius: 15px;
   box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+.rank .title {
+  font-weight: bold;
 }
 
 .popularRank {
@@ -75,6 +80,7 @@
   border: 2px solid #397242;
   border-radius: 15px;
   box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
 }
 
 .Notice {

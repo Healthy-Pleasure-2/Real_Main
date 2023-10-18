@@ -27,6 +27,7 @@
   text-align: center;
   color: #01352C;
   font-size: 1.7rem;
+  font-weight: bold;
   height: 10%;
 }
 
@@ -112,10 +113,13 @@
 }
 
 
-.signbtn button:hover {
+#Mypage .signbtn button:hover {
   background-color: #397242;
+  transition: 0.3s ease-in-out;
 }
 
+
+/* 회원탈퇴 버튼 */
 #Mypage .withdrawal {
   height: 10%;
   display: flex;
@@ -123,8 +127,9 @@
   align-items: center;
 }
 
-#Mypage .withdrawal button {
+#Mypage .withdrawal>button {
   height: 100%;
   border: none;
   cursor: pointer;
+  background-color: inherit;
 }

@@ -2,7 +2,8 @@
 작성자: 이진경
 이 페이지 용도 : 기본틀 css
 생성일자(수정일자) : 23.10.13
-생성일자(수정일자) : 23.10.16 (로고수정) */
+수정일자 : 23.10.16 (로고수정) 
+수정일자 : 23.10.18 (로그인 추가(정은정), 수정(이진경)) */
 
 /*  import google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
@@ -151,6 +152,96 @@
 .right-sidebar {
   margin: 30px;
 }
+
+/******* 로그인 디자인 (23.10.18_정은정, 이진경(수정: 로고 추가, 높이 조절) ) *******/
+.Loginbox {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.LoginLogo {
+  margin: 10px 85px;
+  width: 85px;
+  height: 85px;
+  border-radius: 50px;
+  border: 5px solid #8CBA51;
+}
+
+.LoginLogo img {
+  margin: 5px 0 0 0;
+  width: 70px;
+}
+
+.LoginIdPw {
+  width: 250px;
+  height: 100px;
+  padding: 10px 0px;
+}
+
+.Logininputid,
+.Logininputpassword {
+  width: 250px;
+  height: 30px;
+  margin-bottom: 15px;
+  background-color: #F4F4F4;
+  border: 1px solid #7B7B7B;
+  font-size: 17px;
+  border-radius: 15px;
+}
+
+.Loginbtn {
+  width: 250px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #8CBA51;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+.Loginbtn:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  /* hover하면 하얗게 바뀜,,, 나중에 다시 보기 */
+  background-color: #8CBA51;
+
+}
+
+.LoginFind {
+  margin: 5px;
+  text-align: center;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.LoginFind button {
+  background: none;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.LoginbtnLink {
+  text-decoration: none;
+  /* 밑줄 제거 */
+  color: inherit;
+}
+
+.LoginIdPwFind {
+  height: 20px;
+  border-left: none;
+  border-top: none;
+  border-right: 1px solid #000000;
+  border-bottom: none;
+}
+
+.Loginsingnup {
+  border: none;
+}
+
+/******* 로그인 끝 *******/
+
 
 /******* 데일리 상태 박스 *******/
 #daily-box {

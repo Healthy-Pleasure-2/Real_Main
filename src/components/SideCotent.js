@@ -8,7 +8,7 @@ function SideContent() {
       <div className="right-sidebar">
         {/* 데일리 상태 박스 */}
         <div id="daily-box">
-          <p>HELLO! 김멀플님</p>
+          <p style={{ fontWeight: "bold" }}>안녕하세요! 김멀플님</p>
           <Goal_Circle></Goal_Circle>
           {/* 일일 목표랑 그래프 */}
           {/* <div id="graph"></div> */}

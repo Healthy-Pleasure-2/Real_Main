@@ -28,6 +28,7 @@
   text-align: center;
   color: #01352C;
   font-size: 1.7rem;
+  font-weight: bold;
   height: 10%;
 }
 
@@ -131,12 +132,13 @@
 
   color: #fff;
   font-size: 1.1rem;
-  font-weight: 900;
+  font-weight: bold;
   text-align: center;
   line-height: 50px;
 }
 
 
-.signbtn button:hover {
+#Signup .signbtn button:hover {
   background-color: #397242;
+  transition: 0.3s ease-in-out;
 }
