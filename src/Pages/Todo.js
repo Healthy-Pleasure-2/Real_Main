@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react';
 function Todo() {
   const [groupinfo, setGroupInfo] = useState([]);
   useEffect(() => {
-    axios.get('/group.json', { headers: { 'Cache-Control': 'no-cache' } }).then((result) => {
+    axios.get('/group.json').then((result) => {
       setGroupInfo(result.data);
     })
       .catch((error) => {

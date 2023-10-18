@@ -22,46 +22,52 @@ const StyledSlider = styled(Slider)`
 export default class SimpleSlider extends Component {
   constructor(props) {
     super(props);
-    this.state = [];
+    this.state = {
+      data: [] // 데이터를 저장할 배열
+    };
   }
 
   componentDidMount() {
     // 데이터를 비동기적으로 가져옵니다.
-    axios.get('/group.json').then((result) => {
-      this.setState(result.data);
-    }).catch((error) => {
-      console.error('데이터를 가져오지 못함', error);
-    });
+    axios.get('/group.json')
+      .then((result) => {
+        // 데이터가 정상적으로 로드됨
+        this.setState({ data: result.data.group });
+      })
+      .catch((error) => {
+        console.error('데이터를 가져오지 못함', error);
+      });
   }
 
   render() {
     const settings = {
       dots: false,
       infinite: true,
-      speed: 500,
+      speed: 400,
       slidesToShow: 1,
       slidesToScroll: 1
     };
-    if (!this.state || !this.state.length) {
-      // 데이터가 없거나 데이터의 길이가 0이면 없는 거니까 즉 불러오기 실패한 경우 소속된 그룹이 없다는 메세지 출력
-      return <p>아직 소속된 그룹이 없습니다.</p>;
+
+    // 데이터를 로드하고 있다면, 데이터가 로드될 때까지 대기
+    if (this.state.data.length === 0) {
+      return <p>Loading...</p>;
     }
+
     // 데이터가 있는 경우 데이터를 매핑하여 렌더링
     return (
       <div className="slider_container" >
-        {console.log(this.state)}
         <StyledSlider {...settings}>
           {
-            this.state.map((item, index) => {
+            this.state.data.map((item, index) => {
               return (
                 <div className="group_content" key={index}>
-                  <div>{console.log(this.state)}</div>
-                  <p className="group_title group_neam">그룹명</p>
+                  <p className="group_title group_fame">그룹명</p>
                   <p className="group_data title_data">{item.name}</p>
                   <p className="group_title group_category">카테고리</p>
                   <p className="group_data category_data">{item.category}</p>
                   <p className="group_title group_goal">목표</p>
                   <p className="group_data goal_data">{item.goal}</p>
+                  <p className="page_count">{item.id}/{this.state.data.length}</p>
                 </div>
               )
             })
