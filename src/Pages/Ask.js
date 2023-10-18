@@ -8,6 +8,7 @@
 import "./styles/Ask.css";
 import Notice from "../components/notice"
 import React, { Component } from 'react';
+// import dummy from "../../public/notice.json"
 
 
 class Ask extends Component {
@@ -79,7 +80,7 @@ class Ask extends Component {
         <div id="notice_N" className={`tabcontent ${this.state.activeTab === 'notice_N' ? 'active' : ''}`}>
           <Notice />
           {/* JSON 데이터를 사용하여 공지사항을 표시합니다. */}
-          <ul>
+          {/* <ul>
             {notices.map((notice) => (
               <li key={notice.id}>
                 <h3>{notice.title}</h3>
@@ -87,7 +88,7 @@ class Ask extends Component {
                 <p>Date: {notice.date}</p>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
         <div id="notice_ask" className={`tabcontent ${this.state.activeTab === 'notice_ask' ? 'active' : ''}`}>
           <p>자주묻는 질문</p>

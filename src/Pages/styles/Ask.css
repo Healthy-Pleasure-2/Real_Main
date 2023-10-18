@@ -136,3 +136,12 @@ button:hover{
     background-color: #ffffff;
     cursor: pointer;
 }
+
+
+
+/***공지사항*******/
+
+.notice-day{
+    float: left;
+    font: bolder;
+}
