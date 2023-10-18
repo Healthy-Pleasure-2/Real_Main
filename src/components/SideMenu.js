@@ -28,7 +28,7 @@ function SideMenu() {
         </div>
       </div>
       {/* 네비게이션 리스트 */}
-      <ul class="nav-list">
+      <ul className="nav-list">
         <li>
           <Link to="/todo">
             <FontAwesomeIcon icon={faPersonRunning} />

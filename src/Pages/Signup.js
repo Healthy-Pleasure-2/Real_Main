@@ -1,12 +1,16 @@
 // 소스명 : Signup.js
 // 작성자 : 이진경
 // 이 페이지 용도 : 회원가입
-// 생성일자(수정일자) : 23.10.16
+// 수정일자 : 23.10.16
+// 수정일자 : 23.10.17 / 코드 전면 수정, 에러메시지 출력, 회원가입시 메인페이지로 이동
 
 import React, { useState } from "react";
 import "./styles/Signup.css";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     id: "",
     password: "",
@@ -15,17 +19,19 @@ function Signup() {
     gender: "",
     nickname: "",
     email: "",
-    term: "",
+    term: false,
   });
 
   const [errors, setErrors] = useState({
     password: "",
     confirmPassword: "",
+    name: "",
     email: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData({
       ...formData,
       [name]: value,
@@ -37,8 +43,8 @@ function Signup() {
 
     // 정규식
     const idRegex = /^[a-zA-Z0-9_]+$/; //공백없는 숫자와 대소문자
-    const passwordRegex =
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/; //최소 8자리 이상 영문 대소문자, 숫자, 특수문자가 각각 1개 이상
+    const passwordRegex = /^[A-Za-z0-9]{6,20}$/; //영문, 숫자 조합 6글자 이상
+
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     // Validate the form data
@@ -61,7 +67,11 @@ function Signup() {
     } else {
       newErrors.confirmPassword = "";
     }
-
+    if (formData.name.length === 0 || formData.name.length < 2) {
+      newErrors.name = "이름은 최소 2글자 이상 입력해야 합니다.";
+    } else {
+      newErrors.name = "";
+    }
     if (!emailRegex.test(formData.email)) {
       newErrors.email = "올바른 형식으로 작성해주세요.";
     } else {
@@ -72,6 +82,7 @@ function Signup() {
 
     if (Object.values(newErrors).every((error) => error === "")) {
       console.log("Form data submitted:", formData);
+      navigate("/");
     }
   };
 
@@ -98,7 +109,7 @@ function Signup() {
             <input
               type="password"
               name="password"
-              placeholder="숫자+영문자+특수문자 조합으로 8자리 이상 입력"
+              placeholder="영문+숫자 조합으로 6~20글자 입력해주세요."
               value={formData.password}
               onChange={handleChange}
               required
@@ -125,6 +136,7 @@ function Signup() {
               onChange={handleChange}
               required
             />
+            <p className="error-message">{errors.name}</p>
           </div>
           <div className="gender">
             <label>성별</label>
@@ -166,10 +178,12 @@ function Signup() {
                 value={formData.term}
                 onChange={handleChange}
                 type="checkbox"
+                // checked={formData.term.checkboxChecked}
               ></input>
               이용약관 개인정보 수집 및 이용, 마케팅 활용 선택에 모두
               동의합니다.
             </label>
+            {/* <p className="error-message">{errors.term}</p> */}
           </div>
           <div className="signbtn">
             <button type="submit">회원가입 하기</button>

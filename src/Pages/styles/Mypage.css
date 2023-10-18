@@ -33,7 +33,7 @@
 /* 회원정보 수정 입력란 */
 #Mypage form {
   width: 80%;
-  height: 90%;
+  height: 80%;
   margin: 0 auto;
   position: relative;
 }
@@ -114,4 +114,17 @@
 
 .signbtn button:hover {
   background-color: #397242;
+}
+
+#Mypage .withdrawal {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Mypage .withdrawal button {
+  height: 100%;
+  border: none;
+  cursor: pointer;
 }

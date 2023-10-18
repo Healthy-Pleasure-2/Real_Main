@@ -1,7 +1,8 @@
 // 소스명 : Mypage.js
 // 작성자 : 이진경
-// 이 페이지 용도 : 회원정보 수정
-// 생성일자(수정일자) : 23.10.16
+// 이 페이지 용도 : 회원정보 수정, 마이페이지
+// 수정일자 : 23.10.16
+// 수정일자 : 23.10.17 / 코드 전면 수정, 에러메시지 출력, 회원 탈퇴시 확인창 선택후 메인 페이지 이동
 
 import React, { useState } from "react";
 import "./styles/Mypage.css";
@@ -15,7 +16,6 @@ function Mypage() {
     gender: "",
     nickname: "",
     email: "",
-    term: "",
   });
 
   const [errors, setErrors] = useState({
@@ -36,8 +36,7 @@ function Mypage() {
     e.preventDefault();
 
     // 정규식
-    const passwordRegex =
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/; //최소 8자리 이상 영문 대소문자, 숫자, 특수문자가 각각 1개 이상
+    const passwordRegex = /^[A-Za-z0-9]{6,20}$/; //영문, 숫자 조합 6글자 이상
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     // Validate the form data
@@ -68,6 +67,15 @@ function Mypage() {
     }
   };
 
+  const withdrawal = () => {
+    if (window.confirm("정말 회원 탈퇴를 하시겠습니까?")) {
+      alert("탈퇴 완료되었습니다.");
+      window.location = "http://localhost:3000/";
+    } else {
+      alert("취소합니다.");
+    }
+  };
+
   return (
     <div id="Mypage">
       <div id="frame">
@@ -90,7 +98,7 @@ function Mypage() {
             <input
               type="password"
               name="password"
-              placeholder="숫자+영문자+특수문자 조합으로 8자리 이상 입력"
+              placeholder="영문+숫자 조합으로 6~20글자 입력해주세요."
               value={formData.password}
               onChange={handleChange}
               required
@@ -154,6 +162,9 @@ function Mypage() {
             <button type="submit">수정하기</button>
           </div>
         </form>
+        <div className="withdrawal" onClick={withdrawal}>
+          <button>회원탈퇴</button>
+        </div>
       </div>
     </div>
   );
