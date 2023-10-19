@@ -1,15 +1,14 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../logo.png";
 
 function Login({ onLogin }) {
-  const navigate = useNavigate();
   const handleLogin = () => {
     // 로그인 처리 로직
     // ...
 
     // 로그인 버튼을 클릭하면 onLogin 콜백을 호출하여 로그인 상태를 변경
-    navigate("/");
+    onLogin();
   };
   return (
     <div id="daily-box">
@@ -26,12 +25,12 @@ function Login({ onLogin }) {
         </button>
         <div className="LoginFind">
           <button className="LoginIdPwFind">
-            <Link to="/idPw" className="LoginbtnLink">
+            <Link to="/Mypage" className="LoginbtnLink">
               ID 찾기 / PW 찾기
             </Link>
           </button>
           <button className="Loginsingnup">
-            <Link to="/signup" className="LoginbtnLink">
+            <Link to="/Singup" className="LoginbtnLink">
               회원가입
             </Link>
           </button>
