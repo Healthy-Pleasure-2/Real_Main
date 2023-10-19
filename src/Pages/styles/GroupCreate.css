@@ -49,6 +49,7 @@
 .group input {
   border-radius: 5px;
   border: 1px solid #b8b3b3;
+  padding-left: 10px;
 }
 
 
@@ -79,6 +80,7 @@
 
 .group_name button:hover {
   background-color: #397242;
+  transition: 0.2s ease-in-out;
 }
 
 /*카테고리*/
@@ -127,6 +129,7 @@
   min-width: 100px;
   min-height: 100px;
   background-color: #86a3da;
+  padding: 0;
 }
 
 .rep_img button {
@@ -165,4 +168,5 @@
 
 .create a:hover {
   background-color: #397242;
+  transition: 0.2s ease-in-out;
 }

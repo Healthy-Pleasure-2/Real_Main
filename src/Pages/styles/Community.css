@@ -3,14 +3,12 @@
     height: 100%;
     box-sizing: border-box;
     /* min-height: 700px; */
-    color: #313131;
 }
 
 /*카테고리*/
 .Community_menu {
     width: 100%;
-    height: 10%;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -27,8 +25,9 @@
 .Community_groupcreate button {
     width: 80px;
     height: 25px;
-    margin: 5px;
-    background-color: #D9D9D9;
+    margin: 12px 5px;
+    background-color: #dbdbdb;
+    color: #313131;
     border: 0px;
     border-radius: 50px;
     font-weight: 500;
@@ -37,6 +36,8 @@
 
 .Community_groupcreate button:hover {
     background-color: #b0b0b0;
+    transition: 0.2s ease-in-out;
+
 }
 
 /*그룹 생성*/
@@ -50,8 +51,8 @@
 
 .Community_groupbtn button {
     width: 150px;
-    height: 40px;
-    font-size: 1.2rem;
+    height: 50px;
+    font-size: 1rem;
     background-color: #8CBA51;
     text-decoration: none;
     /* 밑줄 제거 */
@@ -102,7 +103,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    max-height: 250px;
 }
 
 /*인기순위그룹 스타일*/
@@ -118,7 +119,7 @@
 .Community_item {
     height: 100%;
     border-radius: 10px;
-    border: 2px solid #e4e4e4;
+    border: 2px solid #729642;
     overflow: hidden;
     cursor: pointer;
     transition: 0.2s;
@@ -143,7 +144,7 @@
     padding-top: 5%;
     font-size: 1rem;
     font-weight: 600;
-    color: #313131;
+    color: #01352C;
     margin-bottom: -7px;
     text-align: center;
     white-space: nowrap;
@@ -160,7 +161,6 @@
     border-radius: 15px;
     margin-bottom: 5px;
     min-height: 330px;
-
     background-color: #f4f4f4;
 
 }
@@ -182,7 +182,6 @@
     height: 100%;
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
-    align-items: start;
 }
 
 .Community_gallery .Community_Gitem {
@@ -219,7 +218,7 @@
 .Community_Gcardimg {
     display: block;
     width: 100%;
-    height: 14vh;
+    height: 85%;
     min-height: 100px;
     object-fit: cover;
     border-radius: 5px;
@@ -229,7 +228,7 @@
     height: 20%;
     font-size: 0.8rem;
     color: #313131;
-    margin: 1.5px;
+    margin: 3px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -250,14 +249,14 @@
     -o-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     z-index: 10;
-    font-size: 15px;
+    font-size: 12px;
     padding: 10px;
 }
 
-.Community_Gitem:hover {
+/* .Community_Gitem:hover {
     transform: translateY(-0.5%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .Community_Gitem:hover .Community_caption {
     opacity: 1;
@@ -269,7 +268,8 @@
 }
 
 .Community_captionname {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 .Community_captionname,

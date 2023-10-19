@@ -106,6 +106,8 @@ class Ask extends Component {
             this.state.activeTab === "notice_inquiry" ? "active" : ""
           }`}
         >
+          {/* <div className="notice_form"> */}
+          <h1>온라인 문의</h1>
           <div className="notice_email">
             <p>이메일</p>
             <input type="text" size={90} />
@@ -126,13 +128,14 @@ class Ask extends Component {
             <p>문의사항</p>
             <input type="text" size={90}></input>
           </div>
-          <div>
+          <div className="notice_button">
             <button onClick={this.handleTabClickl}>문의하기</button>
             {/* <p>{message}</p> */}
           </div>
           <p>{message}</p>
         </div>
       </div>
+      // </div>
     );
   }
 }
