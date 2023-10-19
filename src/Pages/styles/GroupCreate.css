@@ -21,7 +21,7 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
 
   font-size: 0.8rem;
-  color: #5c5c5c;
+  color: #313131;
 }
 
 .group_create h1 {
@@ -67,12 +67,18 @@
 
 .group_name button {
   width: 10%;
+  height: 25px;
   margin: 0 0 0 1vw;
   border-radius: 5px;
   border: 1px solid #5c5c5c;
-  background-color: #c5c5c5;
+  background-color: #8CBA51;
+  color: #fff;
   cursor: pointer;
   font-size: 0.7rem;
+}
+
+.group_name button:hover {
+  background-color: #397242;
 }
 
 /*카테고리*/
@@ -125,7 +131,7 @@
 
 .rep_img button {
   width: 5vw;
-  /* 버튼 높이 설정 필요 */
+  height: 25px;
   margin: 0 0 0 3%;
   align-self: flex-end;
 
@@ -146,13 +152,13 @@
 .create a {
   width: 80%;
   height: 50px;
-  background-color: #729642;
+  background-color: #8CBA51;
   border-radius: 25px;
   cursor: pointer;
 
   color: #fff;
   font-size: 1.1rem;
-  font-weight: 900;
+  font-weight: bold;
   text-align: center;
   line-height: 50px;
 }

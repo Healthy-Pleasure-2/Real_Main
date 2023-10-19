@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../logo.png";
 
 function Login({ onLogin }) {
   const handleLogin = () => {
@@ -12,7 +13,9 @@ function Login({ onLogin }) {
   return (
     <div id="daily-box">
       <div className="Loginbox">
-        <div className="LoginLogo"></div>
+        <div className="LoginLogo">
+          <img src={logo} alt="logo"></img>
+        </div>
         <div className="LoginIdPw">
           <input className="Logininputid" type="text"></input>
           <input className="Logininputpassword" type="password"></input>

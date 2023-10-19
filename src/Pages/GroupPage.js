@@ -1,13 +1,13 @@
 // 소스명 : GroupPage.js
 // 작성자 : 이진경
-// 이 페이지 용도 :
-// 생성일자(수정일자) :
-// 매일 파일 압축해서 들고 있기~! 주석달기~!
+// 이 페이지 용도 : 그룹 페이지
+// 생성일자 : 23.10.13
+// 수정일자: 수정 내용 별도 컴포넌트가 아닌 해당 파일에서 해결
+// 수정 일자: 23.10.17 / 정은정 / 그룹 연결
 
 import React, { useState, useEffect } from "react";
 import "./styles/GroupPage.css";
 import { useParams } from "react-router-dom";
-import CommentList from "../components/GroupPage/CommentList";
 import getGroupData from "../components/Community/getGroupData";
 
 function GroupPage() {
@@ -17,13 +17,23 @@ function GroupPage() {
     setShowDiv(!showDiv);
   };
 
-  // 댓글
+  // 댓글입력 및 삭제
   const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState({ author: "", text: "" });
 
-  const addComment = (comment) => {
-    setComments([...comments, comment]);
+  const addComment = () => {
+    if (newComment.author && newComment.text) {
+      setComments([...comments, { ...newComment, id: Date.now() }]);
+      setNewComment({ author: "", text: "" });
+    }
   };
-  //-------------------그룹연결--------
+
+  const deleteComment = (id) => {
+    const updatedComments = comments.filter((comment) => comment.id !== id);
+    setComments(updatedComments);
+  };
+
+  //-----------23.10.17 / 정은정 / 그룹연결--------
   const { groupID } = useParams();
   console.log("그룹 아이디는", groupID);
   const [groupInfo, setGroupInfo] = useState({});
@@ -73,23 +83,43 @@ function GroupPage() {
           <div className="comment">
             <div className="commentTitle">소통해요</div>
 
+            {/* 댓글 리스트 */}
             <div className="commentList">
-              <CommentList comments={comments} />
+              {comments.map((comment) => (
+                <div key={comment.id} className="commentIndex">
+                  <h4>{comment.author}</h4>
+                  <p>{comment.text}</p>
+                  <button
+                    className="delete"
+                    onClick={() => deleteComment(comment.id)}
+                  >
+                    X
+                  </button>
+                </div>
+              ))}
+            </div>
 
-              <form
-                className="commentform"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const author = e.target.author.value;
-                  const text = e.target.text.value;
-                  addComment({ author, text });
-                  e.target.reset();
-                }}
-              >
-                <input type="text" name="author" placeholder="닉네임" />
-                <input name="text" placeholder="댓글달기" />
-                <button type="submit">게시</button>
-              </form>
+            {/* 댓글 작성란 */}
+            <div className="commentInput">
+              <input
+                type="text"
+                maxlength="4"
+                placeholder="닉네임"
+                value={newComment.author}
+                onChange={(e) =>
+                  setNewComment({ ...newComment, author: e.target.value })
+                }
+              />
+              <input
+                type="text"
+                maxlength="100"
+                placeholder="댓글달기"
+                value={newComment.text}
+                onChange={(e) =>
+                  setNewComment({ ...newComment, text: e.target.value })
+                }
+              />
+              <button onClick={addComment}>게시</button>
             </div>
           </div>
         )}
@@ -99,8 +129,3 @@ function GroupPage() {
 }
 
 export default GroupPage;
-
-// 참고 사이트 https://codepen.io/nickmoreton/pen/wvXJLY
-// https://blog.naver.com/sejun3278/221874776939
-// https://onethejay.tistory.com/195 (게시글 등록)
-//https://github.com/newsilver1028/react-study-5-weeks (원하는바와 비슷)

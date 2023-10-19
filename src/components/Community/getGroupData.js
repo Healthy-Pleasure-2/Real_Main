@@ -1,3 +1,8 @@
+/*소스명 : getGroupData.js
+작성자 : 정은정
+이 페이지 용도 : 그룹 커뮤니티
+생성일자(수정일자) : 10/16*/
+
 const request = async (url) => {
   try {
     const respose = await fetch(url);
