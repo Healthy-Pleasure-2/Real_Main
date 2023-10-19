@@ -56,6 +56,7 @@
     color: #ffffff;
     border-radius: 15px;
     border: 0px solid;
+    font-weight: 700;
 }
 
 .Community_link {
@@ -80,11 +81,12 @@
 .Community_title {
     width: 100%;
     height: 20%;
-    font-size: 26px;
+    font-size: 1.5rem;
     color: #01352C;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
 }
 
 .Community_popularRank {

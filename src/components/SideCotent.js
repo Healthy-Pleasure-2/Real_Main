@@ -26,7 +26,7 @@ function SideContent() {
         ) : null}
         {isLoggedIn ? (
           <div id="daily-box">
-            <p>HELLO! 김멀플님</p>
+            <p style={{ fontWeight: "bold" }}>안녕하세요! 김멀플님</p>
             <GoalCircle />
             {/* 일일 목표랑 그래프 */}
             {/* <div id="graph"></div> */}

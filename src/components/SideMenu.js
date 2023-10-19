@@ -1,3 +1,13 @@
+/* 
+-소스명 : SideMenu.js
+-작성자 : 
+-이 페이지 용도 : 왼쪽 사이드메뉴
+-생성일자(수정일자) : 
+------------------------------------------------------------------------------------------------------
+-로그
+231016 김장훈 - line:35 class -> className 수정 
+*/
+
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -31,7 +41,7 @@ function SideMenu({ onLogout, hidden }) {
         </div>
       </div>
       {/* 네비게이션 리스트 */}
-      <ul class="nav-list">
+      <ul className="nav-list">
         <li>
           <Link to="/todo">
             <FontAwesomeIcon icon={faPersonRunning} />
