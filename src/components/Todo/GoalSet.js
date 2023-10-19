@@ -15,39 +15,39 @@ import {
 
 function GoalSet() {
   return (
-    <div id="goal">
-      <h1>목표 설정</h1>
-      <div className="weight">
-        <div className="data_leftSide">
-          <div className="icon"><FontAwesomeIcon icon={faPerson} /></div>
+    <div id="todo_goal">
+      <h1 className="todo_h1">목표 설정</h1>
+      <div className="todo_weight">
+        <div className="todo_data_leftSide">
+          <div className="todo_icon"><FontAwesomeIcon icon={faPerson} /></div>
           <div>체중</div>
         </div>
-        <div className="data_rightSide">
-          <input type="text" className="data_record" />
+        <div className="todo_data_rightSide">
+          <input type="text" className="todo_data_record" />
           <span>kg</span>
         </div>
       </div>
-      <div className="exercise">
-        <div className="data_leftSide">
-          <div className="icon"><FontAwesomeIcon icon={faDumbbell} /></div>
+      <div className="todo_exercise">
+        <div className="todo_data_leftSide">
+          <div className="todo_icon"><FontAwesomeIcon icon={faDumbbell} /></div>
           <div>운동</div>
         </div>
-        <div className="data_rightSide">
-          <input type="text" className="data_record" />
+        <div className="todo_data_rightSide">
+          <input type="text" className="todo_data_record" />
           <span>kcal</span>
         </div>
       </div>
-      <div className="eating">
-        <div className="data_leftSide">
-          <div className="icon"><FontAwesomeIcon icon={faUtensils} /></div>
+      <div className="todo_eating">
+        <div className="todo_data_leftSide">
+          <div className="todo_icon"><FontAwesomeIcon icon={faUtensils} /></div>
           <div>식단</div>
         </div>
-        <div className="data_rightSide">
-          <input type="text" className="data_record" />
+        <div className="todo_data_rightSide">
+          <input type="text" className="todo_data_record" />
           <span>kcal</span>
         </div>
       </div>
-      <button className="complete">완료</button>
+      <button className="todo_complete">완료</button>
     </div>
   )
 }

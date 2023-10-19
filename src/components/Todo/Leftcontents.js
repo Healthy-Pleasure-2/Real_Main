@@ -56,26 +56,26 @@ function LeftContents() {
   }
 
   return (
-    <div id="left_contents">
-      <h1>To do List</h1>
-      <div className="calendar"></div>
-      <div className="checkLists">
+    <div id="todo_left_contents">
+      <h1 className="todo_h1">To do List</h1>
+      <div className="todo_calendar"></div>
+      <div className="todo_checkLists">
         {todoList.map((item, i) => {
           console.log(todoList)
           return (
             <>
-              <div className="checkList">
-                <button className="checked" onClick={() => { complete(item.id) }}><FontAwesomeIcon icon={faCheck} /></button>
+              <div className="todo_checkList">
+                <button className="todo_checked" onClick={() => { complete(item.id) }}><FontAwesomeIcon icon={faCheck} /></button>
                 <p className={`${item.checked ? "done" : ""}`}>{item.text}</p>
-                <button className="delete" onClick={() => { remove(item.id) }}><FontAwesomeIcon icon={faX} /></button>
+                <button className="todo_delete" onClick={() => { remove(item.id) }}><FontAwesomeIcon icon={faX} /></button>
               </div>
             </>
           )
         })}
       </div>
-      <div className="addList">
-        <input type="text" className="todoAdd" placeholder="오늘의 할일을 입력하세요" value={text} onChange={changeInput} />
-        <button type="submit" className="save" onClick={submitInput}>+</button>
+      <div className="todo_addList">
+        <input type="text" className="todo_todoAdd" placeholder="오늘의 할일을 입력하세요" value={text} onChange={changeInput} />
+        <button type="submit" className="todo_save" onClick={submitInput}>+</button>
       </div>
     </div>
   )

@@ -55,19 +55,19 @@ export default class SimpleSlider extends Component {
 
     // 데이터가 있는 경우 데이터를 매핑하여 렌더링
     return (
-      <div className="slider_container" >
+      <div className="todo_slider_container" >
         <StyledSlider {...settings}>
           {
             this.state.data.map((item, index) => {
               return (
-                <div className="group_content" key={index}>
-                  <p className="group_title group_fame">그룹명</p>
-                  <p className="group_data title_data">{item.name}</p>
-                  <p className="group_title group_category">카테고리</p>
-                  <p className="group_data category_data">{item.category}</p>
-                  <p className="group_title group_goal">목표</p>
-                  <p className="group_data goal_data">{item.goal}</p>
-                  <p className="page_count">{item.id}/{this.state.data.length}</p>
+                <div className="todo_group_content" key={index}>
+                  <p className="todo_group_fame">그룹명</p>
+                  <p className="todo_group_data todo_title_data">{item.name}</p>
+                  <p className="todo_group_category">카테고리</p>
+                  <p className="todo_group_data todo_category_data">{item.category}</p>
+                  <p className="todo_group_goal">목표</p>
+                  <p className="todo_group_data todo_goal_data">{item.goal}</p>
+                  <p className="todo_page_count">{item.id}/{this.state.data.length}</p>
                 </div>
               )
             })

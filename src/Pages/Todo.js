@@ -24,9 +24,9 @@ function Todo() {
 
 
   return (
-    <div id="container">
+    <div id="todo_container">
       <LeftContents />
-      <div id="right_contents">
+      <div id="todo_right_contents">
         <GoalSet />
         <Mygroup groupinfo={groupinfo} />
       </div>
