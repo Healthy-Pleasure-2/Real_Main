@@ -70,7 +70,7 @@
   height: 25px;
   margin: 0 0 0 1vw;
   border-radius: 5px;
-  border: 1px solid #5c5c5c;
+  border: none;
   background-color: #8CBA51;
   color: #fff;
   cursor: pointer;
@@ -136,7 +136,7 @@
   align-self: flex-end;
 
   border-radius: 5px;
-  border: 1px solid #5c5c5c;
+  border: none;
   background-color: #c5c5c5;
   cursor: pointer;
   font-size: 0.7rem;

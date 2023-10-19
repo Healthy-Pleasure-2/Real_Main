@@ -1,13 +1,9 @@
-/*소스명 : Community.css
-작성자 : 정은정
-이 페이지 용도 : 그룹 커뮤니티 화면
-생성일자(수정일자) : 10/16*/
-
 .Community_main {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    min-height: 700px;
+    /* min-height: 700px; */
+    color: #313131;
 }
 
 /*카테고리*/
@@ -19,34 +15,33 @@
     display: flex;
     flex-direction: row;
     min-height: 25px;
-
 }
 
-.Community_groupcreate button {
-    width: 100px;
-    height: 30px;
-    margin: 10px;
-    min-height: 40px;
-    background-color: #D9D9D9;
-    border: 0px;
-    border-radius: 50px;
-    font-size: 15px;
-}
-
-/*그룹 생성*/
 .Community_groupcreate {
     width: 65%;
     height: 100%;
     display: flex;
     align-items: center;
-    margin-left: 10px;
-    margin-right: 10px;
-
 }
 
+.Community_groupcreate button {
+    width: 80px;
+    height: 25px;
+    margin: 5px;
+    background-color: #D9D9D9;
+    border: 0px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.Community_groupcreate button:hover {
+    background-color: #b0b0b0;
+}
+
+/*그룹 생성*/
 .Community_groupbtn {
-    width: 30%;
-    height: 100%;
+    width: 35%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -55,19 +50,24 @@
 
 .Community_groupbtn button {
     width: 150px;
-    height: 55px;
-    font-size: 20px;
+    height: 40px;
+    font-size: 1.2rem;
     background-color: #8CBA51;
     text-decoration: none;
     /* 밑줄 제거 */
     color: #ffffff;
-    border-radius: 15px;
-    border: 0px solid;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+}
+
+.Community_groupbtn button:hover {
+    background-color: #397242;
+    transition: 0.2s ease-in-out;
 }
 
 .Community_link {
     text-decoration: none;
-    /* 밑줄 제거 */
     color: inherit;
 }
 
@@ -75,28 +75,30 @@
 .Community_rank {
     height: 35%;
     width: 100%;
-    background: #ffffff;
     margin-bottom: 20px;
     box-sizing: border-box;
-    border: 2px solid #397242;
-    border-radius: 15px;
-    box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.3);
+    border: 3px solid rgb(57, 114, 66);
+    box-shadow: 0 0 10px rgba(57, 114, 66, 0.7);
 
+    border-radius: 15px;
+    padding: 10px;
 }
 
 .Community_title {
     width: 100%;
     height: 20%;
-    font-size: 26px;
+    font-size: 1.7rem;
     color: #01352C;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .Community_popularRank {
     width: 100%;
-    height: 80%;
+    height: 75%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,20 +109,20 @@
 .Community_Rgroup {
     display: grid;
     width: 100%;
-    grid-gap: 10px;
+    height: 100%;
     grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
     align-items: start;
-    margin: 13px 10px 10px 10px;
+    margin: 13px 7px;
 }
 
 .Community_item {
-    background-color: #fff;
+    height: 100%;
     border-radius: 10px;
     border: 2px solid #e4e4e4;
     overflow: hidden;
     cursor: pointer;
     transition: 0.2s;
-    padding: 5px;
+    padding: 10px;
 }
 
 .Community_item:hover {
@@ -131,16 +133,18 @@
 .Community_cardimg {
     display: block;
     width: 100%;
-    height: 140px;
+    height: 80%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .Community_Groupname {
-    font-size: 1.7vh;
-    font-weight: 500;
-    color: #0d0d0d;
-    margin-bottom: 1.5px;
+    height: 20%;
+    padding-top: 5%;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #313131;
+    margin-bottom: -7px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -152,9 +156,13 @@
     height: 50%;
     box-sizing: border-box;
     padding: 10px;
-    border: 2px solid #397242;
+    border: 2px solid #D9D9D9;
     border-radius: 15px;
-    box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.3);
+    margin-bottom: 5px;
+    min-height: 330px;
+
+    background-color: #f4f4f4;
+
 }
 
 /*그룹 리스트 스타일*/
@@ -165,13 +173,13 @@
     width: 100%;
     height: 95%;
     overflow: hidden;
-    padding: 0px 10px 0px 10px;
-
+    padding: 0px 7px;
 }
 
 .Community_gallery {
     display: grid;
     width: 100%;
+    height: 100%;
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
     align-items: start;
@@ -179,14 +187,13 @@
 
 .Community_gallery .Community_Gitem {
     background-color: #fff;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 2px solid #e4e4e4;
     overflow: hidden;
     cursor: pointer;
     position: relative;
     transition: 0.2s;
-    padding: 5px;
-
+    padding: 7px;
 }
 
 /* 1행의 아이템은 왼쪽에서 오른쪽으로 배치 */
@@ -212,16 +219,17 @@
 .Community_Gcardimg {
     display: block;
     width: 100%;
-    height: 115px;
+    height: 14vh;
+    min-height: 100px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .Community_Ggroupname {
-    font-size: 1.6vh;
-    font-weight: 500;
-    color: #0d0d0d;
-    margin-bottom: 1.5px;
+    height: 20%;
+    font-size: 0.8rem;
+    color: #313131;
+    margin: 1.5px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -230,12 +238,12 @@
 /*캡션*/
 .Community_caption {
     position: absolute;
-    width: 93%;
+    width: calc(100% - 14px);
     /*해당 크기 값은 본 코드에서 크기가 바뀔수 있다.*/
-    height: 93%;
+    height: calc(100% - 14px);
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
-    border-radius: 15px;
+    border-radius: 5px;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -253,15 +261,15 @@
 
 .Community_Gitem:hover .Community_caption {
     opacity: 1;
-    transform: translateY(-140px);
+    transform: translateY(-200px);
     -moz-transform: translateY(-140px);
-    -webkit-transform: translateY(-140px);
-    -o-transform: translateY(-140px);
-    -ms-transform: translateY(-140px);
+    -webkit-transform: translateY(-101%);
+    -o-transform: translateY(-200px);
+    -ms-transform: translateY(-500px);
 }
 
 .Community_captionname {
-    font-size: 20px;
+    font-size: 1.2rem;
 }
 
 .Community_captionname,
@@ -274,14 +282,10 @@
 .Community_Grouplistbtn {
     width: 100%;
     height: 5%;
-}
-
-.Community_Grouplistbtn {
-    width: 100%;
-    height: 5%;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 5px;
 }
 
 .Community_Grouplistbtn button {
