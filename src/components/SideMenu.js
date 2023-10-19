@@ -1,12 +1,8 @@
-/* 
--소스명 : SideMenu.js
--작성자 : 
--이 페이지 용도 : 왼쪽 사이드메뉴
--생성일자(수정일자) : 
-------------------------------------------------------------------------------------------------------
--로그
-231016 김장훈 - line:35 class -> className 수정 
-*/
+// 소스명 : SideMenu.js
+// 작성자: 이진경
+// 이 페이지 용도 : 왼쪽 메뉴
+// 생성일자(수정일자) : 23.10.13
+//  생성일자(수정일자) : 23.10.16 (로고수정)
 
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,19 +14,17 @@ import {
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-// import { useEffect, useState } from "react";
-// import { useLocation, useNavigate } from "react-router-dom";
+import logo from "../logo.png";
 
 function SideMenu() {
-  // const location = useLocation();
-  // const navigate = useNavigate();
-
   return (
     <div id="navigation">
       {/* logo */}
       <div className="logoPlace">
         <div className="logo">
-          <Link to="/">로고</Link>
+          <Link to="/">
+            <img src={logo} alt="logo"></img>
+          </Link>
         </div>
       </div>
       {/* 네비게이션 리스트 */}

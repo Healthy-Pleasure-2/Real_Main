@@ -1,8 +1,18 @@
+/*소스명 : Groupintro.js
+작성자 : 정은정
+이 페이지 용도 : 인기상승 화면
+생성일자(수정일자) :*/
+
 import React, { useState, useEffect, useMemo } from "react";
 import "../../Pages/styles/Community.css";
+import { Link } from "react-router-dom";
 
-function PopularRank() {
-  const initialGroups = useMemo(() => [1, 2, 3, 4, 5], []); // 초기 그룹 목록
+function PopularRank({ groupData }) {
+  const initialGroups = useMemo(() => {
+    const sortedData = [...groupData];
+    sortedData.sort((a, b) => b.grouptotal - a.grouptotal);
+    return sortedData.slice(0, 5);
+  }, [groupData]); // 초기 그룹 목록
   const [groups, setGroups] = useState(initialGroups);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -26,18 +36,20 @@ function PopularRank() {
   }, [windowWidth, initialGroups]);
 
   return (
-    <div className="popularRank">
+    <div className="Community_popularRank">
       {groups.map((group) => (
-        <div className="Rgroup" key={group}>
-          <div className="item">
-            <img
-              className="cardimg"
-              src="https://cdn.pixabay.com/photo/2015/07/02/20/37/cup-829527_1280.jpg"
-              alt="그룹 "
-            />
-            <div className="cardcontent">
-              <h1 className="Groupname">차 1한잔의 여유</h1>
-            </div>
+        <div className="Community_Rgroup" key={group}>
+          <div className="Community_item">
+            <Link to="/GroupPage" key={group.id}>
+              <img
+                className="Community_cardimg"
+                src={group.img}
+                alt={group.name}
+              />
+              <div className="Community_cardcontent">
+                <h1 className="Community_Groupname">{group.name}</h1>
+              </div>
+            </Link>
           </div>
         </div>
       ))}
