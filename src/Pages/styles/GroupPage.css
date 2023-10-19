@@ -1,3 +1,8 @@
+/* 소스명 : GroupPage.css 
+작성자: 이진경
+이 페이지 용도 : 그룹 페이지 CSS
+생성일자(수정일자) : 23.10.13  */
+
 #GroupPage {
   width: 100%;
   height: 100%;
@@ -12,10 +17,10 @@
   background-color: #F4F4F4;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 10px #33333367, inset 0 0 5px #33333367;
 
   font-size: 0.8rem;
-  color: #5c5c5c;
+  color: #313131;
 }
 
 /******* 상단 부분 및 참여버튼 *******/
@@ -30,6 +35,7 @@
   font-size: 1.5rem;
   width: 80%;
   padding-bottom: 8px;
+  font-weight: bold;
 
 }
 
@@ -49,7 +55,7 @@
   float: right;
   width: 20%;
   height: 50%;
-  background-color: #729642;
+  background-color: #8CBA51;
   border: none;
   border-radius: 25px;
   cursor: pointer;
@@ -63,22 +69,38 @@
   background-color: #397242;
 }
 
+
+
+
 /******* 그룹 목표 및 소개 *******/
 #GroupPage .intro {
   height: 30%;
   width: 100%;
 }
 
+/* 목표 */
 #GroupPage .intro .goal {
   display: flex;
   height: 40px;
-  background-color: #fff;
-  border: 2px solid #729642;
-  border-radius: 20px;
+  background-color: #cdf0a0;
+  box-shadow: inset 0 0 6px #8CBA51;
+  border: 2px solid #55752b;
+  border-radius: 10px;
   margin-bottom: 10px;
   padding: 7px;
 }
 
+#GroupPage .intro .goal .content {
+  width: 70vw;
+  margin-left: 10px;
+  font-weight: 700;
+  /* 텍스트 넘칠시 숨김 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 소개글 */
 #GroupPage .intro .groupIntro {
   display: flex;
   height: 50%;
@@ -88,7 +110,28 @@
   padding: 7px;
 }
 
+#GroupPage .intro .groupIntro .content {
+  width: 70vw;
+  margin-left: 10px;
+  /* 텍스트 넘칠시 스크롤 */
+  overflow: auto;
+}
 
+#GroupPage .intro .groupIntro .content::-webkit-scrollbar {
+  width: 8px;
+  background-color: #d6e6c3;
+  border-radius: 10px;
+}
+
+/* 썸(thumb) 추가 */
+#GroupPage .intro .groupIntro .content::-webkit-scrollbar-thumb {
+  height: 50%;
+  background: #729642;
+  border-radius: 10px;
+}
+
+
+/* 목표, 소개 타이틀 */
 #GroupPage .intro #title {
   border-right: 1px solid #729642;
   width: 8vw;
@@ -97,21 +140,6 @@
   font-weight: 700;
 }
 
-#GroupPage .intro .goal .content {
-  width: 70vw;
-  margin-left: 10px;
-  /* 텍스트 넘칠시 숨김 */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-#GroupPage .intro .groupIntro .content {
-  width: 70vw;
-  margin-left: 10px;
-  /* 텍스트 넘칠시 스크롤 */
-  overflow: auto;
-}
 
 
 /******* 댓글 *******/
@@ -128,10 +156,86 @@
   border-bottom: 1px solid #729642;
   font-weight: 700;
   font-size: 0.9rem;
+  height: 10%;
 }
 
-.commentList {}
+/* 댓글 리스트 */
+.commentList {
+  padding: 10px;
+  height: 75%;
+  overflow: auto;
+}
 
-.commentform {
-  align-self: flex-end;
+/* 스크롤바 디자인 */
+.commentList::-webkit-scrollbar {
+  width: 8px;
+  background-color: #d6e6c3;
+  border-radius: 10px;
+}
+
+.commentList::-webkit-scrollbar-thumb {
+  height: 50%;
+  background: #729642;
+  border-radius: 10px;
+}
+
+
+.commentList .commentIndex {
+  position: relative;
+  display: flex;
+  margin-bottom: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  min-height: 25px;
+}
+
+.commentList .commentIndex h4 {
+  width: 80px;
+  padding: 0 10px;
+}
+
+.commentList .commentIndex p {
+  width: 75%;
+}
+
+.commentList .commentIndex .delete {
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  padding: 0 5px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+/* 댓글 작성란 */
+.commentInput {
+  display: flex;
+  border-top: 1px solid #729642;
+  padding: 10px;
+  height: 18%;
+}
+
+.commentInput input {
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #5c5c5c;
+}
+
+.commentInput input:nth-child(1) {
+  width: 15%;
+}
+
+.commentInput input:nth-child(2) {
+  width: 75%;
+}
+
+.commentInput button {
+  width: 10%;
+  height: 100%;
+  margin: 0;
+  background-color: #98c959;
+  border: none;
+  border-radius: 5px;
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import Goal_Circle from "./Goal_Circle"; //Goal_Circle 컴포넌트 임포트
 import News from "./News";
-import Diet from "./Diet";
 
 function SideContent() {
   return (
@@ -9,7 +8,7 @@ function SideContent() {
       <div className="right-sidebar">
         {/* 데일리 상태 박스 */}
         <div id="daily-box">
-          <p style={{ fontWeight: 'bold' }}>안녕하세요! 김멀플님</p>
+          <p style={{ fontWeight: "bold" }}>안녕하세요! 김멀플님</p>
           <Goal_Circle></Goal_Circle>
           {/* 일일 목표랑 그래프 */}
           {/* <div id="graph"></div> */}
@@ -33,7 +32,6 @@ function SideContent() {
         {/* 추천 식단 / 건강뉴스 박스 */}
         <div id="news">
           <News></News>
-          <Diet></Diet>
         </div>
       </div>
 

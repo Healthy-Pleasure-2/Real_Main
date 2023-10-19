@@ -1,4 +1,9 @@
-.main {
+/*소스명 : Community.css
+작성자 : 정은정
+이 페이지 용도 : 그룹 커뮤니티 화면
+생성일자(수정일자) : 10/16*/
+
+.Community_main {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -6,7 +11,7 @@
 }
 
 /*카테고리*/
-.menu {
+.Community_menu {
     width: 100%;
     height: 10%;
     margin-bottom: 20px;
@@ -17,7 +22,7 @@
 
 }
 
-button {
+.Community_groupcreate button {
     width: 100px;
     height: 30px;
     margin: 10px;
@@ -25,11 +30,11 @@ button {
     background-color: #D9D9D9;
     border: 0px;
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 /*그룹 생성*/
-.groupcreate {
+.Community_groupcreate {
     width: 65%;
     height: 100%;
     display: flex;
@@ -39,7 +44,7 @@ button {
 
 }
 
-.groupbtn {
+.Community_groupbtn {
     width: 30%;
     height: 100%;
     display: flex;
@@ -48,7 +53,7 @@ button {
     margin-right: 10px;
 }
 
-.groupbtn button {
+.Community_groupbtn button {
     width: 150px;
     height: 55px;
     font-size: 20px;
@@ -56,17 +61,18 @@ button {
     text-decoration: none;
     /* 밑줄 제거 */
     color: #ffffff;
-    border-radius: 15 px;
+    border-radius: 15px;
+    border: 0px solid;
 }
 
-.link {
+.Community_link {
     text-decoration: none;
     /* 밑줄 제거 */
     color: inherit;
 }
 
 /*인기랭크*/
-.rank {
+.Community_rank {
     height: 35%;
     width: 100%;
     background: #ffffff;
@@ -78,7 +84,7 @@ button {
 
 }
 
-.title {
+.Community_title {
     width: 100%;
     height: 20%;
     font-size: 26px;
@@ -88,7 +94,7 @@ button {
     justify-content: center;
 }
 
-.popularRank {
+.Community_popularRank {
     width: 100%;
     height: 80%;
     display: flex;
@@ -98,7 +104,7 @@ button {
 }
 
 /*인기순위그룹 스타일*/
-.Rgroup {
+.Community_Rgroup {
     display: grid;
     width: 100%;
     grid-gap: 10px;
@@ -107,7 +113,7 @@ button {
     margin: 13px 10px 10px 10px;
 }
 
-.item {
+.Community_item {
     background-color: #fff;
     border-radius: 10px;
     border: 2px solid #e4e4e4;
@@ -117,19 +123,20 @@ button {
     padding: 5px;
 }
 
-.item:hover {
+.Community_item:hover {
     transform: translateY(-0.5%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.cardimg {
+.Community_cardimg {
     display: block;
     width: 100%;
     height: 140px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
-.Groupname {
+.Community_Groupname {
     font-size: 1.7vh;
     font-weight: 500;
     color: #0d0d0d;
@@ -140,10 +147,9 @@ button {
 }
 
 /*그룹 목록*/
-.GroupList {
+.Community_GroupList {
     width: 100%;
     height: 50%;
-    background: #aa629b;
     box-sizing: border-box;
     padding: 10px;
     border: 2px solid #397242;
@@ -152,116 +158,135 @@ button {
 }
 
 /*그룹 리스트 스타일*/
-.Grouplists {
+.Community_Grouplists {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 93%;
-    background: #dfe680;
-    margin-bottom: 10px;
-}
-
-.img {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
-}
-
-.gallery {
-    position: relative;
-    left: calc(-1 * var(--adjust-size));
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    max-width: 100vw;
-    padding: 20px;
-    -webkit-perspective: 0;
-    perspective: 0;
-    box-sizing: border-box;
-}
-
-#gallery figure {
-    position: relative;
-    display: inline-block;
-    margin: var(--adjust-size);
-    padding: 0.5rem;
-    border-radius: 5px;
-    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: auto;
-    text-align: center;
-    background-color: ghostwhite;
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: multiply;
-    transform-origin: center 0.22rem;
-    will-change: transform;
-    break-inside: avoid;
+    height: 95%;
     overflow: hidden;
-    outline: 1px solid transparent;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    padding: 0px 10px 0px 10px;
+
 }
 
-figure img {
-    aspect-ratio: 1 /1;
+.Community_gallery {
+    display: grid;
     width: 100%;
-    object-fit: cover;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+    align-items: start;
+}
+
+.Community_gallery .Community_Gitem {
+    background-color: #fff;
+    border-radius: 15px;
+    border: 2px solid #e4e4e4;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+    padding: 5px;
+
+}
+
+/* 1행의 아이템은 왼쪽에서 오른쪽으로 배치 */
+.Community_gallery .Community_Gitem:nth-child(1),
+.Community_gallery .Community_Gitem:nth-child(3),
+.Community_gallery .Community_Gitem:nth-child(5),
+.Community_gallery .Community_Gitem:nth-child(7),
+.Community_gallery .Community_Gitem:nth-child(9),
+.Community_gallery .Community_Gitem:nth-child(11) {
+    grid-row: 1;
+}
+
+/* 2행의 아이템은 오른쪽에서 왼쪽으로 배치 */
+.Community_gallery .Community_Gitem:nth-child(2),
+.Community_gallery .Community_Gitem:nth-child(4),
+.Community_gallery .Community_Gitem:nth-child(6),
+.Community_gallery .Community_Gitem:nth-child(8),
+.Community_gallery .Community_Gitem:nth-child(10),
+.Community_gallery .Community_Gitem:nth-child(12) {
+    grid-row: 2;
+}
+
+.Community_Gcardimg {
     display: block;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    z-index: 1;
+    width: 100%;
+    height: 115px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-figure figcaption {
-    font-size: 14px;
-    font-weight: 400;
-    z-index: 1;
+.Community_Ggroupname {
+    font-size: 1.6vh;
+    font-weight: 500;
+    color: #0d0d0d;
+    margin-bottom: 1.5px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-
-.groupList .caption {
+/*캡션*/
+.Community_caption {
     position: absolute;
-    top: 200px;
-    width: 92%;
+    width: 93%;
     /*해당 크기 값은 본 코드에서 크기가 바뀔수 있다.*/
-    height: 79%;
-    margin: 8px 0px 0px;
-    padding-top: 30px;
+    height: 93%;
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
-    transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    -ms-transition: all 0.2s ease-in-out;
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
     z-index: 10;
+    font-size: 15px;
+    padding: 10px;
 }
 
-.groupList:hover .caption {
+.Community_Gitem:hover {
+    transform: translateY(-0.5%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.Community_Gitem:hover .Community_caption {
     opacity: 1;
-    transform: translateY(-200px);
-    -moz-transform: translateY(-200px);
-    -webkit-transform: translateY(-200px);
-    -o-transform: translateY(-200px);
-    -ms-transform: translateY(-200px);
+    transform: translateY(-140px);
+    -moz-transform: translateY(-140px);
+    -webkit-transform: translateY(-140px);
+    -o-transform: translateY(-140px);
+    -ms-transform: translateY(-140px);
 }
 
-.groupList .caption #name {
+.Community_captionname {
     font-size: 20px;
 }
 
-.groupList .caption #name,
-.groupList .caption p {
+.Community_captionname,
+.Community_caption p {
     color: #fff;
     text-align: center;
 }
 
-.Grouplistbtn {
+/*이동 버튼*/
+.Community_Grouplistbtn {
     width: 100%;
     height: 5%;
-    background: #3cbe47;
+}
+
+.Community_Grouplistbtn {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Community_Grouplistbtn button {
+    padding-left: 20px;
+    background: none;
+    cursor: pointer;
+    border: none;
 }
