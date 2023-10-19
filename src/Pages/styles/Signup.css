@@ -1,0 +1,144 @@
+/* 소스명 : Signup.css
+작성자: 이진경
+이 페이지 용도 : Join CSS
+생성일자(수정일자) : 23.10.16  */
+
+#Signup {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#Signup #frame {
+  width: 80%;
+  height: 90%;
+  background-color: #F4F4F4;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #33333367, inset 0 0 5px #33333367;
+
+  font-size: 0.85rem;
+  color: #313131;
+
+}
+
+#Signup h1 {
+  text-align: center;
+  color: #01352C;
+  font-size: 1.7rem;
+  font-weight: bold;
+  height: 10%;
+}
+
+/* 회원가입 입력란 */
+#Signup form {
+  width: 80%;
+  height: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#Signup form div {
+  margin-bottom: 10px;
+}
+
+#Signup form label {
+  display: inline-block;
+  width: 20%;
+  font-weight: 800;
+}
+
+#Signup form input {
+  display: inline-block;
+  width: 65%;
+  height: 30px;
+  border: 1px solid #8CBA51;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+/* 성별 라디오 */
+#Signup form .gender input {
+  width: 10%;
+  height: 20px;
+}
+
+[type="radio"],
+#Signup form .gender span {
+  vertical-align: middle;
+}
+
+#Signup form .gender input {
+  accent-color: #397242;
+}
+
+
+/* 중복확인 버튼 */
+#Signup form button {
+  width: 12%;
+  height: 25px;
+  margin-left: 2%;
+  border-radius: 5px;
+  border: none;
+  background-color: #8CBA51;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+/* 이용약관 */
+#Signup form .user-term label {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#Signup form .user-term input {
+  width: 10%;
+  height: 20px;
+}
+
+#Signup form .user-term input {
+  accent-color: #397242;
+}
+
+
+/* 에러 메세지 */
+.error-message {
+  color: red;
+  text-align: center;
+}
+
+
+/* 회원가입 버튼 */
+#Signup .signbtn {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#Signup .signbtn button {
+  width: 100%;
+  height: 50px;
+  margin: 40px 0 0 0;
+
+  background-color: #8CBA51;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+}
+
+
+#Signup .signbtn button:hover {
+  background-color: #397242;
+  transition: 0.3s ease-in-out;
+}

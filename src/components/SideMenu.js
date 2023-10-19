@@ -1,3 +1,9 @@
+// 소스명 : SideMenu.js
+// 작성자: 이진경
+// 이 페이지 용도 : 왼쪽 메뉴
+// 생성일자(수정일자) : 23.10.13
+//  생성일자(수정일자) : 23.10.16 (로고수정)
+
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,23 +14,31 @@ import {
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-// import { useEffect, useState } from "react";
-// import { useLocation, useNavigate } from "react-router-dom";
+import logo from "../logo.png";
 
-function SideMenu() {
+function SideMenu({ onLogout, hidden }) {
   // const location = useLocation();
   // const navigate = useNavigate();
+  const handleLogout = () => {
+    // 로그아웃 버튼을 클릭하면 onLogout 함수를 호출하여 로그아웃 상태를 변경
+    onLogout();
+  };
+  const menuStyle = {
+    display: hidden ? "none" : "block",
+  };
 
   return (
-    <div id="navigation">
+    <div id="navigation" style={menuStyle}>
       {/* logo */}
       <div className="logoPlace">
         <div className="logo">
-          <Link to="/">로고</Link>
+          <Link to="/">
+            <img src={logo} alt="logo"></img>
+          </Link>
         </div>
       </div>
       {/* 네비게이션 리스트 */}
-      <ul class="nav-list">
+      <ul className="nav-list">
         <li>
           <Link to="/todo">
             <FontAwesomeIcon icon={faPersonRunning} />
@@ -36,7 +50,7 @@ function SideMenu() {
           </Link>
         </li>
         <li>
-          <Link to="/Ask">
+          <Link to="/ask">
             <FontAwesomeIcon icon={faHeadset} />
           </Link>
         </li>
@@ -48,7 +62,7 @@ function SideMenu() {
       </ul>
       {/* 로그아웃 */}
       <div className="logout">
-        <Link to="/">
+        <Link to="/" onClick={handleLogout}>
           <FontAwesomeIcon icon={faRightFromBracket} />
         </Link>
       </div>

@@ -50,7 +50,7 @@ function GroupCreate() {
           </div>
         </div>
         <div className="create">
-          <Link to="/GroupPage">생성하기</Link>
+          <Link to={`/GroupPage/37`}>생성하기</Link>
         </div>
       </div>
     </div>

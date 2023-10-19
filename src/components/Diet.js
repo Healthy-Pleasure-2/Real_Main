@@ -1,3 +1,9 @@
+/* 소스명 : GroupCreate.css */
+/* 작성자: 강수진, 이진경 */
+/* 이 페이지 용도 : 그룹 생성하기 페이지 CSS */
+/* 생성일자(수정일자) : 
+  - 23.10.13: 수정_이진경 */
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Input } from "antd";
@@ -11,7 +17,6 @@ function Diet() {
     const apiUrl = `http://api.nongsaro.go.kr/service/recomendDiet/mainCategoryList&apiKey=${apiKey}`;
     // const cntntsNo = Input;
     // const dietSeCode = Input;
-
     axios
       .get(apiUrl)
       .then((response) => {
@@ -24,7 +29,7 @@ function Diet() {
 
   return (
     <div className="diet-container">
-      <h1 className="diet-title"></h1>
+      <h1 className="diet-title">식단</h1>
       <ul className="diet-list">
         {diet.map((article, index) => (
           <li key={index} className="diet-item">
