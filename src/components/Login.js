@@ -6,7 +6,6 @@ function Login({ onLogin }) {
   const handleLogin = () => {
     // 로그인 처리 로직
     // ...
-
     // 로그인 버튼을 클릭하면 onLogin 콜백을 호출하여 로그인 상태를 변경
     onLogin();
   };
