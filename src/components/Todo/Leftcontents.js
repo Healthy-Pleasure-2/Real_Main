@@ -10,7 +10,6 @@ import {
   faCheck,
   faX,
 } from "@fortawesome/free-solid-svg-icons";
-import Calendar from "react-calendar";
 import ReactCalendar from "./Calendar";
 // import ReactCalendar from "./Calendar";
 
