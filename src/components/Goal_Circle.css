@@ -8,6 +8,7 @@
 231013 김장훈 - 차후 DB연결 시 개선 예정.
 231017 김장훈 - 입력창 및 입력버튼을 통한 시각화 변화하도록 수정. UI다듬기 등 추가작업 필요
 231018 김장훈 - 입력버튼 삭제(input 박스에 입력되면 시각화 바로 변화되도록 수정), UI 다듬기, 차후 Todo 페이지에서 최대값 불러오기 추가예정 
+231020 이진경 - 비율 수정
 --------------------------------------------------------------------------------------------------------------
 *참고 사이트
 1. https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705 = 개념
@@ -17,52 +18,66 @@
 
 .flex-wrapper {
   position: relative;
+  height: 100%;
   /* left:10px; */
 }
 
+.flex-wrapper .title {
+  height: 16%;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #01352C;
+  padding: 15px 0 10px 15px;
+}
+
+
+
 .single-chart {
-  position: relative;
-  left: 40px;
-  width: 240px;
-  bottom: 10px;
+  position: absolute;
+  left: 50px;
+  width: 180px;
+  transform: scale(0.55);
 }
 
 .single-chart1 {
-  position: relative;
-  width: 198px;
-  left: 57px;
-  bottom: 212px;
+  position: absolute;
+  left: 50px;
+  width: 180px;
+  transform: scale(0.76);
 }
 
 .single-chart2 {
-  position: relative;
-  width: 162px;
-  left: 71px;
-  bottom: 383px;
+  position: absolute;
+  left: 50px;
+  width: 180px;
 }
 
 .circular-chart,
 .circular-chart1,
 .circular-chart2 {
-  margin: 10px;
-  max-width: 80%;
-  max-height: 250px;
+  width: 100%;
+  height: 100%;
 }
 
 .circle,
 .circle1,
 .circle2 {
   fill: none;
-  stroke-width: 2.8;
   stroke-linecap: round;
+  stroke-width: 10%;
   transition: 3s ease-in-out;
+
 }
 
-@keyframes progress {
+.circle {
+  stroke-width: 13%;
+}
+
+/* @keyframes progress {
   0% {
     stroke-dasharray: 0 100;
   }
-} 
+} */
 
 .circular-chart.orange .circle {
   stroke: #81ff38;
@@ -80,16 +95,19 @@
   position: absolute;
   flex-direction: column;
   display: flex;
-  top: 200px;
-  left:80px;
+  bottom: 15px;
+  left: 63px;
 }
 
 .inputbox div {
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 3px;
 }
 
 .inputbox1 {
-  width: 50px;
+  width: 100px;
+  border-radius: 15px;
   color: #3a9e26;
   border: 2px solid #3a9e26;
   font-weight: bold;
@@ -97,7 +115,8 @@
 }
 
 .inputbox2 {
-  width: 50px;
+  width: 100px;
+  border-radius: 15px;
   color: #1a90a6;
   border: 2px solid #1a90a6;
   font-weight: bold;
@@ -105,9 +124,17 @@
 }
 
 .inputbox3 {
-  width: 50px;
+  width: 100px;
+  border-radius: 15px;
   color: #ad115c;
   border: 2px solid #ad115c;
   font-weight: bold;
   text-align: center;
+}
+
+.inputbox1:focus,
+.inputbox2:focus,
+.inputbox3:focus {
+  border-color: #ffeb0d;
+  outline: none;
 }

@@ -24,7 +24,7 @@ function Login({ onLogin }) {
         </button>
         <div className="LoginFind">
           <button className="LoginIdPwFind">
-            <Link to="/mypage" className="LoginbtnLink">
+            <Link to="/idpw" className="LoginbtnLink">
               ID 찾기 / PW 찾기
             </Link>
           </button>

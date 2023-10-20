@@ -25,7 +25,7 @@ function SideMenu({ onLogout }) {
   };
 
   return (
-    <div id="navigation" style={menuStyle}>
+    <div id="navigation">
       {/* logo */}
       <div className="logoPlace">
         <div className="logo">

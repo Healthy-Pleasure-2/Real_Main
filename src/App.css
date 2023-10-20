@@ -169,30 +169,30 @@
 }
 
 .LoginLogo {
-  margin: 10px 80px 20px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
+  margin: 10px 70px 10px;
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
   box-shadow: 0 0 5px #33333367, inset 0 0 5px #33333367;
 
 }
 
 .LoginLogo img {
   margin: 10px 0 0 7px;
-  width: 80px;
+  width: 100px;
 }
 
 .LoginIdPw {
   width: 250px;
   height: 100px;
-  padding: 10px 0px;
+  padding: 15px 0px;
 }
 
 .Logininputid,
 .Logininputpassword {
   width: 250px;
   height: 30px;
-  margin-bottom: 15px;
+
   background-color: #F4F4F4;
   border: 1px solid #8CBA51;
   font-size: 17px;
@@ -200,9 +200,20 @@
   padding-left: 10px;
 }
 
+.Logininputid {
+  margin-bottom: 10px;
+}
+
+.Logininputid:focus,
+.Logininputpassword:focus {
+  border: 2px solid #397242;
+  outline: none;
+}
+
+
 .Loginbtn {
   width: 250px;
-  height: 40px;
+  height: 45px;
   border-radius: 15px;
   background-color: #8CBA51;
   color: #fff;
@@ -210,13 +221,11 @@
   font-weight: bold;
   text-align: center;
   border: none;
-  margin-top: 5px;
 }
 
 .Loginbtn:hover {
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-  background-color: #8CBA51;
-
+  background-color: #397242;
+  transition: 0.3s ease-in-out;
 }
 
 .LoginFind {

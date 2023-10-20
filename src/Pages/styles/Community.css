@@ -97,6 +97,34 @@
     margin-bottom: 10px;
 }
 
+.Community_title p:before,
+.Community_title p::after {
+    content: "";
+    display: inline-block;
+    background-image: url("../../star.png");
+    background-size: 40px 40px;
+    width: 40px;
+    height: 40px;
+    vertical-align: sub;
+    margin: 0 5px;
+    animation: big 1.5s infinite ease;
+}
+
+@keyframes big {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+
 .Community_popularRank {
     width: 100%;
     height: 75%;

@@ -56,6 +56,7 @@ function Goal_Circle() {
 
   return (
     <div className="flex-wrapper">
+      <div className="title">안녕하세요! 김멀플님</div>
       <div className="single-chart">
         <svg viewBox="0 0 36 36" className="circular-chart orange">
           <text x="10.2" y="15" fontSize="2.5px" className="percentage"></text>
@@ -91,7 +92,7 @@ function Goal_Circle() {
 
       <div className="inputbox">
         <div style={{ color: "#62be2d" }}>
-          체중:{" "}
+          체중{" "}
           <input
             className="inputbox1"
             type="text"
@@ -102,7 +103,7 @@ function Goal_Circle() {
           kg
         </div>
         <div style={{ color: "#20c1cc" }}>
-          운동:{" "}
+          운동{" "}
           <input
             className="inputbox2"
             type="text"
@@ -113,7 +114,7 @@ function Goal_Circle() {
           kcal
         </div>
         <div style={{ color: "#cf3188" }}>
-          식단:{" "}
+          식단{" "}
           <input
             className="inputbox3"
             type="text"
