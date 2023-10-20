@@ -204,7 +204,6 @@
 
 .Loginbtn:hover {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-  /* hover하면 하얗게 바뀜,,, 나중에 다시 보기 */
   background-color: #8CBA51;
 
 }

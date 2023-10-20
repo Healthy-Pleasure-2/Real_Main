@@ -6,7 +6,6 @@ function Login({ onLogin }) {
   const handleLogin = () => {
     // 로그인 처리 로직
     // ...
-
     // 로그인 버튼을 클릭하면 onLogin 콜백을 호출하여 로그인 상태를 변경
     onLogin();
   };
@@ -25,12 +24,12 @@ function Login({ onLogin }) {
         </button>
         <div className="LoginFind">
           <button className="LoginIdPwFind">
-            <Link to="/Mypage" className="LoginbtnLink">
+            <Link to="/mypage" className="LoginbtnLink">
               ID 찾기 / PW 찾기
             </Link>
           </button>
           <button className="Loginsingnup">
-            <Link to="/Singup" className="LoginbtnLink">
+            <Link to="/signup" className="LoginbtnLink">
               회원가입
             </Link>
           </button>
