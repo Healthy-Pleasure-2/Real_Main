@@ -30,7 +30,13 @@ function Todo() {
         <GoalSet />
         <Mygroup groupinfo={groupinfo} />
       </div>
-    </div>
-  );
+      <div id="todo_container">
+        <LeftContents />
+        <div id="todo_right_contents">
+          <GoalSet />
+          <Mygroup groupinfo={groupinfo} />
+        </div>
+      </div>
+      );
 }
-export default Todo;
+      export default Todo;

@@ -2,9 +2,10 @@
   "group": [
     {
       "id": 1,
-      "name": "헬창 프로젝트",
-      "category": "운동",
-      "goal": "일주일에 3번 웨이트 하기"
+      "name": "이제형",
+      "weight": 70,
+      "exercise": 1500,
+      "eating": 580
     },
     {
       "id": 2,

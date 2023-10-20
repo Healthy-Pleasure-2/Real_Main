@@ -1,0 +1,150 @@
+/* 
+-소스명 : main.css
+-작성자 : 김장훈
+-이 페이지 용도 : 메인페이지 CSS
+-생성일자(수정일자) : 231016
+--------------------------------------------------------------------------------------------------------------
+-로그
+231016 김장훈 - 최초작성
+231020 이진경 - 수정
+*/
+
+.main {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    /* min-height: 700px; */
+}
+
+/* 배너 */
+.Hello {
+    height: 30%;
+    width: 100%;
+    background: #ffffff;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 2px solid #397242;
+    border-radius: 15px;
+}
+
+.Hello .title {
+    text-align: center;
+    margin-top: 6%;
+    margin-bottom: 10px;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+/* 카테고리 */
+.bt1 {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.bt1 button {
+    width: 80px;
+    height: 25px;
+    margin: 12px 5px;
+    background-color: #dbdbdb;
+    color: #313131;
+    border: 0px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+/* 인기상승 그룹 */
+.rank {
+    height: 45%;
+    width: 100%;
+    background: #ffffff;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 3px solid rgb(57, 114, 66);
+    box-shadow: 0 0 10px rgba(57, 114, 66, 0.7);
+    border-radius: 15px;
+}
+
+.rank .title {
+    font-size: 1.7rem;
+    color: #01352C;
+    font-weight: bold;
+    text-align: center;
+    line-height: 80px;
+    height: 80px;
+
+}
+
+
+.rank .title p:before,
+.rank .title p::after {
+    content: "";
+    display: inline-block;
+    background-image: url("../../star.png");
+    background-size: 40px 40px;
+    width: 40px;
+    height: 40px;
+    vertical-align: sub;
+    margin: 0 5px;
+    animation: big 1.5s infinite ease;
+}
+
+@keyframes big {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+.rank .Community_popularRank {
+    height: calc(100% - 80px);
+    padding: 10px;
+}
+
+.rank .Community_Rgroup {
+    margin: 0 7px
+}
+
+.rank .Community_Groupname {
+    font-size: 1.1rem;
+
+}
+
+.etc {
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Notice,
+.Question {
+    flex-basis: calc(50% - 10px);
+    height: 100%;
+    background: #ffffff;
+    box-sizing: border-box;
+    border: 2px solid #D9D9D9;
+    background-color: #f4f4f4;
+
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.Notice {
+    text-align: center;
+}
+
+.Question {
+    text-align: center;
+}
+
+.bt2 {}
