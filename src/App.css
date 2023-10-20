@@ -280,7 +280,11 @@
   height: 90%;
   margin: 0 auto;
   padding: 10px;
-  overflow: hidden;
+  overflow: auto;
+}
+
+.news-container::-webkit-scrollbar {
+  width: 0;
 }
 
 .news-title {
