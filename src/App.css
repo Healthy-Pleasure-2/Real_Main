@@ -47,9 +47,9 @@
 /************* SideMenu 왼쪽 부분 *************/
 #navigation {
   height: 100%;
-  width: 100px;
+  width: 80px;
   background: #8CBA51;
-  padding: 6px 25px;
+  padding: 6px 15px;
   transition: all 0.5s ease;
   float: left;
 }
@@ -64,8 +64,8 @@
 }
 
 .logo img {
-  width: 45px;
-  margin-top: 2.5px;
+  width: 42px;
+  margin: 3px 0 0 2px;
 }
 
 
@@ -101,11 +101,13 @@
   transition: all 0.4s ease;
 }
 
-.nav-list li a:hover {
+.nav-list li a:hover,
+.nav-list li a:focus {
   background: #FFF;
 }
 
-.nav-list li a:hover svg {
+.nav-list li a:hover svg,
+.nav-list li a:focus svg {
   color: #8CBA51;
 }
 
@@ -132,7 +134,7 @@
 
 /************* PageContent 중간부분 *************/
 #PageContent {
-  width: calc(100% - 450px);
+  width: calc(100% - 380px);
   height: 100%;
   float: left;
   padding: 30px;
@@ -146,7 +148,7 @@
 /************* SideContent 오른쪽부분 *************/
 #SideContent {
   background-color: #f3f3f3;
-  width: 350px;
+  width: 300px;
   height: 100%;
   float: left;
 }
@@ -171,7 +173,7 @@
 }
 
 .LoginLogo {
-  margin: 10px 70px 10px;
+  margin: 10px 43px 10px;
   width: 120px;
   height: 120px;
   border-radius: 60px;
@@ -185,16 +187,15 @@
 }
 
 .LoginIdPw {
-  width: 250px;
+  width: 200px;
   height: 100px;
-  padding: 15px 0px;
+  padding: 20px 0 15px;
 }
 
 .Logininputid,
 .Logininputpassword {
-  width: 250px;
+  width: 200px;
   height: 30px;
-
   background-color: #F4F4F4;
   border: 1px solid #8CBA51;
   font-size: 17px;
@@ -212,9 +213,8 @@
   outline: none;
 }
 
-
 .Loginbtn {
-  width: 250px;
+  width: 200px;
   height: 45px;
   border-radius: 15px;
   background-color: #8CBA51;
@@ -231,16 +231,16 @@
 }
 
 .LoginFind {
-  margin: 5px;
   text-align: center;
   font-size: 12px;
-  padding: 5px;
+  padding: 10px;
 }
 
 .LoginFind button {
   background: none;
   padding-right: 5px;
   padding-left: 5px;
+  font-size: 0.75rem;
 }
 
 .LoginbtnLink {

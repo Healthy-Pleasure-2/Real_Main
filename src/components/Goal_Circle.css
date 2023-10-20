@@ -25,7 +25,7 @@
 .flex-wrapper .title {
   height: 16%;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #01352C;
   padding: 15px 0 10px 15px;
 }
@@ -34,21 +34,21 @@
 
 .single-chart {
   position: absolute;
-  left: 50px;
+  left: 32px;
   width: 180px;
   transform: scale(0.55);
 }
 
 .single-chart1 {
   position: absolute;
-  left: 50px;
+  left: 32px;
   width: 180px;
   transform: scale(0.76);
 }
 
 .single-chart2 {
   position: absolute;
-  left: 50px;
+  left: 32px;
   width: 180px;
 }
 
@@ -96,7 +96,7 @@
   flex-direction: column;
   display: flex;
   bottom: 15px;
-  left: 63px;
+  left: 39px;
 }
 
 .inputbox div {

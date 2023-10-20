@@ -35,6 +35,7 @@
    height: 60px;
    margin: 20px auto;
    border-radius: 10px;
+   background: #ccc;
  }
 
  #IdPw #buttons>div {
@@ -72,6 +73,11 @@
    border: none;
    border-radius: 10px;
    padding: 10px;
+ }
+
+ #IdPw #frame input:focus {
+   border: 2px solid #397242;
+   outline: none;
  }
 
  /* ID, PW 찾기 버튼 */

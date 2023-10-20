@@ -73,11 +73,13 @@
     color: #01352C;
     font-weight: bold;
     text-align: center;
-    line-height: 80px;
-    height: 80px;
+    padding-top: 10px;
+    height: 20%;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 
 .rank .title p:before,
 .rank .title p::after {
@@ -107,8 +109,8 @@
 }
 
 .rank .Community_popularRank {
-    height: calc(100% - 80px);
-    padding: 10px;
+    height: 80%;
+    padding: 17px 10px;
 }
 
 .rank .Community_Rgroup {
@@ -117,7 +119,7 @@
 
 .rank .Community_Groupname {
     font-size: 1.1rem;
-
+    padding-top: 5%;
 }
 
 .etc {

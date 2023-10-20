@@ -134,7 +134,8 @@
 }
 
 #notice_inquiry p {
-  width: 20%;
+  width: 18%;
+  min-width: 130px;
   font-weight: 800;
 }
 
@@ -142,15 +143,13 @@
   border: 1px solid #8CBA51;
   border-radius: 5px;
   height: 30px;
-  width: 80%;
+  width: 82%;
   margin-bottom: 2%;
   padding-left: 10px;
 }
 
 #notice_inquiry .notice_qu input {
   height: 150px;
-  width: 80%;
-  /* margin-bottom: 5%; */
 }
 
 #notice_inquiry input:focus {

@@ -46,6 +46,7 @@
 #Mypage form label {
   display: inline-block;
   width: 20%;
+  min-width: 100px;
   font-weight: 800;
 }
 
@@ -77,6 +78,7 @@
 /* 중복확인 버튼 */
 #Mypage form button {
   width: 12%;
+  min-width: 50px;
   height: 25px;
   margin-left: 2%;
   border-radius: 5px;

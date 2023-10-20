@@ -8,9 +8,10 @@
 
 /* 위젯들의 제목 */
 .todo_h1 {
-  font-size: 30px;
+  font-size: 1.7rem;
   margin-bottom: 15px;
   text-align: center;
+  color: #01352C;
 }
 
 button {
@@ -19,8 +20,8 @@ button {
 
 /* ********  좌측 컨텐츠 ************** */
 #todo_container #todo_left_contents {
-  box-shadow: 3px 3px 7px rgb(131, 131, 131);
-  border: 1px solid #7B7B7B;
+  box-shadow: 0 0 10px #33333367, inset 0 0 5px #33333367;
+  border: 2px solid #D9D9D9;
   border-radius: 15px;
   flex: 1;
   float: left;
@@ -64,9 +65,7 @@ button {
   width: 100%;
   height: 70px;
   margin-bottom: 15px;
-  align-items: center;
   position: relative;
-  box-shadow: 3px 3px 7px rgb(131, 131, 131);
 }
 
 
@@ -75,7 +74,7 @@ button {
   width: 30px;
   height: 30px;
   border: none;
-  color: #000;
+  color: #fff;
   border-radius: 50%;
   position: absolute;
   transform: translateY(-50%);
@@ -106,6 +105,8 @@ button {
   top: 50%;
   left: 40px;
   transform: translateY(-50%);
+  color: #313131;
+
 }
 
 .todo_checkList .done {
@@ -121,7 +122,7 @@ button {
   margin-top: auto;
   margin-left: 10px;
   position: relative;
-  box-shadow: 3px 3px 7px rgb(131, 131, 131);
+  background-color: #f4f4f4;
 }
 
 /* to-do 작성공간 */
@@ -132,13 +133,16 @@ button {
   border-radius: 15px;
   border: none;
   outline: none;
-  padding: 0 15px
+  padding: 0 15px;
+  background-color: #f4f4f4;
+  color: #313131;
+
 }
 
 /* to-do 작성완료 버튼 */
 .todo_addList .todo_save {
   font-size: 35px;
-  background: #fff;
+  background-color: inherit;
   border: none;
   width: 35px;
   height: 35px;
@@ -147,6 +151,7 @@ button {
   top: 50%;
   right: 25px;
   transform: translateY(-50%);
+  color: #313131;
 }
 
 
@@ -159,9 +164,8 @@ button {
 
 /* ********  목표 설정  ************** */
 #todo_container #todo_goal {
-  background: #F5F5F5;
-  box-shadow: 3px 3px 7px rgb(131, 131, 131);
-  border: 1px solid #7B7B7B;
+  background-color: #f4f4f4;
+  border: 2px solid #D9D9D9;
   height: 50%;
   border-radius: 15px;
   padding: 20px;
@@ -214,7 +218,7 @@ button {
   border: none;
   border-radius: 15px;
   margin-top: 20px;
-  background: #c8c4c4;
+  background: #dbdbdb;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -255,21 +259,22 @@ button {
 
 /* 아이콘을 감싸고 있는 원 */
 .todo_icon {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: #F3F3F3;
-  line-height: 50px;
+  background-color: #397242;
+  line-height: 40px;
   text-align: center;
+  color: #fff;
 }
 
 /* 아이콘 */
 .todo_icon svg:first-child {
-  width: 30px;
+  width: 25px;
 }
 
 .todo_icon svg {
-  font-size: 30px;
+  font-size: 25px;
   vertical-align: middle;
 }
 
@@ -286,13 +291,16 @@ button {
   right: 0;
   padding-left: 15px;
   font-size: 20px;
-  color: #4c4b4b;
+  color: #01352C;
   font-weight: bold;
 }
 
 
 .todo_data_rightSide .todo_data_record {
-  border-width: 0 0 2px;
+  border: none;
+  border-bottom: 2px solid #01352C;
+  color: #01352C;
+  font-weight: bold;
   width: 80%;
   font-size: 20px;
   text-align: center;
@@ -314,14 +322,14 @@ button {
   top: 50%;
   left: 80%;
   font-size: 18px;
+  color: #01352C;
 }
 
 
 /* ********  나의 그룹 ************** */
 #todo_container #todo_my_group {
-  background: #F5F5F5;
-  box-shadow: 3px 3px 7px rgb(131, 131, 131);
-  border: 1px solid #7B7B7B;
+  background-color: #f4f4f4;
+  border: 2px solid #D9D9D9;
   width: 100%;
   height: 45%;
   position: absolute;
