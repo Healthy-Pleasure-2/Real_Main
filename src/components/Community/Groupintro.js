@@ -8,10 +8,6 @@ import "../../Pages/styles/Community.css";
 import { Link } from "react-router-dom";
 
 function Groupintro({ groupData, selectedCategory }) {
-  /*데이터값 확인*/
-  console.log("데이터 값", groupData);
-  console.log("카테고리 값", selectedCategory);
-
   const [itemsCount, setItemsCount] = useState(4); // 초기 갤러리 아이템 수
   const [filteredGroups, setFilteredGroups] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);

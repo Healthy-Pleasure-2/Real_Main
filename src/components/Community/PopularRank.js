@@ -30,7 +30,7 @@ function PopularRank({ groupData }) {
   }, []);
   useEffect(() => {
     // 그룹을 동적으로 조절
-    const newGroupsCount = Math.floor(windowWidth / 350);
+    const newGroupsCount = Math.max(2, Math.floor(windowWidth / 350));
     const newGroups = initialGroups.slice(0, newGroupsCount);
     setGroups(newGroups);
   }, [windowWidth, initialGroups]);
