@@ -37,7 +37,8 @@ function Goal_Circle() {
       ? maxStrokeDasharray
       : weightValue <= minWeight
       ? minStrokeDasharray
-      : ((weightValue - minWeight) / (maxWeight - minWeight)) * maxStrokeDasharray;
+      : ((weightValue - minWeight) / (maxWeight - minWeight)) *
+        maxStrokeDasharray;
   };
 
   const handleInputChange = (inputType, inputValue) => {
@@ -57,9 +58,7 @@ function Goal_Circle() {
     <div className="flex-wrapper">
       <div className="single-chart">
         <svg viewBox="0 0 36 36" className="circular-chart orange">
-          <text x="10.2" y="15" fontSize="2.5px" className="percentage">
-            
-          </text>
+          <text x="10.2" y="15" fontSize="2.5px" className="percentage"></text>
           <path
             className="circle"
             strokeDasharray={`${weightStrokeDasharray}, 100`}
@@ -75,9 +74,7 @@ function Goal_Circle() {
             strokeDasharray={`${exerciseStrokeDasharray}, 100`}
             d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
           />
-          <text x="8.5" y="18.8" fontSize="3px" className="percentage1">
-            
-          </text>
+          <text x="8.5" y="18.8" fontSize="3px" className="percentage1"></text>
         </svg>
       </div>
 
@@ -88,9 +85,7 @@ function Goal_Circle() {
             strokeDasharray={`${dietStrokeDasharray}, 100`}
             d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
           />
-          <text x="7" y="25" fontSize="3.5px" className="percentage2">
-            
-          </text>
+          <text x="7" y="25" fontSize="3.5px" className="percentage2"></text>
         </svg>
       </div>
 
@@ -134,11 +129,12 @@ function Goal_Circle() {
 }
 export default Goal_Circle;
 
-
 /*초안*/
 /*
 import React from "react";
 import "./Goal_Circle.css";
+
+
 
 function Goal_Circle() {
   return (
@@ -182,5 +178,4 @@ function Goal_Circle() {
     </div>
   );
 }
-export default Goal_Circle;
-*/
+export default Goal_Circle; */

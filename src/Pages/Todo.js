@@ -6,7 +6,7 @@
 import "./styles/Todo.css";
 import axios from "axios";
 import LeftContents from "../components/Todo/Leftcontents";
-import GoalSet from "../components/Todo/GoalSet.js";
+import GoalSet from "../components/Todo/GoalSet";
 import Mygroup from "../components/Todo/Mygroup";
 import { useEffect, useState } from "react";
 
@@ -14,7 +14,7 @@ function Todo() {
   const [groupinfo, setGroupInfo] = useState([]);
   useEffect(() => {
     axios
-      .get("/group.json", { headers: { "Cache-Control": "no-cache" } })
+      .get("/group.json")
       .then((result) => {
         setGroupInfo(result.data);
       })
@@ -24,9 +24,9 @@ function Todo() {
   }, []);
 
   return (
-    <div id="container">
+    <div id="todo_container">
       <LeftContents />
-      <div id="right_contents">
+      <div id="todo_right_contents">
         <GoalSet />
         <Mygroup groupinfo={groupinfo} />
       </div>

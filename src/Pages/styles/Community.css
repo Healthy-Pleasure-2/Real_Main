@@ -74,7 +74,7 @@
 
 /*인기랭크*/
 .Community_rank {
-    height: 35%;
+    height: 31%;
     width: 100%;
     margin-bottom: 20px;
     box-sizing: border-box;
@@ -124,6 +124,7 @@
     cursor: pointer;
     transition: 0.2s;
     padding: 10px;
+    padding: 10px;
 }
 
 .Community_item:hover {
@@ -154,7 +155,7 @@
 /*그룹 목록*/
 .Community_GroupList {
     width: 100%;
-    height: 50%;
+    height: 45vh;
     box-sizing: border-box;
     padding: 10px;
     border: 2px solid #D9D9D9;
@@ -171,7 +172,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 95%;
+    height: 93%;
     overflow: hidden;
     padding: 0px 7px;
 }
@@ -261,7 +262,11 @@
 .Community_Gitem:hover .Community_caption {
     opacity: 1;
     transform: translateY(-200px);
+    transform: translateY(-200px);
     -moz-transform: translateY(-140px);
+    -webkit-transform: translateY(-101%);
+    -o-transform: translateY(-200px);
+    -ms-transform: translateY(-500px);
     -webkit-transform: translateY(-101%);
     -o-transform: translateY(-200px);
     -ms-transform: translateY(-500px);
