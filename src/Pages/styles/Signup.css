@@ -59,6 +59,12 @@
   padding-left: 10px;
 }
 
+#Signup form input:focus {
+  border: 2px solid #397242;
+  outline: none;
+}
+
+
 /* 성별 라디오 */
 #Signup form .gender input {
   width: 10%;
