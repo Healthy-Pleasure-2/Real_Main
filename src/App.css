@@ -153,6 +153,14 @@
   margin: 30px;
 }
 
+/******* 데일리 상태 박스 *******/
+#daily-box {
+  height: 350px;
+  background-color: #fff;
+  box-shadow: 0 0 5px #33333367, inset 0 0 5px #33333367;
+  border-radius: 15px;
+}
+
 /******* 로그인 디자인 (23.10.18_정은정, 이진경(수정: 로고 추가, 높이 조절) ) *******/
 .Loginbox {
   padding: 20px;
@@ -161,38 +169,51 @@
 }
 
 .LoginLogo {
-  margin: 10px 85px;
-  width: 85px;
-  height: 85px;
-  border-radius: 50px;
-  border: 5px solid #8CBA51;
+  margin: 10px 70px 10px;
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  box-shadow: 0 0 5px #33333367, inset 0 0 5px #33333367;
+
 }
 
 .LoginLogo img {
-  margin: 5px 0 0 0;
-  width: 70px;
+  margin: 10px 0 0 7px;
+  width: 100px;
 }
 
 .LoginIdPw {
   width: 250px;
   height: 100px;
-  padding: 10px 0px;
+  padding: 15px 0px;
 }
 
 .Logininputid,
 .Logininputpassword {
   width: 250px;
   height: 30px;
-  margin-bottom: 15px;
+
   background-color: #F4F4F4;
-  border: 1px solid #7B7B7B;
+  border: 1px solid #8CBA51;
   font-size: 17px;
   border-radius: 15px;
+  padding-left: 10px;
 }
+
+.Logininputid {
+  margin-bottom: 10px;
+}
+
+.Logininputid:focus,
+.Logininputpassword:focus {
+  border: 2px solid #397242;
+  outline: none;
+}
+
 
 .Loginbtn {
   width: 250px;
-  height: 30px;
+  height: 45px;
   border-radius: 15px;
   background-color: #8CBA51;
   color: #fff;
@@ -203,9 +224,8 @@
 }
 
 .Loginbtn:hover {
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-  background-color: #8CBA51;
-
+  background-color: #397242;
+  transition: 0.3s ease-in-out;
 }
 
 .LoginFind {
@@ -242,17 +262,11 @@
 /******* 로그인 끝 *******/
 
 
-/******* 데일리 상태 박스 *******/
-#daily-box {
-  height: 300px;
-  background-color: #fff;
-  box-shadow: 0 0 5px #33333367, inset 0 0 5px #33333367;
-  border-radius: 15px;
-}
+
 
 /******* 뉴스 *******/
 #news {
-  height: 250px;
+  height: 200px;
   background-color: #fff;
   box-shadow: 0 0 5px #33333367, inset 0 0 5px #33333367;
   margin-top: 20px;

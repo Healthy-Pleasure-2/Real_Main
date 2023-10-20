@@ -14,7 +14,7 @@
 #GroupPage #frame {
   width: 90%;
   height: 95%;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 0 10px #33333367, inset 0 0 5px #33333367;
@@ -57,7 +57,7 @@
   height: 50%;
   background-color: #8CBA51;
   border: none;
-  border-radius: 25px;
+  border-radius: 15px;
   cursor: pointer;
 
   color: #fff;
@@ -67,6 +67,7 @@
 
 #GroupPage .top button:hover {
   background-color: #397242;
+  transition: 0.2s ease-in-out;
 }
 
 
@@ -136,7 +137,7 @@
   border-right: 1px solid #729642;
   width: 8vw;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 700;
 }
 
@@ -155,7 +156,7 @@
   padding: 0 0 7px 7px;
   border-bottom: 1px solid #729642;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   height: 10%;
 }
 
@@ -235,7 +236,9 @@
   width: 10%;
   height: 100%;
   margin: 0;
-  background-color: #98c959;
+  background-color: #8CBA51;
+  color: #fff;
+  font-weight: 700;
   border: none;
   border-radius: 5px;
 }
