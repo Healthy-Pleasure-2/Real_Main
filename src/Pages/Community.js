@@ -10,10 +10,11 @@ import PopularRank from "../components/Community/PopularRank";
 import Groupintro from "../components/Community/Groupintro";
 import getGroupData from "../components/Community/getGroupData";
 
-function Community() {
+function Community({ isLoggedIn }) {
   const [selectedCategory, setSelectedCategory] = useState(""); // 추가: 선택된 카테고리 상태
   const [groupData, setGroupData] = useState([]);
 
+  console.log(isLoggedIn);
   useEffect(() => {
     const fetchGroupData = async () => {
       const result = await getGroupData();
@@ -38,13 +39,15 @@ function Community() {
           </button>
           <button onClick={() => handleCategoryClick("습관")}>습관</button>
         </div>
-        <div className="Community_groupbtn">
-          <button>
-            <Link to="/GroupCreate" className="Community_link">
-              그룹만들기
-            </Link>
-          </button>
-        </div>
+        {isLoggedIn && (
+          <div className="Community_groupbtn">
+            <button>
+              <Link to="/GroupCreate" className="Community_link">
+                그룹만들기
+              </Link>
+            </button>
+          </div>
+        )}
       </div>
       {/*인기 랭킹*/}
       <div className="Community_rank">
@@ -54,10 +57,7 @@ function Community() {
         <PopularRank groupData={groupData} />
       </div>
       {/*그룹목록*/}
-      <Groupintro
-        groupData={groupData}
-        setSelectedCategory={selectedCategory}
-      />
+      <Groupintro groupData={groupData} selectedCategory={selectedCategory} />
     </div>
   );
 }

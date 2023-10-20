@@ -2,7 +2,6 @@ import React from "react";
 import GoalCircle from "./Goal_Circle"; //Goal_Circle 컴포넌트 임포트
 import News from "./News";
 import Login from "./Login";
-import SideMenu from "./SideMenu";
 function SideContent({ isLoggedIn, onLogin }) {
   // 로그인 상태를 관리
   return (

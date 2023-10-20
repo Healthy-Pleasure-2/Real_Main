@@ -10,7 +10,7 @@ import "./styles/GroupPage.css";
 import { useParams } from "react-router-dom";
 import getGroupData from "../components/Community/getGroupData";
 
-function GroupPage() {
+function GroupPage({ isLoggedIn }) {
   // 버튼 클릭시 댓글창 보이기
   const [showDiv, setShowDiv] = useState(false);
   const toggleDiv = () => {
@@ -62,7 +62,7 @@ function GroupPage() {
     <div id="GroupPage">
       <div id="frame">
         <div className="top">
-          <button onClick={toggleDiv}>참여하기</button>
+          {isLoggedIn && <button onClick={toggleDiv}>참여하기</button>}
           <h2>{groupInfo.name}</h2>
           <div id="category">{groupInfo.category}</div>
         </div>
