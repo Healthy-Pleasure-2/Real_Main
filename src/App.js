@@ -10,6 +10,7 @@ import SideContent from "./components/SideCotent";
 />;
 
 function App() {
+  // 로그인과 로그아웃의 상태 변경
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -23,7 +24,7 @@ function App() {
     <div className="App">
       <div className="wrap">
         <SideMenu onLogout={handleLogout} isLoggedIn={isLoggedIn}></SideMenu>
-        <PageContent isLoggedIn={isLoggedIn}></PageContent>
+        <PageContent></PageContent>
         <SideContent
           isLoggedIn={isLoggedIn}
           onLogin={handleLogin}
