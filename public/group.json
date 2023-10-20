@@ -4,7 +4,7 @@
       "id": 1,
       "name": "채식을 위하여",
       "category": "식단",
-      "img":"https://cdn.pixabay.com/photo/2017/10/09/19/29/eat-2834549_1280.jpg",
+      "img": "https://cdn.pixabay.com/photo/2017/10/09/19/29/eat-2834549_1280.jpg",
       "goal": "일주일에 3번 채소 먹기",
       "grouptotal": 86,
       "groupintro": "일주일에 3번 채소 먹기 일주일에 3번 채소 먹기 일주일에 3번 채소 먹기 일주일에 3번 채소 먹기 일주일에 3번 채소 먹기"
@@ -13,7 +13,7 @@
       "id": 2,
       "name": "독서왕",
       "category": "습관",
-      "img":"https://cdn.pixabay.com/photo/2016/06/16/08/39/cat-1460882_1280.png",
+      "img": "https://cdn.pixabay.com/photo/2016/06/16/08/39/cat-1460882_1280.png",
       "goal": "주당 2권의 책 읽기",
       "grouptotal": 32,
       "groupintro": " 주당 2권의 책 읽기주당 2권의 책 읽기주당 2권의 책 읽기주당 2권의 책 읽기주당 2권의 책 읽기주당 2권의 책 읽기"
@@ -22,7 +22,7 @@
       "id": 3,
       "name": "크로스핏",
       "category": "운동",
-      "img":"https://cdn.pixabay.com/photo/2016/01/08/01/53/gymer-1126999_1280.jpg",
+      "img": "https://cdn.pixabay.com/photo/2016/01/08/01/53/gymer-1126999_1280.jpg",
       "goal": "매일 2시간 크로스핏 운동하기",
       "grouptotal": 55,
       "groupintro": "매일 2시간 크로스핏 운동하기 매일 2시간 크로스핏 운동하기 매일 2시간 크로스핏 운동하기 매일 2시간 크로스핏 운동하기매일 2시간 크로스핏 운동하기"
@@ -31,7 +31,7 @@
       "id": 4,
       "name": "건강을 위하여",
       "category": "다이어트",
-      "img":"https://cdn.pixabay.com/photo/2017/08/06/12/52/woman-2592247_1280.jpg",
+      "img": "https://cdn.pixabay.com/photo/2017/08/06/12/52/woman-2592247_1280.jpg",
       "goal": "건강을 위해 체중 감량",
       "grouptotal": 45,
       "groupintro": "다이어트가 아닌 건강을 목적으로 함께 체중 감량하실분!"
