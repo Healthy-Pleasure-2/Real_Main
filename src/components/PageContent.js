@@ -1,9 +1,9 @@
 import AppRoutes from "./AppRoutes";
 
-function PageContent({ isLoggedIn }) {
+function PageContent() {
   return (
     <div id="PageContent">
-      <AppRoutes isLoggedIn={isLoggedIn} />
+      <AppRoutes />
     </div>
   );
 }
