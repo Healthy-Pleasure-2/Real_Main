@@ -1,0 +1,100 @@
+ /* 소스명 : Id_pw.css
+ 작성자 : 이진경
+ 이 페이지 용도 : ID/PW 찾기 페이지 css
+ 작성일자 : 23.10.18 */
+
+
+ #IdPw {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+
+ #IdPw #frame {
+   width: 65%;
+   height: 70%;
+   background-color: #F4F4F4;
+   padding: 30px;
+   border-radius: 20px;
+   box-shadow: 0 0 10px #33333367, inset 0 0 5px #33333367;
+   font-size: 0.85rem;
+   color: #313131;
+ }
+
+ /* ID, PW 버튼 */
+ #IdPw .green {
+   background-color: #8CBA51;
+   border-radius: 5px;
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+ }
+
+ #IdPw #buttons {
+   width: 80%;
+   height: 60px;
+   margin: 20px auto;
+   border-radius: 10px;
+ }
+
+ #IdPw #buttons>div {
+   width: 49.95%;
+   height: 60px;
+   float: left;
+   font-size: 20px;
+   font-weight: bold;
+   color: white;
+   text-align: center;
+   line-height: 60px;
+ }
+
+ #IdPw #buttons>div:hover {
+   background: #397242;
+   border-radius: 10px;
+   cursor: pointer;
+   transition: 0.3s ease-in-out;
+ }
+
+ /* ID, PW 작성란 */
+ #idFind,
+ #pwFind {
+   width: 80%;
+   height: 85%;
+   margin: 20px auto;
+ }
+
+ /* ID, PW 작성란 */
+ #IdPw #frame input,
+ #IdPw #frame button {
+   width: 100%;
+   height: 50px;
+   margin-top: 20px;
+   border: none;
+   border-radius: 10px;
+   padding: 10px;
+ }
+
+ /* ID, PW 찾기 버튼 */
+ #IdPw #frame button {
+   margin-top: 40px;
+   background-color: #8CBA51;
+   color: #fff;
+   font-size: 15px;
+   font-weight: bold;
+ }
+
+ #IdPw #frame button:hover {
+   background: #397242;
+   transition: 0.3s ease-in-out;
+ }
+
+ #idFind>div,
+ #pwFind>div {
+   text-align: center;
+   margin-top: 15px;
+ }
+
+ #idFind>div a,
+ #pwFind>div a {
+   font-weight: bold;
+ }

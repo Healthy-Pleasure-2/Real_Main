@@ -1,3 +1,10 @@
+/* 소스명 : App.css
+작성자: 이진경
+이 페이지 용도 : 기본틀 css
+생성일자(수정일자) : 23.10.13
+수정일자 : 23.10.16 (로고수정) 
+수정일자 : 23.10.18 (로그인 추가(정은정), 수정(이진경)) */
+
 /*  import google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
@@ -45,12 +52,21 @@
   float: left;
 }
 
+/* 로고 */
 .logo {
   width: 50px;
   height: 50px;
-  margin: 30px 0;
   background-color: #fff;
+  border-radius: 50%;
+  margin: 30px 0;
 }
+
+.logo img {
+  width: 45px;
+  margin-top: 2.5px;
+}
+
+
 
 /* 네비게이션 리스트 */
 .nav-list {
@@ -137,20 +153,169 @@
   margin: 30px;
 }
 
-/* 데일리 상태 박스 */
+/******* 데일리 상태 박스 *******/
 #daily-box {
-  height: 300px;
+  height: 350px;
   background-color: #fff;
+  box-shadow: 0 0 5px #33333367, inset 0 0 5px #33333367;
   border-radius: 15px;
 }
 
-/* 추천식단/ 뉴스 */
+/******* 로그인 디자인 (23.10.18_정은정, 이진경(수정: 로고 추가, 높이 조절) ) *******/
+.Loginbox {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.LoginLogo {
+  margin: 10px 70px 10px;
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  box-shadow: 0 0 5px #33333367, inset 0 0 5px #33333367;
+
+}
+
+.LoginLogo img {
+  margin: 10px 0 0 7px;
+  width: 100px;
+}
+
+.LoginIdPw {
+  width: 250px;
+  height: 100px;
+  padding: 15px 0px;
+}
+
+.Logininputid,
+.Logininputpassword {
+  width: 250px;
+  height: 30px;
+
+  background-color: #F4F4F4;
+  border: 1px solid #8CBA51;
+  font-size: 17px;
+  border-radius: 15px;
+  padding-left: 10px;
+}
+
+.Logininputid {
+  margin-bottom: 10px;
+}
+
+.Logininputid:focus,
+.Logininputpassword:focus {
+  border: 2px solid #397242;
+  outline: none;
+}
+
+
+.Loginbtn {
+  width: 250px;
+  height: 45px;
+  border-radius: 15px;
+  background-color: #8CBA51;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+.Loginbtn:hover {
+  background-color: #397242;
+  transition: 0.3s ease-in-out;
+}
+
+.LoginFind {
+  margin: 5px;
+  text-align: center;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.LoginFind button {
+  background: none;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.LoginbtnLink {
+  text-decoration: none;
+  /* 밑줄 제거 */
+  color: inherit;
+}
+
+.LoginIdPwFind {
+  height: 20px;
+  border-left: none;
+  border-top: none;
+  border-right: 1px solid #000000;
+  border-bottom: none;
+}
+
+.Loginsingnup {
+  border: none;
+}
+
+/******* 로그인 끝 *******/
+
+
+
+
+/******* 뉴스 *******/
 #news {
-  height: 250px;
+  height: 200px;
   background-color: #fff;
+  box-shadow: 0 0 5px #33333367, inset 0 0 5px #33333367;
   margin-top: 20px;
   border-radius: 15px;
 }
+
+/* 뉴스 CSS */
+/* 2023.10.16 / 작성자: 강수진, 이진경(수정) */
+.news-container {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.news-title {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.news-list {
+  list-style: none;
+  padding: 0;
+  font-size: 13px;
+  height: 80%;
+}
+
+.news-item {
+  margin-bottom: 5px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 3px;
+
+}
+
+.news-link {
+  text-decoration: none;
+  color: #01352C;
+  font-weight: bold;
+  transition: color 0.3s;
+
+}
+
+.news-link .news-item a:active {
+  color: #0056b3;
+}
+
+
 
 /* footer */
 #SideContent footer {

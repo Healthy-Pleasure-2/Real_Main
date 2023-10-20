@@ -1,5 +1,5 @@
 import "./App.css";
-
+import React, { useState } from "react";
 import PageContent from "./components/PageContent";
 import SideMenu from "./components/SideMenu";
 import SideContent from "./components/SideCotent";
@@ -10,12 +10,24 @@ import SideContent from "./components/SideCotent";
 />;
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <div className="App">
       <div className="wrap">
-        <SideMenu></SideMenu>
-        <PageContent></PageContent>
-        <SideContent></SideContent>
+        <SideMenu onLogout={handleLogout} isLoggedIn={isLoggedIn}></SideMenu>
+        <PageContent isLoggedIn={isLoggedIn}></PageContent>
+        <SideContent
+          isLoggedIn={isLoggedIn}
+          onLogin={handleLogin}
+        ></SideContent>
       </div>
     </div>
   );
