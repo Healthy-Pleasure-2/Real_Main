@@ -22,8 +22,8 @@ function App() {
   return (
     <div className="App">
       <div className="wrap">
-        <SideMenu onLogout={handleLogout}></SideMenu>
-        <PageContent></PageContent>
+        <SideMenu onLogout={handleLogout} isLoggedIn={isLoggedIn}></SideMenu>
+        <PageContent isLoggedIn={isLoggedIn}></PageContent>
         <SideContent
           isLoggedIn={isLoggedIn}
           onLogin={handleLogin}

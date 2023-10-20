@@ -16,7 +16,7 @@ import {
 import { Link } from "react-router-dom";
 import logo from "../logo.png";
 
-function SideMenu({ onLogout }) {
+function SideMenu({ isLoggedIn, onLogout }) {
   // const location = useLocation();
   // const navigate = useNavigate();
   const handleLogout = () => {
@@ -51,18 +51,23 @@ function SideMenu({ onLogout }) {
             <FontAwesomeIcon icon={faHeadset} />
           </Link>
         </li>
-        <li>
-          <Link to="/mypage">
-            <FontAwesomeIcon icon={faCircleUser} />
-          </Link>
-        </li>
+        {/* 로그아웃 버튼과 마이페이지 버튼은 로그인 상태에 따라 렌더링 */}
+        {isLoggedIn && (
+          <li>
+            <Link to="/mypage">
+              <FontAwesomeIcon icon={faCircleUser} />
+            </Link>
+          </li>
+        )}
       </ul>
-      {/* 로그아웃 */}
-      <div className="logout" onClick={handleLogout}>
-        <Link to="/">
-          <FontAwesomeIcon icon={faRightFromBracket} />
-        </Link>
-      </div>
+      {/* 로그아웃 버튼과 마이페이지 버튼은 로그인 상태에 따라 렌더링 */}
+      {isLoggedIn && (
+        <div className="logout" onClick={handleLogout}>
+          <Link to="/">
+            <FontAwesomeIcon icon={faRightFromBracket} />
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
