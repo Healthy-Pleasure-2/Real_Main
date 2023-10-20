@@ -10,7 +10,7 @@ import {
   faCheck,
   faX,
 } from "@fortawesome/free-solid-svg-icons";
-// import ReactCalendar from "./Calendar";
+import ReactCalendar from "./Calendar";
 
 function LeftContents() {
   let [text, setText] = useState('');
@@ -58,7 +58,7 @@ function LeftContents() {
   return (
     <div id="todo_left_contents">
       <h1 className="todo_h1">To do List</h1>
-      <div className="todo_calendar"></div>
+      <div className="todo_calendar"><ReactCalendar /></div>
       <div className="todo_checkLists">
         {todoList.map((item, i) => {
           console.log(todoList)
