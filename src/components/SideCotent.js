@@ -10,7 +10,12 @@ function SideContent({ isLoggedIn, onLogin }) {
         {/* 데일리 상태 박스 */}
         {isLoggedIn ? (
           <div id="daily-box">
+<<<<<<< HEAD
             <p style={{ fontWeight: "bold" }}>안녕하세요! 김멀플님</p>
+=======
+            {/* <p style={{ fontWeight: "bold" }}>안녕하세요! 김멀플님</p> */}
+            {/* 위 코드는 <Goal_Circle.js>로 이동 */}
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
             <GoalCircle />
             {/* 일일 목표랑 그래프 */}
             {/* <div id="graph"></div> */}

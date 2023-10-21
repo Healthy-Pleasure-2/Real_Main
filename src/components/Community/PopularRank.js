@@ -1,7 +1,11 @@
 /*소스명 : Groupintro.js
 작성자 : 정은정
 이 페이지 용도 : 인기상승 화면
+<<<<<<< HEAD
 생성일자(수정일자) :*/
+=======
+생성일자(수정일자) : 10/20*/
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 
 import React, { useState, useEffect, useMemo } from "react";
 import "../../Pages/styles/Community.css";
@@ -30,7 +34,7 @@ function PopularRank({ groupData }) {
   }, []);
   useEffect(() => {
     // 그룹을 동적으로 조절
-    const newGroupsCount = Math.floor(windowWidth / 350);
+    const newGroupsCount = Math.max(2, Math.floor(windowWidth / 350));
     const newGroups = initialGroups.slice(0, newGroupsCount);
     setGroups(newGroups);
   }, [windowWidth, initialGroups]);

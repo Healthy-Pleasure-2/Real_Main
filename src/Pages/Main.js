@@ -6,6 +6,10 @@
 --------------------------------------------------------------------------------------------------------------
 -로그
 231016 김장훈 - 최초작성
+<<<<<<< HEAD
+=======
+231020 이진경 - 수정
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 */
 
 import React, { useState, useEffect } from "react";
@@ -50,12 +54,28 @@ function Main() {
           <p>
             공지사항<button className="bt2">+</button>
           </p>
+<<<<<<< HEAD
+=======
+          <div className="border"></div>
+          <div className="border"></div>
+          <div className="border"></div>
+          <div className="border"></div>
+          <div className="border"></div>
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
         </div>
 
         <div className="Question">
           <p>
             자주 묻는 질문<button className="bt2">+</button>
           </p>
+<<<<<<< HEAD
+=======
+          <div className="border"></div>
+          <div className="border"></div>
+          <div className="border"></div>
+          <div className="border"></div>
+          <div className="border"></div>
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
         </div>
       </div>
     </div>

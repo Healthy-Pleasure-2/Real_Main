@@ -5,7 +5,11 @@
   - 23.10.16: 생성_강수진 */
 
 import "./styles/Ask.css";
+<<<<<<< HEAD
 import Notice from "../components/notice";
+=======
+import Notice1 from "../components/Notice1";
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 import React, { Component } from "react";
 // import dummy from "../../public/notice.json"
 
@@ -80,7 +84,11 @@ class Ask extends Component {
             this.state.activeTab === "notice_N" ? "active" : ""
           }`}
         >
+<<<<<<< HEAD
           <Notice />
+=======
+          <Notice1 />
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
           {/* JSON 데이터를 사용하여 공지사항을 표시합니다. */}
           {/* <ul>
               {notices.map((notice) => (
@@ -106,6 +114,7 @@ class Ask extends Component {
             this.state.activeTab === "notice_inquiry" ? "active" : ""
           }`}
         >
+<<<<<<< HEAD
           <div className="notice_email">
             <p>이메일</p>
             <input type="text" size={90} />
@@ -131,6 +140,36 @@ class Ask extends Component {
             {/* <p>{message}</p> */}
           </div>
           <p>{message}</p>
+=======
+          <div className="form">
+            <h1>온라인 문의</h1>
+            <div className="notice_email">
+              <p>이메일</p>
+              <input type="text" size={90} />
+            </div>
+            <div className="notice_name">
+              <p>이름</p>
+              <input type="text" size={90}></input>
+            </div>
+            <div className="notice_number">
+              <p>휴대전화번호(선택)</p>
+              <input type="text" size={90}></input>
+            </div>
+            <div className="notice_tittle">
+              <p>제목</p>
+              <input type="text" size={90}></input>
+            </div>
+            <div className="notice_qu">
+              <p>문의사항</p>
+              <input type="text" size={90}></input>
+            </div>
+            <div className="notice_btn">
+              <button onClick={this.handleTabClickl}>문의하기</button>
+              {/* <p>{message}</p> */}
+            </div>
+            <p>{message}</p>
+          </div>
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
         </div>
       </div>
     );

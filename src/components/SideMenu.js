@@ -16,11 +16,20 @@ import {
 import { Link } from "react-router-dom";
 import logo from "../logo.png";
 
+<<<<<<< HEAD
 function SideMenu({ onLogout }) {
+=======
+function SideMenu({ isLoggedIn, onLogout }) {
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
   // const location = useLocation();
   // const navigate = useNavigate();
   const handleLogout = () => {
     // 로그아웃 버튼을 클릭하면 onLogout 함수를 호출하여 로그아웃 상태를 변경
+    onLogout();
+  };
+
+  // 로그아웃 버튼을 클릭하면 onLogout 함수를 호출하여 로그아웃 상태를 변경
+  const handleLogout = () => {
     onLogout();
   };
 
@@ -51,18 +60,32 @@ function SideMenu({ onLogout }) {
             <FontAwesomeIcon icon={faHeadset} />
           </Link>
         </li>
-        <li>
-          <Link to="/mypage">
-            <FontAwesomeIcon icon={faCircleUser} />
-          </Link>
-        </li>
+        {/* 로그아웃 버튼과 마이페이지 버튼은 로그인 상태에 따라 렌더링 */}
+        {isLoggedIn && (
+          <li>
+            <Link to="/mypage">
+              <FontAwesomeIcon icon={faCircleUser} />
+            </Link>
+          </li>
+        )}
       </ul>
+<<<<<<< HEAD
       {/* 로그아웃 */}
       <div className="logout" onClick={handleLogout}>
         <Link to="/">
           <FontAwesomeIcon icon={faRightFromBracket} />
         </Link>
       </div>
+=======
+      {/* 로그아웃 버튼과 마이페이지 버튼은 로그인 상태에 따라 렌더링 */}
+      {isLoggedIn && (
+        <div className="logout" onClick={handleLogout}>
+          <Link to="/">
+            <FontAwesomeIcon icon={faRightFromBracket} />
+          </Link>
+        </div>
+      )}
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
     </div>
   );
 }

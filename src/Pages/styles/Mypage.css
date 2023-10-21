@@ -1,7 +1,12 @@
 /* 소스명 : Mypage.css 
 작성자: 이진경
 이 페이지 용도 : Mypage CSS
+<<<<<<< HEAD
 생성일자(수정일자) : 23.10.16  */
+=======
+생성일자 : 23.10.16 
+수정일자 : 23.10.21 - 미디어 쿼리  */
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 
 #Mypage {
   width: 100%;
@@ -46,6 +51,10 @@
 #Mypage form label {
   display: inline-block;
   width: 20%;
+<<<<<<< HEAD
+=======
+  min-width: 100px;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
   font-weight: 800;
 }
 
@@ -58,6 +67,14 @@
   padding-left: 10px;
 }
 
+<<<<<<< HEAD
+=======
+#Mypage form input:focus {
+  border: 2px solid #397242;
+  outline: none;
+}
+
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 /* 성별 라디오 */
 #Mypage form .gender input {
   width: 10%;
@@ -72,6 +89,10 @@
 /* 중복확인 버튼 */
 #Mypage form button {
   width: 12%;
+<<<<<<< HEAD
+=======
+  min-width: 50px;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
   height: 25px;
   margin-left: 2%;
   border-radius: 5px;
@@ -132,4 +153,36 @@
   border: none;
   cursor: pointer;
   background-color: inherit;
+<<<<<<< HEAD
+=======
+}
+
+/**************** 미디어 쿼리 *****************/
+@media (max-width: 1500px) {
+  #Mypage #frame {
+    width: 90%;
+  }
+
+  #Mypage form {
+    width: 90%;
+  }
+
+}
+
+@media (max-width: 1300px) {
+  #Mypage form label {
+    font-size: 0.7rem;
+    min-width: 80px;
+  }
+
+
+  #Mypage form input {
+    width: 63%;
+  }
+
+  #Mypage form button {
+    width: 11%;
+    font-size: 0.6rem;
+  }
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 }

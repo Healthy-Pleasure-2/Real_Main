@@ -10,6 +10,11 @@ import {
   faCheck,
   faX,
 } from "@fortawesome/free-solid-svg-icons";
+<<<<<<< HEAD
+=======
+import Calendar from "react-calendar";
+import ReactCalendar from "./Calendar";
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 // import ReactCalendar from "./Calendar";
 
 function LeftContents() {
@@ -58,7 +63,11 @@ function LeftContents() {
   return (
     <div id="todo_left_contents">
       <h1 className="todo_h1">To do List</h1>
+<<<<<<< HEAD
       <div className="todo_calendar"></div>
+=======
+      <ReactCalendar />
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
       <div className="todo_checkLists">
         {todoList.map((item, i) => {
           console.log(todoList)

@@ -24,7 +24,11 @@ function Login({ onLogin }) {
         </button>
         <div className="LoginFind">
           <button className="LoginIdPwFind">
+<<<<<<< HEAD
             <Link to="/mypage" className="LoginbtnLink">
+=======
+            <Link to="/idpw" className="LoginbtnLink">
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
               ID 찾기 / PW 찾기
             </Link>
           </button>

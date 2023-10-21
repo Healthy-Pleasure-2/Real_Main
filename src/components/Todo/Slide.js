@@ -60,6 +60,7 @@ export default class SimpleSlider extends Component {
         <StyledSlider {...settings}>
           {this.state.data.map((item, index) => {
             return (
+<<<<<<< HEAD
               <div className="todo_group_content" key={index}>
                 <p className="todo_group_fame">그룹명</p>
                 <p className="todo_group_data todo_title_data">{item.name}</p>
@@ -73,6 +74,23 @@ export default class SimpleSlider extends Component {
                   {item.id}/{this.state.data.length}
                 </p>
               </div>
+=======
+              <>
+                <div className="todo_group_content" key={index}>
+                  <p className="todo_group_creteria">그룹명</p>
+                  <p className="todo_group_data">{item.name}</p>
+                  <p className="todo_group_creteria">카테고리</p>
+                  <p className="todo_group_data">
+                    {item.category}
+                  </p>
+                  <p className="todo_group_creteria">목표</p>
+                  <p className="todo_group_data">{item.goal}</p>
+                </div>
+                <p className="todo_page_count">
+                  {item.id}/{this.state.data.length}
+                </p>
+              </>
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
             );
           })}
         </StyledSlider>

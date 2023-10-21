@@ -59,6 +59,15 @@
   padding-left: 10px;
 }
 
+<<<<<<< HEAD
+=======
+#Signup form input:focus {
+  border: 2px solid #397242;
+  outline: none;
+}
+
+
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 /* 성별 라디오 */
 #Signup form .gender input {
   width: 10%;
@@ -141,4 +150,35 @@
 #Signup .signbtn button:hover {
   background-color: #397242;
   transition: 0.3s ease-in-out;
+<<<<<<< HEAD
+=======
+}
+
+@media (max-width: 1500px) {
+  #Signup #frame {
+    width: 90%;
+  }
+
+  #Signup form {
+    width: 90%;
+  }
+
+}
+
+@media (max-width: 1300px) {
+  #Signup form label {
+    font-size: 0.7rem;
+    min-width: 75px;
+  }
+
+
+  #Signup form input {
+    width: 62%;
+  }
+
+  #Signup form button {
+    width: 11%;
+    font-size: 0.6rem;
+  }
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 }

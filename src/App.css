@@ -6,7 +6,9 @@
 수정일자 : 23.10.18 (로그인 추가(정은정), 수정(이진경)) */
 
 /*  import google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"); */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -45,9 +47,9 @@
 /************* SideMenu 왼쪽 부분 *************/
 #navigation {
   height: 100%;
-  width: 100px;
+  width: 80px;
   background: #8CBA51;
-  padding: 6px 25px;
+  padding: 6px 15px;
   transition: all 0.5s ease;
   float: left;
 }
@@ -62,8 +64,13 @@
 }
 
 .logo img {
+<<<<<<< HEAD
   width: 45px;
   margin-top: 2.5px;
+=======
+  width: 42px;
+  margin: 3px 0 0 2px;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 }
 
 
@@ -99,11 +106,13 @@
   transition: all 0.4s ease;
 }
 
-.nav-list li a:hover {
+.nav-list li a:hover,
+.nav-list li a:focus {
   background: #FFF;
 }
 
-.nav-list li a:hover svg {
+.nav-list li a:hover svg,
+.nav-list li a:focus svg {
   color: #8CBA51;
 }
 
@@ -130,10 +139,10 @@
 
 /************* PageContent 중간부분 *************/
 #PageContent {
-  width: calc(100% - 450px);
+  width: calc(100% - 400px);
   height: 100%;
   float: left;
-  padding: 30px;
+  padding: 30px 45px;
 }
 
 
@@ -144,7 +153,7 @@
 /************* SideContent 오른쪽부분 *************/
 #SideContent {
   background-color: #f3f3f3;
-  width: 350px;
+  width: 320px;
   height: 100%;
   float: left;
 }
@@ -153,6 +162,7 @@
   margin: 30px;
 }
 
+<<<<<<< HEAD
 /******* 로그인 디자인 (23.10.18_정은정, 이진경(수정: 로고 추가, 높이 조절) ) *******/
 .Loginbox {
   padding: 20px;
@@ -193,6 +203,67 @@
 .Loginbtn {
   width: 250px;
   height: 30px;
+=======
+/******* 데일리 상태 박스 *******/
+#daily-box {
+  height: 350px;
+  background-color: #fff;
+  box-shadow: 0 0 5px #33333367, inset 0 0 5px #33333367;
+  border-radius: 15px;
+}
+
+/******* 로그인 디자인 (23.10.18_정은정, 이진경(수정: 로고 추가, 높이 조절) ) *******/
+.Loginbox {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.LoginLogo {
+  margin: 10px 48px 10px;
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  box-shadow: 0 0 5px #33333367, inset 0 0 5px #33333367;
+
+}
+
+.LoginLogo img {
+  margin: 10px 0 0 7px;
+  width: 100px;
+}
+
+.LoginIdPw {
+  width: 220px;
+  height: 100px;
+  padding: 20px 0 15px;
+}
+
+.Logininputid,
+.Logininputpassword {
+  width: 220px;
+  height: 30px;
+  background-color: #F4F4F4;
+  border: 1px solid #8CBA51;
+  font-size: 17px;
+  border-radius: 15px;
+  padding-left: 10px;
+}
+
+.Logininputid {
+  margin-bottom: 10px;
+}
+
+.Logininputid:focus,
+.Logininputpassword:focus {
+  border: 2px solid #397242;
+  outline: none;
+}
+
+.Loginbtn {
+  width: 220px;
+  height: 45px;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
   border-radius: 15px;
   background-color: #8CBA51;
   color: #fff;
@@ -203,6 +274,7 @@
 }
 
 .Loginbtn:hover {
+<<<<<<< HEAD
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   background-color: #8CBA51;
 
@@ -213,12 +285,26 @@
   text-align: center;
   font-size: 12px;
   padding: 5px;
+=======
+  background-color: #397242;
+  transition: 0.3s ease-in-out;
+}
+
+.LoginFind {
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 }
 
 .LoginFind button {
   background: none;
   padding-right: 5px;
   padding-left: 5px;
+<<<<<<< HEAD
+=======
+  font-size: 0.75rem;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 }
 
 .LoginbtnLink {
@@ -242,6 +328,7 @@
 /******* 로그인 끝 *******/
 
 
+<<<<<<< HEAD
 /******* 데일리 상태 박스 *******/
 #daily-box {
   height: 300px;
@@ -249,10 +336,13 @@
   box-shadow: 0 0 5px #33333367, inset 0 0 5px #33333367;
   border-radius: 15px;
 }
+=======
+
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 
 /******* 뉴스 *******/
 #news {
-  height: 250px;
+  height: 200px;
   background-color: #fff;
   box-shadow: 0 0 5px #33333367, inset 0 0 5px #33333367;
   margin-top: 20px;
@@ -266,7 +356,15 @@
   height: 90%;
   margin: 0 auto;
   padding: 10px;
+<<<<<<< HEAD
   overflow: hidden;
+=======
+  overflow: auto;
+}
+
+.news-container::-webkit-scrollbar {
+  width: 0;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 }
 
 .news-title {

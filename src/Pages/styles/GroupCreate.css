@@ -49,6 +49,7 @@
 .group input {
   border-radius: 5px;
   border: 1px solid #b8b3b3;
+  padding-left: 10px;
 }
 
 
@@ -70,7 +71,11 @@
   height: 25px;
   margin: 0 0 0 1vw;
   border-radius: 5px;
+<<<<<<< HEAD
   border: 1px solid #5c5c5c;
+=======
+  border: none;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
   background-color: #8CBA51;
   color: #fff;
   cursor: pointer;
@@ -79,6 +84,10 @@
 
 .group_name button:hover {
   background-color: #397242;
+<<<<<<< HEAD
+=======
+  transition: 0.2s ease-in-out;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 }
 
 /*카테고리*/
@@ -127,6 +136,7 @@
   min-width: 100px;
   min-height: 100px;
   background-color: #86a3da;
+  padding: 0;
 }
 
 .rep_img button {
@@ -136,7 +146,7 @@
   align-self: flex-end;
 
   border-radius: 5px;
-  border: 1px solid #5c5c5c;
+  border: none;
   background-color: #c5c5c5;
   cursor: pointer;
   font-size: 0.7rem;
@@ -165,4 +175,8 @@
 
 .create a:hover {
   background-color: #397242;
+<<<<<<< HEAD
+=======
+  transition: 0.2s ease-in-out;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 }

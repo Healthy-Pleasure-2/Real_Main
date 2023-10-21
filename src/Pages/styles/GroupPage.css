@@ -14,7 +14,7 @@
 #GroupPage #frame {
   width: 90%;
   height: 95%;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 0 10px #33333367, inset 0 0 5px #33333367;
@@ -57,7 +57,7 @@
   height: 50%;
   background-color: #8CBA51;
   border: none;
-  border-radius: 25px;
+  border-radius: 15px;
   cursor: pointer;
 
   color: #fff;
@@ -67,6 +67,7 @@
 
 #GroupPage .top button:hover {
   background-color: #397242;
+  transition: 0.2s ease-in-out;
 }
 
 
@@ -116,6 +117,7 @@
   /* 텍스트 넘칠시 스크롤 */
   overflow: auto;
 }
+<<<<<<< HEAD
 
 #GroupPage .intro .groupIntro .content::-webkit-scrollbar {
   width: 8px;
@@ -140,6 +142,32 @@
   font-weight: 700;
 }
 
+=======
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
+
+#GroupPage .intro .groupIntro .content::-webkit-scrollbar {
+  width: 8px;
+  background-color: #d6e6c3;
+  border-radius: 10px;
+}
+
+/* 썸(thumb) 추가 */
+#GroupPage .intro .groupIntro .content::-webkit-scrollbar-thumb {
+  height: 50%;
+  background: #729642;
+  border-radius: 10px;
+}
+
+
+/* 목표, 소개 타이틀 */
+#GroupPage .intro #title {
+  border-right: 1px solid #729642;
+  width: 8vw;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 
 
 /******* 댓글 *******/
@@ -155,7 +183,11 @@
   padding: 0 0 7px 7px;
   border-bottom: 1px solid #729642;
   font-weight: 700;
+<<<<<<< HEAD
   font-size: 0.9rem;
+=======
+  font-size: 0.95rem;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
   height: 10%;
 }
 
@@ -221,6 +253,15 @@
   margin-right: 10px;
   border-radius: 5px;
   border: 1px solid #5c5c5c;
+<<<<<<< HEAD
+=======
+  padding-left: 10px;
+}
+
+.commentInput input:focus {
+  border: 2px solid #397242;
+  outline: none;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
 }
 
 .commentInput input:nth-child(1) {
@@ -235,7 +276,13 @@
   width: 10%;
   height: 100%;
   margin: 0;
+<<<<<<< HEAD
   background-color: #98c959;
+=======
+  background-color: #8CBA51;
+  color: #fff;
+  font-weight: 700;
+>>>>>>> aeb559a2c24027bd715f52ba69dedf488b4efa09
   border: none;
   border-radius: 5px;
 }
