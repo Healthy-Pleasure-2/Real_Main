@@ -101,12 +101,12 @@
   /* background-color: #F4F4F4; */
   padding: 40px;
   border-radius: 20px;
-  border: 1px solid #7b7b7b;
+  border: 1px solid #b4b4b4;
   text-align: left;
   font-size: 0.85rem;
   color: #313131;
   margin-top: 40px;
-
+  background: #fafafa;
   width: calc(100% - 20px);
   height: calc(100% - 95px);
   position: relative;
