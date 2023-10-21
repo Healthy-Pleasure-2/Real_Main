@@ -19,8 +19,9 @@ import logo from "../logo.png";
 function SideMenu({ isLoggedIn, onLogout }) {
   // const location = useLocation();
   // const navigate = useNavigate();
+
+  // 로그아웃 버튼을 클릭하면 onLogout 함수를 호출하여 로그아웃 상태를 변경
   const handleLogout = () => {
-    // 로그아웃 버튼을 클릭하면 onLogout 함수를 호출하여 로그아웃 상태를 변경
     onLogout();
   };
 

@@ -1,7 +1,7 @@
 /*소스명 : Groupintro.js
 작성자 : 정은정
 이 페이지 용도 : 인기상승 화면
-생성일자(수정일자) :*/
+생성일자(수정일자) : 10/20*/
 
 import React, { useState, useEffect, useMemo } from "react";
 import "../../Pages/styles/Community.css";

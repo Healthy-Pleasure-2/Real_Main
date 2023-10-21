@@ -148,3 +148,31 @@
   background-color: #397242;
   transition: 0.3s ease-in-out;
 }
+
+@media (max-width: 1500px) {
+  #Signup #frame {
+    width: 90%;
+  }
+
+  #Signup form {
+    width: 90%;
+  }
+
+}
+
+@media (max-width: 1300px) {
+  #Signup form label {
+    font-size: 0.7rem;
+    min-width: 75px;
+  }
+
+
+  #Signup form input {
+    width: 62%;
+  }
+
+  #Signup form button {
+    width: 11%;
+    font-size: 0.6rem;
+  }
+}

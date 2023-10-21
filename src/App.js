@@ -10,6 +10,7 @@ import SideContent from "./components/SideCotent";
 />;
 
 function App() {
+  // 로그인과 로그아웃의 상태 변경
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -33,4 +34,3 @@ function App() {
   );
 }
 export default App;
-
