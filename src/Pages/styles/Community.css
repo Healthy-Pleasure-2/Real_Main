@@ -132,7 +132,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 250px;
+    /* max-height: 250px; */
 }
 
 /*인기순위그룹 스타일*/
@@ -172,7 +172,7 @@
 
 .Community_Groupname {
     height: 20%;
-    padding-top: 5%;
+    padding-top: 3%;
     font-size: 1rem;
     font-weight: 600;
     color: #01352C;

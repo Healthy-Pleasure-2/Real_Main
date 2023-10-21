@@ -73,11 +73,13 @@
     color: #01352C;
     font-weight: bold;
     text-align: center;
-    line-height: 80px;
-    height: 80px;
+    padding-top: 10px;
+    height: 20%;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 
 .rank .title p:before,
 .rank .title p::after {
@@ -107,8 +109,8 @@
 }
 
 .rank .Community_popularRank {
-    height: calc(100% - 80px);
-    padding: 10px;
+    height: 80%;
+    padding: 17px 10px;
 }
 
 .rank .Community_Rgroup {
@@ -117,7 +119,7 @@
 
 .rank .Community_Groupname {
     font-size: 1.1rem;
-
+    padding-top: 5%;
 }
 
 .etc {
@@ -137,14 +139,19 @@
 
     border-radius: 15px;
     font-weight: bold;
-}
-
-.Notice {
+    padding: 10px 15px;
+    color: #01352C;
+    font-size: 0.9rem;
     text-align: center;
 }
 
-.Question {
-    text-align: center;
+.border {
+    border-bottom: 1px solid #397242;
+    height: 15%;
 }
 
-.bt2 {}
+
+.bt2 {
+    border: none;
+    float: right;
+}

@@ -51,12 +51,22 @@ function Main() {
           <p>
             공지사항<button className="bt2">+</button>
           </p>
+          <div className="border"></div>
+          <div className="border"></div>
+          <div className="border"></div>
+          <div className="border"></div>
+          <div className="border"></div>
         </div>
 
         <div className="Question">
           <p>
             자주 묻는 질문<button className="bt2">+</button>
           </p>
+          <div className="border"></div>
+          <div className="border"></div>
+          <div className="border"></div>
+          <div className="border"></div>
+          <div className="border"></div>
         </div>
       </div>
     </div>
