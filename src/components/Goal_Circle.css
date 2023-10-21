@@ -34,21 +34,21 @@
 
 .single-chart {
   position: absolute;
-  left: 32px;
+  left: 37px;
   width: 180px;
   transform: scale(0.55);
 }
 
 .single-chart1 {
   position: absolute;
-  left: 32px;
+  left: 37px;
   width: 180px;
   transform: scale(0.76);
 }
 
 .single-chart2 {
   position: absolute;
-  left: 32px;
+  left: 37px;
   width: 180px;
 }
 
@@ -96,7 +96,7 @@
   flex-direction: column;
   display: flex;
   bottom: 15px;
-  left: 39px;
+  left: 44px;
 }
 
 .inputbox div {

@@ -134,10 +134,10 @@
 
 /************* PageContent 중간부분 *************/
 #PageContent {
-  width: calc(100% - 380px);
+  width: calc(100% - 400px);
   height: 100%;
   float: left;
-  padding: 30px;
+  padding: 30px 45px;
 }
 
 
@@ -148,7 +148,7 @@
 /************* SideContent 오른쪽부분 *************/
 #SideContent {
   background-color: #f3f3f3;
-  width: 300px;
+  width: 320px;
   height: 100%;
   float: left;
 }
@@ -173,7 +173,7 @@
 }
 
 .LoginLogo {
-  margin: 10px 43px 10px;
+  margin: 10px 48px 10px;
   width: 120px;
   height: 120px;
   border-radius: 60px;
@@ -187,14 +187,14 @@
 }
 
 .LoginIdPw {
-  width: 200px;
+  width: 220px;
   height: 100px;
   padding: 20px 0 15px;
 }
 
 .Logininputid,
 .Logininputpassword {
-  width: 200px;
+  width: 220px;
   height: 30px;
   background-color: #F4F4F4;
   border: 1px solid #8CBA51;
@@ -214,7 +214,7 @@
 }
 
 .Loginbtn {
-  width: 200px;
+  width: 220px;
   height: 45px;
   border-radius: 15px;
   background-color: #8CBA51;
