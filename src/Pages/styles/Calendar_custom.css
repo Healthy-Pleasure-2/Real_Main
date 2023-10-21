@@ -4,7 +4,6 @@
   height: calc(70% - 138px);
 }
 
-
 .react-calendar {
   height: 100%;
   /* max-width: 100%; */
@@ -13,10 +12,25 @@
   border-radius: 15px;
   font-family: "Poppins", sans-serif;
   /* line-height: 1.125em; */
+  display: flex;
+  flex-direction: column;
 }
 
+/* 연도와 버튼이 들어가 있는 네비게이션바 */
+.react-calendar__navigation {
+  display: flex;
+  min-height: 40px;
+  border-radius: 9px 9px 0 0;
+  border-bottom: 5px solid #03560e;
+  background-color: #79B55D;
+  line-height: 60px;
+}
+
+
+/* 일자 담고 있는 곳 */
 .react-calendar__viewContainer {
-  height: calc(90% - 15px);
+  /* height: calc(90% - 15px); */
+  flex: 1;
 }
 
 
@@ -24,7 +38,7 @@
   font-size: 20px;
   font-weight: 600;
   color: #fff;
-
+  display: block;
 }
 
 .react-calendar--doubleView {
@@ -63,20 +77,11 @@
   cursor: pointer;
 }
 
-.react-calendar__navigation {
-  display: flex;
-  height: 10%;
-  margin-bottom: 15px;
-  border-radius: 9px 9px 0 0;
-  border-bottom: 5px solid #03560e;
-  background-color: #79B55D;
-  line-height: 60px;
-}
 
 .react-calendar__navigation button {
   min-width: 44px;
   background: none;
-  line-height: 55px;
+  line-height: 10%;
   font-size: 45px;
   color: #fff;
   height: 100%;
@@ -102,12 +107,19 @@
   font-weight: bold;
 }
 
+/* 날짜 */
+.react-calendar__month-view__days {}
+
+
+/* 달력 컨텐츠 */
 .react-calendar__month-view {
+  height: calc(100% - 56px);
   padding: 15px;
 }
 
 .react-calendar__month-view__weekdays__weekday {
-  padding: 0.5em;
+  padding-top: 0;
+  padding-bottom: 8px;
 }
 
 .react-calendar__month-view__weekNumbers .react-calendar__tile {
@@ -133,8 +145,8 @@
 
 .react-calendar__year-view__months {
   display: grid !important;
-  grid-template-rows: repeat(2, 1fr) !important;
-  grid-template-columns: repeat(6, 1fr) !important;
+  grid-template-rows: repeat(3, 1fr) !important;
+  grid-template-columns: repeat(4, 1fr) !important;
 }
 
 
@@ -152,16 +164,24 @@
   padding: 2em 0.5em;
 }
 
+.react-calendar__year-view .react-calendar__tile {
+  line-height: 0.5;
+}
+
+
 .react-calendar__tile {
   max-width: 100%;
-  padding: 10px 6.6667px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   background: none;
   text-align: center;
   line-height: 16px;
   font: inherit;
   font-size: 0.833em;
   border-radius: 15px;
+  max-height: calc(100% / 5);
 }
+
 
 .react-calendar__tile:disabled {
   background-color: #f0f0f0;
@@ -172,17 +192,21 @@
   background-color: #e6e6e6;
 }
 
+/* 현재 활성화 되고 있는 타일 */
 .react-calendar__tile--now {
   background: #8CBA51;
+  color: #fff;
 }
 
+/* hover하거나 focus했을 때 타일의 변화 */
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
   background: #007e22;
 }
 
+/* 타일을 클릭했을 때 효과 */
 .react-calendar__tile--hasActive {
-  background: #8CBA51;
+  background: #02b030;
   color: #fff;
 }
 
