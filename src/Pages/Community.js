@@ -60,7 +60,9 @@ function Community({ isLoggedIn }) {
         <PopularRank groupData={groupData} />
       </div>
       {/*그룹목록*/}
-      <Groupintro groupData={groupData} selectedCategory={selectedCategory} />
+      <div className="groupintro">
+        <Groupintro groupData={groupData} selectedCategory={selectedCategory} />
+      </div>
     </div>
   );
 }

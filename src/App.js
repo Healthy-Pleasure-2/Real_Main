@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       <div className="wrap">
         <SideMenu onLogout={handleLogout} isLoggedIn={isLoggedIn}></SideMenu>
-        <PageContent></PageContent>
+        <PageContent isLoggedIn={isLoggedIn}></PageContent>
         <SideContent
           isLoggedIn={isLoggedIn}
           onLogin={handleLogin}
@@ -34,4 +34,3 @@ function App() {
   );
 }
 export default App;
-

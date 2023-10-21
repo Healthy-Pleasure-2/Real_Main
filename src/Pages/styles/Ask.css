@@ -65,7 +65,7 @@
 } */
 
 /*********** 공지사항 ***********/
-#notice_N {
+/*#notice_N {
   height: 90%;
 }
 
@@ -76,7 +76,7 @@
   color: #01352C;
   padding-top: 40px;
 }
-
+*/
 .tabcontent {
   display: none;
 }
@@ -180,4 +180,95 @@
 .Ask #notice_inquiry button:hover {
   background-color: #397242;
   transition: 0.3s ease-in-out;
+}/***공지사항*******/
+
+.notice-day {
+  float: left;
+  font: bolder;
+}
+#notice_N{
+  width: 100%;
+  height: 90%;
+  
+}
+/***********************************************/
+#notice_N {
+  background-color: #ffffff;
+  padding: 20px;
+  /* overflow: hidden; */
+  /* margin-top: 2%; */
+  text-align: left;
+  font-size: 0.85rem;
+  color: #313131;
+  margin-top: 40px;
+
+  width: calc(100% - 20px);
+  height: calc(100% - 95px);
+  position: relative;
+}
+.notice-container{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%; 
+}
+.notice_title{
+  width: 100%;
+  height: 10%;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+.notice_List{
+  float: center;
+  width: 100%;
+  height: 90%;
+  border-top: 2px solid #000;
+  list-style: none; 
+}
+.notice_List_title{
+  background-color: #dbffab;
+  border-bottom: 1px solid #000;
+  height: 60px;
+  display: flex;
+  font-weight: 600; 
+}
+.notice_flex-item {
+  flex: 1; /* 각 div 요소가 동일한 너비를 가질 수 있도록 설정 */
+  text-align: center; /* 내용 가운데 정렬 (선택사항) */
+  border-bottom: 1px solid #d4d4d4;
+  padding: 15px;
+  font-size: 16px;
+}
+.notice_flex-item:nth-child(2) {
+  flex: 3; /* 중간 div 요소에 2의 비율 적용 */
+  text-align: left;
+  padding-left: 60px;
+}
+.notice_flex-item:nth-child(3) {
+  flex: 1.5; /* 중간 div 요소에 5의 비율 적용 */
+}
+.notice_List_neyong{
+  height:60px;
+  display: flex;
+  font-weight: 10; 
+}
+@media (max-width: 1350px) {
+  .notice_flex-item:nth-child(3) {
+    display: none;
+  }
+}
+@media (max-width: 1200px) {
+  .notice_flex-item:nth-child(1) {
+    display
+    : none;
+  }
+  .notice_flex-item:nth-child(2) {
+    padding-left: 30px;
+  }
+  .notice_List_title{
+    display: none;
+  }
 }
