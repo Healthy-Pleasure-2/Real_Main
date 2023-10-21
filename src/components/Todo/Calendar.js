@@ -13,8 +13,8 @@ function ReactCalendar() {
         minDetail='year'
         formatDay={(locale, date) => date.toLocaleString("en", { day: "numeric" })}
         showNeighboringMonth={false}
-        minDate={new Date(2022, 1, 1)}
-        maxDate={new Date(2033, 12, 31)}
+        minDate={new Date(2021, 12, 31)}
+        maxDate={new Date(2033, 11, 31)}
       />
     </div>
   );
