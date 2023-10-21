@@ -2,6 +2,7 @@
 
 #calendar_container {
   height: calc(70% - 138px);
+  min-height: 400px;
 }
 
 .react-calendar {
