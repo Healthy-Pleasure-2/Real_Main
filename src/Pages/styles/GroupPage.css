@@ -222,6 +222,12 @@
   margin-right: 10px;
   border-radius: 5px;
   border: 1px solid #5c5c5c;
+  padding-left: 10px;
+}
+
+.commentInput input:focus {
+  border: 2px solid #397242;
+  outline: none;
 }
 
 .commentInput input:nth-child(1) {
