@@ -5,7 +5,7 @@
   - 23.10.16: 생성_강수진 */
 
 import "./styles/Ask.css";
-import Notice from "../components/notice";
+import Notice1 from "../components/Notice1";
 import React, { Component } from "react";
 // import dummy from "../../public/notice.json"
 
@@ -80,7 +80,7 @@ class Ask extends Component {
             this.state.activeTab === "notice_N" ? "active" : ""
           }`}
         >
-          <Notice />
+          <Notice1 />
           {/* JSON 데이터를 사용하여 공지사항을 표시합니다. */}
           {/* <ul>
               {notices.map((notice) => (
