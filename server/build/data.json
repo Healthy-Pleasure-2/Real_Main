@@ -1,23 +1,23 @@
 {
-    "group": [
-      {
-        "id": 1,
-        "name": "이제형",
-        "weight": 70,
-        "exercise": 1500,
-        "eating": 580
-      },
-      {
-        "id": 2,
-        "name": "식단관리",
-        "category": "식단",
-        "goal": "일주일에 3번 채소 먹기"
-      },
-      {
-        "id": 3,
-        "name": "독서",
-        "category": "자기계발",
-        "goal": "주당 2권의 책 읽기"
-      }
-    ]
-  }
+  "group": [
+    {
+      "id": 1,
+      "name": "이제형",
+      "weight": 70,
+      "exercise": 1500,
+      "eating": 580
+    },
+    {
+      "id": 2,
+      "name": "식단관리",
+      "category": "식단",
+      "goal": "일주일에 3번 채소 먹기"
+    },
+    {
+      "id": 3,
+      "name": "독서",
+      "category": "자기계발",
+      "goal": "주당 2권의 책 읽기"
+    }
+  ]
+}
