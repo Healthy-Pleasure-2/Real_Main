@@ -61,6 +61,7 @@ function Community({ isLoggedIn }) {
       </div>
       {/*그룹목록*/}
       <div className="groupintro">
+        {/* <h2>Group List</h2> */}
         <Groupintro groupData={groupData} selectedCategory={selectedCategory} />
       </div>
     </div>
