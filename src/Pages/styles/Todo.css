@@ -196,7 +196,6 @@ button {
 }
 
 
-
 /* 몸무게, 운동, 식단 위젯 */
 .todo_health {
   border: 1px solid #7B7B7B;
@@ -396,25 +395,31 @@ button {
   width: 100%;
   float: left;
   text-align: center;
+  margin-top: 10px;
 }
 
-
-/* 화살표 커스텀  */
-button.slick-arrow::before {
-  position: relative;
-  font-size: 30px;
-  color: #7b7b7b
+.todo_prevbtn,
+.todo_nextbtn {
+  transform: translateY(-50%);
+  height: 40%;
+  font-size: 40px;
+  border: none;
+  color: #7B7B7B;
+  background: none;
 }
 
-.slick-prev::before {
-  content: '◀';
-  left: -15px;
+.todo_prevbtn {
+  position: absolute;
+  top: 50%;
+  left: -12%;
 }
 
-.slick-next::before {
-  content: '▶';
-  right: -5px;
+.todo_nextbtn {
+  position: absolute;
+  top: 50%;
+  right: -12%;
 }
+
 
 /* 그룹 데이터를 담고 있는 것 */
 .todo_group_content {
