@@ -5,6 +5,8 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import axios from "axios";
+import { useState, useEffect } from "react";
+
 
 const StyledSlider = styled(Slider)`
   border: 1px solid #7B7B7B;
@@ -19,66 +21,81 @@ const StyledSlider = styled(Slider)`
   box-shadow: 3px 3px 7px rgb(131, 131, 131);
 `;
 
-export default class SimpleSlider extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [], // 데이터를 저장할 배열
-    };
-  }
-
-  componentDidMount() {
+function SimpleSlider() {
+  const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  useEffect(() => {
     // 데이터를 비동기적으로 가져옵니다.
     axios
       .get("/group.json")
       .then((result) => {
         // 데이터가 정상적으로 로드됨
-        this.setState({ data: result.data.group });
+        setData(result.data.group);
       })
       .catch((error) => {
         console.error("데이터를 가져오지 못함", error);
       });
+  }, []);
+
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 400,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    afterChange: (currentSlide) => {
+      // 슬라이드가 변경될 때 페이지 번호 업데이트
+      setCurrentPage(currentSlide + 1);
+    },
+  };
+
+  // 데이터를 로드하고 있다면, 데이터가 로드될 때까지 대기
+  if (data.length === 0) {
+    return <p>Loading...</p>;
   }
 
-  render() {
-    const settings = {
-      dots: false,
-      infinite: true,
-      speed: 400,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    };
-
-    // 데이터를 로드하고 있다면, 데이터가 로드될 때까지 대기
-    if (this.state.data.length === 0) {
-      return <p>Loading...</p>;
-    }
-
-    // 데이터가 있는 경우 데이터를 매핑하여 렌더링
-    return (
-      <div className="todo_slider_container">
-        <StyledSlider {...settings}>
-          {this.state.data.map((item, index) => {
-            return (
-              <>
-                <div className="todo_group_content" key={index}>
-                  <p className="todo_group_creteria">그룹명</p>
-                  <p className="todo_group_data">{item.name}</p>
-                  <p className="todo_group_creteria">카테고리</p>
-                  <p className="todo_group_data">
-                    {item.category}
-                  </p>
-                  <p className="todo_group_creteria">목표</p>
-                  <p className="todo_group_data">{item.goal}</p>
-                </div>
-                <p className="todo_page_count">
-                  {item.id}/{this.state.data.length}
-                </p>
-              </>
-            );
-          })}
-        </StyledSlider>
-      </div>
-    );
-  }
+  // 데이터가 있는 경우 데이터를 매핑하여 렌더링
+  return (
+    <div className="todo_slider_container">
+      <StyledSlider {...settings}>
+        {data.map((item, index) => (
+          <div className="todo_group_content" key={index}>
+            <p className="todo_group_creteria">그룹명</p>
+            <p className="todo_group_data">{item.name}</p>
+            <p className="todo_group_creteria">카테고리</p>
+            <p className="todo_group_data">{item.category}</p>
+            <p className="todo_group_creteria">목표</p>
+            <p className="todo_group_data">{item.goal}</p>
+          </div>
+        ))}
+      </StyledSlider>
+      <p className="todo_page_count">{currentPage}/{data.length}</p>
+    </div>
+  );
 }
+
+export default SimpleSlider;
+
+const NextArrow = ({ onClick }) => {
+  return (
+    <button
+      onClick={onClick}
+      type='button'
+      className="todo_nextbtn"
+    >〉
+    </button>
+  );
+};
+
+const PrevArrow = ({ onClick }) => {
+  return (
+    <button
+      onClick={onClick}
+      type='button'
+      className="todo_prevbtn"
+    >〈
+    </button>
+  );
+};
