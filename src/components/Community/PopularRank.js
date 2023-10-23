@@ -1,7 +1,8 @@
 /*소스명 : Groupintro.js
 작성자 : 정은정
 이 페이지 용도 : 인기상승 화면
-생성일자(수정일자) : 10/20*/
+생성일자(수정일자) : 10/20
+생성일자(수정일자) : 10/23, 이진경, 15줄 초기 설정값 3개로 바꿈 */
 
 import React, { useState, useEffect, useMemo } from "react";
 import "../../Pages/styles/Community.css";
@@ -11,7 +12,7 @@ function PopularRank({ groupData }) {
   const initialGroups = useMemo(() => {
     const sortedData = [...groupData];
     sortedData.sort((a, b) => b.grouptotal - a.grouptotal);
-    return sortedData.slice(0, 5);
+    return sortedData.slice(0, 3);
   }, [groupData]); // 초기 그룹 목록
   const [groups, setGroups] = useState(initialGroups);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

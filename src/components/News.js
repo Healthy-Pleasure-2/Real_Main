@@ -22,7 +22,7 @@ function News() {
 
   return (
     <div className="news-container">
-      <h1 className="news-title">뉴스</h1>
+      <h1 className="news-title">News</h1>
       <ul className="news-list">
         {news.map((article, index) => (
           <li key={index} className="news-item">

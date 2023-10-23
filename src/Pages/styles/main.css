@@ -7,6 +7,7 @@
 -로그
 231016 김장훈 - 최초작성
 231020 이진경 - 수정
+231023 이진경 - 수정
 */
 
 .main {
@@ -18,43 +19,45 @@
 
 /* 배너 */
 .Hello {
-    height: 35%;
     width: 100%;
-    background: #ffffff;
+    height: 40%;
     margin-bottom: 50px;
     box-sizing: border-box;
-    border: 2px solid #397242;
-    background-color: #397242;
+    background-color: #386641;
     border-radius: 15px;
 }
 
 .Hello .title {
-    text-align: center;
-    margin-top: 6%;
-    margin-bottom: 10px;
-    font-size: 1.7rem;
-    font-weight: bold;
+    width: 60%;
+    margin: 0 0 10px 45%;
+    padding-top: 5%;
     color: #fff;
+}
+
+.Hello .title h3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.Hello .title p {
+    font-size: 14px;
+    margin-top: 5px;
 }
 
 /* 카테고리 */
 .bt1 {
-    width: 65%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+    width: 60%;
+    margin: 25px 0 0 45%;
 }
 
 .bt1 button {
-    width: 80px;
-    height: 25px;
-    margin: 12px 5px;
-    background-color: rgba(255, 255, 255, 0.7);
-    color: #313131;
+    width: 100px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #386641;
     border: 0px;
     border-radius: 50px;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.8rem;
 }
 
@@ -66,70 +69,62 @@
 .rank {
     height: 35%;
     width: 100%;
-    background: #ffffff;
+    background: #F3F5EF;
     margin-bottom: 30px;
     box-sizing: border-box;
-    border: 3px solid rgb(57, 114, 66);
-    box-shadow: 0 0 15px rgba(57, 114, 66, 0.7);
+    box-shadow: 5px 5px 15px rgba(1, 53, 44, 0.25);
     border-radius: 15px;
 }
 
 .rank .title {
-    font-size: 1.7rem;
-    color: #01352C;
+    width: 30%;
+    height: 100%;
+    float: left;
+    font-size: 1.3rem;
+    color: #386641;
     font-weight: bold;
-    text-align: center;
-    padding-top: 10px;
-    height: 20%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 45px 0 0 30px;
 }
 
-.rank .title p:before,
-.rank .title p::after {
-    content: "";
-    display: inline-block;
-    background-image: url("../../star.png");
-    background-size: 40px 40px;
-    width: 40px;
-    height: 40px;
-    vertical-align: sub;
-    margin: 0 5px;
-    animation: big 1.5s infinite ease;
+.rank .title p {
+    font-size: 14px;
 }
 
-@keyframes big {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.1);
-    }
-
-    100% {
-        transform: scale(1)
-    }
+.rank .title .bt2 button {
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    background-color: #386641;
+    color: #fff;
+    margin-top: 15px;
 }
 
 .rank .Community_popularRank {
-    height: 80%;
-    padding: 17px 30px;
+    width: 70%;
+    height: 100%;
+    float: left;
+    display: flex;
+    padding: 30px 20px;
 }
 
 .rank .Community_Rgroup {
-    margin: 0 7px
+    margin: 0 10px;
+}
+
+.rank .Community_item {
+    border: 0px;
+    background-color: #fff;
+    box-shadow: 5px 5px 10px rgba(1, 53, 44, 0.25);
 }
 
 .rank .Community_Groupname {
-    font-size: 1.1rem;
     padding-top: 5%;
 }
 
+
 .etc {
-    height: 20%;
+    height: 15%;
     display: flex;
     justify-content: space-between;
 }
@@ -138,27 +133,11 @@
 .Question {
     flex-basis: calc(50% - 25px);
     height: 100%;
-    background: #ffffff;
+    background: #A7C957;
     box-sizing: border-box;
-    border: 2px solid #D9D9D9;
-    background-color: #fafafa;
-
     border-radius: 15px;
     font-weight: bold;
-    padding: 10px 37px;
-    color: #01352C;
+    padding: 10px 30px;
+    color: #Fff;
     font-size: 0.9rem;
-    text-align: center;
-}
-
-.border {
-    border-bottom: 1px solid #397242;
-    height: 15%;
-}
-
-
-.bt2 {
-    background-color: inherit;
-    border: none;
-    float: right;
 }
