@@ -10,9 +10,11 @@ const express = require('express');
 const app = express();
 const port = 3003;
 const cors = require('cors'); // CORS 미들웨어 추가
+//const cookieParser = require('cookie-parser'); //쿠키파서 추가 npm install jsonwebtoken
 
 app.use(express.json());
 app.use(cors()); // CORS 활성화
+//app.use(cookieParser()); //cooki 활성화
 
 const users = require('./db.json').user;
 
@@ -22,6 +24,8 @@ app.post('/user', (req, res) => {
   const user = users.find((u) => u.id === id && u.pw === pw);
 
   if (user) {
+    // 로그인 성공 시 쿠키에 사용자 정보 저장
+    //res.cookie('user', JSON.stringify(user), { maxAge: 900000, httpOnly: true }); //쿠키 저장, 15분
     res.status(200).json({ message: '로그인 성공', user });
   } else {
     res.status(401).json({ message: '로그인 실패' });

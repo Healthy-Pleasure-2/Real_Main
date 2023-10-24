@@ -5,51 +5,54 @@
 -생성일자(수정일자) : 2310__ 최초생성
 -로그
 2310__  _____ - 최초생성
-231024 김장훈 - db.json 파일을 이용한 로그인기능 수정
+231024 김장훈 - db.json 파일을 이용한 로그인기능 수정  -->> app.js로 옮김 (잘 되는지 보고 차후 코드 정리예정)
 --------------------------------------------------------------------------------------------------------------*/
 
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import logo from "../logo.png";
 
-function Login({onLogin}) {
+function Login({ onLogin }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+  
+    const handleLogin = () => {
+      onLogin(username, password); // 사용자명과 비밀번호를 전달하여 로그인 함수 실행
+    }
+    // const handleLogin = async () => {
+    //     try {
+    //         // 사용자가 입력한 ID와 비밀번호
+    //         const userData = {
+    //             id: username,
+    //             pw: password
+    //         };
 
-    const handleLogin = async () => {
-        try {
-            // 사용자가 입력한 ID와 비밀번호
-            const userData = {
-                id: username,
-                pw: password
-            };
-
-            // 서버에 POST 요청
-            fetch("http://localhost:3003/user", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(userData)
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    if (data.message === "로그인 성공") {
-                        //성공 시
-                        onLogin(data.user); // 로그인 상태 변경
-                    } else {
-                        //실패 시
-                        alert("로그인 실패");
-                    }
-                })
-                .catch((error) => {
-                    console.error("서버 요청 오류:", error);
-                });
-        } catch (error) {
-            console.error("로그인 요청 실패:", error);
-            alert("로그인 요청 실패"); // 실패 메시지 표시
-        }
-    };
+    //         // 서버에 POST 요청
+    //         fetch("http://localhost:3003/user", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             },
+    //             body: JSON.stringify(userData)
+    //         })
+    //             .then((response) => response.json())
+    //             .then((data) => {
+    //                 if (data.message === "로그인 성공") {
+    //                     //성공 시
+    //                     onLogin(data.user); // 로그인 상태 변경
+    //                 } else {
+    //                     //실패 시
+    //                     alert("로그인 실패");
+    //                 }
+    //             })
+    //             .catch((error) => {
+    //                 console.error("서버 요청 오류:", error);
+    //             });
+    //     } catch (error) {
+    //         console.error("로그인 요청 실패:", error);
+    //         alert("로그인 요청 실패"); // 실패 메시지 표시
+    //     }
+    // };
 
     return (
         <div id="daily-box">
