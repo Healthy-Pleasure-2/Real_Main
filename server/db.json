@@ -57,9 +57,9 @@
             "nickname": "장훈1234",
             "email": "wkdgns1234@naver.com",
             "group": "",
-            "weight": "",
-            "exercise": "",    
-            "diet": ""
+            "weight": "100",
+            "exercise": "2600",    
+            "diet": "2700"
         }
     ]
 }
