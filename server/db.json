@@ -1,0 +1,65 @@
+{
+    "user": [
+        {
+            "index": 1,
+            "id": "wlsrud",
+            "pw": "1234",
+            "name": "이진경",
+            "gender": "female",
+            "nickname": "진경1234",
+            "email": "wlsrud1234@naver.com",
+            "group": "",
+            "weight": "",
+            "exercise": "",    
+            "diet": ""
+        }, {
+            "index": 2,
+            "id": "wpgud",
+            "pw": "1234",
+            "name": "이제형",
+            "gender": "male",
+            "nickname": "제형1234",
+            "email": "제형1234@naver.com",
+            "group": "",
+            "weight": "",
+            "exercise": "",    
+            "diet": ""
+        }, {
+            "index": 3,
+            "id": "dmswjd",
+            "pw": "1234",
+            "name": "정은정",
+            "gender": "female",
+            "nickname": "은정1234",
+            "email": "dmswjd1234@naver.com",
+            "group": "",
+            "weight": "",
+            "exercise": "",    
+            "diet": ""
+        }, {
+            "index": 4,
+            "id": "tnwls",
+            "pw": "1234",
+            "name": "강수진",
+            "gender": "female",
+            "nickname": "수진1234",
+            "email": "tnwls1234@naver.com",
+            "group": "",
+            "weight": "",
+            "exercise": "",    
+            "diet": ""
+        }, {
+            "index": 5,
+            "id": "wkdgns",
+            "pw": "1234",
+            "name": "김장훈",
+            "gender": "male",
+            "nickname": "장훈1234",
+            "email": "wkdgns1234@naver.com",
+            "group": "",
+            "weight": "",
+            "exercise": "",    
+            "diet": ""
+        }
+    ]
+}
