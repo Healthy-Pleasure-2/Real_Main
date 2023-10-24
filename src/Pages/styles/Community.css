@@ -2,18 +2,17 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-
-    /* min-height: 700px; */
+    min-height: 700px;
 }
 
 /*카테고리*/
 .Community_menu {
     width: 100%;
-    margin-bottom: 25px;
+    height: 5%;
+    margin-bottom: 2vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    min-height: 25px;
 }
 
 .Community_groupcreate {
@@ -24,39 +23,36 @@
 }
 
 .Community_groupcreate button {
-    width: 80px;
-    height: 30px;
+    width: 70px;
+    height: 20px;
     margin: 12px 5px;
-    background-color: #dbdbdb;
-    color: #313131;
+    background-color: #A7C957;
+    color: #fff;
     border: 0px;
     border-radius: 50px;
     font-weight: 500;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .Community_groupcreate button:hover {
-    background-color: #b0b0b0;
+    background-color: #386641;
     transition: 0.2s ease-in-out;
-
 }
 
-/*그룹 생성*/
+/*그룹 생성 */
 .Community_groupbtn {
     width: 35%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-right: 10px;
 }
 
 .Community_groupbtn button {
     width: 150px;
-    height: 50px;
+    height: 35px;
     font-size: 1rem;
-    background-color: #8CBA51;
+    background-color: #A7C957;
     text-decoration: none;
-    /* 밑줄 제거 */
     color: #ffffff;
     border-radius: 10px;
     border: none;
@@ -73,66 +69,41 @@
     color: inherit;
 }
 
-/*인기랭크*/
+/************* 인기랭크 **************/
 .Community_rank {
-    height: 240px;
+    height: 25vh;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 5vh;
     box-sizing: border-box;
-    border: 3px solid rgb(57, 114, 66);
-    box-shadow: 0 0 10px rgba(57, 114, 66, 0.7);
-
+    box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
     border-radius: 15px;
-    padding: 10px;
+    background: linear-gradient(-45deg, #a7c95784 50%, #F3F5EF 50%);
 }
 
 .Community_title {
-    width: 100%;
-    height: 20%;
-    font-size: 1.7rem;
-    color: #01352C;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 30%;
+    height: 100%;
+    float: left;
+    font-size: 1.3rem;
+    color: #386641;
     font-weight: bold;
-    margin-bottom: 10px;
+    padding-left: 1.5em;
+    position: relative;
 }
 
-.Community_title p:before,
-.Community_title p::after {
-    content: "";
-    display: inline-block;
-    background-image: url("../../star.png");
-    background-size: 40px 40px;
-    width: 40px;
-    height: 40px;
-    vertical-align: sub;
-    margin: 0 5px;
-    animation: big 1.5s infinite ease;
-}
-
-@keyframes big {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.1);
-    }
-
-    100% {
-        transform: scale(1)
-    }
+.Community_title .title_inner p {
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 0.9rem;
 }
 
 
-.Community_popularRank {
-    width: 100%;
-    height: 75%;
+.Community_rank .Community_popularRank {
+    width: 70%;
+    height: 100%;
+    float: left;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    /* max-height: 250px; */
+    padding: 30px 20px;
 }
 
 /*인기순위그룹 스타일*/
@@ -142,24 +113,25 @@
     height: 100%;
     grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
     align-items: start;
-    margin: 13px 7px;
+    margin: 0 10px;
 }
 
 .Community_item {
     height: 100%;
     border-radius: 10px;
-    border: 2px solid #729642;
     overflow: hidden;
     cursor: pointer;
     transition: 0.2s;
     padding: 10px;
-    padding: 10px;
+    border: 0px;
+    background-color: #fff;
+    box-shadow: 5px 5px 10px rgba(1, 53, 44, 0.25);
 }
 
 .Community_item:hover {
     transform: translateY(-0.5%);
     box-shadow: 0px 0px 7px 5px rgba(239, 255, 20, 0.3);
-    border: 2px solid #FFED8F;
+    outline: 2px solid #FFED8F;
 }
 
 .Community_cardimg {
@@ -172,33 +144,37 @@
 
 .Community_Groupname {
     height: 20%;
-    padding-top: 3%;
+    padding-top: 4%;
     font-size: 1rem;
     font-weight: 600;
-    color: #01352C;
-    margin-bottom: -7px;
+    color: #386641;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
 }
 
-/*그룹 목록*/
-.groupintro {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5vh;
+/************ 그룹 목록 /*************/
+
+.group_list {
+    width: 100%;
+    height: 5vh;
+    background: linear-gradient(90deg, #A7C957 50%, #F3F5EF);
+    border-radius: 10px;
+}
+
+.group_list h3 {
+    color: #fff;
+    margin-left: 2vw;
+    line-height: 5vh;
 }
 
 .Community_GroupList {
-    width: 90%;
-    height: 42vh;
+    height: 38vh;
     box-sizing: border-box;
-    padding: 20px;
-    /* border: 2px solid #D9D9D9; */
-    border-radius: 15px;
+    padding: 2%;
+    border-radius: 10px;
     margin-bottom: 5px;
-    min-height: 330px;
+    min-height: 300px;
     background-color: #fafafa;
 
 }
@@ -231,39 +207,50 @@
     position: relative;
     transition: 0.2s;
     padding: 7px;
+    width: 100%;
+    height: 100%;
 }
 
 /* 1행의 아이템은 왼쪽에서 오른쪽으로 배치 */
 .Community_gallery .Community_Gitem:nth-child(1),
-.Community_gallery .Community_Gitem:nth-child(3),
-.Community_gallery .Community_Gitem:nth-child(5),
+.Community_gallery .Community_Gitem:nth-child(4),
 .Community_gallery .Community_Gitem:nth-child(7),
-.Community_gallery .Community_Gitem:nth-child(9),
-.Community_gallery .Community_Gitem:nth-child(11) {
+.Community_gallery .Community_Gitem:nth-child(10) {
     grid-row: 1;
 }
 
 /* 2행의 아이템은 오른쪽에서 왼쪽으로 배치 */
 .Community_gallery .Community_Gitem:nth-child(2),
-.Community_gallery .Community_Gitem:nth-child(4),
-.Community_gallery .Community_Gitem:nth-child(6),
+.Community_gallery .Community_Gitem:nth-child(5),
 .Community_gallery .Community_Gitem:nth-child(8),
-.Community_gallery .Community_Gitem:nth-child(10),
-.Community_gallery .Community_Gitem:nth-child(12) {
+.Community_gallery .Community_Gitem:nth-child(11) {
     grid-row: 2;
 }
 
-.Community_Gcardimg {
-    display: block;
-    width: 100%;
-    height: 85%;
-    min-height: 90px;
+.Community_gallery .Community_Gitem:nth-child(3),
+.Community_gallery .Community_Gitem:nth-child(6),
+.Community_gallery .Community_Gitem:nth-child(9),
+.Community_gallery .Community_Gitem:nth-child(12) {
+    grid-row: 3;
+}
+
+
+.Community_Gitem {
+    display: flex;
+}
+
+.Community_Gitem .Community_Gcardimg {
+    width: 40%;
+    height: 100%;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.Community_Ggroupname {
-    height: 20%;
+
+
+.Community_Gitem .Community_cardcontent {
+    width: 60%;
+    height: 100%;
     font-size: 0.8rem;
     color: #313131;
     margin: 3px;

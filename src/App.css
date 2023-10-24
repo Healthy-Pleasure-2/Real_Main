@@ -53,7 +53,7 @@
   height: 100%;
   width: 80px;
   background: #A7C957;
-  padding: 6px 15px;
+  padding: 0 15px;
   transition: all 0.5s ease;
   float: left;
 }
@@ -64,7 +64,7 @@
   height: 50px;
   background-color: #fff;
   border-radius: 50%;
-  margin: 30px 0;
+  margin: 25px 0 30px;
 }
 
 .logo img {
@@ -194,6 +194,7 @@
   height: 30px;
   background-color: #F3F5EF;
   border: none;
+  border-radius: 15px;
   font-size: 16px;
   padding-left: 10px;
   color: #386641;

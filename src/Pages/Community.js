@@ -55,13 +55,19 @@ function Community({ isLoggedIn }) {
       {/*인기 랭킹*/}
       <div className="Community_rank">
         <div className="Community_title">
-          <p>인기 상승 그룹</p>
+          <div className="title_inner">
+            <h3>인기 상승 그룹</h3>
+            <p>크루가 많은 TOP3 </p>
+            <p>지금 참가해 보세요.</p>
+          </div>
         </div>
         <PopularRank groupData={groupData} />
       </div>
       {/*그룹목록*/}
       <div className="groupintro">
-        {/* <h2>Group List</h2> */}
+        <div className="group_list">
+          <h3>Group List</h3>
+        </div>
         <Groupintro groupData={groupData} selectedCategory={selectedCategory} />
       </div>
     </div>
