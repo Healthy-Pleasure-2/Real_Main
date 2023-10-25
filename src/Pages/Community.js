@@ -30,28 +30,6 @@ function Community({ isLoggedIn }) {
 
   return (
     <div className="Community_main">
-      {/*상단 메뉴(카테고리), 그룹 생성*/}
-      <div className="Community_menu">
-        <div className="Community_groupcreate">
-          {/*카테고리 클릭시 해당 카테고리로 이동*/}
-          <button onClick={() => handleCategoryClick("운동")}>운동</button>
-          <button onClick={() => handleCategoryClick("식단")}>식단</button>
-          <button onClick={() => handleCategoryClick("다이어트")}>
-            다이어트
-          </button>
-          <button onClick={() => handleCategoryClick("습관")}>습관</button>
-        </div>
-        {/*로그인 상태여야 그룹만들기 버튼 활성화*/}
-        {isLoggedIn && (
-          <div className="Community_groupbtn">
-            <button>
-              <Link to="/GroupCreate" className="Community_link">
-                그룹만들기
-              </Link>
-            </button>
-          </div>
-        )}
-      </div>
       {/*인기 랭킹*/}
       <div className="Community_rank">
         <div className="Community_title">
@@ -63,13 +41,35 @@ function Community({ isLoggedIn }) {
         </div>
         <PopularRank groupData={groupData} />
       </div>
+      {/*로그인 상태여야 그룹만들기 버튼 활성화*/}
+      {isLoggedIn && (
+        <div className="Community_groupbtn">
+          <button>
+            <Link to="/GroupCreate" className="Community_link">
+              +
+            </Link>
+          </button>
+        </div>
+      )}
+
       {/*그룹목록*/}
       <div className="groupintro">
-        <div className="group_list">
-          <h3>Group List</h3>
+        <h3 className="group_list_title">Group List</h3>
+
+        {/*카테고리, 그룹 생성*/}
+
+        <div className="Community_groupcreate">
+          {/*카테고리 클릭시 해당 카테고리로 이동*/}
+          <button onClick={() => handleCategoryClick("운동")}>운동</button>
+          <button onClick={() => handleCategoryClick("식단")}>식단</button>
+          <button onClick={() => handleCategoryClick("다이어트")}>
+            다이어트
+          </button>
+          <button onClick={() => handleCategoryClick("습관")}>습관</button>
         </div>
-        <Groupintro groupData={groupData} selectedCategory={selectedCategory} />
       </div>
+
+      <Groupintro groupData={groupData} selectedCategory={selectedCategory} />
     </div>
   );
 }

@@ -11,6 +11,11 @@
   justify-content: center;
 }
 
+.Community_wrap {
+  width: 100%;
+  height: 90%;
+}
+
 #GroupPage #frame {
   width: 90%;
   height: 95%;

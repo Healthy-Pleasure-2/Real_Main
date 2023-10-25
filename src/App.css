@@ -46,6 +46,7 @@
   min-height: 700px;
   max-width: 1600px;
   max-height: 900px;
+
 }
 
 /************* SideMenu 왼쪽 부분 *************/
@@ -142,6 +143,7 @@
   height: 100%;
   float: left;
   padding: 50px;
+  box-sizing: border-box;
 }
 
 
