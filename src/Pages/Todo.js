@@ -11,23 +11,24 @@ import GoalSet from '../components/Todo/GoalSet';
 import Mygroup from '../components/Todo/Mygroup';
 import { useEffect, useState } from 'react';
 
-function Todo() {
+function Todo({ isLoggedIn }) {
   const [groupinfo, setGroupInfo] = useState([]);
   useEffect(() => {
-    axios.get('/group.json').then((result) => {
-      setGroupInfo(result.data);
-    })
-      .catch((error) => {
-        console.error('데이터를 가져오지 못함', error)
-      })
-  }, [])
-
+    try {
+      fetch(" http://localhost:3000/group")
+        .then(response => response.json())
+        .then(json => setGroupInfo(json));
+    }
+    catch (error) {
+      console.log('데이터를 가져오지 못함', error);
+    }
+  }, []);
 
   return (
     <div id="todo_container">
       <LeftContents />
       <div id="todo_right_contents">
-        <GoalSet />
+        <GoalSet isLoggedIn={isLoggedIn} />
         <Mygroup groupinfo={groupinfo} />
       </div>
     </div>

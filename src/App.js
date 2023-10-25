@@ -4,16 +4,38 @@ import PageContent from "./components/PageContent";
 import SideMenu from "./components/SideMenu";
 import SideContent from "./components/SideCotent";
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1"
-/>;
-
 function App() {
-  // 로그인과 로그아웃의 상태 변경
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const handleLogin = () => {
-    setIsLoggedIn(true);
+
+  const handleLogin = async (username, password) => {
+    try {
+      const userData = {
+        id: username,
+        pw: password,
+      };
+
+      fetch("http://localhost:3000/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.message === "로그인 성공") {
+            setIsLoggedIn(true);
+          } else {
+            alert("로그인 실패");
+          }
+        })
+        .catch((error) => {
+          console.error("서버 요청 오류:", error);
+        });
+    } catch (error) {
+      console.error("로그인 요청 실패:", error);
+      alert("로그인 요청 실패");
+    }
   };
 
   const handleLogout = () => {
@@ -25,12 +47,10 @@ function App() {
       <div className="wrap">
         <SideMenu onLogout={handleLogout} isLoggedIn={isLoggedIn}></SideMenu>
         <PageContent isLoggedIn={isLoggedIn}></PageContent>
-        <SideContent
-          isLoggedIn={isLoggedIn}
-          onLogin={handleLogin}
-        ></SideContent>
+        <SideContent isLoggedIn={isLoggedIn} onLogin={handleLogin}></SideContent>
       </div>
     </div>
   );
 }
+
 export default App;

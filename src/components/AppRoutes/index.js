@@ -13,7 +13,7 @@ function AppRoutes({ isLoggedIn }) {
   return (
     <Routes>
       <Route path="/" element={<Main />}></Route>
-      <Route path="/todo" element={<Todo />}></Route>
+      <Route path="/todo" element={<Todo isLoggedIn={isLoggedIn} />}></Route>
       <Route
         path="/community"
         element={<Community isLoggedIn={isLoggedIn} />}

@@ -21,22 +21,9 @@ const StyledSlider = styled(Slider)`
   box-shadow: 3px 3px 7px rgb(131, 131, 131);
 `;
 
-function SimpleSlider() {
-  const [data, setData] = useState([]);
+function SimpleSlider({ groupinfo }) {
+  //슬라이드 하단 페이징을 위한 혀재페이지 상태값 저장 
   const [currentPage, setCurrentPage] = useState(1);
-  useEffect(() => {
-    // 데이터를 비동기적으로 가져옵니다.
-    axios
-      .get("/group.json")
-      .then((result) => {
-        // 데이터가 정상적으로 로드됨
-        setData(result.data.group);
-      })
-      .catch((error) => {
-        console.error("데이터를 가져오지 못함", error);
-      });
-  }, []);
-
   const settings = {
     dots: false,
     infinite: false,
@@ -52,7 +39,7 @@ function SimpleSlider() {
   };
 
   // 데이터를 로드하고 있다면, 데이터가 로드될 때까지 대기
-  if (data.length === 0) {
+  if (groupinfo.length === 0) {
     return <p>Loading...</p>;
   }
 
@@ -60,7 +47,7 @@ function SimpleSlider() {
   return (
     <div className="todo_slider_container">
       <StyledSlider {...settings}>
-        {data.map((item, index) => (
+        {groupinfo.map((item, index) => (
           <div className="todo_group_content" key={index}>
             <p className="todo_group_creteria">그룹명</p>
             <p className="todo_group_data">{item.name}</p>
@@ -71,7 +58,7 @@ function SimpleSlider() {
           </div>
         ))}
       </StyledSlider>
-      <p className="todo_page_count">{currentPage}/{data.length}</p>
+      <p className="todo_page_count">{currentPage}/{groupinfo.length}</p>
     </div>
   );
 }

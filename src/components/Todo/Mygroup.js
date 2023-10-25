@@ -11,7 +11,7 @@ function Mygroup({ groupinfo }) {
   return (
     <div id="todo_my_group">
       <h1 className="todo_h1">나의 그룹</h1>
-      <SimpleSlider groupdata={groupinfo} />
+      <SimpleSlider groupinfo={groupinfo} />
     </div>
   );
 }
