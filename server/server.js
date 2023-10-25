@@ -1,37 +1,68 @@
 const express = require('express'); // Express 프레임워크를 가져옵니다.
+const session = require("express-session"); // express-session 모듈 추가
 const app = express(); // Express 앱을 생성합니다.
 const port = 3003; // 서버가 사용할 포트 번호를 정의합니다.
 const cors = require('cors'); // CORS 미들웨어를 추가하기 위해 모듈을 가져옵니다.
 const fs = require('fs');
+const users = require('./db.json').user; // db.json 파일에서 사용자 정보를 가져와 변수에 저장합니다.
+const groups = require('./db.json').group // db.json파일에서 그룹 정보를 가져와 변수에 저장
+
 
 app.use(express.json()); // Express 앱이 JSON 요청을 처리할 수 있도록 미들웨어를 추가합니다.
-app.use(cors()); // CORS 미들웨어를 활성화합니다. 이를 통해 다른 도메인에서의 요청을 허용합니다.
-//app.use(cookieParser());  Cookie 파서 미들웨어를 활성화합니다. (아직 주석 처리되어 있습니다)
+app.use(
+  cors({
+    origin: "http://localhost:3000", // 클라이언트 앱의 도메인 주소
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // 인증 정보를 허용
+  })
+); // CORS 미들웨어를 활성화합니다. 이를 통해 다른 도메인에서의 요청을 허용합니다.
+//app.use(cookieParser()); // Cookie 파서 미들웨어를 활성화합니다. (아직 주석 처리되어 있습니다)
 
-const users = require('./db.json').user; // db.json 파일에서 사용자 정보를 가져와 변수에 저장합니다.
-const groups = require('./db.json').gorup // db.json파일에서 그룹 정보를 가져와 변수에 저장
-app.post('/user', (req, res) => {
-    const {id, pw} = req.body; // POST 요청의 본문(body)에서 id와 pw를 추출합니다.
 
-    const user = users.find((u) => u.id === id && u.pw === pw); // 사용자 배열에서 해당 ID와 PW를 가진 사용자를 찾습니다.
+// 세션 미들웨어 설정
+app.use(
+    session({
+      secret: "mysecretkey12345", // 세션 데이터 암호화를 위한 비밀 키
+      resave: false,
+      saveUninitialized: true,
+    })
+  );
+  const dbFilePath = "./db.json";/////////////////////////////////////////
+  // JSON 파일 읽어오기
+  const userData = require(dbFilePath);
 
+
+app.post("/login", (req, res) => {
+    const { username, password } = req.body;
+  
+    const user = userData.user.find(
+      (user) => user.username === username && user.password === password
+    );
+  
     if (user) {
-        // 로그인 성공 시 쿠키에 사용자 정보 저장 (아직 주석 처리되어 있습니다) res.cookie('user',
-        // JSON.stringify(user), { maxAge: 900000, httpOnly: true });
-        res
-            .status(200)
-            .json({message: '로그인 성공', user}); // 로그인 성공 응답을 반환합니다.
+      // 유효한 사용자 정보인 경우 세션에 사용자 정보를 저장
+      req.session.user = user;
+      res.send("Login successful");
     } else {
-        res
-            .status(401)
-            .json({message: '로그인 실패'}); // 로그인 실패 응답을 반환합니다.
+      res.status(401).send("Incorrect username or password");
     }
-});
+  });
+
+
+  app.get("/logout", (req, res) => {
+    if (req.session.user) {
+      // 로그인된 사용자만 로그아웃할 수 있도록 확인
+      req.session.destroy();
+      res.send("Logged out");
+    } else {
+      res.status(401).send("You are not logged in");
+    }
+  });
+
 
 app.patch('/user/:id', async (req, res) => {
     const userId = req.params.id;
     const {weight, exercise, diet} = req.body;
-
     try {
         // db.json 파일 읽어오기
         const data = await fs
@@ -52,7 +83,6 @@ app.patch('/user/:id', async (req, res) => {
                 .json({message: '사용자를 찾을 수 없습니다'});
             return;
         }
-
         //데이터 업데이트
         user.weight = weight;
         user.exercise = exercise;
@@ -67,7 +97,6 @@ app.patch('/user/:id', async (req, res) => {
             .promises
             .writeFile('./db.json', updatedData, 'utf8');
         console.log('업데이트 결과', updatedData);
-
         res
             .status(200)
             .json({message: '사용자 정보가 업데이트되었습니다', user});
@@ -78,6 +107,7 @@ app.patch('/user/:id', async (req, res) => {
             .json({message: '서버 오류'});
     }
 });
+
 
 app.listen(port, () => {
     console.log(`서버가 ${port} 포트에서 실행 중입니다.`);
