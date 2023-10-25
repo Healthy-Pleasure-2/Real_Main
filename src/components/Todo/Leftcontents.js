@@ -96,7 +96,7 @@ function LeftContents() {
         <input
           type="text"
           className="todo_todoAdd"
-          placeholder="오늘의 할일을 입력하세요"
+          placeholder="오늘의 할일을 입력하세요."
           value={text}
           onChange={changeInput}
         />

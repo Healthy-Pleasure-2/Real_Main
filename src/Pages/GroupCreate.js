@@ -24,7 +24,6 @@ function GroupCreate() {
             <p>그룹 명</p>
             <input
               type="text"
-              placeholder="그룹 이름"
               size={90}
               value={groupName}
               onChange={handleGroupNameChange}
@@ -33,7 +32,13 @@ function GroupCreate() {
           </div>
           <div className="category">
             <p>카테고리</p>
-            <input type="text" size={90} />
+            <select className="category">
+              <option value="">카테고리 선택</option>
+              <option value="운동">운동</option>
+              <option value="식단">식단</option>
+              <option value="다이어트">다이어트</option>
+              <option value="습관">습관</option>
+            </select>
           </div>
           <div className="goal">
             <p>목표</p>

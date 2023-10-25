@@ -19,13 +19,12 @@
 #GroupPage #frame {
   width: 90%;
   height: 95%;
-  background-color: #f4f4f4;
+  background-color: #F3F5EF;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 10px #33333367, inset 0 0 5px #33333367;
-
+  box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
   font-size: 0.8rem;
-  color: #313131;
+  color: #386641;
 }
 
 /******* 상단 부분 및 참여버튼 *******/
@@ -36,7 +35,7 @@
 }
 
 #GroupPage .top h2 {
-  color: #01352C;
+  color: #386641;
   font-size: 1.5rem;
   width: 80%;
   padding-bottom: 8px;
@@ -47,11 +46,10 @@
 #GroupPage .top #category {
   width: 80px;
   height: 25px;
-  background-color: #dbdbdb;
+  background-color: rgba(167, 201, 87, 0.6);
   border-radius: 15px;
-
   text-align: center;
-  color: #7b7b7b;
+  color: #386641;
   font-weight: bold;
   line-height: 25px;
 }
@@ -60,7 +58,7 @@
   float: right;
   width: 20%;
   height: 50%;
-  background-color: #8CBA51;
+  background-color: #A7C957;
   border: none;
   border-radius: 15px;
   cursor: pointer;
@@ -71,11 +69,9 @@
 }
 
 #GroupPage .top button:hover {
-  background-color: #397242;
+  background-color: #386641;
   transition: 0.2s ease-in-out;
 }
-
-
 
 
 /******* 그룹 목표 및 소개 *******/
@@ -88,12 +84,20 @@
 #GroupPage .intro .goal {
   display: flex;
   height: 40px;
-  background-color: #cdf0a0;
-  box-shadow: inset 0 0 6px #8CBA51;
-  border: 2px solid #55752b;
+  background: #386641;
+  color: #fff;
+  border: 2px solid #386641;
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 7px;
+}
+
+#GroupPage .intro #title1 {
+  border-right: 1px solid #fff;
+  width: 8vw;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 #GroupPage .intro .goal .content {
@@ -111,9 +115,17 @@
   display: flex;
   height: 50%;
   background-color: #fff;
-  border: 2px solid #729642;
+  border: 2px solid #386641;
   border-radius: 10px;
   padding: 7px;
+}
+
+#GroupPage .intro #title2 {
+  border-right: 1px solid #386641;
+  width: 8vw;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 #GroupPage .intro .groupIntro .content {
@@ -132,18 +144,8 @@
 /* 썸(thumb) 추가 */
 #GroupPage .intro .groupIntro .content::-webkit-scrollbar-thumb {
   height: 50%;
-  background: #729642;
+  background: #A7C957;
   border-radius: 10px;
-}
-
-
-/* 목표, 소개 타이틀 */
-#GroupPage .intro #title {
-  border-right: 1px solid #729642;
-  width: 8vw;
-  text-align: center;
-  font-size: 0.95rem;
-  font-weight: 700;
 }
 
 
@@ -152,14 +154,14 @@
 #GroupPage .comment {
   height: 50%;
   background-color: #fff;
-  border: 2px solid #397242;
+  border: 2px solid #386641;
   border-radius: 10px;
   padding: 7px;
 }
 
 .commentTitle {
   padding: 0 0 7px 7px;
-  border-bottom: 1px solid #729642;
+  border-bottom: 1px solid #A7C957;
   font-weight: 700;
   font-size: 0.95rem;
   height: 10%;
@@ -181,18 +183,18 @@
 
 .commentList::-webkit-scrollbar-thumb {
   height: 50%;
-  background: #729642;
+  background: #A7C957;
   border-radius: 10px;
 }
-
 
 .commentList .commentIndex {
   position: relative;
   display: flex;
   margin-bottom: 10px;
-  background-color: #f1f1f1;
+  background-color: rgba(167, 201, 87, 0.3);
   border-radius: 5px;
   min-height: 25px;
+  padding: 3px 0;
 }
 
 .commentList .commentIndex h4 {
@@ -201,15 +203,17 @@
 }
 
 .commentList .commentIndex p {
-  width: 75%;
+  width: 85%;
+  word-break: break-all;
 }
 
 .commentList .commentIndex .delete {
   position: absolute;
   right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 30px;
   height: 100%;
-  padding: 0 5px;
   border: none;
   background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
@@ -218,7 +222,7 @@
 /* 댓글 작성란 */
 .commentInput {
   display: flex;
-  border-top: 1px solid #729642;
+  border-top: 1px solid #A7C957;
   padding: 10px;
   height: 18%;
 }
@@ -226,12 +230,12 @@
 .commentInput input {
   margin-right: 10px;
   border-radius: 5px;
-  border: 1px solid #5c5c5c;
+  border: 1px solid #A7C957;
   padding-left: 10px;
 }
 
 .commentInput input:focus {
-  border: 2px solid #397242;
+  border: 2px solid #386641;
   outline: none;
 }
 
@@ -243,11 +247,16 @@
   width: 75%;
 }
 
+.commentInput input::placeholder {
+  color: #386641;
+  font-style: italic;
+}
+
 .commentInput button {
   width: 10%;
   height: 100%;
   margin: 0;
-  background-color: #8CBA51;
+  background-color: #A7C957;
   color: #fff;
   font-weight: 700;
   border: none;

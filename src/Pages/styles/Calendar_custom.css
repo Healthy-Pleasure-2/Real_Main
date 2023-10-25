@@ -234,7 +234,8 @@
 /* hover하거나 focus했을 때 타일의 변화 */
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
-  background: #386641;
+  background: #A7C957;
+  color: #fff;
 }
 
 /* 타일을 클릭했을 때 효과 */

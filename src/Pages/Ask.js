@@ -56,7 +56,11 @@ class Ask extends Component {
             checked={this.state.activeTab === "notice_N"}
             onChange={() => this.handleTabClick("notice_N")}
           />
-          <label htmlFor="tab1">공지사항</label>
+          <label htmlFor="tab1">
+            <div>공지사항</div>
+            <p>Healthy Pleasure에서 전하는 새로운 소식을 확인하세요.</p>
+          </label>
+
           <input
             type="radio"
             id="tab2"
@@ -64,7 +68,10 @@ class Ask extends Component {
             checked={this.state.activeTab === "notice_ask"}
             onChange={() => this.handleTabClick("notice_ask")}
           />
-          <label htmlFor="tab2">자주묻는질문</label>
+          <label htmlFor="tab2">
+            <div> 자주묻는질문</div>
+            <p>궁금한게 있다면 자주 묻는 질문을 확인해 보세요.</p>
+          </label>
           <input
             type="radio"
             id="tab3"
@@ -72,7 +79,10 @@ class Ask extends Component {
             checked={this.state.activeTab === "notice_inquiry"}
             onChange={() => this.handleTabClick("notice_inquiry")}
           />
-          <label htmlFor="tab3">온라인 문의</label>
+          <label htmlFor="tab3">
+            <div>1 : 1 문의</div>
+            <p>그 밖에도 궁금하신 것이 있으신가요?</p>
+          </label>
         </div>
         <div
           id="notice_N"
@@ -108,31 +118,33 @@ class Ask extends Component {
         >
           <div className="form">
             <h1>온라인 문의</h1>
-            <div className="notice_email">
-              <p>이메일</p>
-              <input type="text" size={90} />
+            <div className="notice_inquiry_wrap">
+              <div className="notice_email">
+                <p>이메일</p>
+                <input type="text" size={90} />
+              </div>
+              <div className="notice_name">
+                <p>이름</p>
+                <input type="text" size={90}></input>
+              </div>
+              <div className="notice_number">
+                <p>휴대전화번호(선택)</p>
+                <input type="text" size={90}></input>
+              </div>
+              <div className="notice_tittle">
+                <p>제목</p>
+                <input type="text" size={90}></input>
+              </div>
+              <div className="notice_qu">
+                <p>문의사항</p>
+                <input type="text" size={90}></input>
+              </div>
+              <div className="notice_btn">
+                <button onClick={this.handleTabClickl}>문의하기</button>
+                {/* <p>{message}</p> */}
+              </div>
+              <p>{message}</p>
             </div>
-            <div className="notice_name">
-              <p>이름</p>
-              <input type="text" size={90}></input>
-            </div>
-            <div className="notice_number">
-              <p>휴대전화번호(선택)</p>
-              <input type="text" size={90}></input>
-            </div>
-            <div className="notice_tittle">
-              <p>제목</p>
-              <input type="text" size={90}></input>
-            </div>
-            <div className="notice_qu">
-              <p>문의사항</p>
-              <input type="text" size={90}></input>
-            </div>
-            <div className="notice_btn">
-              <button onClick={this.handleTabClickl}>문의하기</button>
-              {/* <p>{message}</p> */}
-            </div>
-            <p>{message}</p>
           </div>
         </div>
       </div>
