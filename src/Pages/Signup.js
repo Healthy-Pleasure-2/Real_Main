@@ -49,11 +49,11 @@ function Signup() {
     // Validate the form data
     let newErrors = { ...errors };
 
-    if (!idRegex.test(formData.id)) {
-      newErrors.id = "공백없이 숫자, 대소문자만 입력해주세요.";
-    } else {
-      newErrors.id = "";
-    }
+    // if (!idRegex.test(formData.id)) {
+    //   newErrors.id = "공백없이 숫자, 대소문자만 입력해주세요.";
+    // } else {
+    //   newErrors.id = "";
+    // }
 
     if (!passwordRegex.test(formData.password)) {
       newErrors.password = "올바른 형식으로 입력해주세요.";
@@ -134,17 +134,19 @@ function Signup() {
         <h1>회원가입</h1>
 
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="input_check">
             <label>아이디</label>
-            <input
-              type="text"
-              name="id"
-              value={formData.id}
-              onChange={handleChange}
-              required
-            />
-            <button>중복확인</button>
-            <p className="error-message">{errors.id}</p>
+            <div className="input_check_btn">
+              <input
+                type="text"
+                name="id"
+                value={formData.id}
+                onChange={handleChange}
+                required
+                className="id_chcek"
+              />
+              <button>중복확인</button>
+            </div>
           </div>
           <div>
             <label>비밀번호</label>
@@ -155,6 +157,7 @@ function Signup() {
               value={formData.password}
               onChange={handleChange}
               required
+              className="input"
             />
             <p className="error-message">{errors.password}</p>
           </div>
@@ -166,6 +169,7 @@ function Signup() {
               value={formData.confirmPassword}
               onChange={handleChange}
               required
+              className="input"
             />
             <p className="error-message">{errors.confirmPassword}</p>
           </div>
@@ -177,6 +181,7 @@ function Signup() {
               value={formData.name}
               onChange={handleChange}
               required
+              className="input"
             />
             <p className="error-message">{errors.name}</p>
           </div>
@@ -188,16 +193,19 @@ function Signup() {
             <span>여자</span>
           </div>
 
-          <div>
+          <div className="input_check">
             <label>닉네임</label>
-            <input
-              type="text"
-              name="nickname"
-              value={formData.nickname}
-              onChange={handleChange}
-              required
-            />
-            <button>중복확인</button>
+            <div className="input_check_btn">
+              <input
+                type="text"
+                name="nickname"
+                value={formData.nickname}
+                onChange={handleChange}
+                required
+                className="id_chcek"
+              />
+              <button>중복확인</button>
+            </div>
           </div>
 
           <div>
@@ -209,6 +217,7 @@ function Signup() {
               value={formData.email}
               onChange={handleChange}
               required
+              className="input"
             />
             <p className="error-message">{errors.email}</p>
           </div>

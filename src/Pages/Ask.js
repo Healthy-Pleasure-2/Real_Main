@@ -6,6 +6,7 @@
 
 import "./styles/Ask.css";
 import Notice1 from "../components/Notice1";
+import FAQ from "../components/FAQ";
 import React, { Component } from "react";
 // import dummy from "../../public/notice.json"
 
@@ -108,8 +109,9 @@ class Ask extends Component {
             this.state.activeTab === "notice_ask" ? "active" : ""
           }`}
         >
-          <p>자주묻는 질문</p>
+          <FAQ />
         </div>
+
         <div
           id="notice_inquiry"
           className={`tabcontent ${
@@ -117,11 +119,11 @@ class Ask extends Component {
           }`}
         >
           <div className="form">
-            <h1>온라인 문의</h1>
-            <div className="notice_inquiry_wrap">
+            <div className="form_wrap">
+              <h1>1 : 1 문의</h1>
               <div className="notice_email">
                 <p>이메일</p>
-                <input type="text" size={90} />
+                <input type="email" size={90} />
               </div>
               <div className="notice_name">
                 <p>이름</p>
@@ -129,7 +131,7 @@ class Ask extends Component {
               </div>
               <div className="notice_number">
                 <p>휴대전화번호(선택)</p>
-                <input type="text" size={90}></input>
+                <input type="tel" size={90}></input>
               </div>
               <div className="notice_tittle">
                 <p>제목</p>
@@ -137,7 +139,7 @@ class Ask extends Component {
               </div>
               <div className="notice_qu">
                 <p>문의사항</p>
-                <input type="text" size={90}></input>
+                <textarea type="" size={90}></textarea>
               </div>
               <div className="notice_btn">
                 <button onClick={this.handleTabClickl}>문의하기</button>

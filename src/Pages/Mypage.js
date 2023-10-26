@@ -98,6 +98,7 @@ function Mypage() {
               value={formData.id}
               onChange={handleChange}
               required
+              className="input"
             />
           </div>
           <div>
@@ -110,6 +111,7 @@ function Mypage() {
               onChange={handleChange}
               required
               ref={InputRef}
+              className="input"
             />
             <p className="error-message">{errors.password}</p>
           </div>
@@ -122,6 +124,7 @@ function Mypage() {
               onChange={handleChange}
               required
               ref={InputRef}
+              className="input"
             />
             <p className="error-message">{errors.confirmPassword}</p>
           </div>
@@ -135,6 +138,7 @@ function Mypage() {
               disabled
               value={formData.name}
               onChange={handleChange}
+              className="input"
             />
           </div>
           <div className="gender">
@@ -144,16 +148,19 @@ function Mypage() {
             <input type="radio" name="gender" value="female" disabled />
             <span>여자</span>
           </div>
-          <div>
+          <div className="input_check">
             <label>닉네임</label>
-            <input
-              type="text"
-              name="nickname"
-              value={formData.nickname}
-              onChange={handleChange}
-              required
-            />
-            <button>중복확인</button>
+            <div className="input_check_btn">
+              <input
+                type="text"
+                name="nickname"
+                value={formData.nickname}
+                onChange={handleChange}
+                required
+                className="nick_input"
+              />
+              <button>중복확인</button>
+            </div>
           </div>
           <div>
             <label>이메일</label>
@@ -165,6 +172,7 @@ function Mypage() {
               onChange={handleChange}
               required
               ref={InputRef}
+              className="input"
             />
             <p className="error-message">{errors.email}</p>
           </div>
