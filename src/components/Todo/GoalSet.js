@@ -3,15 +3,13 @@
 // 페이지 용도: 개인별 목표 페이지 (목표 설정 위젯)
 // 생성 일자(수정 용도): 10/20
 
-
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPerson,
   faDumbbell,
   faUtensils
 } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 function GoalSet() {
@@ -20,35 +18,31 @@ function GoalSet() {
     exercise: "",
     diet: ""
   });
-  console.log(goal)
-
-  // 컴포넌트가 마운트될 때 저장된 목표를 불러옵니다.
-  useEffect(() => {
-    fetch("http://localhost:3000/user/wpgud")
-      .then(response => response.json())
-      .then(data => {
-
-      })
-  }, []);
-
 
   // input 값의 변동이 일어날때 일어나는 함수(onchange 함수)
   const handleInputChange = (event) => {
     // input의 name과 value 값을 변수선언 
     const { name, value } = event.target;
+    // 목표 업데이트 
     setGoal({ ...goal, [name]: value })
   }
   const handleGoalSet = () => {
-    fetch("http://localhost:3000/user/wpgud", {
+
+    const userId = 'wpgud';
+    fetch(`http://localhost:3003/user/${userId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(goal),
     })
-      .then((response) => response.json)
+      .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        setGoal(goal)
+      })
+      .catch((error) => {
+        console.error('서버 요청 오류: ', error)
       })
   }
   return (
