@@ -12,7 +12,7 @@ function Mygroup({ groupinfo }) {
       <div className="todo_my_group">
         <div className="todo_title">
           <h2>MY GROUP</h2>
-          <p>현재 상태값을 입력하여 설정한 목표의 달성률을 확인하세요!</p>
+          <p>함께할 때, 더 많이 이룰 수 있어요. 그룹에서 힘을 모아 함께 활동해보세요!💪</p>
         </div>
 
         <SimpleSlider groupdata={groupinfo} />
