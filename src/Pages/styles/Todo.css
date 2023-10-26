@@ -555,7 +555,6 @@ button {
     background-color: #F4F8EA;
     width: 50%;
     height: 100%;
-    border-radius: 15px;
     padding: 20px;
     margin-right: 20px;
   }
@@ -573,17 +572,16 @@ button {
   #todo_data_container {
     width: 90%;
     height: 55%;
-    display: flex;
-    margin: 0 auto;
     flex-direction: column;
     overflow-y: auto;
   }
 
+  #todo_data_container::-webkit-scrollbar {
+    width: 10px;
+  }
+
   /* 몸무게, 운동, 식단 위젯 */
   .todo_health {
-    border: 2px solid #386641;
-    background-color: #fff;
-    border-radius: 15px;
     width: 100%;
     margin-left: 0;
   }
@@ -599,18 +597,15 @@ button {
   .todo_data_leftSide {
     height: 100%;
     width: 35%;
-    background-color: #386641;
-    text-align: center;
-    border-radius: 11px;
     float: left;
     padding: 3px;
   }
+
 
   /* 아이콘 */
   .todo_icon {
     float: left;
     width: 50%;
-    color: #fff;
     font-size: 1.5rem;
   }
 
@@ -618,10 +613,9 @@ button {
   .todo_data_leftSide div:last-child {
     float: left;
     width: 50%;
-    font-size: 0.8rem;
-    color: rgb(255, 255, 255, 0.8);
     line-height: 2.2rem;
   }
+
 
   .todo_data_rightSide {
     height: 100%;
@@ -635,27 +629,15 @@ button {
     border-radius: 15px;
     width: 70%;
     height: 90%;
-    color: #386641;
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-align: center;
-    padding-top: 1%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
   }
 
-  .todo_data_record:focus {
-    outline: none;
-  }
+
 
   /* 단위 kg, kcal */
   .todo_data_rightSide .todo_unit {
-    color: #386641;
-    font-weight: bold;
-    font-size: 1rem;
-    line-height: 0.1rem;
-    text-align: center;
     height: 100%;
     width: 30%;
     position: absolute;
@@ -663,34 +645,6 @@ button {
     right: 5%;
     transform: translateY(-50%);
     line-height: 41px;
-  }
-
-  /* 완료 버튼 */
-  .todo_complete {
-    width: 80%;
-    height: 10%;
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    border-radius: 100px;
-    background: #386641;
-    margin: 0 10%;
-  }
-
-  .todo_complete button {
-    border: none;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    background: none;
-    width: 100%;
-    text-align: center;
-  }
-
-  .todo_complete:hover {
-    background: #A7C957;
-    transition: 0.3s ease-in-out;
   }
 
   /* ********  나의 그룹 ************** */
