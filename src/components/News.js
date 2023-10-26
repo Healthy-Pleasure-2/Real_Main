@@ -13,7 +13,7 @@ function News() {
     // console.log(apiUrl)
   // useEffect(() => {
     
-  //   const apiKey = "90fef2863b014da2a5c2b6962432a6f2";
+
   //   const apiUrl = `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}`;
   
 
