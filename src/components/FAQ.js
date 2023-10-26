@@ -1,6 +1,6 @@
-function Notice1() {
+function FAQ() {
   return (
-    <div className="notice-container">
+    <div className="ask-container">
       <div className="notice_serch">
         <input type="serch" placeholder="검색어 입력" />
         <button>검색</button>
@@ -14,70 +14,73 @@ function Notice1() {
           </li>
           <li className="notice_List_neyong">
             <div class="notice_flex-item">
-              <span>공지</span>
+              <span>Q</span>
             </div>
-            <div class="notice_flex-item">서비스 점검 안내</div>
+            <div class="notice_flex-item">Healthy Pleasure 서비스란?</div>
             <div class="notice_flex-item">2023-10-21</div>
           </li>
           <li className="notice_List_neyong">
             <div class="notice_flex-item">
-              {" "}
-              <span>공지</span>
+              <span>Q</span>
             </div>
-            <div class="notice_flex-item">휴먼계정 별도 보관 안내</div>
+            <div class="notice_flex-item">개인 목표 설정은 어떻게 하나요?</div>
             <div class="notice_flex-item">2023-10-21</div>
           </li>
           <li className="notice_List_neyong">
             <div class="notice_flex-item">
-              {" "}
-              <span>공지</span>
+              <span>Q</span>
+            </div>
+            <div class="notice_flex-item">커뮤니티 생성은 어떻게 하나요?</div>
+            <div class="notice_flex-item">2023-10-21</div>
+          </li>
+          <li className="notice_List_neyong">
+            <div class="notice_flex-item">
+              <span>Q</span>
+            </div>
+            <div class="notice_flex-item">커뮤니티 가입 방법</div>
+            <div class="notice_flex-item">2023-10-21</div>
+          </li>
+          <li className="notice_List_neyong">
+            <div class="notice_flex-item">
+              <span>Q</span>
+            </div>
+            <div class="notice_flex-item">커뮤니티 탈퇴 방법</div>
+            <div class="notice_flex-item">2023-10-21</div>
+          </li>
+          <li className="notice_List_neyong">
+            <div class="notice_flex-item">
+              <span>Q</span>
             </div>
             <div class="notice_flex-item">
-              홈페이지 개인정보취급방침 변경안내
+              커뮤니티 회원관리는 어떻게 하나요?
             </div>
             <div class="notice_flex-item">2023-10-21</div>
           </li>
           <li className="notice_List_neyong">
             <div class="notice_flex-item">
-              {" "}
-              <span>공지</span>
+              <span>Q</span>
             </div>
-            <div class="notice_flex-item">이용약관 변경 안내</div>
-            <div class="notice_flex-item">2023-10-21</div>
-          </li>
-          <li className="notice_List_neyong">
-            <div class="notice_flex-item">
-              {" "}
-              <span>이벤트</span>
-            </div>
-            <div class="notice_flex-item">당첨자 발표</div>
-            <div class="notice_flex-item">2023-10-21</div>
-          </li>
-          <li className="notice_List_neyong">
-            <div class="notice_flex-item">
-              {" "}
-              <span>공지</span>
-            </div>
-            <div class="notice_flex-item">커뮤니티 서비스 일시 중단 안내</div>
-            <div class="notice_flex-item">2023-10-21</div>
-          </li>
-          <li className="notice_List_neyong">
-            <div class="notice_flex-item">10</div>
-            <div class="notice_flex-item">추석 연휴 고객센터 휴무 안내</div>
+            <div class="notice_flex-item">채팅 참여 방법</div>
             <div class="notice_flex-item">2023-09-21</div>
           </li>
           <li className="notice_List_neyong">
-            <div class="notice_flex-item">9</div>
+            <div class="notice_flex-item">
+              <span>Q</span>
+            </div>
             <div class="notice_flex-item">test</div>
             <div class="notice_flex-item">2023-09-21</div>
           </li>
           <li className="notice_List_neyong">
-            <div class="notice_flex-item">8</div>
+            <div class="notice_flex-item">
+              <span>Q</span>
+            </div>
             <div class="notice_flex-item">test</div>
             <div class="notice_flex-item">2023-09-21</div>
           </li>
           <li className="notice_List_neyong">
-            <div class="notice_flex-item">7</div>
+            <div class="notice_flex-item">
+              <span>Q</span>
+            </div>
             <div class="notice_flex-item">test</div>
             <div class="notice_flex-item">2023-09-21</div>
           </li>
@@ -87,4 +90,4 @@ function Notice1() {
   );
 }
 
-export default Notice1;
+export default FAQ;

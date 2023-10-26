@@ -1,7 +1,7 @@
 /*소스명 : Groupintro.js
 작성자 : 정은정
 이 페이지 용도 : 그룹 목록 화면
-생성일자(수정일자) :*/
+생성일자(수정일자) 231026 -21번줄 주석처리, 22번 줄 9로 변경 :*/
 
 import React, { useState, useEffect } from "react";
 import "../../Pages/styles/Community.css";
@@ -18,8 +18,8 @@ function Groupintro({ groupData, selectedCategory }) {
       // 크기에 따라 동적으로 아이템 수 변경
       const windowWidth = window.innerWidth;
       if (windowWidth >= 1700) setItemsCount(12);
-      else if (windowWidth >= 1400) setItemsCount(10);
-      else if (windowWidth >= 1200) setItemsCount(8);
+      // else if (windowWidth >= 1400) setItemsCount(10);
+      else if (windowWidth >= 1200) setItemsCount(9);
       else if (windowWidth >= 800) setItemsCount(6);
       else setItemsCount(4);
     };

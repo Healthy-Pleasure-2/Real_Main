@@ -10,7 +10,7 @@
 .Community_rank {
     height: 30%;
     width: 100%;
-    margin-bottom: 5%;
+    margin-bottom: 7%;
     box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
     border-radius: 15px;
     background: linear-gradient(-45deg, #a7c95784 50%, #F3F5EF 50%);
@@ -253,18 +253,20 @@
 }
 
 .Community_Gitem .Community_cardcontent h2 {
-    font-size: 1rem;
+    height: 20%;
+    font-size: 100%;
     font-weight: bold;
 }
 
 .Community_Gitem .Community_cardcontent h3 {
-    font-size: 0.75rem;
+    font-size: 75%;
     font-weight: 500;
-    height: 50%;
+    height: 60%;
+    padding-top: 5%;
 }
 
 .Community_Gitem .Community_cardcontent p {
-    font-size: 0.6rem;
+    font-size: 10%;
     color: #686868;
     line-height: 0.6rem;
     text-align: end;
