@@ -91,37 +91,40 @@ function Goal_Circle() {
       </div>
 
       <div className="inputbox">
-        <div style={{ color: "#62be2d" }}>
-          체중{" "}
+        <div className="input_inner">
+          <div className="input_title">체중</div>
           <input
             className="inputbox1"
             type="text"
-            placeholder="체중"
+            placeholder="0"
             value={weight}
             onChange={(e) => handleInputChange("weight", e.target.value)}
-          />{" "}
+          />
+          <br></br>
           kg
         </div>
-        <div style={{ color: "#20c1cc" }}>
-          운동{" "}
+        <div className="input_inner">
+          <div className="input_title">운동</div>
           <input
             className="inputbox2"
             type="text"
-            placeholder="운동"
+            placeholder="0"
             value={exercise}
             onChange={(e) => handleInputChange("exercise", e.target.value)}
           />{" "}
+          <br></br>
           kcal
         </div>
-        <div style={{ color: "#cf3188" }}>
-          식단{" "}
+        <div className="input_inner">
+          <div className="input_title">식단</div>
           <input
             className="inputbox3"
             type="text"
-            placeholder="식단"
+            placeholder="0"
             value={diet}
             onChange={(e) => handleInputChange("diet", e.target.value)}
           />{" "}
+          <br></br>
           kcal
         </div>
       </div>

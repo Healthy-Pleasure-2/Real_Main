@@ -7,100 +7,50 @@
 -로그
 231016 김장훈 - 최초작성
 231020 이진경 - 수정
+231023 이진경 - 수정
 */
 
 .main {
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
-    /* min-height: 700px; */
 }
 
 /* 배너 */
 .Hello {
-    height: 30%;
     width: 100%;
-    background: #ffffff;
-    margin-bottom: 20px;
+    height: 40%;
+    margin-bottom: 5vh;
     box-sizing: border-box;
-    border: 2px solid #397242;
+    background-color: #386641;
     border-radius: 15px;
-}
-
-.Hello .title {
-    text-align: center;
-    margin-top: 6%;
-    margin-bottom: 10px;
-    font-size: 1.7rem;
-    font-weight: bold;
-}
-
-/* 카테고리 */
-.bt1 {
-    width: 65%;
+    background:
+        radial-gradient(ellipse at 20% 20%, #012408 0%, transparent 80%),
+        radial-gradient(ellipse at 55% 20%, #7aa712 0%, transparent 70%),
+        radial-gradient(ellipse at 100% 20%, #3d54b1 0%, transparent 70%),
+        radial-gradient(ellipse at 100% 100%, #3c9f65 0%, transparent 80%),
+        radial-gradient(ellipse at 20% 100%, #002407 0%, transparent 90%);
+    background-blend-mode: screen;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+
 }
 
-.bt1 button {
-    width: 80px;
-    height: 25px;
-    margin: 12px 5px;
-    background-color: #dbdbdb;
-    color: #313131;
-    border: 0px;
-    border-radius: 50px;
-    font-weight: 500;
-    font-size: 0.8rem;
+.Hello .image {
+    width: 40%;
+    background-image: url(../../3802284.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 40%;
+    margin: 1.5%;
+    /* animation: up 3s ease-in-out infinite; */
 }
 
-/* 인기상승 그룹 */
-.rank {
-    height: 35%;
-    width: 100%;
-    background: #ffffff;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    border: 3px solid rgb(57, 114, 66);
-    box-shadow: 0 0 10px rgba(57, 114, 66, 0.7);
-    border-radius: 15px;
-}
-
-.rank .title {
-    font-size: 1.7rem;
-    color: #01352C;
-    font-weight: bold;
-    text-align: center;
-    padding-top: 10px;
-    height: 20%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.rank .title p:before,
-.rank .title p::after {
-    content: "";
-    display: inline-block;
-    background-image: url("../../star.png");
-    background-size: 40px 40px;
-    width: 40px;
-    height: 40px;
-    vertical-align: sub;
-    margin: 0 5px;
-    animation: big 1.5s infinite ease;
-}
-
-@keyframes big {
+@keyframes up {
     0% {
         transform: scale(1);
     }
 
     50% {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 
     100% {
@@ -108,50 +58,174 @@
     }
 }
 
+.Hello .title {
+    position: relative;
+    height: 100%;
+    color: #fff;
+    width: 58%;
+}
+
+.title_inner {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.Hello .title h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.Hello .title h1 {
+    text-shadow: .1em .1em 3px #053e11;
+    font-size: 2.5em;
+}
+
+.Hello .title p {
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-top: 0.5em;
+}
+
+.bt1 {
+    margin-top: 1.5em;
+}
+
+.bt1 button {
+    width: 100px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #386641;
+    border: 0px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.bt1 button:hover {
+    background-color: rgba(255, 255, 255);
+}
+
+/* 인기상승 그룹 */
+.rank {
+    height: 35%;
+    width: 100%;
+    margin-bottom: 4vh;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
+    border-radius: 15px;
+    background: linear-gradient(-45deg, #a7c95784 50%, #F3F5EF 50%);
+}
+
+.rank .title {
+    width: 30%;
+    height: 100%;
+    float: left;
+    font-size: 1.3rem;
+    color: #386641;
+    font-weight: bold;
+    padding-left: 1.5em;
+    position: relative;
+}
+
+.rank .title p {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.rank .title .bt2 button {
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    background-color: #386641;
+    color: #fff;
+    margin-top: 15px;
+}
+
 .rank .Community_popularRank {
-    height: 80%;
-    padding: 17px 10px;
-}
-
-.rank .Community_Rgroup {
-    margin: 0 7px
-}
-
-.rank .Community_Groupname {
-    font-size: 1.1rem;
-    padding-top: 5%;
+    width: 70%;
+    height: 100%;
+    float: left;
+    display: flex;
+    padding: 30px 20px;
 }
 
 .etc {
-    height: 20%;
+    height: 15%;
     display: flex;
     justify-content: space-between;
 }
 
 .Notice,
 .Question {
-    flex-basis: calc(50% - 10px);
+    flex-basis: calc(50% - 25px);
     height: 100%;
-    background: #ffffff;
     box-sizing: border-box;
-    border: 2px solid #D9D9D9;
-    background-color: #f4f4f4;
-
     border-radius: 15px;
     font-weight: bold;
-    padding: 10px 15px;
-    color: #01352C;
+    color: #Fff;
     font-size: 0.9rem;
-    text-align: center;
+    position: relative;
+    padding: 1.5em;
+    background: #A7C957;
+    z-index: 1;
+    cursor: pointer;
 }
 
-.border {
-    border-bottom: 1px solid #397242;
-    height: 15%;
+.etc_content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.etc_content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.etc_content p {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.etc_icon {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+}
+
+.etc_icon svg {
+    font-size: 2.5rem;
+}
+
+/* 마우스 오버 효과 */
+.Notice:after,
+.Question:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #386641;
+    border-radius: 15px;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    transition: all 0.3s ease;
 }
 
 
-.bt2 {
-    border: none;
-    float: right;
+.Notice:hover,
+.Question:hover {
+    color: #fff;
+}
+
+.Notice:hover:after,
+.Question:hover:after {
+    left: 0;
+    width: 100%;
 }

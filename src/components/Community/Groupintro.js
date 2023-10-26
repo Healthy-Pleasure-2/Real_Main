@@ -70,13 +70,15 @@ function Groupintro({ groupData, selectedCategory }) {
                   alt={group.name}
                 />
                 <div className="Community_cardcontent">
-                  <h1 className="Community_Ggroupname">{group.name}</h1>
+                  <h2>{group.name}</h2>
+                  <h3>{group.goal}</h3>
+                  <p>{group.grouptotal}명</p>
                 </div>
-                <div className="Community_caption">
+                {/* <div className="Community_caption">
                   <p className="Community_captionname">{group.name}</p>
                   <p>{group.goal}</p>
                   <p>{group.grouptotal}명</p>
-                </div>
+                </div> */}
               </Link>
             </div>
           ))}

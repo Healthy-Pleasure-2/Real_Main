@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 55px;
+  height: 100px;
   width: 100%;
 }
 
@@ -28,30 +28,36 @@
 
 .notice label {
   width: 33.33%;
+  height: 100%;
   margin: 0 10px;
-  padding: 15px 0;
-
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f4f4f4;
-  color: #7b7b7b;
+  padding: 25px 10px;
+  background-color: #F3F5EF;
+  color: rgba(56, 102, 65, 0.7);
   border-radius: 10px;
   font-size: 1.1rem;
 }
 
 .notice label:hover {
-  background-color: #D9D9D9;
+  background-color: rgba(167, 201, 87, 0.5);
   cursor: pointer;
 }
 
 .notice input:checked+label {
   font-weight: bold;
   color: #fff;
-  background-color: #8CBA51;
+  background-color: #A7C957;
 }
 
+.notice label div {
+  text-align: left;
+  width: 100%;
+  font-weight: bold;
+}
+
+.notice label p {
+  font-size: 0.75rem;
+  text-align: left;
+}
 
 /* #tab1:checked ~ #notice_N,   
 #tab2:checked ~ #notice_ask,
@@ -59,14 +65,9 @@
   display: block;
 } */
 
-/* .notice {
-  display: flex;
-  margin-bottom: 10px;
-} */
-
 /*********** 공지사항 ***********/
-/*#notice_N {
-  height: 90%;
+#notice_N {
+  height: 85%;
 }
 
 .notice-title,
@@ -74,9 +75,9 @@
   font-size: 1.7rem;
   font-weight: bold;
   color: #01352C;
-  padding-top: 40px;
+  /* padding-top: 40px; */
 }
-*/
+
 .tabcontent {
   display: none;
 }
@@ -98,38 +99,52 @@
 /*********** 온라인 문의 ***********/
 
 #notice_inquiry {
-  /* background-color: #F4F4F4; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   padding: 40px;
   border-radius: 20px;
-  border: 1px solid #7b7b7b;
-  text-align: left;
+  border: 1px solid #386641;
+  background: #F3F5EF;
+  color: #386641;
   font-size: 0.85rem;
-  color: #313131;
-  margin-top: 40px;
+  text-align: left;
 
-  width: calc(100% - 20px);
-  height: calc(100% - 95px);
-  position: relative;
+
 }
 
 
 #notice_inquiry .form {
-  display: contents;
+  width: 100%;
   height: 100%;
+  position: relative;
 }
 
 
 #notice_inquiry h1 {
   font-size: 1.7rem;
   font-weight: bold;
-  color: #01352C;
+  color: #386641;
   margin-bottom: 3%;
   text-align: center;
 }
 
-#notice_inquiry div {
-  display: flex;
+
+#notice_inquiry .notice_inquiry_wrap {
+  width: 70%;
+  height: 90%;
+  margin: 0 auto;
+
 }
+
+#notice_inquiry div {
+  margin-bottom: 5px;
+}
+
+
 
 #notice_inquiry p {
   width: 18%;
@@ -138,10 +153,10 @@
 }
 
 #notice_inquiry input {
-  border: 1px solid #8CBA51;
+  border: 1px solid #A7C957;
   border-radius: 5px;
   height: 30px;
-  width: 82%;
+  width: 100%;
   margin-bottom: 2%;
   padding-left: 10px;
 }
@@ -151,30 +166,33 @@
 }
 
 #notice_inquiry input:focus {
-  border: 2px solid #397242;
+  border: 2px solid #386641;
   outline: none;
 }
 
 /* 문의하기 버튼 */
 .Ask #notice_inquiry .form .notice_btn {
+  display: flex;
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  height: calc(100% - (270px + 30%));
-  position: relative;
 }
 
 .Ask #notice_inquiry .form button {
   width: 100%;
   height: 50px;
+  margin: 40px 0 0 0;
+
   background-color: #8CBA51;
   border: none;
   border-radius: 25px;
   cursor: pointer;
+
   color: #fff;
   font-size: 1.1rem;
-  font-weight: 900;
-
-  position: absolute;
-  bottom: 0;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
 }
 
 .Ask #notice_inquiry button:hover {
@@ -189,12 +207,6 @@
   font: bolder;
 }
 
-#notice_N {
-  width: 100%;
-  height: 90%;
-
-}
-
 /***********************************************/
 #notice_N {
   background-color: #ffffff;
@@ -204,7 +216,7 @@
   text-align: left;
   font-size: 0.85rem;
   color: #313131;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 
   width: calc(100% - 20px);
   height: calc(100% - 95px);

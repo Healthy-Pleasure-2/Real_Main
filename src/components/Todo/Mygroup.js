@@ -6,12 +6,17 @@ import SimpleSlider from "./Slide";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 function Mygroup({ groupinfo }) {
   return (
     <div id="todo_my_group">
-      <h1 className="todo_h1">나의 그룹</h1>
-      <SimpleSlider groupdata={groupinfo} />
+      <div className="todo_my_group">
+        <div className="todo_title">
+          <h2>MY GROUP</h2>
+          <p>현재 상태값을 입력하여 설정한 목표의 달성률을 확인하세요!</p>
+        </div>
+
+        <SimpleSlider groupdata={groupinfo} />
+      </div>
     </div>
   );
 }
