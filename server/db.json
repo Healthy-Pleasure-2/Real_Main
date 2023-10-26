@@ -9,9 +9,9 @@
       "nickname": "진경1234",
       "email": "wlsrud1234@naver.com",
       "group": "",
-      "weight": "",
-      "exercise": "",
-      "diet": ""
+      "weight": "10",
+      "exercise": "1500",
+      "diet": "2000"
     },
     {
       "index": 2,
@@ -23,8 +23,8 @@
       "email": "wpgud1234@naver.com",
       "group": "",
       "weight": "30",
-      "exercise": "20",
-      "diet": "10"
+      "exercise": "2510",
+      "diet": "1060"
     },
     {
       "index": 3,
@@ -35,9 +35,9 @@
       "nickname": "은정1234",
       "email": "dmswjd1234@naver.com",
       "group": "",
-      "weight": "",
-      "exercise": "",
-      "diet": ""
+      "weight": "20",
+      "exercise": "1500",
+      "diet": "2000"
     },
     {
       "index": 4,
@@ -48,9 +48,9 @@
       "nickname": "수진1234",
       "email": "tnwls1234@naver.com",
       "group": "",
-      "weight": "",
-      "exercise": "",
-      "diet": ""
+      "weight": "30",
+      "exercise": "1600",
+      "diet": "1700"
     },
     {
       "index": 5,
@@ -61,7 +61,7 @@
       "nickname": "장훈1234",
       "email": "wkdgns1234@naver.com",
       "group": "",
-      "weight": "100",
+      "weight": "60",
       "exercise": "2600",
       "diet": "2700"
     }
