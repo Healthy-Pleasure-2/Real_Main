@@ -88,11 +88,8 @@
 /*********** 온라인 문의 ***********/
 #notice_inquiry {
   box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
-  padding: 50px;
   border-radius: 20px;
   background: rgba(167, 201, 87, 0.1);
-  box-shadow: 10px 10px 50px #3866416b, inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
-
   text-align: left;
   font-size: 0.85rem;
   color: #386641;
@@ -101,60 +98,91 @@
   width: calc(100% - 20px);
   height: calc(100% - 100px);
   position: relative;
+  overflow: hidden;
 }
 
 
 #notice_inquiry .form {
   display: contents;
   height: 100%;
+  display: flex;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
+
 }
 
-.form_wrap {
-  display: inline-block;
-  width: 100%;
+/* 왼쪽 이미지 삽입 */
+.Inquiry_left {
+  width: 40%;
   height: 100%;
-  padding: 0 10%;
-  /* overflow: scroll; */
-
-}
-
-#notice_inquiry h1 {
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: #386641;
-  margin-bottom: 3%;
+  background: #A7C957;
+  box-shadow: 0 0 15px rgba(1, 53, 44, 0.25), inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
+  padding: 5%;
   text-align: center;
 }
 
-#notice_inquiry div {
-  height: 32%;
+.Inquiry_left .icon {
+  width: 100%;
+  background-image: url(../../ask2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 60%;
+  background-position: 50%;
+  margin-bottom: 10%;
+}
+
+#notice_inquiry h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 3%;
+}
+
+#notice_inquiry h3 {
+  color: #fff;
+  font-weight: 400;
+}
+
+/* 작성란 */
+.form_wrap {
+  display: inline-block;
+  width: 60%;
+  height: 90%;
+  margin: 5% 5%;
+  position: relative;
+}
+
+.notice_email,
+.notice_name,
+.notice_number,
+.notice_tittle {
+  height: 11%;
   margin-bottom: 2%;
 }
 
 #notice_inquiry p {
   font-weight: 800;
+  height: 20px;
 }
 
 #notice_inquiry input {
   width: 100%;
+  height: 55%;
   border: 1px solid #A7C957;
   border-radius: 5px;
   color: #386641;
-  background: rgba(167, 201, 87, 0.1);
+  background: #fff;
 }
 
 #notice_inquiry .notice_qu {
-  height: 60%;
-  margin-bottom: 5%;
+  height: 21%;
 }
 
 #notice_inquiry .notice_qu textarea {
   width: 100%;
-  height: 80%;
+  height: calc(100% - 20px);
   resize: none;
   border: 1px solid #A7C957;
   border-radius: 5px;
-  background: rgba(167, 201, 87, 0.1);
+  background: #fff;
 }
 
 #notice_inquiry input:focus,
@@ -166,7 +194,9 @@
 /* 문의하기 버튼 */
 .Ask #notice_inquiry .form .notice_btn {
   width: 100%;
-  height: 25%;
+  height: 10%;
+  position: absolute;
+  bottom: 6%;
 }
 
 .Ask #notice_inquiry .form button {
@@ -192,6 +222,16 @@
   font: bolder;
 }
 
+@media (max-width: 1300px) {
+  #notice_inquiry h1 {
+    font-size: 1.8rem;
+  }
+
+  #notice_inquiry h3 {
+    font-size: 0.7rem;
+  }
+}
+
 /***************** 공지 사항******************************/
 
 #notice_N {
@@ -209,10 +249,9 @@
 /* 검색 */
 .notice_serch {
   width: 45%;
-  height: 5%;
+  height: 7%;
   border: 1px solid #386641;
   border-radius: 50px;
-  background: rgba(167, 201, 87, 0.2);
   margin: 0 auto 3%;
   overflow: hidden;
 }
@@ -274,10 +313,10 @@
 }
 
 .notice_flex-item span {
-  border: 2px solid #A7C957;
+  border: 2px solid #386641;
   border-radius: 20px;
   padding: 0 3%;
-  background: #A7C957;
+  background: #386641;
   color: #fff;
   font-size: 0.7rem;
 }
@@ -348,5 +387,5 @@
 }
 
 .ask-container .notice_List .notice_List_neyong .notice_flex-item span {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }

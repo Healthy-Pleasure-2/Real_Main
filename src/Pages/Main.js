@@ -54,7 +54,7 @@ function Main() {
           <div className="banner_inner">
             <div className="banner_image"></div>
             <div className="banner_title">
-              <h3>Everyday! WE RUN!</h3>
+              <h3>목표 달성을 위한 커뮤니티</h3>
               <h1>Healthy Pleasure</h1>
               <p>커뮤니티를 통해 크루들과 함께하는 즐겁고 지속적인 건강관리</p>
               <div className="bt1">
@@ -93,7 +93,7 @@ function Main() {
           <div className="banner_inner">
             <div className="banner_image"></div>
             <div className="banner_title">
-              <h3>목표 달성을 위한 커뮤니티</h3>
+              <h3>Everyday! WE RUN!</h3>
               <h1>Healthy Pleasure</h1>
               <p>커뮤니티를 통해 크루들과 함께하는 즐겁고 지속적인 건강관리</p>
               <div className="bt1">
@@ -107,8 +107,10 @@ function Main() {
       <div className="rank">
         <div className="title">
           <div className="title_inner">
-            <h3>인기 상승 그룹</h3>
-            <p>크루가 많은 TOP3 </p>
+            <h3>
+              TOP <span>3</span>
+            </h3>
+            <p>크루가 많은 상위 커뮤니티</p>
             <p>지금 참가해 보세요.</p>
             <div className="bt2">
               <button>More</button>
@@ -121,7 +123,7 @@ function Main() {
       <div className="etc">
         <div className="Notice">
           <div className="etc_content">
-            <h3>공지사항</h3>
+            <h3>NOTICE</h3>
             <p>다양한 소식, 뉴스, 이벤트등을 볼 수 있습니다.</p>
           </div>
           <div className="etc_icon1">
@@ -131,7 +133,7 @@ function Main() {
 
         <div className="Question">
           <div className="etc_content">
-            <h3>자주 묻는 질문</h3>
+            <h3>FAQ</h3>
             <p>다양한 소식, 뉴스, 이벤트등을 볼 수 있습니다.</p>
           </div>
           <div className="etc_icon2">

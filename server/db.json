@@ -69,7 +69,7 @@
   "group": [
     {
       "id": 1,
-      "name": "채식을 위하여",
+      "name": "채소도 맛있다!",
       "category": "식단",
       "img": "https://i.pinimg.com/564x/85/ae/36/85ae360b73b8dd10f7f0c8ca1aacf658.jpg",
       "goal": "일주일에 3번 채소 먹기",
@@ -96,7 +96,7 @@
     },
     {
       "id": 4,
-      "name": "건강을 위하여",
+      "name": "Tennis Club",
       "category": "다이어트",
       "img": "https://i.pinimg.com/564x/a8/89/79/a88979e9c87d9928e97dbc05cfcb34d8.jpg",
       "goal": "건강을 위해 체중 감량",

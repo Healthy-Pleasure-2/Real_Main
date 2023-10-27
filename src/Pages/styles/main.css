@@ -228,9 +228,21 @@
     transform: translateY(-50%);
 }
 
+.title_inner h3 {
+    -webkit-text-stroke: 1px #386641;
+    margin-bottom: 6%;
+}
+
+.title_inner h3 span {
+    background-color: #A7C957;
+    border-radius: 50px;
+    padding: 3px 10px;
+}
+
 .rank .title p {
     font-size: 0.8rem;
     font-weight: 400;
+    line-height: 0.9rem;
 }
 
 .rank .title .bt2 button {
