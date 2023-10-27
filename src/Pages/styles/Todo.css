@@ -374,6 +374,7 @@ button {
   object-fit: cover;
   border-radius: 10px;
   float: left;
+  margin-left: 1px;
 }
 
 /* 내용 */

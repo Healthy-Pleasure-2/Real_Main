@@ -19,7 +19,8 @@
    background-color: rgba(167, 201, 87, 0.1);
    padding: 30px;
    border-radius: 20px;
-   box-shadow: 0 0 20px #3866416b, inset 0 0 5px #38664126;
+   box-shadow: 10px 10px 50px #3866416b, inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
+
    font-size: 0.85rem;
    color: #313131;
  }

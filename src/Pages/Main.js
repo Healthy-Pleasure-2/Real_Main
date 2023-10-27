@@ -63,8 +63,8 @@ function Main() {
             <h3>공지사항</h3>
             <p>다양한 소식, 뉴스, 이벤트등을 볼 수 있습니다.</p>
           </div>
-          <div className="etc_icon">
-            <FontAwesomeIcon icon={faBullhorn} />
+          <div className="etc_icon1">
+            {/* <FontAwesomeIcon icon={faBullhorn} /> */}
           </div>
         </div>
 
@@ -73,8 +73,8 @@ function Main() {
             <h3>자주 묻는 질문</h3>
             <p>다양한 소식, 뉴스, 이벤트등을 볼 수 있습니다.</p>
           </div>
-          <div className="etc_icon">
-            <FontAwesomeIcon icon={faComments} />{" "}
+          <div className="etc_icon2">
+            {/* <FontAwesomeIcon icon={faComments} />{" "} */}
           </div>
         </div>
       </div>
