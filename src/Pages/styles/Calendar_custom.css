@@ -4,6 +4,16 @@
   height: 45%;
   width: 80%;
   margin: 0 auto;
+  transition: 0.38s;
+}
+
+#calendar_container:hover {
+  transform: scale(1.2);
+  margin-top: 10px;
+}
+
+#calendar_container:hover .todo_checkLists {
+  margin-top: 20px;
 }
 
 .react-calendar {
@@ -164,7 +174,12 @@
 
 .react-calendar__month-view__weekdays__weekday {
   padding-top: 0;
-  /* padding-bottom: 8px; */
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: dotted;
+  text-decoration-color: #386641;
+  text-decoration-thickness: 2px;
 }
 
 .react-calendar__month-view__weekNumbers .react-calendar__tile {
