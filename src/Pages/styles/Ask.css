@@ -31,10 +31,12 @@
   height: 100%;
   margin: 0 10px;
   padding: 25px 10px;
-  background-color: #F3F5EF;
+  background: rgba(167, 201, 87, 0.2);
   color: rgba(56, 102, 65, 0.7);
   border-radius: 10px;
   font-size: 1.1rem;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
+
 }
 
 .notice label:hover {
@@ -45,7 +47,7 @@
 .notice input:checked+label {
   font-weight: bold;
   color: #fff;
-  background-color: #386641;
+  background-color: #A7C957;
 }
 
 .notice label div {
@@ -88,7 +90,9 @@
   box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
   padding: 50px;
   border-radius: 20px;
-  border: 2px solid #386641;
+  background: rgba(167, 201, 87, 0.1);
+  box-shadow: 10px 10px 50px #3866416b, inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
+
   text-align: left;
   font-size: 0.85rem;
   color: #386641;

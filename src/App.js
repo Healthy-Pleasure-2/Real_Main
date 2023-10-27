@@ -8,14 +8,27 @@
 231024 김장훈 - db.json 파일을 이용한 로그인 요청 기능 구현
 --------------------------------------------------------------------------------------------------------------*/
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PageContent from "./components/PageContent";
 import SideMenu from "./components/SideMenu";
 import SideContent from "./components/SideCotent";
+import axios from "axios";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  //쿠키값이 남아있으면 로그인 유지
+  useEffect(() => {
+    // 컴포넌트가 마운트될 때, 로그인 상태 확인
+    axios
+      .get("http://localhost:3003/cookie", { withCredentials: true })
+      .then(() => {
+        setIsLoggedIn(true);
+      })
+      .catch(() => {
+        setIsLoggedIn(false);
+      });
+  }, []);
+  //로그인 확인
   const handleLogin = async (username, password) => {
     try {
       const userData = {
@@ -23,12 +36,13 @@ function App() {
         pw: password,
       };
 
-      fetch("http://localhost:3003/user", {
+      fetch("http://localhost:3003/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
+        credentials: "include", // 쿠키 공유 활성화
       })
         .then((response) => response.json())
         .then((data) => {
@@ -47,8 +61,16 @@ function App() {
     }
   };
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
+  // 로그아웃 요청
+  const handleLogout = async () => {
+    axios
+      .get("http://localhost:3003/logout", { withCredentials: true })
+      .then(() => {
+        setIsLoggedIn(false);
+      })
+      .catch((error) => {
+        console.error("로그아웃 오류:", error);
+      });
   };
 
   return (
@@ -56,7 +78,10 @@ function App() {
       <div className="wrap">
         <SideMenu onLogout={handleLogout} isLoggedIn={isLoggedIn}></SideMenu>
         <PageContent isLoggedIn={isLoggedIn}></PageContent>
-        <SideContent isLoggedIn={isLoggedIn} onLogin={handleLogin}></SideContent>
+        <SideContent
+          isLoggedIn={isLoggedIn}
+          onLogin={handleLogin}
+        ></SideContent>
       </div>
     </div>
   );
