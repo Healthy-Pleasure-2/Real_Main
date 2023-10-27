@@ -9,6 +9,7 @@
 231016 김장훈 - 수정중
 231017 김장훈 - 입력창 및 입력버튼을 통한 시각화 변화하도록 수정. UI다듬기 등 추가작업 필요
 231018 김장훈 - 입력버튼 삭제(input 박스에 입력되면 시각화 바로 변화되도록 수정), UI 다듬기, 차후 Todo 페이지에서 최대값 불러오기 추가예정 
+231024 김장훈 - 
 --------------------------------------------------------------------------------------------------------------
 *참고 사이트
 1. https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705 = 개념
@@ -133,13 +134,12 @@ function Goal_Circle() {
 }
 export default Goal_Circle;
 
+
+
 /*초안*/
 /*
 import React from "react";
 import "./Goal_Circle.css";
-
-
-
 function Goal_Circle() {
   return (
     <div className="flex-wrapper">

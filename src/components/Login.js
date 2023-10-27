@@ -1,15 +1,16 @@
 // 231023 이진경 - 수정
-
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../logo.png";
+import { useState } from "react";
 
 function Login({ onLogin }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  
   const handleLogin = () => {
-    // 로그인 처리 로직
-    // ...
-    // 로그인 버튼을 클릭하면 onLogin 콜백을 호출하여 로그인 상태를 변경
-    onLogin();
-  };
+    onLogin(username, password); // 사용자명과 비밀번호를 전달하여 로그인 함수 실행
+  }
   return (
     <div id="daily-box">
       <div className="Loginbox">
@@ -17,11 +18,19 @@ function Login({ onLogin }) {
           <h1>Welcome!</h1>
         </div>
         <div className="LoginIdPw">
-          <input className="Logininputid" type="text" placeholder="ID"></input>
+          <input 
+            className="Logininputid" 
+            type="text" 
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="사용자명"
+            ></input>
           <input
             className="Logininputpassword"
             type="password"
-            placeholder="PW"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="비밀번호"
           ></input>
         </div>
         <div>
@@ -49,4 +58,5 @@ function Login({ onLogin }) {
     </div>
   );
 }
+
 export default Login;
