@@ -1,6 +1,6 @@
 /*
 -소스명 : server.js
--작성자 : 김장훈, 정은정, 이제형
+-작성자 : 김장훈, 정은정, 이제형, 강수진
 -이 페이지 용도 : 서버
 -생성일자(수정일자) : 2310__ 최초생성
 -로그
@@ -9,6 +9,7 @@
 231025 정은정 - cooki, session 을 이용한 상태관리 구현(수정필요)
 231025 이제형, 김장훈 - GoalSet.js 목표설정 업로드기능 구현(수정필요)
 231026 정은정, 김장훈 - 로그인 상태관리 수정
+231027 강수진 - 그룹가입 코드구성
 --------------------------------------------------------------------------------------------------------------*/
 const express = require("express");
 const session = require("express-session");
@@ -137,6 +138,57 @@ app.use(express.static(path.join(__dirname, "build")));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
+
+/*************그룹 */
+app.post("/user/:group", (req, res) => {
+    const userId = req.params.userId;
+    const groupId = req.params.groupId;
+  
+    // db.json 파일 읽기
+    fs.readFile("./db.json", "utf8", (err, data) => {
+      if (err) {
+        res.status(500).json({ message: "서버 오류" });
+        return;
+      }
+  
+      // db.json 파일을 JavaScript 객체로 파싱
+      const jsonData = JSON.parse(data);
+  
+      // 사용자와 그룹 정보 가져오기
+      const users = jsonData.user;
+      const groups = jsonData.group;
+  
+      // 사용자와 그룹을 찾기
+      const user = users.find((u) => u.id === userId);
+      const group = groups.find((g) => g.id === groupId);
+  
+      if (!user || !group) {
+        res.status(404).json({ message: "사용자 또는 그룹을 찾을 수 없습니다" });
+        return;
+      }
+  
+      // 사용자가 이미 그룹에 가입되어 있는지 확인
+      if (user.groups.includes(groupId)) {
+        res.status(400).json({ message: "이미 그룹에 가입되어 있습니다" });
+        return;
+      }
+  
+      // 사용자를 그룹에 추가
+      user.groups.push(groupId);
+      // 그룹의 멤버 목록 업데이트
+      group.members.push(userId);
+  
+      // db.json 파일 업데이트
+      fs.writeFile("./db.json", JSON.stringify(jsonData, null, 2), (err) => {
+        if (err) {
+          res.status(500).json({ message: "서버 오류" });
+        } else {
+          res.status(200).json({ message: "그룹 가입 성공" });
+        }
+      });
+    });
+  });
+  
 
 //실행중
 app.listen(port, () => {

@@ -21,10 +21,10 @@
       "gender": "male",
       "nickname": "제형1234",
       "email": "wpgud1234@naver.com",
-      "group": "",
+      "group": "7",
       "weight": "43",
-      "exercise": "1500",
-      "diet": "1400"
+      "exercise": "43",
+      "diet": "43"
     },
     {
       "index": 3,
@@ -47,10 +47,10 @@
       "gender": "female",
       "nickname": "수진1234",
       "email": "tnwls1234@naver.com",
-      "group": "",
-      "weight": "30",
-      "exercise": "1600",
-      "diet": "1700"
+      "group": "7",
+      "weight": "11",
+      "exercise": "11",
+      "diet": "11"
     },
     {
       "index": 5,

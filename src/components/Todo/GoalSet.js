@@ -27,7 +27,7 @@ function GoalSet() {
   }
   const handleGoalSet = () => {
 
-    const userId = 'wpgud';
+    const userId = 'tnwls';
     fetch(`http://localhost:3003/user/${userId}`, {
       method: "PATCH",
       headers: {
