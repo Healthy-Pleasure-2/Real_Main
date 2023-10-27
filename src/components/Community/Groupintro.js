@@ -8,7 +8,7 @@ import "../../Pages/styles/Community.css";
 import { Link } from "react-router-dom";
 
 function Groupintro({ groupData, selectedCategory }) {
-  const [itemsCount, setItemsCount] = useState(4); // 초기 갤러리 아이템 수
+  const [itemsCount, setItemsCount] = useState(6); // 초기 갤러리 아이템 수
   const [filteredGroups, setFilteredGroups] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -20,8 +20,7 @@ function Groupintro({ groupData, selectedCategory }) {
       if (windowWidth >= 1700) setItemsCount(12);
       // else if (windowWidth >= 1400) setItemsCount(10);
       else if (windowWidth >= 1200) setItemsCount(9);
-      else if (windowWidth >= 800) setItemsCount(6);
-      else setItemsCount(4);
+      else setItemsCount(6);
     };
 
     // 컴포넌트가 마운트될 때와 화면 크기가 변경될 때 이벤트 리스너 실행
@@ -61,27 +60,31 @@ function Groupintro({ groupData, selectedCategory }) {
     <div className="Community_GroupList">
       <div className="Community_Grouplists">
         <div className="Community_gallery">
-          {visibleGalleryItems.map((group) => (
-            <div className="Community_Gitem" key={group.id}>
-              <Link to={`/GroupPage/${group.id}`} key={group.id}>
-                <img
-                  className="Community_Gcardimg"
-                  src={group.img}
-                  alt={group.name}
-                />
-                <div className="Community_cardcontent">
-                  <h2>{group.name}</h2>
-                  <h3>{group.goal}</h3>
-                  <p>{group.grouptotal}명</p>
-                </div>
-                {/* <div className="Community_caption">
+          {visibleGalleryItems.length === 0 ? (
+            <p>No groups found</p>
+          ) : (
+            visibleGalleryItems.map((group) => (
+              <div className="Community_Gitem" key={group.id}>
+                <Link to={`/GroupPage/${group.id}`} key={group.id}>
+                  <img
+                    className="Community_Gcardimg"
+                    src={group.img}
+                    alt={group.name}
+                  />
+                  <div className="Community_cardcontent">
+                    <h2>{group.name}</h2>
+                    <h3>{group.goal}</h3>
+                    <p>{group.grouptotal}명</p>
+                  </div>
+                  {/* <div className="Community_caption">
                   <p className="Community_captionname">{group.name}</p>
                   <p>{group.goal}</p>
                   <p>{group.grouptotal}명</p>
                 </div> */}
-              </Link>
-            </div>
-          ))}
+                </Link>
+              </div>
+            ))
+          )}
         </div>
       </div>
       <div className="Community_Grouplistbtn">
