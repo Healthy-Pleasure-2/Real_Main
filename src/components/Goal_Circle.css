@@ -121,6 +121,9 @@
   font-size: 0.8rem;
   font-weight: bold;
   line-height: 25px;
+  border-radius: 15px 15px 0 0;
+  box-shadow: inset 1px 1px 2px 0px rgba(255, 255, 255, .5);
+
 }
 
 
