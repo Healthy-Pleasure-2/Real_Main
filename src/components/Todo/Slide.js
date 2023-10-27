@@ -7,18 +7,15 @@ import styled from "styled-components";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-
 const StyledSlider = styled(Slider)`
-  border: 1px solid #7B7B7B;
-  border-radius:15px;
-  padding:15px;
-  height: 100%;
+  border: 1px solid #386641;
+  border-radius: 15px;
+  padding: 15px;
+  height: 85%;
   width: 85%;
-  posittion:absolute;
-  left:50%;
-  transform: translateX(-50%);
-  background-color: #fff;box-shadow: 3px 3px 7px rgb(131, 131, 131)
-  box-shadow: 3px 3px 7px rgb(131, 131, 131);
+  margin: 0 auto;
+  background-color: #fff;
+  // box-shadow: 3px 3px 7px rgb(131, 131, 131);
 `;
 
 function SimpleSlider() {
@@ -62,16 +59,21 @@ function SimpleSlider() {
       <StyledSlider {...settings}>
         {data.map((item, index) => (
           <div className="todo_group_content" key={index}>
-            <p className="todo_group_creteria">그룹명</p>
-            <p className="todo_group_data">{item.name}</p>
-            <p className="todo_group_creteria">카테고리</p>
-            <p className="todo_group_data">{item.category}</p>
-            <p className="todo_group_creteria">목표</p>
-            <p className="todo_group_data">{item.goal}</p>
+            <div className="todo_group_content1">
+              <img className="todo_group_data" src={item.img} />
+            </div>
+
+            <div className="todo_group_content2">
+              <p className="todo_group_data_name">{item.name}</p>
+              <p className="todo_group_data_goal">{item.goal}</p>
+              <button>댓글달기</button>
+            </div>
           </div>
         ))}
       </StyledSlider>
-      <p className="todo_page_count">{currentPage}/{data.length}</p>
+      <p className="todo_page_count">
+        {currentPage}/{data.length}
+      </p>
     </div>
   );
 }
@@ -80,22 +82,16 @@ export default SimpleSlider;
 
 const NextArrow = ({ onClick }) => {
   return (
-    <button
-      onClick={onClick}
-      type='button'
-      className="todo_nextbtn"
-    >〉
+    <button onClick={onClick} type="button" className="todo_nextbtn">
+      〉
     </button>
   );
 };
 
 const PrevArrow = ({ onClick }) => {
   return (
-    <button
-      onClick={onClick}
-      type='button'
-      className="todo_prevbtn"
-    >〈
+    <button onClick={onClick} type="button" className="todo_prevbtn">
+      〈
     </button>
   );
 };

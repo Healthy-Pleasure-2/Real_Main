@@ -1,6 +1,7 @@
+// 231023 이진경 - 수정
+
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../logo.png";
 
 function Login({ onLogin }) {
   const handleLogin = () => {
@@ -12,15 +13,25 @@ function Login({ onLogin }) {
   return (
     <div id="daily-box">
       <div className="Loginbox">
-        <div className="LoginLogo">
-          <img src={logo} alt="logo"></img>
+        <div className="LoginTitle">
+          <h1>Welcome!</h1>
         </div>
         <div className="LoginIdPw">
-          <input className="Logininputid" type="text"></input>
-          <input className="Logininputpassword" type="password"></input>
+          <input className="Logininputid" type="text" placeholder="ID"></input>
+          <input
+            className="Logininputpassword"
+            type="password"
+            placeholder="PW"
+          ></input>
+        </div>
+        <div>
+          <label className="LoginCheckbox">
+            <input type="checkbox" />
+            로그인 상태 유지
+          </label>
         </div>
         <button className="Loginbtn" onClick={handleLogin}>
-          로그인
+          Login
         </button>
         <div className="LoginFind">
           <button className="LoginIdPwFind">

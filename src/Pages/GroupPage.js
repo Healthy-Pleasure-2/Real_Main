@@ -69,11 +69,11 @@ function GroupPage({ isLoggedIn }) {
 
         <div className="intro">
           <div className="goal">
-            <div id="title">목 표</div>
+            <div id="title1">목 표</div>
             <div className="content">{groupInfo.goal}</div>
           </div>
           <div className="groupIntro">
-            <div id="title">소 개</div>
+            <div id="title2">소 개</div>
             <div className="content">{groupInfo.groupintro}</div>
           </div>
         </div>

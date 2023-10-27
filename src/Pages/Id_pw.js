@@ -10,14 +10,12 @@ import { Link } from "react-router-dom";
 // 아이디 찾기
 function IdFind() {
   return (
-    <div>
-      <div id="idFind">
-        <input type="text" id="name" placeholder="Name" maxLength={5} />
-        <input type="email" id="email" placeholder="Email" />
-        <button id="send">ID 찾기</button>
-        <div>
-          아직 회원이 아니신가요? <Link to="/signup">회원가입</Link>
-        </div>
+    <div id="idFind">
+      <input type="text" id="name" placeholder="Name" maxLength={5} />
+      <input type="email" id="email" placeholder="Email" />
+      <button id="send">ID 찾기</button>
+      <div>
+        아직 회원이 아니신가요? <Link to="/signup">회원가입</Link>
       </div>
     </div>
   );
@@ -26,14 +24,12 @@ function IdFind() {
 // 비밀번호 찾기
 function PwFind() {
   return (
-    <div>
-      <div id="pwFind">
-        <input type="text" id="user-id" placeholder="ID" maxLength={10} />
-        <input type="email" id="email" placeholder="Email" />
-        <button id="send">PW 찾기</button>
-        <div>
-          아직 회원이 아니신가요? <Link to="/signup">회원가입</Link>
-        </div>
+    <div id="pwFind">
+      <input type="text" id="user-id" placeholder="ID" maxLength={10} />
+      <input type="email" id="email" placeholder="Email" />
+      <button id="send">PW 찾기</button>
+      <div>
+        아직 회원이 아니신가요? <Link to="/signup">회원가입</Link>
       </div>
     </div>
   );
@@ -71,9 +67,10 @@ function IdPw() {
             PW 찾기
           </div>
         </div>
-
-        {idFind && <IdFind />}
-        {pwFind && <PwFind />}
+        <div id="idpw_content">
+          {idFind && <IdFind />}
+          {pwFind && <PwFind />}
+        </div>
       </div>
     </div>
   );

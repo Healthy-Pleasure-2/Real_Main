@@ -15,19 +15,18 @@
 .group_create #frame {
   width: 90%;
   height: 95%;
-  background-color: #F4F4F4;
+  background-color: #F3F5EF;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
 
   font-size: 0.8rem;
-  color: #313131;
+  color: #386641;
 }
 
 .group_create h1 {
   text-align: center;
-  /* 추가 */
-  color: #01352C;
+  color: #386641;
   font-size: 1.7rem;
   height: 15%;
 }
@@ -42,14 +41,21 @@
 .group p {
   width: 15%;
   min-width: 80px;
-  font-size: 0.9rem;
-  font-weight: 800;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .group input {
   border-radius: 5px;
-  border: 1px solid #b8b3b3;
+  border: 1px solid #A7C957;
   padding-left: 10px;
+  color: #386641;
+  font-weight: 500;
+}
+
+.group input:focus {
+  border: 2px solid #397242;
+  outline: none;
 }
 
 
@@ -90,9 +96,32 @@
   padding-bottom: 3%;
 }
 
-.category input {
+.category select {
   width: 70%;
   height: 30px;
+  border-radius: 5px;
+  border: 1px solid #A7C957;
+  color: #386641;
+  padding: 0 10px;
+  font-weight: 500;
+
+  /* appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; */
+}
+
+.category select:focus {
+  border: 2px solid #397242;
+  outline: none;
+}
+
+.category select option {
+  color: #386641;
+}
+
+.category select option:hover,
+.category select option:checked {
+  background-color: #F3F5EF;
 }
 
 /*목표*/
@@ -128,8 +157,9 @@
   height: 12vh;
   min-width: 100px;
   min-height: 100px;
-  background-color: #86a3da;
+  /* background-color: #86a3da; */
   padding: 0;
+  overflow: hidden;
 }
 
 .rep_img button {
@@ -140,7 +170,8 @@
 
   border-radius: 5px;
   border: none;
-  background-color: #c5c5c5;
+  background-color: #A7C957;
+  color: #fff;
   cursor: pointer;
   font-size: 0.7rem;
 }
@@ -155,7 +186,7 @@
 .create a {
   width: 80%;
   height: 50px;
-  background-color: #8CBA51;
+  background-color: #A7C957;
   border-radius: 25px;
   cursor: pointer;
 
@@ -167,6 +198,6 @@
 }
 
 .create a:hover {
-  background-color: #397242;
+  background-color: #386641;
   transition: 0.2s ease-in-out;
 }
