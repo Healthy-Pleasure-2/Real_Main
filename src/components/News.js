@@ -6,19 +6,15 @@ function News() {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    const apiKey = process.env.REACT_APP_NEWS_API_KEY
+    const apiKey = process.env.REACT_APP_NEWS_API_KEY;
     // console.log(apiKey)
 
     const apiUrl = `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}`;
     // console.log(apiUrl)
-  // useEffect(() => {
-    
+    // useEffect(() => {
 
-  //   const apiUrl = `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}`;
-  
+    //   const apiUrl = `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}`;
 
-    
-  
     axios
       .get(apiUrl)
       .then((response) => {
