@@ -4,7 +4,7 @@
       "id": 1,
       "name": "채식을 위하여",
       "category": "식단",
-      "img": "https://cdn.pixabay.com/photo/2017/10/09/19/29/eat-2834549_1280.jpg",
+      "img": "https://i.pinimg.com/564x/85/ae/36/85ae360b73b8dd10f7f0c8ca1aacf658.jpg",
       "goal": "일주일에 3번 채소 먹기",
       "grouptotal": 86,
       "groupintro": "일주일에 3번 채소 먹기 일주일에 3번 채소 먹기 일주일에 3번 채소 먹기 일주일에 3번 채소 먹기 일주일에 3번 채소 먹기"
@@ -13,16 +13,16 @@
       "id": 2,
       "name": "독서왕",
       "category": "습관",
-      "img": "https://cdn.pixabay.com/photo/2016/06/16/08/39/cat-1460882_1280.png",
+      "img": "https://i.pinimg.com/564x/bb/4a/ad/bb4aad265340923a5421377a08546708.jpg",
       "goal": "주당 2권의 책 읽기",
-      "grouptotal": 32,
+      "grouptotal": 71,
       "groupintro": " 주당 2권의 책 읽기주당 2권의 책 읽기주당 2권의 책 읽기주당 2권의 책 읽기주당 2권의 책 읽기주당 2권의 책 읽기"
     },
     {
       "id": 3,
       "name": "크로스핏",
       "category": "운동",
-      "img": "https://cdn.pixabay.com/photo/2016/01/08/01/53/gymer-1126999_1280.jpg",
+      "img": "https://cdn.pixabay.com/photo/2017/01/09/11/30/dumbbell-1966247_1280.jpg",
       "goal": "매일 2시간 크로스핏 운동하기",
       "grouptotal": 55,
       "groupintro": "매일 2시간 크로스핏 운동하기 매일 2시간 크로스핏 운동하기 매일 2시간 크로스핏 운동하기 매일 2시간 크로스핏 운동하기매일 2시간 크로스핏 운동하기"
@@ -31,16 +31,16 @@
       "id": 4,
       "name": "건강을 위하여",
       "category": "다이어트",
-      "img": "https://cdn.pixabay.com/photo/2017/08/06/12/52/woman-2592247_1280.jpg",
+      "img": "https://i.pinimg.com/564x/a8/89/79/a88979e9c87d9928e97dbc05cfcb34d8.jpg",
       "goal": "건강을 위해 체중 감량",
-      "grouptotal": 45,
+      "grouptotal": 72,
       "groupintro": "다이어트가 아닌 건강을 목적으로 함께 체중 감량하실분!"
     },
     {
       "id": 5,
       "name": "저탄고지식단",
       "category": "식단",
-      "img": "https://cdn.pixabay.com/photo/2019/05/12/18/56/starter-4198752_1280.jpg",
+      "img": "https://i.pinimg.com/564x/f6/7e/ca/f67eca0632a625c78e56b2064199c6fb.jpg",
       "goal": "당뇨 식단 관리",
       "grouptotal": 18,
       "groupintro": "당뇨 식단 관리 당뇨 식단 관리 당뇨 식단 관리 당뇨 식단 관리 당뇨 식단 관리 당뇨 식단 관리 "
@@ -49,7 +49,7 @@
       "id": 6,
       "name": "간헐적 단식",
       "category": "다이어트",
-      "img": "https://i.namu.wiki/i/x16DB1M8uO_sMOetKsS_G1qJvgL6Xc9j49D8Edd0czEr9h1dXxI0V-hHeKieLsuX_PTxjPvNOWtfXeVdWIwZhVzm8jlHF6iF9rgpJARhx_Ump8CJE7gsCaeP8xlMPIQzPqu0KNzfI1Qtnwj99Cb72A.webp",
+      "img": "https://i.pinimg.com/564x/be/bf/39/bebf397a265a3c51c69bee3cbae913c9.jpg",
       "goal": "간헐적 단식 16:8",
       "grouptotal": 55,
       "groupintro": "간헐적 단식 같이 하실분 합니다. 꼭 16:8아니여도 괜찮아요! 방법 몰라도 괜찮습니다 함께 해보실분 구해요"
@@ -58,7 +58,7 @@
       "id": 7,
       "name": "물고기 파티",
       "category": "운동",
-      "img": "https://cdn.pixabay.com/photo/2013/02/09/04/23/swimmers-79592_1280.jpg",
+      "img": "https://i.pinimg.com/564x/f7/14/63/f714633b4addf2d4bc007b767ad7d259.jpg",
       "goal": "매일 1시간 이상 수영",
       "grouptotal": 28,
       "groupintro": "아침수영, 점심수영, 저녁수영 다 좋습니다. 함께 물만난 물고기처럼 헤엄하실분들 구합니다."
@@ -67,7 +67,7 @@
       "id": 8,
       "name": "수분 보충",
       "category": "습관",
-      "img": "https://cdn.pixabay.com/photo/2020/04/03/11/28/water-4998513_1280.png",
+      "img": "https://i.pinimg.com/564x/6a/f8/7e/6af87e0f2ff43ef632c468dd040e6139.jpg",
       "goal": "하루에 물 2L이상 마시기",
       "grouptotal": 37,
       "groupintro": "하루에 물 2L이상 마시는 것이 건강에 좋다고 합니다. 건강을 위해 우리 그룹에 오시겠습니까?!"
@@ -76,7 +76,7 @@
       "id": 9,
       "name": "건강을 위한 발걸음",
       "category": "습관",
-      "img": "https://cdn.pixabay.com/photo/2023/06/17/16/22/man-8070372_1280.jpg",
+      "img": "https://i.pinimg.com/564x/a8/3c/6d/a83c6d06140d17a9be83e4f025d4e511.jpg",
       "goal": "하루 30분 산책",
       "grouptotal": 42,
       "groupintro": "하루에 10분도 움직이지 않는 당신! 건강은 생각안하시나요? 당신을 건강을 위해 우리 함께 산책하시는 건 어떨까요?"
@@ -85,7 +85,7 @@
       "id": 10,
       "name": "바른 필라테스",
       "category": "운동",
-      "img": "https://cdn.pixabay.com/photo/2022/09/08/13/20/yoga-7440988_1280.jpg",
+      "img": "https://i.pinimg.com/564x/29/95/27/299527841ce3c594397cd41f5abfa003.jpg",
       "goal": "필라테스로 자세교정",
       "grouptotal": 60,
       "groupintro": "아프고 괴로웠던 자세들은 저리가라!, 필라테스로 자세 교정하면서 운동같이 하실 분들을 모집합니다."
@@ -94,7 +94,7 @@
       "id": 11,
       "name": "지중해식 식단",
       "category": "식단",
-      "img": "https://cdn.pixabay.com/photo/2017/12/15/16/04/food-3021300_1280.jpg",
+      "img": "https://i.pinimg.com/564x/2a/de/79/2ade7963ef75953e683553360ea5135e.jpg",
       "goal": "지중해식으로 식단을 조절하기",
       "grouptotal": 45,
       "groupintro": "지중해식 식단으로 건강과 다이어트 모두 챙기실 분들을 구합니다."
@@ -110,9 +110,9 @@
     },
     {
       "id": 13,
-      "name": "일찍 일어나는 새",
+      "name": "하루 일찍 시작하기",
       "category": "습관",
-      "img": "https://cdn.pixabay.com/photo/2017/07/18/18/24/dove-2516641_1280.jpg",
+      "img": "https://i.pinimg.com/564x/9c/af/50/9caf5028d23c2523cec0c434c28cf49c.jpg",
       "goal": "아침 6시에 기상하기",
       "grouptotal": 21,
       "groupintro": "일찍 일어나는 새가 먹이를 잡을 수 있는 것처럼 아침 6시에 기상할 짹쨱이들 구합니다."
@@ -121,7 +121,7 @@
       "id": 14,
       "name": "비타민 충전",
       "category": "습관",
-      "img": "https://cdn.pixabay.com/photo/2017/05/11/19/44/fresh-fruits-2305192_1280.jpg",
+      "img": "https://i.pinimg.com/564x/5d/81/7c/5d817c9709d2622caf726ee88f5fd5a5.jpg",
       "goal": "매일 과일을 먹는 습관",
       "grouptotal": 28,
       "groupintro": "과일 안먹는 그대들이여, 함께 비타민을 섭취해보는 건 어떠신가요?"
@@ -130,7 +130,7 @@
       "id": 15,
       "name": "OO동 농구팟",
       "category": "운동",
-      "img": "https://search.pstatic.net/common?type=o&size=174x242&quality=100&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fkeypage%2Fimage%2Fdss%2F57%2F0%2F0%2F187%2F187858.jpg",
+      "img": "https://i.pinimg.com/564x/70/68/60/7068600192eae403cb36363cf2c407f9.jpg",
       "goal": "월수금 저녁 7시 농구",
       "grouptotal": 22,
       "groupintro": "월수금 저녁 7시 농구팟 구합니다. 못해도 괜찮습니다. 00동에서 함께 즐기면서 농구합시다.!"
@@ -139,7 +139,7 @@
       "id": 16,
       "name": "소식좌 식단",
       "category": "식단",
-      "img": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEyMTNfMTcx%2FMDAxNjcwODk0ODgwNDA5.YCjqi2PiLKOTuhX7PyhICnIZIdmpJtqKG3v0H4XSj1gg.5pzoAA8AoBuU-FG4jn5k20e1TwdOYEwx5__cW4_hWygg.JPEG.dythezone%2F%25BC%25D2%25BD%25C4%25C1%25C2_%25B9%25E4%25B1%25D7%25B8%25A9.jpg&type=a340",
+      "img": "https://i.pinimg.com/564x/e7/b1/54/e7b154e95f90b5ef607eb21631ef4bb1.jpg",
       "goal": "소식좌 식단 일기쓰기",
       "grouptotal": 38,
       "groupintro": "소식좌 식단 일기쓰기 소식좌 식단 일기쓰기 소식좌 식단 일기쓰기 소식좌 식단 일기쓰기 소식좌 식단 일기쓰기"
@@ -148,7 +148,7 @@
       "id": 17,
       "name": "홈트레이닝",
       "category": "다이어트",
-      "img": "https://cdn.pixabay.com/photo/2015/01/10/17/32/physiotherapy-595529_1280.jpg",
+      "img": "https://i.pinimg.com/564x/7f/6c/e6/7f6ce649bc2a5dc955bd9630fa1cadbf.jpg",
       "goal": "매일 홈트레이닝으로 10Kg감량",
       "grouptotal": 15,
       "groupintro": "매일 홈트레이닝으로 10Kg감량 매일 홈트레이닝으로 10Kg감량 매일 홈트레이닝으로 10Kg감량 매일 홈트레이닝으로 10Kg감량"
@@ -157,7 +157,7 @@
       "id": 18,
       "name": "3:500",
       "category": "운동",
-      "img": "https://cdn.pixabay.com/photo/2018/03/30/22/58/silhouette-3276824_1280.png",
+      "img": "https://i.pinimg.com/564x/10/28/dd/1028dd60e9ea69c21bfd8e10c3fd76eb.jpg",
       "goal": "3대 운동 증량 목표",
       "grouptotal": 50,
       "groupintro": "3대 운동 증량 목표 3대 운동 증량 목표 3대 운동 증량 목표 3대 운동 증량 목표 3대 운동 증량 목표"
@@ -166,7 +166,7 @@
       "id": 19,
       "name": "아침 먹기",
       "category": "습관",
-      "img": "https://cdn.pixabay.com/photo/2016/03/27/21/59/bread-1284438_1280.jpg",
+      "img": "https://i.pinimg.com/736x/ac/a0/41/aca041d9dbabd3cedb8c3cd11eb84b1c.jpg",
       "goal": "매일 아침 챙겨먹기",
       "grouptotal": 29,
       "groupintro": "매일 아침 챙겨먹기 매일 아침 챙겨먹기 매일 아침 챙겨먹기 매일 아침 챙겨먹기 매일 아침 챙겨먹기"
@@ -175,7 +175,7 @@
       "id": 20,
       "name": "힐링명상",
       "category": "습관",
-      "img": "https://cdn.pixabay.com/photo/2016/03/29/00/22/meditation-1287207_1280.jpg",
+      "img": "https://i.pinimg.com/564x/46/15/59/4615593e83048dc84bb5923a833cde32.jpg",
       "goal": "하루에 1시간 명상하기",
       "grouptotal": 36,
       "groupintro": "하루에 1시간 명상하기 하루에 1시간 명상하기 하루에 1시간 명상하기 하루에 1시간 명상하기 "
@@ -184,7 +184,7 @@
       "id": 21,
       "name": "유산소 운동",
       "category": "운동",
-      "img": "https://cdn.pixabay.com/photo/2017/05/25/15/08/jogging-2343558_1280.jpg",
+      "img": "https://i.pinimg.com/564x/02/77/4f/02774f25c79b393e9c53769efe5bb282.jpg",
       "goal": "하루 1시간 유산소 운동",
       "grouptotal": 45,
       "groupintro": "하루 1시간 유산소 운동 하루 1시간 유산소 운동 하루 1시간 유산소 운동 하루 1시간 유산소 운동"
@@ -193,7 +193,7 @@
       "id": 22,
       "name": "건강한 수면",
       "category": "습관",
-      "img": "https://cdn.pixabay.com/photo/2019/10/13/18/52/moon-4546977_1280.png",
+      "img": "https://i.pinimg.com/564x/76/f3/47/76f3475cfd99cc431f49437fc35cd437.jpg",
       "goal": "하루에 8시간 수면",
       "grouptotal": 48,
       "groupintro": "하루에 8시간 수면 하루에 8시간 수면 하루에 8시간 수면 하루에 8시간 수면 하루에 8시간 수면 하루에 8시간 수면"
@@ -202,7 +202,7 @@
       "id": 23,
       "name": "근력훈련",
       "category": "운동",
-      "img": "https://cdn.pixabay.com/photo/2017/08/07/14/02/man-2604149_1280.jpg",
+      "img": "https://i.pinimg.com/564x/ac/08/5f/ac085f9eabd0b65942e0d83c37e4060b.jpg",
       "goal": "주 3-4회 근력 훈련",
       "grouptotal": 33,
       "groupintro": "주 3-4회 근력 훈련 주 3-4회 근력 훈련 주 3-4회 근력 훈련 주 3-4회 근력 훈련 주 3-4회 근력 훈련 주 3-4회 근력 훈련"
@@ -211,7 +211,7 @@
       "id": 24,
       "name": "스트레스 관리",
       "category": "습관",
-      "img": "https://cdn.pixabay.com/photo/2023/10/07/23/39/girl-8301168_1280.png",
+      "img": "https://i.pinimg.com/564x/f9/38/f5/f938f5e98cdaa07acd92f2ed3a8be915.jpg",
       "goal": "스트레스 해소법을 정해 실천!",
       "grouptotal": 51,
       "groupintro": "스트레스 해소법을 정해 실천! 스트레스 해소법을 정해 실천! 스트레스 해소법을 정해 실천! 스트레스 해소법을 정해 실천!"
@@ -220,7 +220,7 @@
       "id": 25,
       "name": "건강한 간식",
       "category": "식단",
-      "img": "https://cdn.pixabay.com/photo/2017/01/11/11/33/cookies-1971549_1280.jpg",
+      "img": "https://i.pinimg.com/564x/8e/f3/9f/8ef39fa3637e13636d3afa6cccc5f448.jpg",
       "goal": "건강한 간식으로 건강 관리",
       "grouptotal": 60,
       "groupintro": "건강한 간식으로 건강 관리 건강한 간식으로 건강 관리 건강한 간식으로 건강 관리 건강한 간식으로 건강 관리"
@@ -229,7 +229,7 @@
       "id": 26,
       "name": "규칙적인 식사",
       "category": "식단",
-      "img": "https://cdn.pixabay.com/photo/2017/08/30/07/56/clock-2696234_1280.jpg",
+      "img": "https://i.pinimg.com/564x/62/1f/d5/621fd5f2b64a8d0cb8b1f277b856cad0.jpg",
       "goal": "하루 3번 정해진 시간에 식사",
       "grouptotal": 42,
       "groupintro": "하루 3번 정해진 시간에 식사 하루 3번 정해진 시간에 식사 하루 3번 정해진 시간에 식사 하루 3번 정해진 시간에 식사"
@@ -238,7 +238,7 @@
       "id": 27,
       "name": "칼로리 관리",
       "category": "식단",
-      "img": "https://cdn.pixabay.com/photo/2015/03/28/10/21/diet-695723_1280.jpg",
+      "img": "https://i.pinimg.com/564x/40/af/d5/40afd530df141d73548260b1826fdf16.jpg",
       "goal": "하루 권장 칼로리 관리",
       "grouptotal": 34,
       "groupintro": "하루 권장 칼로리 관리 하루 권장 칼로리 관리 하루 권장 칼로리 관리 하루 권장 칼로리 관리 하루 권장 칼로리 관리"
@@ -247,7 +247,7 @@
       "id": 28,
       "name": "체지방 감소",
       "category": "다이어트",
-      "img": "https://cdn.pixabay.com/photo/2014/07/28/11/18/scale-403585_1280.jpg",
+      "img": "https://i.pinimg.com/236x/3d/c0/3b/3dc03b9b871520234816565d105c306e.jpg",
       "goal": "체지방률 15%만들기",
       "grouptotal": 70,
       "groupintro": "체지방률 15%만들기 체지방률 15%만들기 체지방률 15%만들기 체지방률 15%만들기 체지방률 15%만들기 체지방률 15%만들기"
@@ -256,7 +256,7 @@
       "id": 29,
       "name": "운동 일정 계획",
       "category": "운동",
-      "img": "https://cdn.pixabay.com/photo/2019/03/12/20/27/work-4051777_1280.jpg",
+      "img": "https://i.pinimg.com/564x/30/37/73/303773b6009e08aa94ddd7405da83edb.jpg",
       "goal": "목표 달성을 위한 운동 계획 수립하기",
       "grouptotal": 27,
       "groupintro": "목표 달성을 위한 운동 계획 수립하기 목표 달성을 위한 운동 계획 수립하기 목표 달성을 위한 운동 계획 수립하기 목표 달성을 위한 운동 계획 수립하기"
@@ -265,7 +265,7 @@
       "id": 30,
       "name": "유기농 식품",
       "category": "식단",
-      "img": "https://cdn.pixabay.com/photo/2015/12/09/17/11/vegetable-1085065_1280.jpg",
+      "img": "https://i.pinimg.com/564x/37/31/8e/37318ed6c5ebe8a9b1eaa09ad1c7125a.jpg",
       "goal": "유기농 식품으로 식단 만들기",
       "grouptotal": 48,
       "groupintro": "유기농 식품으로 식단 만들기 유기농 식품으로 식단 만들기 유기농 식품으로 식단 만들기 유기농 식품으로 식단 만들기 유기농 식품으로 식단 만들기"
@@ -274,16 +274,16 @@
       "id": 31,
       "name": "NO설탕 다이어트",
       "category": "다이어트",
-      "img": "https://cdn.pixabay.com/photo/2016/07/13/11/52/sugar-1514247_1280.jpg",
+      "img": "https://i.pinimg.com/564x/6e/de/62/6ede624303d2c5ee20a99703b4afd9e1.jpg",
       "goal": "무설탕 다이어트로 목표치 감량!",
-      "grouptotal": 72,
+      "grouptotal": 40,
       "groupintro": "무설탕 다이어트로 목표치 감량! 무설탕 다이어트로 목표치 감량! 무설탕 다이어트로 목표치 감량! 무설탕 다이어트로 목표치 감량!"
     },
     {
       "id": 32,
       "name": "신체 유연성 향상",
       "category": "운동",
-      "img": "https://cdn.pixabay.com/photo/2017/02/26/14/12/cat-2100306_1280.jpg",
+      "img": "https://i.pinimg.com/564x/b1/5e/e1/b15ee16b610ae0a8b8300628e817eb83.jpg",
       "goal": "하루 15분 스트레칭",
       "grouptotal": 34,
       "groupintro": "하루 15분 스트레칭 하루 15분 스트레칭 하루 15분 스트레칭 하루 15분 스트레칭 하루 15분 스트레칭 하루 15분 스트레칭 하루 15분 스트레칭"
@@ -292,7 +292,7 @@
       "id": 33,
       "name": "건강검진",
       "category": "슴관",
-      "img": "https://cdn.pixabay.com/photo/2015/07/30/14/36/hypertension-867855_1280.jpg",
+      "img": "https://i.pinimg.com/564x/77/e1/71/77e17136772881edb76ada53bd829bc4.jpg",
       "goal": "건강 검진 결과에 따라 건강 관리",
       "grouptotal": 60,
       "groupintro": "건강 검진 결과에 따라 건강 관리 건강 검진 결과에 따라 건강 관리 건강 검진 결과에 따라 건강 관리 건강 검진 결과에 따라 건강 관리"
@@ -301,7 +301,7 @@
       "id": 34,
       "name": "슬림다이어트",
       "category": "다이어트",
-      "img": "https://cdn.pixabay.com/photo/2018/02/27/21/55/woman-3186730_1280.jpg",
+      "img": "https://i.pinimg.com/736x/83/64/2f/83642fb026ba75e30cf95b50a181ce8f.jpg",
       "goal": "10일 슬림다이어트",
       "grouptotal": 42,
       "groupintro": "10일 슬림다이어트 10일 슬림다이어트 10일 슬림다이어트 10일 슬림다이어트 10일 슬림다이어트 10일 슬림다이어트"
@@ -310,7 +310,7 @@
       "id": 35,
       "name": "소화 건강",
       "category": "식단",
-      "img": "https://cdn.pixabay.com/photo/2015/10/30/12/22/eat-1014025_1280.jpg",
+      "img": "https://i.pinimg.com/564x/32/b7/a8/32b7a8ac3f7f0f1c529c52538ecb9659.jpg",
       "goal": "소화 건강을 위한 식단 조절",
       "grouptotal": 53,
       "groupintro": "소화 건강을 위한 식단 조절 소화 건강을 위한 식단 조절 소화 건강을 위한 식단 조절 소화 건강을 위한 식단 조절"
@@ -319,7 +319,7 @@
       "id": 36,
       "name": "식품레시피",
       "category": "식단",
-      "img": "https://cdn.pixabay.com/photo/2012/04/11/17/31/vegetables-29063_1280.png",
+      "img": "https://i.pinimg.com/564x/23/00/dc/2300dcad5f3c33d83a68fbc57bc23fe4.jpg",
       "goal": "건강한 식품으로 만든 레시피 공유",
       "grouptotal": 44,
       "groupintro": "건강한 식품으로 만든 레시피 공유 건강한 식품으로 만든 레시피 공유 건강한 식품으로 만든 레시피 공유 건강한 식품으로 만든 레시피 공유"

@@ -2,137 +2,44 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    
     /* min-height: 700px; */
 }
 
-/*카테고리*/
-.Community_menu {
-    width: 100%;
-    margin-bottom: 25px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    min-height: 25px;
-}
 
-.Community_groupcreate {
-    width: 65%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.Community_groupcreate button {
-    width: 80px;
-    height: 30px;
-    margin: 12px 5px;
-    background-color: #dbdbdb;
-    color: #313131;
-    border: 0px;
-    border-radius: 50px;
-    font-weight: 500;
-    font-size: 0.8rem;
-}
-
-.Community_groupcreate button:hover {
-    background-color: #b0b0b0;
-    transition: 0.2s ease-in-out;
-
-}
-
-/*그룹 생성*/
-.Community_groupbtn {
-    width: 35%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 10px;
-}
-
-.Community_groupbtn button {
-    width: 150px;
-    height: 50px;
-    font-size: 1rem;
-    background-color: #8CBA51;
-    text-decoration: none;
-    /* 밑줄 제거 */
-    color: #ffffff;
-    border-radius: 10px;
-    border: none;
-    font-weight: 700;
-}
-
-.Community_groupbtn button:hover {
-    background-color: #397242;
-    transition: 0.2s ease-in-out;
-}
-
-.Community_link {
-    text-decoration: none;
-    color: inherit;
-}
-
-/*인기랭크*/
+/************* 인기랭크 **************/
 .Community_rank {
-    height: 240px;
+    height: 30%;
     width: 100%;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    border: 3px solid rgb(57, 114, 66);
-    box-shadow: 0 0 10px rgba(57, 114, 66, 0.7);
-
+    margin-bottom: 7%;
+    box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
     border-radius: 15px;
-    padding: 10px;
+    background: linear-gradient(-45deg, #a7c95784 50%, #F3F5EF 50%);
 }
 
 .Community_title {
-    width: 100%;
-    height: 20%;
-    font-size: 1.7rem;
-    color: #01352C;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 30%;
+    height: 100%;
+    float: left;
+    font-size: 1.3rem;
+    color: #386641;
     font-weight: bold;
-    margin-bottom: 10px;
+    padding-left: 1.5em;
+    position: relative;
 }
 
-.Community_title p:before,
-.Community_title p::after {
-    content: "";
-    display: inline-block;
-    background-image: url("../../star.png");
-    background-size: 40px 40px;
-    width: 40px;
-    height: 40px;
-    vertical-align: sub;
-    margin: 0 5px;
-    animation: big 1.5s infinite ease;
-}
-
-@keyframes big {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.1);
-    }
-
-    100% {
-        transform: scale(1)
-    }
+.Community_title .title_inner p {
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 0.9rem;
 }
 
 
-.Community_popularRank {
-    width: 100%;
-    height: 75%;
+.Community_rank .Community_popularRank {
+    width: 70%;
+    height: 100%;
+    float: left;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    /* max-height: 250px; */
+    padding: 30px 20px;
 }
 
 /*인기순위그룹 스타일*/
@@ -142,24 +49,25 @@
     height: 100%;
     grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
     align-items: start;
-    margin: 13px 7px;
+    margin: 0 10px;
 }
 
 .Community_item {
     height: 100%;
     border-radius: 10px;
-    border: 2px solid #729642;
     overflow: hidden;
     cursor: pointer;
     transition: 0.2s;
     padding: 10px;
-    padding: 10px;
+    border: 0px;
+    background-color: #fff;
+    box-shadow: 5px 5px 10px rgba(1, 53, 44, 0.25);
 }
 
 .Community_item:hover {
     transform: translateY(-0.5%);
     box-shadow: 0px 0px 7px 5px rgba(239, 255, 20, 0.3);
-    border: 2px solid #FFED8F;
+    outline: 2px solid #FFED8F;
 }
 
 .Community_cardimg {
@@ -172,54 +80,135 @@
 
 .Community_Groupname {
     height: 20%;
-    padding-top: 3%;
+    padding-top: 4%;
     font-size: 1rem;
     font-weight: 600;
-    color: #01352C;
-    margin-bottom: -7px;
+    color: #386641;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
 }
 
-/*그룹 목록*/
-.groupintro{
+/*그룹 생성 버튼*/
+.Community_groupbtn {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 5vh;
+    justify-content: flex-end;
+    margin-bottom: 1%;
 }
+
+.Community_groupbtn button {
+    width: 100px;
+    height: 10%;
+    font-size: 1rem;
+    background-color: #386641;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    font-weight: 700;
+}
+
+.Community_groupbtn button:hover {
+    background-color: #A7C957;
+    transition: 0.2s ease-in-out;
+}
+
+.Community_link {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/************ 그룹 목록 /*************/
+
+.groupintro {
+    width: 100%;
+    height: 7%;
+    background: linear-gradient(90deg, #386641 50%, rgb(56, 102, 65, 0.6));
+    border-radius: 10px;
+    color: #fff;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3%;
+    margin-bottom: 1%;
+}
+
+
+/*카테고리*/
+.Community_groupcreate button {
+    width: 70px;
+    margin: 0 5px;
+    background-color: rgb(255, 255, 255, 0.8);
+    color: #386641;
+    border: 0px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.Community_groupcreate button:last-child {
+    margin-right: 0;
+}
+
+.Community_groupcreate button:hover {
+    background-color: #fff;
+    transition: 0.2s ease-in-out;
+}
+
+
+
+/******** 그룹 리스트 스타일 *********/
 .Community_GroupList {
-    width: 90%;
-    height: 42vh;
-    box-sizing: border-box;
-    padding: 20px;
-    border: 2px solid #D9D9D9;
-    border-radius: 15px;
-    margin-bottom: 5px;
-    min-height: 330px;
-    background-color: #f4f4f4;
-
+    height: 50%;
+    border-radius: 10px;
+    /* min-height: 300px; */
 }
 
-/*그룹 리스트 스타일*/
+
 .Community_Grouplists {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 93%;
+    height: 95%;
+    margin-bottom: 2%;
     overflow: hidden;
-    padding: 0px 7px;
 }
 
 .Community_gallery {
     display: grid;
     width: 100%;
     height: 100%;
-    grid-gap: 10px;
+    grid-gap: 15px;
     grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+    padding: 10px;
 }
+
+/* 1행의 아이템은 왼쪽에서 오른쪽으로 배치 */
+.Community_gallery .Community_Gitem:nth-child(1),
+.Community_gallery .Community_Gitem:nth-child(4),
+.Community_gallery .Community_Gitem:nth-child(7),
+.Community_gallery .Community_Gitem:nth-child(10) {
+    grid-row: 1;
+}
+
+/* 2행의 아이템은 오른쪽에서 왼쪽으로 배치 */
+.Community_gallery .Community_Gitem:nth-child(2),
+.Community_gallery .Community_Gitem:nth-child(5),
+.Community_gallery .Community_Gitem:nth-child(8),
+.Community_gallery .Community_Gitem:nth-child(11) {
+    grid-row: 2;
+}
+
+.Community_gallery .Community_Gitem:nth-child(3),
+.Community_gallery .Community_Gitem:nth-child(6),
+.Community_gallery .Community_Gitem:nth-child(9),
+.Community_gallery .Community_Gitem:nth-child(12) {
+    grid-row: 3;
+}
+
 
 .Community_gallery .Community_Gitem {
     background-color: #fff;
@@ -228,54 +217,65 @@
     overflow: hidden;
     cursor: pointer;
     position: relative;
-    transition: 0.2s;
+    /* transition: 0.2s; */
     padding: 7px;
-}
-
-/* 1행의 아이템은 왼쪽에서 오른쪽으로 배치 */
-.Community_gallery .Community_Gitem:nth-child(1),
-.Community_gallery .Community_Gitem:nth-child(3),
-.Community_gallery .Community_Gitem:nth-child(5),
-.Community_gallery .Community_Gitem:nth-child(7),
-.Community_gallery .Community_Gitem:nth-child(9),
-.Community_gallery .Community_Gitem:nth-child(11) {
-    grid-row: 1;
-}
-
-/* 2행의 아이템은 오른쪽에서 왼쪽으로 배치 */
-.Community_gallery .Community_Gitem:nth-child(2),
-.Community_gallery .Community_Gitem:nth-child(4),
-.Community_gallery .Community_Gitem:nth-child(6),
-.Community_gallery .Community_Gitem:nth-child(8),
-.Community_gallery .Community_Gitem:nth-child(10),
-.Community_gallery .Community_Gitem:nth-child(12) {
-    grid-row: 2;
-}
-
-.Community_Gcardimg {
-    display: block;
     width: 100%;
-    height: 85%;
-    min-height: 90px;
+    height: 100%;
+}
+
+.Community_gallery .Community_Gitem:hover {
+    transform: translateY(-1%);
+    transition: 0.3s;
+    box-shadow: 5px 5px 10px rgba(1, 53, 44, 0.25);
+}
+
+
+.Community_Gitem .Community_Gcardimg {
+    width: 35%;
+    height: 100%;
     object-fit: cover;
     border-radius: 5px;
+    float: left;
 }
 
-.Community_Ggroupname {
-    height: 20%;
-    font-size: 0.8rem;
-    color: #313131;
-    margin: 3px;
-    text-align: center;
-    white-space: nowrap;
+
+
+.Community_Gitem .Community_cardcontent {
+    width: 60%;
+    height: 100%;
+    float: left;
     overflow: hidden;
+    white-space: nowrap;
+    /* 왜 안될까여... */
+    text-overflow: ellipsis;
+    padding: 2% 0 0 3%;
+    color: #386641;
+}
+
+.Community_Gitem .Community_cardcontent h2 {
+    height: 20%;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.Community_Gitem .Community_cardcontent h3 {
+    font-size: 75%;
+    font-weight: 500;
+    height: 60%;
+    padding-top: 5%;
+}
+
+.Community_Gitem .Community_cardcontent p {
+    font-size: 10%;
+    color: #686868;
+    line-height: 0.6rem;
+    text-align: end;
 }
 
 /*캡션*/
-.Community_caption {
+/* .Community_caption {
     position: absolute;
     width: calc(100% - 14px);
-    /*해당 크기 값은 본 코드에서 크기가 바뀔수 있다.*/
     height: calc(100% - 14px);
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
@@ -290,10 +290,10 @@
     padding: 10px;
 }
 
-/* .Community_Gitem:hover {
+.Community_Gitem:hover {
     transform: translateY(-0.5%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-} */
+}
 
 .Community_Gitem:hover .Community_caption {
     opacity: 1;
@@ -313,16 +313,18 @@
 .Community_caption p {
     color: #fff;
     text-align: center;
-}
+} */
+
+
+
 
 /*이동 버튼*/
 .Community_Grouplistbtn {
     width: 100%;
-    height: 5%;
+    height: 3%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 5px;
 }
 
 .Community_Grouplistbtn button {
@@ -330,4 +332,5 @@
     background: none;
     cursor: pointer;
     border: none;
+    color: #386641;
 }

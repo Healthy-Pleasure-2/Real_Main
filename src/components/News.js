@@ -6,10 +6,19 @@ function News() {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    // NewsAPI에서 뉴스 데이터를 가져오는 API 키를 사용하세요.
-    const apiKey = "90fef2863b014da2a5c2b6962432a6f2";
-    const apiUrl = `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}`;
+    const apiKey = process.env.REACT_APP_NEWS_API_KEY
+    // console.log(apiKey)
 
+    const apiUrl = `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}`;
+    // console.log(apiUrl)
+  // useEffect(() => {
+    
+
+  //   const apiUrl = `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}`;
+  
+
+    
+  
     axios
       .get(apiUrl)
       .then((response) => {
@@ -22,7 +31,7 @@ function News() {
 
   return (
     <div className="news-container">
-      <h1 className="news-title">뉴스</h1>
+      <h1 className="news-title">News</h1>
       <ul className="news-list">
         {news.map((article, index) => (
           <li key={index} className="news-item">

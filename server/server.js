@@ -16,9 +16,14 @@ const app = express(); // Express 앱을 생성
 const port = 3003; // 서버가 사용할 포트 번호를 정의
 const cors = require('cors'); // CORS 미들웨어를 추가
 const fs = require('fs');
+const path = require('path'); // path 모듈
 const users = require('./db.json').user; // db.json 파일에서 사용자 정보를 가져와 변수에 저장
-const groups = require('./db.json').group // db.json파일에서 그룹 정보를 가져와 변수에 저장
+const groups = require('./db.json').group; // db.json파일에서 그룹 정보를 가져와 변수에 저장
 
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 app.use(express.json()); // Express 앱이 JSON 요청을 처리할 수 있도록 미들웨어를 추가
 app.use(cors()); // CORS 활성화
 
@@ -52,9 +57,9 @@ app.patch('/user/:id', async (req, res) => {
         const jsonData = JSON.parse(data);
         // db.json 파일에서 user 정보만 users 정보에 담기
         const users = jsonData.user;
-        console.log(users);
+        //console.log(users);
         const groups = jsonData.group;
-        console.log(groups);
+        //console.log(groups);
         const user = users.find((u) => u.id === userId);
 
         if (!user) {
@@ -88,6 +93,10 @@ app.patch('/user/:id', async (req, res) => {
     }
 });
 
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 //실행중
 app.listen(port, () => {

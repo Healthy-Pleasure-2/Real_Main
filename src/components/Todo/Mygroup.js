@@ -2,25 +2,21 @@
 // 소스명 Mygroup.js
 // 페이지 용도: 개인별 목표 페이지 (나의 그룹 위젯)
 // 생성 일자(수정 용도): 10/14
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronRight,
-  faChevronLeft,
-} from "@fortawesome/free-solid-svg-icons";
 import SimpleSlider from "./Slide";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function Mygroup({ groupinfo }) {
-  // 슬라이드의 개수: group.json의 길이
-  // 버튼 개수도 슬라이드 개수만큼 생김
-  // 버튼 누를때 그 인덱스 번호로 이동하는 걸로 생성
-
   return (
     <div id="todo_my_group">
-      <h1 className="todo_h1">나의 그룹</h1>
-      <SimpleSlider groupdata={groupinfo} />
+      <div className="todo_my_group">
+        <div className="todo_title">
+          <h2>MY GROUP</h2>
+          <p>함께할 때, 더 많이 이룰 수 있어요. 그룹에서 힘을 모아 함께 활동해보세요!💪</p>
+        </div>
+
+        <SimpleSlider groupdata={groupinfo} />
+      </div>
     </div>
   );
 }

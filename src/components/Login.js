@@ -1,97 +1,62 @@
-/*
--소스명 : Login.js
--작성자 :_______ 
--이 페이지 용도 : 로그인 페이지
--생성일자(수정일자) : 2310__ 최초생성
--로그
-2310__  _____ - 최초생성
-231024 김장훈 - db.json 파일을 이용한 로그인기능 수정  -->> app.js로 옮김 (잘 되는지 보고 차후 코드 정리예정)
---------------------------------------------------------------------------------------------------------------*/
-
-import React, {useState} from "react";
-import {Link} from "react-router-dom";
+// 231023 이진경 - 수정
+import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../logo.png";
+import { useState } from "react";
 
 function Login({ onLogin }) {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   
-    const handleLogin = () => {
-      onLogin(username, password); // 사용자명과 비밀번호를 전달하여 로그인 함수 실행
-    }
-    // const handleLogin = async () => {
-    //     try {
-    //         // 사용자가 입력한 ID와 비밀번호
-    //         const userData = {
-    //             id: username,
-    //             pw: password
-    //         };
-
-    //         // 서버에 POST 요청
-    //         fetch("http://localhost:3003/user", {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json"
-    //             },
-    //             body: JSON.stringify(userData)
-    //         })
-    //             .then((response) => response.json())
-    //             .then((data) => {
-    //                 if (data.message === "로그인 성공") {
-    //                     //성공 시
-    //                     onLogin(data.user); // 로그인 상태 변경
-    //                 } else {
-    //                     //실패 시
-    //                     alert("로그인 실패");
-    //                 }
-    //             })
-    //             .catch((error) => {
-    //                 console.error("서버 요청 오류:", error);
-    //             });
-    //     } catch (error) {
-    //         console.error("로그인 요청 실패:", error);
-    //         alert("로그인 요청 실패"); // 실패 메시지 표시
-    //     }
-    // };
-
-    return (
-        <div id="daily-box">
-            <div className="Loginbox">
-                <div className="LoginLogo">
-                    <img src={logo} alt="logo"></img>
-                </div>
-                <div className="LoginIdPw">
-                    <input
-                        className="Logininputid"
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="사용자명"/>
-                    <input
-                        className="Logininputpassword"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="비밀번호"/>
-                </div>
-                <button className="Loginbtn" onClick={handleLogin}>
-                    로그인
-                </button>
-                <div className="LoginFind">
-                    <button className="LoginIdPwFind">
-                        <Link to="/idpw" className="LoginbtnLink">
-                            ID 찾기 / PW 찾기
-                        </Link>
-                    </button>
-                    <button className="Loginsingnup">
-                        <Link to="/signup" className="LoginbtnLink">
-                            회원가입
-                        </Link>
-                    </button>
-                </div>
-            </div>
+  const handleLogin = () => {
+    onLogin(username, password); // 사용자명과 비밀번호를 전달하여 로그인 함수 실행
+  }
+  return (
+    <div id="daily-box">
+      <div className="Loginbox">
+        <div className="LoginTitle">
+          <h1>Welcome!</h1>
         </div>
-    );
+        <div className="LoginIdPw">
+          <input 
+            className="Logininputid" 
+            type="text" 
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="사용자명"
+            ></input>
+          <input
+            className="Logininputpassword"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="비밀번호"
+          ></input>
+        </div>
+        <div>
+          <label className="LoginCheckbox">
+            <input type="checkbox" />
+            로그인 상태 유지
+          </label>
+        </div>
+        <button className="Loginbtn" onClick={handleLogin}>
+          Login
+        </button>
+        <div className="LoginFind">
+          <button className="LoginIdPwFind">
+            <Link to="/idpw" className="LoginbtnLink">
+              ID 찾기 / PW 찾기
+            </Link>
+          </button>
+          <button className="Loginsingnup">
+            <Link to="/signup" className="LoginbtnLink">
+              회원가입
+            </Link>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Login;

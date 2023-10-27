@@ -25,31 +25,32 @@
 .flex-wrapper .title {
   height: 16%;
   font-weight: bold;
-  font-size: 1rem;
-  color: #01352C;
-  padding: 15px 0 10px 15px;
+  font-size: 1.1rem;
+  color: #386641;
+  padding: 15px 0 0 15px;
+  margin-bottom: 15px;
 }
 
 
 
 .single-chart {
   position: absolute;
-  left: 37px;
-  width: 180px;
-  transform: scale(0.55);
+  left: 50px;
+  width: 160px;
 }
 
 .single-chart1 {
   position: absolute;
-  left: 37px;
-  width: 180px;
+  left: 50px;
+  width: 160px;
   transform: scale(0.76);
 }
 
 .single-chart2 {
   position: absolute;
-  left: 37px;
-  width: 180px;
+  left: 50px;
+  width: 160px;
+  transform: scale(0.55);
 }
 
 .circular-chart,
@@ -69,15 +70,9 @@
 
 }
 
-.circle {
+.circle2 {
   stroke-width: 13%;
 }
-
-/* @keyframes progress {
-  0% {
-    stroke-dasharray: 0 100;
-  }
-} */
 
 .circular-chart.orange .circle {
   stroke: #81ff38;
@@ -93,48 +88,68 @@
 
 .inputbox {
   position: absolute;
-  flex-direction: column;
+  flex-direction: row;
   display: flex;
-  bottom: 15px;
-  left: 44px;
+  bottom: 0;
+  padding: 15px;
 }
 
-.inputbox div {
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-top: 3px;
+.inputbox .input_inner {
+  width: 70px;
+  height: 75px;
+  border: 2px solid #A7C957;
+  border-radius: 15px;
+  margin-right: 10px;
+  overflow: hidden;
+  color: #A7C957;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 10px;
+}
+
+.inputbox .input_inner:last-child {
+  margin: 0;
+}
+
+
+.input_title {
+  width: 100%;
+  height: 25px;
+  background: #A7C957;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+
+
+.inputbox1,
+.inputbox2,
+.inputbox3 {
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  font-size: 1.2rem;
+  margin-top: 2px;
 }
 
 .inputbox1 {
-  width: 100px;
-  border-radius: 15px;
   color: #3a9e26;
-  border: 2px solid #3a9e26;
-  font-weight: bold;
-  text-align: center;
 }
 
 .inputbox2 {
-  width: 100px;
-  border-radius: 15px;
   color: #1a90a6;
-  border: 2px solid #1a90a6;
-  font-weight: bold;
-  text-align: center;
 }
 
 .inputbox3 {
-  width: 100px;
-  border-radius: 15px;
   color: #ad115c;
-  border: 2px solid #ad115c;
-  font-weight: bold;
-  text-align: center;
 }
 
 .inputbox1:focus,
 .inputbox2:focus,
 .inputbox3:focus {
-  border-color: #ffeb0d;
   outline: none;
 }
