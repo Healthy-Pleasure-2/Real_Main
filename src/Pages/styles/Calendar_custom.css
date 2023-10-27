@@ -24,16 +24,26 @@
   height: 15%;
   background-color: #A7C957;
   display: flex;
-  justify-content: center;
   /* line-height: 60px; */
   /* min-height: 30px;*/
+  justify-content: space-between
+}
 
+/* 네비게이션 화살표 버튼 */
+.react-calendar__navigation__arrow {
+  flex: 1;
+}
+
+.react-calendar__navigation__label {
+  flex: 6 !important;
 }
 
 /* 2023년 10월 */
 .react-calendar__navigation__label__labelText {
   font-size: 1rem;
   font-weight: 600;
+  position: relative;
+  bottom: 2.5px;
 }
 
 .react-calendar__navigation button {
@@ -46,6 +56,7 @@
   /* line-height: 10%; */
 
 }
+
 
 /* 일자 담고 있는 곳 */
 .react-calendar__viewContainer {
@@ -228,8 +239,12 @@
 /* 현재 활성화 되고 있는 타일 */
 .react-calendar__tile--now {
   background: #A7C957;
-  color: #fff;
 }
+
+.react-calendar__tile--now abbr {
+  color: white;
+}
+
 
 /* hover하거나 focus했을 때 타일의 변화 */
 .react-calendar__tile--now:enabled:hover,
@@ -241,7 +256,6 @@
 /* 타일을 클릭했을 때 효과 */
 .react-calendar__tile--hasActive {
   background: #A7C957;
-  color: #fff;
 }
 
 .react-calendar__tile--hasActive:enabled:hover,
@@ -252,8 +266,13 @@
 
 .react-calendar__tile--active {
   background: #A7C957;
-  color: white;
 }
+
+.react-calendar__tile--active abbr {
+  color: #fff;
+}
+
+
 
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
@@ -262,4 +281,14 @@
 
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #F3F5EF;
+}
+
+@media screen and (min-width:768px) and (max-width: 1300px) {
+  #calendar_container {
+    height: calc(100% - 74px);
+    width: 45%;
+    margin: 0;
+    float: left;
+    margin: 20px 22px 0 0;
+  }
 }

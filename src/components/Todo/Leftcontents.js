@@ -8,11 +8,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
 import Calendar from "react-calendar";
 import ReactCalendar from "./Calendar";
+import styled from "styled-components";
 // import ReactCalendar from "./Calendar";
 
 function LeftContents() {
   let [text, setText] = useState("");
   let [todoList, setTodoList] = useState([]);
+
 
   // todo list input 값 저장 함수
   const changeInput = (e) => {
@@ -69,16 +71,17 @@ function LeftContents() {
           console.log(todoList);
           return (
             <>
-              <div className="todo_checkList">
+              <div className="todo_checkList" style={{ background: item.checked ? '#A7C957' : '#F3F5EF' }}>
                 <button
                   className="todo_checked"
+                  style={{ background: item.checked ? '#386641' : '#a2a1a1' }}
                   onClick={() => {
                     complete(item.id);
                   }}
                 >
                   <FontAwesomeIcon icon={faCheck} />
                 </button>
-                <p className={`${item.checked ? "done" : ""}`}>{item.text}</p>
+                <p className={`${item.checked ? "done" : ""}`} style={{ color: item.checked ? '#fff' : '#386641' }}>{item.text}</p>
                 <button
                   className="todo_delete"
                   onClick={() => {

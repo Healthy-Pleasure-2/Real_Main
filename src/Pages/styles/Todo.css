@@ -67,15 +67,14 @@ button {
 
 /* 체크리스트 작성공간 */
 .todo_checkList {
+  background: #F3F5EF;
   font-size: 1rem;
   /* border: 1px solid #7B7B7B; */
-  background: #F3F5EF;
   border-radius: 10px;
   width: 100%;
   height: 45px;
   margin-bottom: 15px;
   position: relative;
-
 }
 
 
@@ -115,12 +114,14 @@ button {
   left: 40px;
   transform: translateY(-50%);
   color: #386641;
-
 }
 
 .todo_checkList .done {
-  text-decoration: line-through;
+  text-decoration-line: line-through;
+  text-decoration-color: #386641;
+  text-decoration-style: double;
   color: #b8b8b8;
+  text-decoration-thickness: 2px;
 }
 
 /* to do list 항목 추가 */
@@ -175,7 +176,6 @@ button {
   flex: 1;
   width: 50%;
   margin-left: 20px;
-
 }
 
 /* ********  목표 설정  ************** */
@@ -245,7 +245,7 @@ button {
 /* 아이콘 */
 .todo_icon {
   color: #fff;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 /* 체중, 운동, 식단이 적힌 div */
@@ -465,7 +465,7 @@ button {
 }
 
 .todo_group_content::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 
 .todo_group_content::-webkit-scrollbar-thumb {
@@ -480,77 +480,219 @@ button {
 
 /* 미디어 쿼리 */
 @media screen and (max-width: 1430px) {
-
-  /**************** 목표설정 ***********************/
-  /* 목표설정의 아이콘과 타이틀을 감싸고 있는 영역 */
-  /* 패딩값 변경 */
-  .todo_health {
-    padding: 5px;
+  .todo_slider_container {
+    margin-top: 15%;
   }
+}
 
-  /* kg, kcal 글씨 크기 조정 */
-
-  .todo_data_rightSide .todo_unit {
-    font-size: 17px;
-  }
-
-  /* 목표설정의 왼쪽과 오른쪽 영역의 float 값 삭제하여 줄바꿈 */
-  .todo_data_leftSide,
-  .todo_data_rightSide {
-    float: none;
+@media screen and (min-width:768px) and (max-width: 1300px) {
+  #todo_container {
     width: 100%;
-    height: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* 데이터와 제목간의 간격 설정 */
-  .todo_data_leftSide {
-    margin-bottom: 10px;
+  /* todo list 작성공간 */
+  #todo_container #todo_left_contents {
+    width: 100%;
+    height: 55%;
+    padding: 20px;
+    border-radius: 15px;
+    margin-right: 0;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  /* 추가될 to-do list가 들어갈 공간 */
+  .todo_checkLists {
+    width: 50%;
+    height: calc(90% - 82px);
+    margin-top: 20px;
+    float: left;
+  }
+
+  /*  to-do list의 스크롤바 스타일 */
+  .todo_checkLists::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* to do list 추가되는 내용 */
+  .todo_checkList p {
+    font-size: 13px;
+  }
+
+  /* to do list 항목 추가 */
+  .todo_addList {
+    width: 50%;
+    height: 10%;
+    margin-top: 7px
+  }
+
+  /* to-do 작성공간 */
+  .todo_todoAdd {
+    font-size: 13px;
+  }
+
+  /* to-do 작성완료 버튼 */
+  .todo_addList .todo_save {
+    font-size: 25px;
+  }
+
+  /* 나의 그룹 & 목표설정 컨텐츠 위젯들 영역 */
+  #todo_container #todo_right_contents {
+    float: none;
+    position: relative;
+    flex: 1;
+    width: 100%;
+    margin-left: 0;
+    display: flex;
+    flex-direction: row;
+    height: 45%;
+  }
+
+  #todo_container #todo_goal {
+    background-color: #F4F8EA;
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    margin-right: 20px;
+  }
+
+  .todo_goal {
+    height: 100%;
+    position: relative;
+  }
+
+  .todo_goal .todo_title {
+    height: 30%;
+    margin-bottom: 6px;
+  }
+
+  #todo_data_container {
+    width: 90%;
+    height: 55%;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  #todo_data_container::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* 몸무게, 운동, 식단 위젯 */
+  .todo_health {
+    width: 100%;
     margin-left: 0;
   }
 
-  /* 운동, 식단, 체중 글씨 */
+  .todo_health:nth-child(2) {
+    margin: 10px 0;
+  }
+
+  /* 위젯 안의 콘텐츠 */
+  /* leftSide: 위젯안의 아이콘과 옆의 타이틀을 감싸고 있는 영역  */
+  /* rightSide: 위젯안의 데이터와 단위 감싸고 있는 영역 설정 */
+
+  .todo_data_leftSide {
+    height: 100%;
+    width: 35%;
+    float: left;
+    padding: 3px;
+  }
+
+
+  /* 아이콘 */
+  .todo_icon {
+    float: left;
+    width: 50%;
+    font-size: 1.5rem;
+  }
+
+  /* 체중, 운동, 식단이 적힌 div */
   .todo_data_leftSide div:last-child {
-    padding-left: 0;
-    /* 아이콘이 삭제되므로 패딩값 삭제*/
+    float: left;
+    width: 50%;
+    line-height: 2.2rem;
+  }
+
+
+  .todo_data_rightSide {
+    height: 100%;
+    width: 65%;
+    float: left;
+    position: relative;
+  }
+
+  /* input */
+  .todo_data_rightSide .todo_data_record {
+    border-radius: 15px;
+    width: 70%;
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+
+
+  /* 단위 kg, kcal */
+  .todo_data_rightSide .todo_unit {
+    height: 100%;
+    width: 30%;
+    position: absolute;
+    top: 52%;
+    right: 5%;
+    transform: translateY(-50%);
+    line-height: 41px;
+  }
+
+  /* ********  나의 그룹 ************** */
+  #todo_container #todo_my_group {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    bottom: 0;
+    padding: 20px;
+  }
+
+  /* 버튼 포함 나의 그룹 슬라이더 영역 */
+  .todo_slider_container {
+    height: 70%;
+    margin-top: 15%;
+  }
+
+  /* 슬라이더 */
+  .dFkCVK {
+    height: 85%;
+  }
+
+  .todo_group_data_name {
+    margin-bottom: 8px
+  }
+
+  .todo_group_content2 button {
+    width: 65%;
+  }
+
+  /* 페이지 */
+  .todo_page_count {
+    font-size: 0.8rem;
+    color: #386641;
     width: 100%;
     text-align: center;
-    font-size: 20px;
+    margin-top: 10px;
   }
 
-  /* 데이터 들어가는 곳  */
-  .todo_data_rightSide {
-    bottom: 10px;
-    left: 25%;
-    width: 60%;
+  .todo_prevbtn,
+  .todo_nextbtn {
+    font-size: 25px;
+    font-weight: bolder;
   }
 
-  /* input의 크기 조정 */
-  .todo_data_rightSide .todo_data_record {
-    font-size: 15px;
-  }
-
-  /* 아이콘 삭제 */
-  .todo_icon {
-    display: none;
+  .todo_group_content::-webkit-scrollbar {
+    width: 5px;
   }
 }
 
-@media screen and (max-width: 1440px) {
-
-  /* group title과 data간의 줄바꿈 위한 조정 */
-  .todo_group_title {
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 23px;
-  }
-
-  /* 그룹명, 카테고리, 목표 간의 수직간격 설정 */
-  .todo_group_contents:nth-child(2) {
-    margin: 20px 0;
-  }
-
-  /* group title과 data간의 줄바꿈 위한 조정 */
-  .todo_data {
-    width: 100%;
-  }
-}
+@media screen and (max-width:767px) {}
