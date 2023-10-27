@@ -11,8 +11,7 @@
     height: 30%;
     width: 100%;
     margin-bottom: 7%;
-    box-shadow: 0 0 20px rgba(1, 53, 44, 0.25), inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
-
+    box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
     border-radius: 15px;
     background: linear-gradient(-45deg, #a7c95784 50%, #F3F5EF 50%);
 }
@@ -127,7 +126,6 @@
     width: 100%;
     height: 7%;
     background: linear-gradient(90deg, #386641 50%, rgb(56, 102, 65, 0.6));
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
     border-radius: 10px;
     color: #fff;
     position: relative;
@@ -175,7 +173,7 @@
     justify-content: center;
     width: 100%;
     height: 95%;
-    margin-bottom: 1%;
+    margin-bottom: 2%;
     overflow: hidden;
 }
 
@@ -190,23 +188,23 @@
 
 /* 1행의 아이템은 왼쪽에서 오른쪽으로 배치 */
 .Community_gallery .Community_Gitem:nth-child(1),
-.Community_gallery .Community_Gitem:nth-child(4),
-.Community_gallery .Community_Gitem:nth-child(7),
-.Community_gallery .Community_Gitem:nth-child(10) {
+.Community_gallery .Community_Gitem:nth-child(2),
+.Community_gallery .Community_Gitem:nth-child(3),
+.Community_gallery .Community_Gitem:nth-child(4) {
     grid-row: 1;
 }
 
 /* 2행의 아이템은 오른쪽에서 왼쪽으로 배치 */
-.Community_gallery .Community_Gitem:nth-child(2),
 .Community_gallery .Community_Gitem:nth-child(5),
-.Community_gallery .Community_Gitem:nth-child(8),
-.Community_gallery .Community_Gitem:nth-child(11) {
+.Community_gallery .Community_Gitem:nth-child(6),
+.Community_gallery .Community_Gitem:nth-child(7),
+.Community_gallery .Community_Gitem:nth-child(8) {
     grid-row: 2;
 }
 
-.Community_gallery .Community_Gitem:nth-child(3),
-.Community_gallery .Community_Gitem:nth-child(6),
 .Community_gallery .Community_Gitem:nth-child(9),
+.Community_gallery .Community_Gitem:nth-child(10),
+.Community_gallery .Community_Gitem:nth-child(11),
 .Community_gallery .Community_Gitem:nth-child(12) {
     grid-row: 3;
 }
@@ -224,6 +222,46 @@
     width: 100%;
     height: 100%;
 }
+/*1700*/
+@media (max-width: 1700px) {
+    .Community_gallery .Community_Gitem:nth-child(1),
+    .Community_gallery .Community_Gitem:nth-child(2),
+    .Community_gallery .Community_Gitem:nth-child(3) {
+    grid-row: 1;
+}
+
+/* 2행의 아이템은 오른쪽에서 왼쪽으로 배치 */
+.Community_gallery .Community_Gitem:nth-child(4),
+    .Community_gallery .Community_Gitem:nth-child(5),
+    .Community_gallery .Community_Gitem:nth-child(6) {
+    grid-row: 2;
+}
+
+.Community_gallery .Community_Gitem:nth-child(7),
+    .Community_gallery .Community_Gitem:nth-child(8),
+    .Community_gallery .Community_Gitem:nth-child(9) {
+    grid-row: 3;
+}
+  }
+/*미디어를 이용하여 화면이 1200이하일경우 */
+@media (max-width: 1200px) {
+    .Community_gallery .Community_Gitem:nth-child(1),
+    .Community_gallery .Community_Gitem:nth-child(2) {
+    grid-row: 1;
+}
+
+/* 2행의 아이템은 오른쪽에서 왼쪽으로 배치 */
+.Community_gallery .Community_Gitem:nth-child(3),
+.Community_gallery .Community_Gitem:nth-child(4) {
+    grid-row: 2;
+}
+
+.Community_gallery .Community_Gitem:nth-child(5),
+.Community_gallery .Community_Gitem:nth-child(6) {
+    grid-row: 3;
+}
+  }
+  
 
 .Community_gallery .Community_Gitem:hover {
     transform: translateY(-1%);

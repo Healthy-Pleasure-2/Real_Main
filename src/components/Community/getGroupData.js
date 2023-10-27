@@ -3,26 +3,23 @@
 이 페이지 용도 : 그룹 커뮤니티
 생성일자(수정일자) : 10/16*/
 
-const request = async (url) => {
-  try {
-    const respose = await fetch(url);
-    if (respose.ok) {
-      const data = await respose.json();
-      return data.group;
-    }
-    const errData = await respose.json();
-    throw errData;
-  } catch (e) {
-    console.log(e);
-  }
-};
-
-// 비동기식으로 데이터를 가져오는 함수(함수앞에 async를 붙여주고 내부에서 await를 사용해야함)
-// fetch API를 사용하여 데이터를 가져옴
-
 const getGroupData = async () => {
-  const result = await request("/group.json");
-  return result;
+  const remoteUrl = "http://localhost:3005/group"; // 원격 서버 엔드포인트 URL
+
+  try {
+    const response = await fetch(remoteUrl);
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.json(); // JSON 데이터를 변수에 저장
+
+    return data; // 데이터를 반환
+  } catch (error) {
+    console.error("There was a problem with the fetch operation:", error);
+    throw error; // 에러를 다시 throw하여 호출자에게 전파
+  }
 };
 
 export default getGroupData;

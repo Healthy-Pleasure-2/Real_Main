@@ -84,11 +84,11 @@
     {
       "id": 10,
       "name": "바른 필라테스",
-      "category": "운동",
+      "category": "다이어트",
       "img": "https://i.pinimg.com/564x/29/95/27/299527841ce3c594397cd41f5abfa003.jpg",
       "goal": "필라테스로 자세교정",
       "grouptotal": 60,
-      "groupintro": "아프고 괴로웠던 자세들은 저리가라!, 필라테스로 자세 교정하면서 운동같이 하실 분들을 모집합니다."
+      "groupintro": "아프고 괴로웠던 자세들은 저리가라!, 필라테스로 자세 교정하면서 다이어트같이 하실 분들을 모집합니다."
     },
     {
       "id": 11,
@@ -174,7 +174,7 @@
     {
       "id": 20,
       "name": "힐링명상",
-      "category": "습관",
+      "category": "운동",
       "img": "https://i.pinimg.com/564x/46/15/59/4615593e83048dc84bb5923a833cde32.jpg",
       "goal": "하루에 1시간 명상하기",
       "grouptotal": 36,
@@ -237,7 +237,7 @@
     {
       "id": 27,
       "name": "칼로리 관리",
-      "category": "식단",
+      "category": "다이어트",
       "img": "https://i.pinimg.com/564x/40/af/d5/40afd530df141d73548260b1826fdf16.jpg",
       "goal": "하루 권장 칼로리 관리",
       "grouptotal": 34,
@@ -291,7 +291,7 @@
     {
       "id": 33,
       "name": "건강검진",
-      "category": "슴관",
+      "category": "습관",
       "img": "https://i.pinimg.com/564x/77/e1/71/77e17136772881edb76ada53bd829bc4.jpg",
       "goal": "건강 검진 결과에 따라 건강 관리",
       "grouptotal": 60,
