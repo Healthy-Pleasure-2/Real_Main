@@ -20,6 +20,9 @@ import { faBullhorn, faComments } from "@fortawesome/free-solid-svg-icons";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+// 이미지
+import notice from "../asset/notice.png";
+import FAQ from "../asset/FAQ.png";
 
 function Main() {
   const [groupData, setGroupData] = useState([]);
@@ -127,7 +130,7 @@ function Main() {
             <p>다양한 소식, 뉴스, 이벤트등을 볼 수 있습니다.</p>
           </div>
           <div className="etc_icon1">
-            {/* <FontAwesomeIcon icon={faBullhorn} /> */}
+            <img src={notice} alt="공지사항" />
           </div>
         </div>
 
@@ -137,7 +140,7 @@ function Main() {
             <p>다양한 소식, 뉴스, 이벤트등을 볼 수 있습니다.</p>
           </div>
           <div className="etc_icon2">
-            {/* <FontAwesomeIcon icon={faComments} />{" "} */}
+            <img src={FAQ} alt="자주묻는질문" />
           </div>
         </div>
       </div>

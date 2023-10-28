@@ -74,6 +74,21 @@
     animation: post-ani 2s linear infinite;
 }
 
+@keyframes post-ani {
+    25% {
+        transform: rotate(1deg) scale(1.01);
+    }
+
+    50% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    75% {
+        transform: rotate(-1deg) scale(1.01);
+    }
+}
+
+
 /* .banner2 */
 .banner2 .banner_image {
     background-image: url(../../asset/main2.png);
@@ -308,26 +323,14 @@
     font-weight: 400;
 }
 
-.etc_icon1 {
+.etc_icon1 img,
+.etc_icon2 img {
     width: 20%;
-    height: 100%;
-    background-image: url(../../asset/notice.png);
-    background-repeat: no-repeat;
-    background-size: 140%;
-    background-position: 40%;
-    float: right;
+    position: absolute;
+    right: 1.5em;
+    top: 50%;
+    transform: translateY(-50%);
 }
-
-.etc_icon2 {
-    width: 20%;
-    height: 100%;
-    background-image: url(../../asset/ask.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 20%;
-    float: right;
-}
-
 
 /* 마우스 오버 효과 */
 .Notice:after,
@@ -359,27 +362,6 @@
     width: 100%;
 }
 
-
-/* 애니메이션 추가 */
-.Notice:hover .etc_icon1,
-.Question:hover .etc_icon2 {
-    opacity: 0.9;
-    animation: post-ani 0.8s linear infinite;
-}
-
-@keyframes post-ani {
-    25% {
-        transform: rotate(1deg) scale(1.01);
-    }
-
-    50% {
-        transform: rotate(0deg) scale(1);
-    }
-
-    75% {
-        transform: rotate(-1deg) scale(1.01);
-    }
-}
 
 /* 미디어 쿼리 */
 @media (max-width: 1300px) {
@@ -414,13 +396,14 @@
         display: none;
     }
 
-    .etc_icon1 {
-        background-size: 200%;
-        background-position: 40%;
+    .etc_icon1 img {
+        transform-origin: 100% 100%;
+        transform: scale(1.8);
     }
 
-    .etc_icon2 {
-        background-size: 150%;
+    .etc_icon2 img {
+        transform-origin: 100% 140%;
+        transform: scale(1.5);
     }
 
     .title_inner h3 {
