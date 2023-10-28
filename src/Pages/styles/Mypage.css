@@ -1,8 +1,7 @@
 /* 소스명 : Mypage.css 
 작성자: 이진경
 이 페이지 용도 : Mypage CSS
-생성일자 : 23.10.16 
-수정일자 : 23.10.21 - 미디어 쿼리  */
+생성일자 : 23.10.16   */
 
 #Mypage {
   width: 100%;
@@ -40,8 +39,9 @@
   background-image: url(../../signup.png);
   background-size: contain;
   background-repeat: no-repeat;
-  height: 70%;
   background-position: 50%;
+  height: 60%;
+  margin-top: 20%;
 }
 
 #Mypage h1 {
@@ -63,19 +63,21 @@
 }
 
 #Mypage form>div {
-  margin-bottom: 10px;
+  height: 10%;
+  margin-bottom: 2%;
 }
 
 #Mypage form label {
-  display: inline-block;
-  width: 20%;
+  display: block;
   font-weight: 800;
+  padding-bottom: 1%;
+  height: 40%;
 }
 
 #Mypage form .input {
-  display: inline-block;
-  width: 80%;
-  height: 30px;
+  display: block;
+  width: 100%;
+  height: 50%;
   border: 1px solid #A7C957;
   border-radius: 5px;
   padding-left: 10px;
@@ -89,27 +91,15 @@
 /* 성별 라디오 */
 #Mypage form .gender input {
   width: 10%;
-  height: 20px;
-}
-
-[type="radio"],
-#Signup form .gender span {
-  vertical-align: middle;
-  padding-right: 10%;
-
+  height: 18px;
 }
 
 /* 닉네임*/
 #Mypage form .input_check {
-  height: 30px;
-}
-
-.input_check_btn {
-  float: right;
   border: 1px solid #A7C957;
   border-radius: 5px;
-  width: 80%;
-  height: 30px;
+  width: 100%;
+  height: 50%;
   overflow: hidden;
 }
 
@@ -123,7 +113,7 @@
 }
 
 /* 중복확인 버튼 */
-.input_check_btn button {
+.input_check button {
   width: 20%;
   height: 100%;
   border: none;
@@ -131,42 +121,26 @@
   color: #fff;
 }
 
+/* 에러 메세지- 회원가입 공통 */
+/* .error-message{} */
+
 /* 수정하기 버튼 */
 #Mypage .signbtn {
   display: flex;
   position: absolute;
   bottom: 10%;
   width: 100%;
-  height: 15%;
+  height: 7%;
 }
 
-#Mypage .signbtn button {
-  width: 100%;
-  height: 50px;
-  margin: 40px 0 0 0;
-  background-color: #8CBA51;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 900;
-  text-align: center;
-  line-height: 50px;
-}
-
-
-#Mypage .signbtn button:hover {
-  background-color: #397242;
-  transition: 0.3s ease-in-out;
-}
-
+/* #Mypage .signbtn button {}
+#Mypage .signbtn button:hover{}
+회원가입이랑 공통 */
 
 /* 회원탈퇴 버튼 */
 #Mypage .withdrawal {
-  height: 5%;
   width: 100%;
+  height: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,71 +158,25 @@
 /**************** 미디어 쿼리 *****************/
 
 @media (max-width: 1500px) {
-  /* #Mypage #frame {
-    width: 90%;
-  } */
-
-  #Mypage form {
-    width: 90%;
+  #Mypage #frame {
+    width: 95%;
   }
 
   #Mypage h1 {
     font-size: 1.5rem;
   }
+
+  #Mypage h3 {
+    font-size: 0.9rem;
+  }
 }
 
-/* 
-@media (max-width: 1300px) {
+@media (max-width: 1250px) {
+  #Mypage #frame {
+    width: 100%;
+  }
 
   #Mypage h1 {
-    font-size: 1.3rem;
-    height: 6%;
+    font-size: 1.2rem;
   }
-
-  #Mypage form {
-    font-size: 0.7rem;
-    overflow: hidden;
-    height: 90%;
-  }
-
-  #Mypage form label {
-    display: block;
-    min-width: 100px;
-  }
-
-  #Mypage form .input,
-  .input_check_btn {
-    width: 100%;
-    height: 25px;
-  }
-
-  .input_check_btn button {
-    height: 100%;
-  }
-
-  #Mypage .signbtn button {
-    height: 30px;
-    font-size: 0.8rem;
-    line-height: 30px;
-  }
-
-  #Mypage .withdrawal {
-    height: 5%;
-  } */
-
-/* 
-  #Mypage form label {
-    font-size: 0.7rem;
-    min-width: 80px;
-  }
-
-
-  #Mypage form input {
-    width: 63%;
-  }
-
-  #Mypage form button {
-    width: 11%;
-    font-size: 0.6rem;
-  } 
-}*/
+}
