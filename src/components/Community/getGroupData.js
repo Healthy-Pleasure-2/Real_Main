@@ -4,7 +4,7 @@
 생성일자(수정일자) : 10/16*/
 
 const getGroupData = async () => {
-  const remoteUrl = "http://localhost:3005/group"; // 원격 서버 엔드포인트 URL
+  const remoteUrl = "http://localhost:3003/group"; // 원격 서버 엔드포인트 URL
 
   try {
     const response = await fetch(remoteUrl);
