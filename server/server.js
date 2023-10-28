@@ -141,8 +141,8 @@ app.get("/", (req, res) => {
 
 /*************그룹 */
 app.post("/user/:group", (req, res) => {
-    const userId = req.params.userId;
-    const groupId = req.params.groupId;
+    const userId = req.params.userid;
+    const groupId = req.params.groupid;
   
     // db.json 파일 읽기
     fs.readFile("./db.json", "utf8", (err, data) => {
