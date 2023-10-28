@@ -13,16 +13,19 @@ function Groupintro({ groupData, selectedCategory }) {
   const [filteredGroups, setFilteredGroups] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
+  // 상수로 매직 넘버를 정의
+  const INITIAL_ITEM_COUNT = 6;
+  const LARGE_SCREEN_WIDTH = 1700;
+  const MEDIUM_SCREEN_WIDTH = 1200;
+  const RESIZE_THROTTLE_INTERVAL = 250;
+
   useEffect(() => {
-    // 화면 크기 변경 이벤트 리스너 등록
     const handleResize = throttle(() => {
-      // 크기에 따라 동적으로 아이템 수 변경
       const windowWidth = window.innerWidth;
-      if (windowWidth >= 1700) setItemsCount(12);
-      // else if (windowWidth >= 1400) setItemsCount(10);
-      else if (windowWidth >= 1200) setItemsCount(9);
-      else setItemsCount(6);
-    }, 250); //250ms 간격으로 호출
+      if (windowWidth >= LARGE_SCREEN_WIDTH) setItemsCount(12);
+      else if (windowWidth >= MEDIUM_SCREEN_WIDTH) setItemsCount(9);
+      else setItemsCount(INITIAL_ITEM_COUNT);
+    }, RESIZE_THROTTLE_INTERVAL); //250ms 간격으로 호출
 
     // 컴포넌트가 마운트될 때와 화면 크기가 변경될 때 이벤트 리스너 실행
     handleResize();
