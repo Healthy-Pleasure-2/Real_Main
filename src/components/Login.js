@@ -7,24 +7,24 @@ import { useState } from "react";
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const handleLogin = () => {
     onLogin(username, password); // 사용자명과 비밀번호를 전달하여 로그인 함수 실행
-  }
+  };
   return (
     <div id="daily-box">
       <div className="Loginbox">
         <div className="LoginTitle">
-          <h1>Welcome!</h1>
+          <h1>Hello!</h1>
         </div>
         <div className="LoginIdPw">
-          <input 
-            className="Logininputid" 
-            type="text" 
+          <input
+            className="Logininputid"
+            type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="사용자명"
-            ></input>
+          ></input>
           <input
             className="Logininputpassword"
             type="password"
