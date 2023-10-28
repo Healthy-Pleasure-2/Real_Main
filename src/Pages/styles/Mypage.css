@@ -13,34 +13,56 @@
 }
 
 #Mypage #frame {
-  width: 80%;
+  width: 90%;
   height: 90%;
   background: rgba(167, 201, 87, 0.1);
-  padding: 30px;
   border-radius: 20px;
-  box-shadow: 10px 10px 50px #3866416b, inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
-
+  box-shadow: 0 0 15px rgba(1, 53, 44, 0.25), inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
   font-size: 0.85rem;
   color: #386641;
+  display: flex;
+  overflow: hidden;
+}
+
+/* 왼쪽 이미지 삽입부분 */
+.Mypage_left {
+  background-color: #A7C957;
+  box-shadow: 0 0 15px rgba(1, 53, 44, 0.25), inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
+  width: 30%;
+  padding: 3%;
+  text-align: center;
+  color: #fff;
+}
+
+/* 왼쪽 이미지 */
+.Mypage_left .icon {
+  width: 100%;
+  background-image: url(../../signup.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 70%;
+  background-position: 50%;
 }
 
 #Mypage h1 {
-  text-align: center;
-  color: #386641;
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: bold;
-  height: 10%;
+}
+
+#Mypage h3 {
+  font-weight: 400;
 }
 
 /* 회원정보 수정 입력란 */
 #Mypage form {
-  width: 75%;
-  height: 80%;
-  margin: 0 auto;
+  width: 50%;
+  height: 100%;
+  padding: 5% 0;
+  margin: 0 10%;
   position: relative;
 }
 
-#Mypage form div {
+#Mypage form>div {
   margin-bottom: 10px;
 }
 
@@ -73,6 +95,8 @@
 [type="radio"],
 #Signup form .gender span {
   vertical-align: middle;
+  padding-right: 10%;
+
 }
 
 /* 닉네임*/
@@ -107,19 +131,13 @@
   color: #fff;
 }
 
-
-/* 에러 메세지 */
-.error-message {
-  color: red;
-  text-align: center;
-}
-
 /* 수정하기 버튼 */
 #Mypage .signbtn {
   display: flex;
   position: absolute;
-  bottom: 0;
+  bottom: 10%;
   width: 100%;
+  height: 15%;
 }
 
 #Mypage .signbtn button {
@@ -147,10 +165,13 @@
 
 /* 회원탈퇴 버튼 */
 #Mypage .withdrawal {
-  height: 10%;
+  height: 5%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  bottom: 5%;
 }
 
 #Mypage .withdrawal>button {
@@ -176,7 +197,7 @@
   }
 }
 
-
+/* 
 @media (max-width: 1300px) {
 
   #Mypage h1 {
@@ -213,9 +234,9 @@
 
   #Mypage .withdrawal {
     height: 5%;
-  }
+  } */
 
-  /* 
+/* 
   #Mypage form label {
     font-size: 0.7rem;
     min-width: 80px;
@@ -229,5 +250,5 @@
   #Mypage form button {
     width: 11%;
     font-size: 0.6rem;
-  } */
-}
+  } 
+}*/
