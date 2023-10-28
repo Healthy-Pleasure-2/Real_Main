@@ -86,7 +86,12 @@ function Mypage() {
   return (
     <div id="Mypage">
       <div id="frame">
-        <h1>회원정보 수정</h1>
+        <div className="Mypage_left">
+          <div className="icon"></div>
+          <h1>회원 정보 수정</h1>
+          <h3>회원 정보 수정 페이지 입니다.</h3>
+        </div>
+
         <form onSubmit={handleSubmit}>
           <div>
             <label>아이디</label>
@@ -179,10 +184,10 @@ function Mypage() {
           <div className="signbtn">
             <button type="submit">수정하기</button>
           </div>
+          <div className="withdrawal" onClick={withdrawal}>
+            <button>회원탈퇴</button>
+          </div>
         </form>
-        <div className="withdrawal" onClick={withdrawal}>
-          <button>회원탈퇴</button>
-        </div>
       </div>
     </div>
   );
