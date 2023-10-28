@@ -262,15 +262,15 @@ button {
 }
 
 .todo_weight {
-  background-image: url('../../weight.png');
+  background-image: url('../../asset/weight.png');
 }
 
 .todo_exercise {
-  background-image: url('../../exercise.png');
+  background-image: url('../../asset/exercise.png');
 }
 
 .todo_diet {
-  background-image: url('../../diet.png');
+  background-image: url('../../asset/diet.png');
 }
 
 /* 체중, 운동, 식단이 적힌 div */
@@ -635,18 +635,6 @@ button {
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: 50%;
-  }
-
-  .todo_weight {
-    background-image: url('../../weight.png');
-  }
-
-  .todo_exercise {
-    background-image: url('../../exercise.png');
-  }
-
-  .todo_diet {
-    background-image: url('../../diet.png');
   }
 
   /* 체중, 운동, 식단이 적힌 div */

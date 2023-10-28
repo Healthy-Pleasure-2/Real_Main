@@ -70,13 +70,13 @@
 
 /* .banner 이미지 */
 .banner .banner_image {
-    background-image: url(../../main4.png);
+    background-image: url(../../asset/main4.png);
     animation: post-ani 2s linear infinite;
 }
 
 /* .banner2 */
 .banner2 .banner_image {
-    background-image: url(../../main2.png);
+    background-image: url(../../asset/main2.png);
 }
 
 
@@ -87,11 +87,11 @@
 }
 
 .banner3 .banner_image {
-    background-image: url(../../main3.png);
+    background-image: url(../../asset/main3.png);
 }
 
 .banner4 .banner_image {
-    background-image: url(../../main1.png);
+    background-image: url(../../asset/main1.png);
 }
 
 /* 배너 글자 */
@@ -311,7 +311,7 @@
 .etc_icon1 {
     width: 20%;
     height: 100%;
-    background-image: url(../../notice.png);
+    background-image: url(../../asset/notice.png);
     background-repeat: no-repeat;
     background-size: 140%;
     background-position: 40%;
@@ -321,7 +321,7 @@
 .etc_icon2 {
     width: 20%;
     height: 100%;
-    background-image: url(../../ask.png);
+    background-image: url(../../asset/ask.png);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: 20%;

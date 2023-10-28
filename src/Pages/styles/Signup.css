@@ -36,7 +36,7 @@
 /* 왼쪽 이미지 */
 .Signup_left .icon {
   width: 100%;
-  background-image: url(../../signup.png);
+  background-image: url(../../asset/signup.png);
   background-size: contain;
   background-repeat: no-repeat;
   height: 60%;
