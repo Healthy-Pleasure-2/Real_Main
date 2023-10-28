@@ -129,10 +129,19 @@ app.patch("/user/:id", async (req, res) => {
 });
 
 //그룹을 요청처리하는 라우트
-app.get("/group", (req, res) => {
-  // 여기에서 데이터베이스에서 데이터를 가져오는 코드를 작성합니다.
-  // 이 예시에서는 하드코딩된 데이터를 사용합니다.
-  res.json(groups);
+app.get("/group", async (req, res) => {
+  try {
+    // JSON 파일을 읽어와서 데이터 객체로 파싱
+    const jsonData = await fs.promises.readFile("./db.json", "utf8");
+    const data = JSON.parse(jsonData);
+    //console.log(data);
+
+    // 읽어온 데이터 객체를 클라이언트로 반환
+    res.json(data.group);
+  } catch (error) {
+    console.error("파일 작업 중 오류 발생:", error);
+    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
+  }
 });
 //그룹 추가하는 라우트
 app.post("/groupadd", async (req, res) => {
@@ -155,14 +164,16 @@ app.post("/groupadd", async (req, res) => {
     data.group.push(newgroupData);
     //console.log(data.group);
     const updatedDataGroup = JSON.stringify(data, null, 2);
-    console.log(updatedDataGroup);
+    //console.log(updatedDataGroup);
     await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
+    //console.log(groups);
     res.status(200).json({ id: nextGroupId }); // 새로운 그룹의 ID 반환
   } catch (error) {
     console.error("파일 작업 중 오류 발생:", error);
     res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
   }
 });
+
 //실행중
 app.listen(port, () => {
   console.log(`서버가 ${port} 포트에서 실행 중입니다.`);
