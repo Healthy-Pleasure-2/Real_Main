@@ -21,17 +21,10 @@
       "gender": "male",
       "nickname": "제형1234",
       "email": "wpgud1234@naver.com",
-<<<<<<< HEAD
-      "group": "7",
-      "weight": "43",
-      "exercise": "43",
-      "diet": "43"
-=======
       "group": "",
       "weight": "",
       "exercise": "",
       "diet": ""
->>>>>>> bbb6252ce0bf18d1e69496925fc53af926ceb219
     },
     {
       "index": 3,

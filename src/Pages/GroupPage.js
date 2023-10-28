@@ -132,30 +132,30 @@ function GroupPage({ isLoggedIn }) {
 // 가정: 사용자가 버튼을 클릭하면 이벤트 핸들러가 호출되며, 그룹 번호를 전달할 수 있습니다.
 
 // 예를 들어, 사용자가 선택한 그룹 번호를 가져와 변수에 저장
-const selectedGroupId = 123; // 이 부분은 사용자가 선택한 그룹 번호로 대체되어야 합니다.
+// const selectedGroupId = 123; // 이 부분은 사용자가 선택한 그룹 번호로 대체되어야 합니다.
 
-// 서버에 POST 요청 보내기 (이 코드는 예시이며, fetch, axios 등을 사용하여 요청을 보낼 수 있습니다)
-fetch('/joinGroup', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({ groupId: selectedGroupId }) // 선택한 그룹 번호를 서버에 전달
-})
-.then(response => {
-  if (response.ok) {
-    // 서버로부터 응답이 성공적으로 돌아왔을 때의 동작
-    console.log('그룹 가입 성공');
-    // 추가로 필요한 동작을 수행할 수 있습니다.
-  } else {
-    // 서버에서 오류 응답이 돌아왔을 때의 처리
-    console.error('그룹 가입 실패');
-  }
-})
-.catch(error => {
-  // 네트워크 오류 등으로 요청을 보내지 못했을 때의 처리
-  console.error('오류 발생', error);
-});
+// // 서버에 POST 요청 보내기 (이 코드는 예시이며, fetch, axios 등을 사용하여 요청을 보낼 수 있습니다)
+// fetch('/joinGroup', {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': '/json'
+//   },
+//   body: JSON.stringify({ groupId: selectedGroupId }) // 선택한 그룹 번호를 서버에 전달
+// })
+// .then(response => {
+//   if (response.ok) {
+//     // 서버로부터 응답이 성공적으로 돌아왔을 때의 동작
+//     console.log('그룹 가입 성공');
+//     // 추가로 필요한 동작을 수행할 수 있습니다.
+//   } else {
+//     // 서버에서 오류 응답이 돌아왔을 때의 처리
+//     console.error('그룹 가입 실패');
+//   }
+// })
+// .catch(error => {
+//   // 네트워크 오류 등으로 요청을 보내지 못했을 때의 처리
+//   console.error('오류 발생', error);
+// });
 }
 
 export default GroupPage;
