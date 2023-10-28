@@ -49,45 +49,46 @@ function GoalSet() {
       <div className="todo_goal">
         <div className="todo_title">
           <h2>DAILY</h2>
-          <p>현재 상태값을 입력하여 설정한 목표의 달성률을 확인하세요!</p>
+          <p>현재의 체중, 운동량, 식사량을 입력하여 설정한 목표의 달성률을 확인하세요!</p>
         </div>
         <div id="todo_data_container">
           {/* 체중 */}
           <div className="todo_health">
             <div className="todo_data_leftSide">
-              <div className="todo_icon">
-                <FontAwesomeIcon icon={faPerson} />
+              <div className="todo_icon todo_weight">
+                {/* <FontAwesomeIcon icon={faPerson} /> */}
+                <img src=""></img>
               </div>
-              <div>체중</div>
+              {/* <div>체중</div> */}
             </div>
             <div className="todo_data_rightSide">
-              <input type="text" className="todo_data_record" name="weight" placeholder="0" value={goal.weight} onChange={handleInputChange}/>
+              <input type="text" className="todo_data_record" name="weight" placeholder="0" value={goal.weight} onChange={handleInputChange} />
               <div className="todo_unit">kg</div>
             </div>
           </div>
           {/* 운동 */}
           <div className="todo_health">
             <div className="todo_data_leftSide">
-              <div className="todo_icon">
-                <FontAwesomeIcon icon={faDumbbell} />
+              <div className="todo_icon todo_exercise">
+                {/* <FontAwesomeIcon icon={faDumbbell} /> */}
               </div>
-              <div>운동</div>
+              {/* <div>운동</div> */}
             </div>
             <div className="todo_data_rightSide">
-              <input type="text" className="todo_data_record" name="exercise" placeholder="0" value={goal.exercise} onChange={handleInputChange}/>
+              <input type="text" className="todo_data_record" name="exercise" placeholder="0" value={goal.exercise} onChange={handleInputChange} />
               <div className="todo_unit">kcal</div>
             </div>
           </div>
           {/* 식단 */}
           <div className="todo_health">
             <div className="todo_data_leftSide">
-              <div className="todo_icon">
-                <FontAwesomeIcon icon={faUtensils} />
+              <div className="todo_icon todo_diet">
+                {/* <FontAwesomeIcon icon={faUtensils} /> */}
               </div>
-              <div>식단</div>
+              {/* <div>식단</div> */}
             </div>
             <div className="todo_data_rightSide">
-              <input type="text" className="todo_data_record" name="diet" placeholder="0" value={goal.diet} onChange={handleInputChange}/>
+              <input type="text" className="todo_data_record" name="diet" placeholder="0" value={goal.diet} onChange={handleInputChange} />
               <div className="todo_unit">kcal</div>
             </div>
           </div>

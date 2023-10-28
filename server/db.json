@@ -21,10 +21,17 @@
       "gender": "male",
       "nickname": "제형1234",
       "email": "wpgud1234@naver.com",
+<<<<<<< HEAD
       "group": "7",
       "weight": "43",
       "exercise": "43",
       "diet": "43"
+=======
+      "group": "",
+      "weight": "",
+      "exercise": "",
+      "diet": ""
+>>>>>>> bbb6252ce0bf18d1e69496925fc53af926ceb219
     },
     {
       "index": 3,
@@ -69,7 +76,7 @@
   "group": [
     {
       "id": 1,
-      "name": "채식을 위하여",
+      "name": "채소도 맛있다!",
       "category": "식단",
       "img": "https://i.pinimg.com/564x/85/ae/36/85ae360b73b8dd10f7f0c8ca1aacf658.jpg",
       "goal": "일주일에 3번 채소 먹기",
@@ -82,7 +89,7 @@
       "category": "습관",
       "img": "https://i.pinimg.com/564x/bb/4a/ad/bb4aad265340923a5421377a08546708.jpg",
       "goal": "주당 2권의 책 읽기",
-      "grouptotal": 71,
+      "grouptotal": 70,
       "groupintro": " 주당 2권의 책 읽기주당 2권의 책 읽기주당 2권의 책 읽기주당 2권의 책 읽기주당 2권의 책 읽기주당 2권의 책 읽기"
     },
     {
@@ -96,7 +103,7 @@
     },
     {
       "id": 4,
-      "name": "건강을 위하여",
+      "name": "Tennis Club",
       "category": "다이어트",
       "img": "https://i.pinimg.com/564x/a8/89/79/a88979e9c87d9928e97dbc05cfcb34d8.jpg",
       "goal": "건강을 위해 체중 감량",
@@ -217,7 +224,7 @@
       "category": "다이어트",
       "img": "https://i.pinimg.com/564x/7f/6c/e6/7f6ce649bc2a5dc955bd9630fa1cadbf.jpg",
       "goal": "매일 홈트레이닝으로 10Kg감량",
-      "grouptotal": 15,
+      "grouptotal": 72,
       "groupintro": "매일 홈트레이닝으로 10Kg감량 매일 홈트레이닝으로 10Kg감량 매일 홈트레이닝으로 10Kg감량 매일 홈트레이닝으로 10Kg감량"
     },
     {
@@ -280,7 +287,7 @@
       "category": "습관",
       "img": "https://i.pinimg.com/564x/f9/38/f5/f938f5e98cdaa07acd92f2ed3a8be915.jpg",
       "goal": "스트레스 해소법을 정해 실천!",
-      "grouptotal": 51,
+      "grouptotal": 71,
       "groupintro": "스트레스 해소법을 정해 실천! 스트레스 해소법을 정해 실천! 스트레스 해소법을 정해 실천! 스트레스 해소법을 정해 실천!"
     },
     {
