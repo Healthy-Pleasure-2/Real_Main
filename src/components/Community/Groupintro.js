@@ -56,7 +56,17 @@ function Groupintro({ groupData, selectedCategory }) {
   // 그룹리스트 버튼 클릭 시 페이지 번호 업데이트
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
+
+    // 페이지 버튼을 최대 5개까지만 표시
   };
+  const totalPages = Math.ceil(filteredGroups.length / itemsPerPage);
+  const maxPageButtons = 5;
+  let startPage = Math.max(1, currentPage - 2);
+  let endPage = Math.min(startPage + maxPageButtons - 1, totalPages);
+
+  if (endPage - startPage < maxPageButtons - 1) {
+    startPage = Math.max(1, endPage - maxPageButtons + 1);
+  }
   return (
     <div className="Community_GroupList">
       <div className="Community_Grouplists">
@@ -89,11 +99,12 @@ function Groupintro({ groupData, selectedCategory }) {
         </div>
       </div>
       <div className="Community_Grouplistbtn">
-        {Array.from({
-          length: Math.ceil(filteredGroups.length / itemsPerPage),
-        }).map((_, index) => (
-          <button key={index + 1} onClick={() => handlePageClick(index + 1)}>
-            {index + 1}
+        {Array.from({ length: endPage - startPage + 1 }).map((_, index) => (
+          <button
+            key={startPage + index}
+            onClick={() => handlePageClick(startPage + index)}
+          >
+            {startPage + index}
           </button>
         ))}
       </div>
