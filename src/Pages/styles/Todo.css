@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'SUITE-Heavy';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Heavy.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
 /* 가운데 화면 컨텐츠 */
 #todo_container {
   width: 100%;
@@ -15,7 +22,9 @@
 }
 
 .todo_title h2 {
+  font-family: 'SUITE-Heavy';
   font-size: 1.7rem;
+  margin-bottom: 8px;
 }
 
 .todo_title p {
@@ -192,7 +201,7 @@ button {
 }
 
 .todo_goal .todo_title {
-  height: 30%;
+  height: 25%;
 }
 
 #todo_data_container {
@@ -200,6 +209,8 @@ button {
   height: 50%;
   display: flex;
   margin: 0 auto;
+  min-width: 200px;
+  min-height: 130px;
 }
 
 /* 목표설정 화면 작아질때 스크롤 */
@@ -224,7 +235,6 @@ button {
   width: 30%;
   height: 100%;
   margin-left: 5%;
-  /* overflow: hidden; */
 }
 
 .todo_health:first-child {
@@ -240,23 +250,39 @@ button {
   background-color: #386641;
   text-align: center;
   border-radius: 11px;
+  padding: 5px 0;
 }
 
 /* 아이콘 */
 .todo_icon {
-  color: #fff;
-  font-size: 2.5rem;
+  height: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.todo_weight {
+  background-image: url('../../weight.png');
+}
+
+.todo_exercise {
+  background-image: url('../../exercise.png');
+}
+
+.todo_diet {
+  background-image: url('../../diet.png');
 }
 
 /* 체중, 운동, 식단이 적힌 div */
-.todo_data_leftSide div:last-child {
-  font-size: 0.8rem;
+/* .todo_data_leftSide div:last-child {
+  font-size: 1.0rem;
   color: rgb(255, 255, 255, 0.8);
-  line-height: 0.8rem;
-}
+  height: calc(100% - 50px);
+} */
 
 .todo_data_rightSide {
   height: 40%;
+  /* min-height: calc(100% - 78px) */
 }
 
 /* input */
@@ -389,6 +415,7 @@ button {
   font-size: 1.1rem;
   font-weight: bold;
   color: #386641;
+  margin-bottom: 8px;
 }
 
 .todo_group_data_goal {
@@ -605,17 +632,29 @@ button {
 
   /* 아이콘 */
   .todo_icon {
-    float: left;
-    width: 50%;
-    font-size: 1.5rem;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+
+  .todo_weight {
+    background-image: url('../../weight.png');
+  }
+
+  .todo_exercise {
+    background-image: url('../../exercise.png');
+  }
+
+  .todo_diet {
+    background-image: url('../../diet.png');
   }
 
   /* 체중, 운동, 식단이 적힌 div */
-  .todo_data_leftSide div:last-child {
+  /* .todo_data_leftSide div:last-child {
     float: left;
     width: 50%;
     line-height: 2.2rem;
-  }
+  } */
 
 
   .todo_data_rightSide {
