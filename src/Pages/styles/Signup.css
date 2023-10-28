@@ -31,6 +31,7 @@
   width: 30%;
   padding: 3%;
   text-align: center;
+  color: #fff;
 }
 
 /* 왼쪽 이미지 */
@@ -45,13 +46,11 @@
 }
 
 #Signup h1 {
-  color: #fff;
   font-size: 2rem;
   font-weight: bold;
 }
 
 #Signup h3 {
-  color: #fff;
   font-weight: 400;
 }
 
