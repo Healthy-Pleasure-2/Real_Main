@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from "react";
 import "../../Pages/styles/Community.css";
 import { Link } from "react-router-dom";
+import throttle from "lodash/throttle";
 
 function Groupintro({ groupData, selectedCategory }) {
   const [itemsCount, setItemsCount] = useState(6); // 초기 갤러리 아이템 수
@@ -14,14 +15,14 @@ function Groupintro({ groupData, selectedCategory }) {
 
   useEffect(() => {
     // 화면 크기 변경 이벤트 리스너 등록
-    const handleResize = () => {
+    const handleResize = throttle(() => {
       // 크기에 따라 동적으로 아이템 수 변경
       const windowWidth = window.innerWidth;
       if (windowWidth >= 1700) setItemsCount(12);
       // else if (windowWidth >= 1400) setItemsCount(10);
       else if (windowWidth >= 1200) setItemsCount(9);
       else setItemsCount(6);
-    };
+    }, 250); //250ms 간격으로 호출
 
     // 컴포넌트가 마운트될 때와 화면 크기가 변경될 때 이벤트 리스너 실행
     handleResize();
