@@ -21,11 +21,6 @@ const path = require("path"); // path 모듈
 const cookieParser = require("cookie-parser");
 const users = require("./db.json").user; // db.json 파일에서 사용자 정보를 가져와 변수에 저장
 const groups = require("./db.json").group; // db.json파일에서 그룹 정보를 가져와 변수에 저장
-
-app.use(express.static(path.join(__dirname, "build")));
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
 app.use(express.json()); // Express 앱이 JSON 요청을 처리할 수 있도록 미들웨어를 추가
 app.use(
   cors({
@@ -134,62 +129,41 @@ app.patch("/user/:id", async (req, res) => {
   }
 });
 
-app.use(express.static(path.join(__dirname, "build")));
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+//그룹을 요청처리하는 라우트
+app.get("/group", (req, res) => {
+  // 여기에서 데이터베이스에서 데이터를 가져오는 코드를 작성합니다.
+  // 이 예시에서는 하드코딩된 데이터를 사용합니다.
+  res.json(groups);
 });
-
-/*************그룹 */
-app.post("/user/:group", (req, res) => {
-    const userId = req.params.userid;
-    const groupId = req.params.groupid;
-  
-    // db.json 파일 읽기
-    fs.readFile("./db.json", "utf8", (err, data) => {
-      if (err) {
-        res.status(500).json({ message: "서버 오류" });
-        return;
-      }
-  
-      // db.json 파일을 JavaScript 객체로 파싱
-      const jsonData = JSON.parse(data);
-  
-      // 사용자와 그룹 정보 가져오기
-      const users = jsonData.user;
-      const groups = jsonData.group;
-  
-      // 사용자와 그룹을 찾기
-      const user = users.find((u) => u.id === userId);
-      const group = groups.find((g) => g.id === groupId);
-  
-      if (!user || !group) {
-        res.status(404).json({ message: "사용자 또는 그룹을 찾을 수 없습니다" });
-        return;
-      }
-  
-      // 사용자가 이미 그룹에 가입되어 있는지 확인
-      if (user.groups.includes(groupId)) {
-        res.status(400).json({ message: "이미 그룹에 가입되어 있습니다" });
-        return;
-      }
-  
-      // 사용자를 그룹에 추가
-      user.groups.push(groupId);
-      // 그룹의 멤버 목록 업데이트
-      group.members.push(userId);
-  
-      // db.json 파일 업데이트
-      fs.writeFile("./db.json", JSON.stringify(jsonData, null, 2), (err) => {
-        if (err) {
-          res.status(500).json({ message: "서버 오류" });
-        } else {
-          res.status(200).json({ message: "그룹 가입 성공" });
-        }
-      });
-    });
-  });
-  
-
+//그룹 추가하는 라우트
+app.post("/groupadd", async (req, res) => {
+  const newGroup = req.body;
+  try {
+    //파일 불러오기
+    const jsonData = await fs.promises.readFile("./db.json", "utf8");
+    const data = JSON.parse(jsonData);
+    //console.log(data);
+    const nextGroupId = data.group.length + 1;
+    const newgroupData = {
+      id: nextGroupId,
+      name: newGroup.name,
+      category: newGroup.category,
+      img: newGroup.img,
+      goal: newGroup.goal,
+      groupintro: newGroup.groupintro,
+    };
+    // 데이터 객체에 새로운 그룹 추가
+    data.group.push(newgroupData);
+    //console.log(data.group);
+    const updatedDataGroup = JSON.stringify(data, null, 2);
+    console.log(updatedDataGroup);
+    await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
+    res.status(200).json({ id: nextGroupId }); // 새로운 그룹의 ID 반환
+  } catch (error) {
+    console.error("파일 작업 중 오류 발생:", error);
+    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
+  }
+});
 //실행중
 app.listen(port, () => {
   console.log(`서버가 ${port} 포트에서 실행 중입니다.`);

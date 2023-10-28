@@ -19,6 +19,7 @@ function GroupCreate() {
     name: "",
     category: "",
     goal: "",
+    grouptotal: 1,
     groupintro: "",
     img: "",
   });
@@ -31,7 +32,7 @@ function GroupCreate() {
   };
   const handleCreateGroup = () => {
     // JSON Server에 POST 요청 보내기
-    fetch("http://localhost:3005/group", {
+    fetch("http://localhost:3003/groupadd", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
