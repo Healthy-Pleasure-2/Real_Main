@@ -119,8 +119,15 @@ class Ask extends Component {
           }`}
         >
           <div className="form">
-            <div className="form_wrap">
+            <div className="Inquiry_left">
+              <div className="icon"></div>
               <h1>1 : 1 문의</h1>
+              <h3>
+                궁금한 사항을 작성해 주시면<br></br>
+                이메일로 답변을 보내드리겠습니다.
+              </h3>
+            </div>
+            <div className="form_wrap">
               <div className="notice_email">
                 <p>이메일</p>
                 <input type="email" size={90} />
