@@ -9,7 +9,7 @@
 231016 김장훈 - 수정중
 231017 김장훈 - 입력창 및 입력버튼을 통한 시각화 변화하도록 수정. UI다듬기 등 추가작업 필요
 231018 김장훈 - 입력버튼 삭제(input 박스에 입력되면 시각화 바로 변화되도록 수정), UI 다듬기, 차후 Todo 페이지에서 최대값 불러오기 추가예정 
-231024 김장훈 - 
+231029 김장훈 - 쿠키에서 사용자정보 불러오기 코드 작성중.
 --------------------------------------------------------------------------------------------------------------
 *참고 사이트
 1. https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705 = 개념
@@ -17,7 +17,7 @@
 3. https://blog.naver.com/rdh6327/222587794846 = 참고용
 */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Goal_Circle.css";
 
 function Goal_Circle() {
@@ -27,6 +27,7 @@ function Goal_Circle() {
   const [weightStrokeDasharray, setWeightStrokeDasharray] = useState("0");
   const [exerciseStrokeDasharray, setExerciseStrokeDasharray] = useState("0");
   const [dietStrokeDasharray, setDietStrokeDasharray] = useState("0");
+  const [username, setUsername] = useState("");
 
   const BaseValue = (weightValue) => {
     const maxWeight = 100;
@@ -54,16 +55,46 @@ function Goal_Circle() {
       setDietStrokeDasharray(BaseValue(parseFloat(inputValue)));
     }
   };
+  //쿠키값 불러옴
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  };
+
+  useEffect(() => {
+    const nameCookie = decodeURIComponent(getCookie("name"));
+    const weightCookie = getCookie("weight");
+    const exerciseCookie = getCookie("exercise");
+    const dietCookie = getCookie("diet");
+
+    if (nameCookie) {
+      setUsername(nameCookie);
+      console.log(nameCookie);
+    }
+    if (weightCookie) {
+      setWeight(weightCookie);
+      setWeightStrokeDasharray(BaseValue(parseFloat(weightCookie)));
+    }
+    if (exerciseCookie) {
+      setExercise(exerciseCookie);
+      setExerciseStrokeDasharray(BaseValue(parseFloat(exerciseCookie)));
+    }
+    if (dietCookie) {
+      setDiet(dietCookie);
+      setDietStrokeDasharray(BaseValue(parseFloat(dietCookie)));
+    }
+  }, []);
 
   return (
     <div className="flex-wrapper">
-      <div className="title">안녕하세요! 김멀플님</div>
+      <div className="title">안녕하세요! {username}님</div>
       <div className="single-chart">
         <svg viewBox="0 0 36 36" className="circular-chart orange">
           <text x="10.2" y="15" fontSize="2.5px" className="percentage"></text>
           <path
             className="circle"
-            strokeDasharray={`${weightStrokeDasharray}, 100`}
+            strokeDasharray={`${weightStrokeDasharray}, 2000`}
             d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
           />
         </svg>
@@ -73,7 +104,7 @@ function Goal_Circle() {
         <svg viewBox="0 0 36 36" className="circular-chart1 green">
           <path
             className="circle1"
-            strokeDasharray={`${exerciseStrokeDasharray}, 100`}
+            strokeDasharray={`${exerciseStrokeDasharray}, 3000`}
             d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
           />
           <text x="8.5" y="18.8" fontSize="3px" className="percentage1"></text>
@@ -84,7 +115,7 @@ function Goal_Circle() {
         <svg viewBox="0 0 36 36" className="circular-chart2 blue">
           <path
             className="circle2"
-            strokeDasharray={`${dietStrokeDasharray}, 100`}
+            strokeDasharray={`${dietStrokeDasharray}, 1000`}
             d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
           />
           <text x="7" y="25" fontSize="3.5px" className="percentage2"></text>

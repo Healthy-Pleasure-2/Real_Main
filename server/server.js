@@ -9,6 +9,7 @@
 231025 정은정 - cooki, session 을 이용한 상태관리 구현(수정필요)
 231025 이제형, 김장훈 - GoalSet.js 목표설정 업로드기능 구현(수정필요)
 231026 정은정, 김장훈 - 로그인 상태관리 수정
+231029 김장훈 -로그인 시 쿠키에 사용자 이름, 목표값 저장되도록 수정
 --------------------------------------------------------------------------------------------------------------*/
 const express = require("express");
 const session = require("express-session");
@@ -48,6 +49,13 @@ app.post("/login", (req, res) => {
     // 로그인 성공 시 쿠키에 사용자 정보 저장
     req.session.user = user;
     //res.send(req.session.user);
+
+    // 쿠키에 name, weight, exercise, diet 정보 저장
+    res.cookie("name", user.name, { maxAge: 1800000, httpOnly: true });
+    res.cookie("weight", user.weight, { maxAge: 1800000, httpOnly: true });
+    res.cookie("exercise", user.exercise, { maxAge: 1800000, httpOnly: true });
+    res.cookie("diet", user.diet, { maxAge: 1800000, httpOnly: true });
+    
     res.cookie("sessionId", req.session.id, {
       path: "/",
       httpOnly: true,
