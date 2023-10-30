@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./styles/GroupCreate.css";
-
+//import getGroupData from "../components/Community/getGroupData";
 function GroupCreate() {
   /* 수정전
   const [groupName, setGroupName] = useState("");
@@ -14,7 +14,6 @@ function GroupCreate() {
     // 그룹 생성 로직을 구현하세요.
     console.log(`그룹 "${groupName}"을(를) 생성했습니다.`);
   };*/
-  const [createdGroup, setCreatedGroup] = useState(null);
   const [groupData, setGroupData] = useState({
     name: "",
     category: "",
@@ -31,7 +30,7 @@ function GroupCreate() {
     });
   };
   const handleCreateGroup = () => {
-    // JSON Server에 POST 요청 보내기
+    // POST 요청 보내기
     fetch("http://localhost:3003/groupadd", {
       method: "POST",
       headers: {
@@ -43,8 +42,7 @@ function GroupCreate() {
       .then((data) => {
         if (data.id) {
           // 서버 응답에서 ID를 가져올 수 있다면
-          console.log("값", data); // 서버 응답 데이터를 확인
-          setCreatedGroup(data.id); // 서버 응답에서 얻은 ID를 설정
+          console.log("값", data.id); // 서버 응답 데이터를 확인
         } else {
           console.error("서버 응답에 ID가 없습니다.");
         }
@@ -53,6 +51,7 @@ function GroupCreate() {
         console.error("서버 요청 오류:", error);
       });
   };
+
   return (
     <div className="group_create">
       <div id="frame">
@@ -115,7 +114,7 @@ function GroupCreate() {
           </div>
         </div>
         <div className="create">
-          <Link to={`/GroupPage/37`} onClick={handleCreateGroup}>
+          <Link to={`/community`} onClick={handleCreateGroup}>
             생성하기
           </Link>
         </div>
