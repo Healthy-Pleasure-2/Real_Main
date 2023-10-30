@@ -1,7 +1,6 @@
 // 231023 이진경 - 수정
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../logo.png";
 import { useState } from "react";
 
 function Login({ onLogin }) {

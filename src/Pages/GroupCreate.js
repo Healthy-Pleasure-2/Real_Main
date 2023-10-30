@@ -37,19 +37,10 @@ function GroupCreate() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(groupData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.id) {
-          // 서버 응답에서 ID를 가져올 수 있다면
-          console.log("값", data.id); // 서버 응답 데이터를 확인
-        } else {
-          console.error("서버 응답에 ID가 없습니다.");
-        }
-      })
-      .catch((error) => {
-        console.error("서버 요청 오류:", error);
-      });
+    }).catch((error) => {
+      console.error("서버 요청 오류:", error);
+    });
+    window.alert("새로운 그룹이 생성되었습니다.");
   };
 
   return (
@@ -59,14 +50,16 @@ function GroupCreate() {
         <div className="group">
           <div className="group_name">
             <p>그룹 명</p>
-            <input
-              type="text"
-              size={90}
-              name="name"
-              value={groupData.name}
-              onChange={handleGroupDataChange}
-            />
-            <button onClick={handleCreateGroup}>중복확인</button>
+            <div className="group_name_check">
+              <input
+                type="text"
+                size={90}
+                name="name"
+                value={groupData.name}
+                onChange={handleGroupDataChange}
+              />
+              <button>중복확인</button>
+            </div>
           </div>
           <div className="category">
             <p>카테고리</p>
@@ -94,28 +87,31 @@ function GroupCreate() {
           </div>
           <div className="group_int">
             <p>그룹소개</p>
-            <input
+            <textarea
               type="text"
               name="groupintro"
               size={90}
               value={groupData.groupintro}
               onChange={handleGroupDataChange}
-            ></input>
+            ></textarea>
           </div>
           <div className="rep_img">
             <p>대표이미지</p>
-            <input
-              type="image"
-              name="img"
-              value={groupData.img}
-              onChange={handleGroupDataChange}
-            ></input>
-            <button onClick={handleCreateGroup}>파일선택</button>
+            <div className="file_img"></div>
+            <label>
+              파일 선택
+              <input
+                type="file"
+                name="img"
+                value={groupData.img}
+                onChange={handleGroupDataChange}
+              ></input>
+            </label>
           </div>
         </div>
         <div className="create">
-          <Link to={`/community`} onClick={handleCreateGroup}>
-            생성하기
+          <Link to={`/community`}>
+            <button onClick={handleCreateGroup}>생성하기</button>
           </Link>
         </div>
       </div>

@@ -240,6 +240,10 @@
   height: 18%;
 }
 
+.commentInput .author {
+  width: 20%;
+}
+
 .commentInput input {
   margin-right: 10px;
   border-radius: 5px;
@@ -274,4 +278,30 @@
   font-weight: 700;
   border: none;
   border-radius: 5px;
+}
+
+/* error */
+.GroupPage-error {
+  width: 80%;
+  height: 80%;
+  background-color: #A7C957;
+  box-shadow: 7px 7px 30px #3866416b, inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
+  border-radius: 20px;
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+
+.error-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.error-container img {
+  width: 40%;
+}
+
+.error-container h1 {
+  font-size: 1.5em;
 }

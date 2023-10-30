@@ -6,6 +6,7 @@
 import React, { useState } from "react";
 import "./styles/Id_pw.css";
 import { Link } from "react-router-dom";
+import idpw from "../asset/idpw.png";
 
 // 아이디 찾기
 function IdFind() {
@@ -52,24 +53,36 @@ function IdPw() {
 
   return (
     <div id="IdPw">
-      <div id="frame">
-        <div id="buttons">
-          <div
-            onClick={() => switchTab("idFind")}
-            className={idFind ? "green" : "gray"}
-          >
-            ID 찾기
-          </div>
-          <div
-            onClick={() => switchTab("pwFind")}
-            className={pwFind ? "green" : "gray"}
-          >
-            PW 찾기
-          </div>
+      <div className="IdPw_left">
+        <div className="container">
+          <img src={idpw} alt="id/pw 이미지" />
+          <h3>
+            회원 정보를 잃어버리셨나요?
+            <br></br>
+            회원정보에 등록된 입력값을 입력해주세요.
+          </h3>
         </div>
-        <div id="idpw_content">
-          {idFind && <IdFind />}
-          {pwFind && <PwFind />}
+      </div>
+      <div id="frame">
+        <div className="container">
+          <div id="buttons">
+            <div
+              onClick={() => switchTab("idFind")}
+              className={idFind ? "green" : "gray"}
+            >
+              ID 찾기
+            </div>
+            <div
+              onClick={() => switchTab("pwFind")}
+              className={pwFind ? "green" : "gray"}
+            >
+              PW 찾기
+            </div>
+          </div>
+          <div id="idpw_content">
+            {idFind && <IdFind />}
+            {pwFind && <PwFind />}
+          </div>
         </div>
       </div>
     </div>

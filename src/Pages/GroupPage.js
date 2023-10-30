@@ -9,7 +9,7 @@ import React, { useState, useEffect } from "react";
 import "./styles/GroupPage.css";
 import { useParams } from "react-router-dom";
 import getGroupData from "../components/Community/getGroupData";
-// import errorImage from "../asset/error.png";
+import errorImage from "../asset/error.png";
 
 function GroupPage({ isLoggedIn }) {
   // 버튼 클릭시 댓글창 보이기
@@ -39,6 +39,8 @@ function GroupPage({ isLoggedIn }) {
   const [groupInfo, setGroupInfo] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   useEffect(() => {
     const fetchGroupData = async () => {
       try {
@@ -51,9 +53,11 @@ function GroupPage({ isLoggedIn }) {
           // 그룹 정보를 이용한 다른 로직 처리
         } else {
           setErrorMessage("그룹 데이터를 찾을 수 없습니다.");
+          setErrorMessage("그룹 데이터를 찾을 수 없습니다.");
         }
       } catch (error) {
         // 에러 핸들링
+        setErrorMessage("그룹 데이터를 불러오는 중에 문제가 발생했습니다.");
         setErrorMessage("그룹 데이터를 불러오는 중에 문제가 발생했습니다.");
         console.error(error);
       }
@@ -107,6 +111,21 @@ function GroupPage({ isLoggedIn }) {
             <div className="comment">
               <div className="commentTitle">소통해요</div>
 
+              {/* 댓글 리스트 */}
+              <div className="commentList">
+                {comments.map((comment) => (
+                  <div key={comment.id} className="commentIndex">
+                    <h4>{comment.author}</h4>
+                    <p>{comment.text}</p>
+                    <button
+                      className="delete"
+                      onClick={() => deleteComment(comment.id)}
+                    >
+                      X
+                    </button>
+                  </div>
+                ))}
+              </div>
               {/* 댓글 리스트 */}
               <div className="commentList">
                 {comments.map((comment) => (
