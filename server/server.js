@@ -49,12 +49,6 @@ app.post("/login", (req, res) => {
     // 로그인 성공 시 쿠키에 사용자 정보 저장
     req.session.user = user;
     //res.send(req.session.user);
-
-    // 쿠키에 name, weight, exercise, diet 정보 저장
-    res.cookie("name", user.name, { maxAge: 1800000, httpOnly: true });
-    res.cookie("weight", user.weight, { maxAge: 1800000, httpOnly: true });
-    res.cookie("exercise", user.exercise, { maxAge: 1800000, httpOnly: true });
-    res.cookie("diet", user.diet, { maxAge: 1800000, httpOnly: true });
     
     res.cookie("sessionId", req.session.id, {
       path: "/",

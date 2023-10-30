@@ -55,46 +55,16 @@ function Goal_Circle() {
       setDietStrokeDasharray(BaseValue(parseFloat(inputValue)));
     }
   };
-  //쿠키값 불러옴
-  const getCookie = (name) => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(";").shift();
-  };
-
-  useEffect(() => {
-    const nameCookie = decodeURIComponent(getCookie("name"));
-    const weightCookie = getCookie("weight");
-    const exerciseCookie = getCookie("exercise");
-    const dietCookie = getCookie("diet");
-
-    if (nameCookie) {
-      setUsername(nameCookie);
-      console.log(nameCookie);
-    }
-    if (weightCookie) {
-      setWeight(weightCookie);
-      setWeightStrokeDasharray(BaseValue(parseFloat(weightCookie)));
-    }
-    if (exerciseCookie) {
-      setExercise(exerciseCookie);
-      setExerciseStrokeDasharray(BaseValue(parseFloat(exerciseCookie)));
-    }
-    if (dietCookie) {
-      setDiet(dietCookie);
-      setDietStrokeDasharray(BaseValue(parseFloat(dietCookie)));
-    }
-  }, []);
 
   return (
     <div className="flex-wrapper">
-      <div className="title">안녕하세요! {username}님</div>
+      <div className="title">안녕하세요! 김멀플님</div>
       <div className="single-chart">
         <svg viewBox="0 0 36 36" className="circular-chart orange">
           <text x="10.2" y="15" fontSize="2.5px" className="percentage"></text>
           <path
             className="circle"
-            strokeDasharray={`${weightStrokeDasharray}, 2000`}
+            strokeDasharray={`${weightStrokeDasharray}, 100`}
             d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
           />
         </svg>
@@ -104,7 +74,7 @@ function Goal_Circle() {
         <svg viewBox="0 0 36 36" className="circular-chart1 green">
           <path
             className="circle1"
-            strokeDasharray={`${exerciseStrokeDasharray}, 3000`}
+            strokeDasharray={`${exerciseStrokeDasharray}, 100`}
             d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
           />
           <text x="8.5" y="18.8" fontSize="3px" className="percentage1"></text>
@@ -115,7 +85,7 @@ function Goal_Circle() {
         <svg viewBox="0 0 36 36" className="circular-chart2 blue">
           <path
             className="circle2"
-            strokeDasharray={`${dietStrokeDasharray}, 1000`}
+            strokeDasharray={`${dietStrokeDasharray}, 100`}
             d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
           />
           <text x="7" y="25" fontSize="3.5px" className="percentage2"></text>
