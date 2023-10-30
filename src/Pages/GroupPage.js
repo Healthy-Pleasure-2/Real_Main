@@ -20,12 +20,17 @@ function GroupPage({ isLoggedIn }) {
 
   // 댓글입력 및 삭제
   const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState({ author: "", text: "" });
+  const [newCommentAuthor, setNewCommentAuthor] = useState("");
+  const [newComment, setNewComment] = useState("");
 
   const addComment = () => {
-    if (newComment.author && newComment.text) {
-      setComments([...comments, { ...newComment, id: Date.now() }]);
-      setNewComment({ author: "", text: "" });
+    if (newCommentAuthor && newComment) {
+      setComments([
+        ...comments,
+        { author: newCommentAuthor, text: newComment, id: Date.now() },
+      ]);
+      setNewCommentAuthor("");
+      setNewComment("");
     }
   };
 
@@ -132,19 +137,15 @@ function GroupPage({ isLoggedIn }) {
                   type="text"
                   maxLength="4"
                   placeholder="닉네임"
-                  value={newComment.author}
-                  onChange={(e) =>
-                    setNewComment({ ...newComment, author: e.target.value })
-                  }
+                  value={newCommentAuthor}
+                  onChange={(e) => setNewCommentAuthor(e.target.value)}
                 />
                 <input
                   type="text"
                   maxLength="100"
                   placeholder="댓글달기"
-                  value={newComment.text}
-                  onChange={(e) =>
-                    setNewComment({ ...newComment, text: e.target.value })
-                  }
+                  value={newComment}
+                  onChange={(e) => setNewComment(e.target.value)}
                 />
                 <button onClick={addComment}>게시</button>
               </div>
