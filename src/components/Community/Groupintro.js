@@ -6,22 +6,26 @@
 import React, { useState, useEffect } from "react";
 import "../../Pages/styles/Community.css";
 import { Link } from "react-router-dom";
+import throttle from "lodash/throttle";
 
 function Groupintro({ groupData, selectedCategory }) {
   const [itemsCount, setItemsCount] = useState(6); // 초기 갤러리 아이템 수
   const [filteredGroups, setFilteredGroups] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
+  // 상수로 매직 넘버를 정의
+  const INITIAL_ITEM_COUNT = 6;
+  const LARGE_SCREEN_WIDTH = 1700;
+  const MEDIUM_SCREEN_WIDTH = 1200;
+  const RESIZE_THROTTLE_INTERVAL = 250;
+
   useEffect(() => {
-    // 화면 크기 변경 이벤트 리스너 등록
-    const handleResize = () => {
-      // 크기에 따라 동적으로 아이템 수 변경
+    const handleResize = throttle(() => {
       const windowWidth = window.innerWidth;
-      if (windowWidth >= 1700) setItemsCount(12);
-      // else if (windowWidth >= 1400) setItemsCount(10);
-      else if (windowWidth >= 1200) setItemsCount(9);
-      else setItemsCount(6);
-    };
+      if (windowWidth >= LARGE_SCREEN_WIDTH) setItemsCount(12);
+      else if (windowWidth >= MEDIUM_SCREEN_WIDTH) setItemsCount(9);
+      else setItemsCount(INITIAL_ITEM_COUNT);
+    }, RESIZE_THROTTLE_INTERVAL); //250ms 간격으로 호출
 
     // 컴포넌트가 마운트될 때와 화면 크기가 변경될 때 이벤트 리스너 실행
     handleResize();
@@ -55,7 +59,17 @@ function Groupintro({ groupData, selectedCategory }) {
   // 그룹리스트 버튼 클릭 시 페이지 번호 업데이트
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
+
+    // 페이지 버튼을 최대 5개까지만 표시
   };
+  const totalPages = Math.ceil(filteredGroups.length / itemsPerPage);
+  const maxPageButtons = 5;
+  let startPage = Math.max(1, currentPage - 2);
+  let endPage = Math.min(startPage + maxPageButtons - 1, totalPages);
+
+  if (endPage - startPage < maxPageButtons - 1) {
+    startPage = Math.max(1, endPage - maxPageButtons + 1);
+  }
   return (
     <div className="Community_GroupList">
       <div className="Community_Grouplists">
@@ -88,11 +102,12 @@ function Groupintro({ groupData, selectedCategory }) {
         </div>
       </div>
       <div className="Community_Grouplistbtn">
-        {Array.from({
-          length: Math.ceil(filteredGroups.length / itemsPerPage),
-        }).map((_, index) => (
-          <button key={index + 1} onClick={() => handlePageClick(index + 1)}>
-            {index + 1}
+        {Array.from({ length: endPage - startPage + 1 }).map((_, index) => (
+          <button
+            key={startPage + index}
+            onClick={() => handlePageClick(startPage + index)}
+          >
+            {startPage + index}
           </button>
         ))}
       </div>
