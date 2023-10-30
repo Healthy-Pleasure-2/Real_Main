@@ -148,14 +148,16 @@ function Mypage() {
           </div>
           <div className="gender">
             <label>성별</label>
-            <input type="radio" name="gender" value="male" checked disabled />
-            <span>남자</span>
-            <input type="radio" name="gender" value="female" disabled />
-            <span>여자</span>
+            <div className="gender_radio">
+              <input type="radio" name="gender" value="male" checked disabled />
+              <span>남자</span>
+              <input type="radio" name="gender" value="female" disabled />
+              <span>여자</span>
+            </div>
           </div>
-          <div className="input_check">
+          <div>
             <label>닉네임</label>
-            <div className="input_check_btn">
+            <div className="input_check">
               <input
                 type="text"
                 name="nickname"

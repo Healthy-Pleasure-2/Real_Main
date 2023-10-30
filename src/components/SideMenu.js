@@ -14,7 +14,7 @@ import {
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import logo from "../logo.png";
+import logo from "../asset/logo.png";
 
 function SideMenu({ isLoggedIn, onLogout }) {
   // const location = useLocation();
