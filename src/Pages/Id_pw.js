@@ -54,31 +54,35 @@ function IdPw() {
   return (
     <div id="IdPw">
       <div className="IdPw_left">
-        <img src={idpw} alt="id/pw 이미지" />
-        <h3>
-          회원 정보를 잃어버리셨나요?
-          <br></br>
-          회원정보에 등록된 입력값을 입력해주세요.
-        </h3>
+        <div className="container">
+          <img src={idpw} alt="id/pw 이미지" />
+          <h3>
+            회원 정보를 잃어버리셨나요?
+            <br></br>
+            회원정보에 등록된 입력값을 입력해주세요.
+          </h3>
+        </div>
       </div>
       <div id="frame">
-        <div id="buttons">
-          <div
-            onClick={() => switchTab("idFind")}
-            className={idFind ? "green" : "gray"}
-          >
-            ID 찾기
+        <div className="container">
+          <div id="buttons">
+            <div
+              onClick={() => switchTab("idFind")}
+              className={idFind ? "green" : "gray"}
+            >
+              ID 찾기
+            </div>
+            <div
+              onClick={() => switchTab("pwFind")}
+              className={pwFind ? "green" : "gray"}
+            >
+              PW 찾기
+            </div>
           </div>
-          <div
-            onClick={() => switchTab("pwFind")}
-            className={pwFind ? "green" : "gray"}
-          >
-            PW 찾기
+          <div id="idpw_content">
+            {idFind && <IdFind />}
+            {pwFind && <PwFind />}
           </div>
-        </div>
-        <div id="idpw_content">
-          {idFind && <IdFind />}
-          {pwFind && <PwFind />}
         </div>
       </div>
     </div>

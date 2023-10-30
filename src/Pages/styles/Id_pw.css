@@ -12,26 +12,32 @@
    justify-content: center;
  }
 
+ #IdPw .container {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 100%;
+ }
+
  .IdPw_left {
    width: 35%;
    height: 70%;
    background-color: #A7C957;
    border-radius: 20px 0 0 20px;
    box-shadow: 10px 10px 30px #3866416b, inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
-   padding: 3%;
    color: #fff;
    text-align: center;
-   z-index: 99;
+   position: relative;
+   z-index: 100;
  }
 
 
  .IdPw_left img {
    width: 90%;
-   padding-top: 5%;
  }
 
  .IdPw_left h3 {
-   font-size: 0.9rem;
+   font-size: 1em;
    font-weight: 500;
    padding-top: 5%;
  }
@@ -40,11 +46,11 @@
    width: 50%;
    height: 70%;
    background-color: rgba(167, 201, 87, 0.1);
-   padding: 30px;
    border-radius: 0 20px 20px 0;
    box-shadow: 10px 10px 50px #3866416b, inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
    font-size: 0.85rem;
    color: #313131;
+   position: relative;
  }
 
  /* ID, PW 버튼 */
@@ -66,7 +72,7 @@
    width: 49.95%;
    height: 100%;
    float: left;
-   font-size: 20px;
+   font-size: 1.4em;
    font-weight: bold;
    color: white;
    text-align: center;
@@ -125,7 +131,7 @@
    margin-top: 10%;
    background-color: #A7C957;
    color: #fff;
-   font-size: 15px;
+   font-size: 1.2em;
    font-weight: bold;
  }
 
@@ -149,6 +155,10 @@
  @media (max-width: 1200px) {
    .IdPw_left {
      height: 60%;
+   }
+
+   .IdPw_left h3 {
+     font-size: 0.75em;
    }
 
    #IdPw #frame {
