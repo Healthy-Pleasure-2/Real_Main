@@ -9,7 +9,7 @@
 231016 김장훈 - 수정중
 231017 김장훈 - 입력창 및 입력버튼을 통한 시각화 변화하도록 수정. UI다듬기 등 추가작업 필요
 231018 김장훈 - 입력버튼 삭제(input 박스에 입력되면 시각화 바로 변화되도록 수정), UI 다듬기, 차후 Todo 페이지에서 최대값 불러오기 추가예정 
-231024 김장훈 - 
+231029 김장훈 - 쿠키에서 사용자정보 불러오기 코드 작성중.
 --------------------------------------------------------------------------------------------------------------
 *참고 사이트
 1. https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705 = 개념
@@ -17,7 +17,7 @@
 3. https://blog.naver.com/rdh6327/222587794846 = 참고용
 */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Goal_Circle.css";
 
 function Goal_Circle() {
@@ -27,6 +27,7 @@ function Goal_Circle() {
   const [weightStrokeDasharray, setWeightStrokeDasharray] = useState("0");
   const [exerciseStrokeDasharray, setExerciseStrokeDasharray] = useState("0");
   const [dietStrokeDasharray, setDietStrokeDasharray] = useState("0");
+  const [username, setUsername] = useState("");
 
   const BaseValue = (weightValue) => {
     const maxWeight = 100;

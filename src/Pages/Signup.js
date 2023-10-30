@@ -131,12 +131,20 @@ function Signup() {
   return (
     <div id="Signup">
       <div id="frame">
-        <h1>회원가입</h1>
+        <div className="Signup_left">
+          <div className="icon"></div>
+          <h1>회원가입</h1>
+          <h3>
+            Healthy Pleasure의
+            <br></br>
+            다양한 서비스를 경험해보세요.
+          </h3>
+        </div>
 
         <form onSubmit={handleSubmit}>
-          <div className="input_check">
+          <div>
             <label>아이디</label>
-            <div className="input_check_btn">
+            <div className="Signup_check">
               <input
                 type="text"
                 name="id"
@@ -187,15 +195,17 @@ function Signup() {
           </div>
           <div className="gender">
             <label>성별</label>
-            <input type="radio" name="gender" value="male" checked />
-            <span>남자</span>
-            <input type="radio" name="gender" value="female" />
-            <span>여자</span>
+            <div className="gender_radio">
+              <input type="radio" name="gender" value="male" checked />
+              <span>남자</span>
+              <input type="radio" name="gender" value="female" />
+              <span>여자</span>
+            </div>
           </div>
 
-          <div className="input_check">
+          <div>
             <label>닉네임</label>
-            <div className="input_check_btn">
+            <div className="Signup_check">
               <input
                 type="text"
                 name="nickname"
