@@ -39,8 +39,6 @@ function GroupPage({ isLoggedIn }) {
   const [groupInfo, setGroupInfo] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
 
-  const [errorMessage, setErrorMessage] = useState("");
-
   useEffect(() => {
     const fetchGroupData = async () => {
       try {
@@ -70,7 +68,7 @@ function GroupPage({ isLoggedIn }) {
       {errorMessage ? (
         <div className="GroupPage-error">
           <div className="error-container">
-            {/* <img src={errorImage} alt="Error" /> */}
+            <img src={errorImage} alt="Error" />
             <h1>{errorMessage}</h1>
           </div>
         </div>
@@ -96,12 +94,13 @@ function GroupPage({ isLoggedIn }) {
               <div className="content">{groupInfo.groupintro}</div>
             </div>
           </div>
+
           {/* 댓글 기능 */}
           {!showDiv && (
             <div className="comment">
               <div className="commentTitle">소통해요</div>
               <div className="comment-error">
-                {/* <img src={errorImage} alt="Error" /> */}
+                <img src={errorImage} alt="Error" />
                 <h3>해당 서비스는 커뮤니티 참여시 이용 가능합니다. </h3>
               </div>
             </div>
@@ -111,21 +110,6 @@ function GroupPage({ isLoggedIn }) {
             <div className="comment">
               <div className="commentTitle">소통해요</div>
 
-              {/* 댓글 리스트 */}
-              <div className="commentList">
-                {comments.map((comment) => (
-                  <div key={comment.id} className="commentIndex">
-                    <h4>{comment.author}</h4>
-                    <p>{comment.text}</p>
-                    <button
-                      className="delete"
-                      onClick={() => deleteComment(comment.id)}
-                    >
-                      X
-                    </button>
-                  </div>
-                ))}
-              </div>
               {/* 댓글 리스트 */}
               <div className="commentList">
                 {comments.map((comment) => (
