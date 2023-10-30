@@ -44,11 +44,9 @@ function Community({ isLoggedIn }) {
       {/*로그인 상태여야 그룹만들기 버튼 활성화*/}
       {isLoggedIn && (
         <div className="Community_groupbtn">
-          <button>
-            <Link to="/GroupCreate" className="Community_link">
-              +
-            </Link>
-          </button>
+          <Link to="/GroupCreate" className="Community_link">
+            <button>+</button>
+          </Link>
         </div>
       )}
 
