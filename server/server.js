@@ -40,27 +40,34 @@ app.use(
     cookie: { secure: false }, // 클라이언트와 서버간의 HTTPS 통신에서만 쿠키 전송
   })
 );
+//비동기적으로
 //Login
-app.post("/login", (req, res) => {
-  const { id, pw } = req.body;
-  const user = users.find((u) => u.id === id && u.pw === pw);
+app.post("/login", async (req, res) => {
+  try {
+    const jsonData = await fs.promises.readFile("./db.json", "utf8");
+    const data = JSON.parse(jsonData);
+    const users = data.user;
+    const { id, pw } = req.body;
+    const user = users.find((u) => u.id === id && u.pw === pw);
+    if (user) {
+      // 로그인 성공 시 쿠키에 사용자 정보 저장
+      req.session.user = user;
+      //res.send(req.session.user);
+      res.cookie("sessionId", req.session.id, {
+        path: "/",
+        httpOnly: true,
+        secure: true,
+        maxAge: 1800000,
+      }); // 0.5시간 동안 유효
 
-  if (user) {
-    // 로그인 성공 시 쿠키에 사용자 정보 저장
-    req.session.user = user;
-    //res.send(req.session.user);
-    
-    res.cookie("sessionId", req.session.id, {
-      path: "/",
-      httpOnly: true,
-      secure: true,
-      maxAge: 1800000,
-    }); // 0.5시간 동안 유효
-
-    //res.cookie('user', JSON.stringify(user), { maxAge: 900000, httpOnly: true }); //쿠키 저장, 15분
-    res.status(200).json({ message: "로그인 성공", user });
-  } else {
-    res.status(401).json({ message: "로그인 실패" });
+      //res.cookie('user', JSON.stringify(user), { maxAge: 900000, httpOnly: true }); //쿠키 저장, 15분
+      res.status(200).json({ message: "로그인 성공", user });
+    } else {
+      res.status(401).json({ message: "로그인 실패" });
+    }
+  } catch (error) {
+    console.error("파일 작업 중 오류 발생:", error);
+    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
   }
 });
 //Logout
@@ -169,13 +176,44 @@ app.post("/groupadd", async (req, res) => {
     //console.log(updatedDataGroup);
     await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
     //console.log(groups);
-    res.status(200).json({ id: nextGroupId }); // 새로운 그룹의 ID 반환
+    res.status(200).json({ message: "그룹생성성공" }); // 새로운 그룹의 ID 반환
   } catch (error) {
     console.error("파일 작업 중 오류 발생:", error);
     res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
   }
 });
-
+app.post("/Signup", async (req, res) => {
+  const newuser = req.body;
+  try {
+    console.log(newuser);
+    //파일 불러오기
+    const jsonData = await fs.promises.readFile("./db.json", "utf8");
+    const data = JSON.parse(jsonData);
+    const newuserindex = data.user.length + 1;
+    const newuserData = {
+      index: newuserindex,
+      id: newuser.id,
+      pw: newuser.pw,
+      name: newuser.name,
+      gende: newuser.gende,
+      nickname: newuser.nickname,
+      email: newuser.email,
+      group: "",
+      weight: "",
+      exercise: "",
+      diet: "",
+    };
+    data.user.push(newuserData);
+    const updatedDataGroup = JSON.stringify(data, null, 2);
+    // console.log(updatedDataGroup);
+    await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
+    //console.log(users);
+    res.status(200).json({ message: "회원가입 되셨습니다." }); // 새로운 그룹의 ID 반환
+  } catch (error) {
+    console.error("파일 작업 중 오류 발생:", error);
+    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
+  }
+});
 //실행중
 app.listen(port, () => {
   console.log(`서버가 ${port} 포트에서 실행 중입니다.`);
