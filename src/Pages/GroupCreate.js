@@ -37,19 +37,10 @@ function GroupCreate() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(groupData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.id) {
-          // 서버 응답에서 ID를 가져올 수 있다면
-          console.log("값", data.id); // 서버 응답 데이터를 확인
-        } else {
-          console.error("서버 응답에 ID가 없습니다.");
-        }
-      })
-      .catch((error) => {
-        console.error("서버 요청 오류:", error);
-      });
+    }).catch((error) => {
+      console.error("서버 요청 오류:", error);
+    });
+    window.alert("새로운 그룹이 생성되었습니다.");
   };
 
   return (
