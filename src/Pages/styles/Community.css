@@ -374,9 +374,15 @@
 }
 
 .Community_Grouplistbtn button {
-    padding-left: 20px;
+    padding: 0 10px;
     background: none;
     cursor: pointer;
     border: none;
     color: #386641;
+
+}
+
+.Community_Grouplistbtn button:focus {
+    background: #A7C957;
+    border-radius: 10px;
 }
