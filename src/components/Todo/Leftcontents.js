@@ -6,35 +6,110 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
-import Calendar from "react-calendar";
 import ReactCalendar from "./Calendar";
-import styled from "styled-components";
-// import ReactCalendar from "./Calendar";
 
 function LeftContents() {
-  let [text, setText] = useState("");
-  let [todoList, setTodoList] = useState([]);
+  const [date, dateChange] = useState(new Date());
+  // 날짜 형식 예시: 231010
+  const fullDate = `${date.getFullYear()}` + `${date.getMonth() + 1}` + `${date.getDate()}`
+  // input 값 
+  const [text, setText] = useState("");
+  // 추가되는 todolist 배열 
+  const [todoList, setTodoList] = useState([]);
+  // db.json에서 todo 테이블에서 불러오는 값 
+  const [data, setData] = useState(null);
 
+  // 화면 로딩 및 날짜가 변할때마다 db.json todo 테이블 불러오기 
+  useEffect(() => {
+    fetchData()
+  }, [fullDate])
+
+  //db.json 파일 불러오기 
+  const fetchData = () => {
+    fetch("http://localhost:3003/todo")
+      .then((response) => {
+        if (response.ok) {
+          return response.json()
+        }
+        throw new Error("네트워크 에러");
+      }).then((responseData) => {
+        // 성공적으로 응답을 처리하고 상태를 업데이트
+        setData(responseData);
+        console.log("데이터 불러오기 성공")
+      })
+      .catch((error) => {
+        // 에러 처리
+        console.error("에러:", error);
+      });
+  }
+  // todolist에 들어갈 데이터 
+  const toDo = { "id": "wpgud", "date": `${fullDate}`, "content": [text] }
+  console.log(toDo)
+
+  // todolist 추가 
+  const submitInput = () => {
+    if (data.length === 0) {
+      fetch("http://localhost:3003/todo", {
+        // 요청방법
+        method: "POST",
+        // 전송할 데이터 
+        body: JSON.stringify(toDo),
+        headers: {
+          "content-type": "application/json; charset=UTF-8"
+        }
+      })
+    } else if (data.length !== 0) {
+      console.log(data)
+      console.log(fullDate)
+      // 선택한 날짜와 같은 배열이 있는지 확인 
+      let result = data.filter((item) => {
+        return item.date === fullDate
+      })
+      console.log(result.length);
+
+      // 해당날짜와 같은 배열이 없는 경우 fetch를 통해 데이터 새롭게 추가
+      if (result.length === 0) {
+        fetch("http://localhost:3003/todo", {
+          // 요청방법
+          method: "POST",
+          // 전송할 데이터 
+          body: JSON.stringify(toDo),
+          headers: {
+            "content-type": "application/json; charset=UTF-8"
+          }
+        })
+      } else {
+        // result[0].content.push(text)
+        // 해당날짜와 같은 배열이 있는 경우 해당 배열의 content만 push하고 수정해서 업데이트(server.js에서 해야할듯)
+        console.log({ ...result, content: [text] });
+        fetch(`http://localhost:3003/todo/${fullDate}`, {
+          // 요청방법
+          method: "PATCH",
+          // 전송할 데이터 
+          body: JSON.stringify({ content: [text] }),
+          headers: {
+            "content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => {
+            if (response.ok) {
+              // 성공적으로 업데이트된 경우에 할 일 목록을 업데이트
+              const updatedTodoList = [...result[0].content, text];
+              setTodoList(updatedTodoList);
+            } else {
+              console.error("데이터 업데이트 실패");
+            }
+          })
+          .catch((error) => {
+            console.error("에러:", error);
+          });
+      }
+    }
+  }
 
   // todo list input 값 저장 함수
   const changeInput = (e) => {
     setText(e.target.value);
-  };
-
-  // todo list 추가 함수
-  const submitInput = (e) => {
-    // todolist에 값 추가하는 방법
-    const newTodoList = [...todoList].concat({
-      id: todoList.length,
-      text,
-      checked: false,
-    });
-    // submit의 default 동작인 페이지 새로고침 막아주는 역할
-    e.preventDefault();
-    // todolist 배열값 업데이트
-    setTodoList(newTodoList);
-    //+ 버튼 누른후 todo list 추가되면 input 값 비워주기
-    setText("");
   };
 
   // to do list 삭제
@@ -64,14 +139,13 @@ function LeftContents() {
         <p>오늘의 할 일을 기록해보세요!</p>
       </div>
 
-      <ReactCalendar />
+      <ReactCalendar date={date} dateChange={dateChange} />
 
       <div className="todo_checkLists">
         {todoList.map((item, i) => {
-          console.log(todoList);
           return (
             <>
-              <div className="todo_checkList" style={{ background: item.checked ? '#A7C957' : '#F3F5EF' }}>
+              <div key={item.id} className="todo_checkList" style={{ background: item.checked ? '#A7C957' : '#F3F5EF' }}>
                 <button
                   className="todo_checked"
                   style={{ background: item.checked ? '#386641' : '#a2a1a1' }}

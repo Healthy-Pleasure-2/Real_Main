@@ -145,6 +145,89 @@ app.patch("/user/:id", async (req, res) => {
   }
 });
 
+// db.json에서 todo 테이블에 데이터 추가 
+app.post("/todo", async (req, res) => {
+  try {
+    const toDo = req.body;
+    // JSON 파일 읽기
+    const data = await fs.promises.readFile("./db.json", "utf8");
+    // 기존 데이터 파싱
+    const existingData = JSON.parse(data);
+
+    // 할 일 데이터 추가
+    existingData.todo.push(toDo);
+
+    // 업데이트된 데이터 JSON 문자열로 변환
+    const updatedDataGroup = JSON.stringify(existingData, null, 2);
+
+    // JSON 파일에 업데이트된 데이터 쓰기
+    await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
+
+    res.status(200).json({ message: "데이터가 성공적으로 추가되었습니다." });
+  } catch (error) {
+    console.error("파일 작업 중 오류 발생:", error);
+    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
+  }
+});
+
+
+// db.json에서 todo 테이블 데이터 가져오기 
+app.get("/todo", async (req, res) => {
+  try {
+    const data = await fs.promises.readFile("./db.json", "utf8");
+    const jsonData = JSON.parse(data);
+
+    res.json(jsonData.todo);
+  }
+  catch (error) {
+    console.error("파일 작업 중 오류 발생:", error);
+    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
+  }
+})
+
+// db.json에서 todo 테이블 데이터 수정하기 
+app.patch("/todo/:date", async (req, res) => {
+  // 클라이언트로부터 전달받은 날짜 
+  const { date } = req.params;
+  const { content } = req.body;
+
+  try {
+    // db.json 파일 읽어오기
+    const data = await fs.promises.readFile("./db.json", "utf8");
+    // db.json 파일을 자바스크립트 객체화
+    const jsonData = JSON.parse(data);
+    // db.json 파일에서 user 정보만 users 정보에 담기
+    const users = jsonData.user;
+    //console.log(users);
+    const groups = jsonData.group;
+    //console.log(groups);
+    const todos = jsonData.todo;
+
+    // 데이터 업데이트 
+    const todoItem = todos.find((item) => item.date === date);
+    todoItem.content.push(content);
+
+    // JSON 문자열로 변환
+    const updatedData = JSON.stringify(
+      {
+        user: users,
+        group: groups,
+        todo: todos
+      },
+      null,
+      2
+    );
+    await fs.promises.writeFile("./db.json", updatedData, "utf8");
+    console.log("업데이트 결과", updatedData);
+    res.status(200).json({ message: "사용자 투두리스트가 업데이트되었습니다" });
+  }
+  catch (error) {
+    console.error("파일 처리 오류: ", err);
+    res.status(500).json({ message: "서버 오류" });
+  }
+})
+
+
 //그룹을 요청처리하는 라우트
 app.get("/group", async (req, res) => {
   try {
