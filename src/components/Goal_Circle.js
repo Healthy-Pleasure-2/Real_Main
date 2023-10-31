@@ -20,7 +20,8 @@
 import React, { useState, useEffect } from "react";
 import "./Goal_Circle.css";
 
-function Goal_Circle() {
+function Goal_Circle({ sessiondata }) {
+  console.log(sessiondata);
   const [weight, setWeight] = useState("0");
   const [exercise, setExercise] = useState("0");
   const [diet, setDiet] = useState("0");
@@ -134,8 +135,6 @@ function Goal_Circle() {
   );
 }
 export default Goal_Circle;
-
-
 
 /*초안*/
 /*
