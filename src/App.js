@@ -16,16 +16,25 @@ import axios from "axios";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [sessiondata, setSessiondata] = useState(false);
   //쿠키값이 남아있으면 로그인 유지
   useEffect(() => {
     // 컴포넌트가 마운트될 때, 로그인 상태 확인
     axios
-      .get("http://localhost:3003/cookie", { withCredentials: true })
-      .then(() => {
-        setIsLoggedIn(true);
+      .get("http://localhost:3003/get-session", { withCredentials: true })
+      .then((response) => {
+        if (response.status === 200) {
+          // 세션 정보가 있는 경우
+          setSessiondata(response.data);
+        } else {
+          // 세션 정보가 없는 경우
+          setSessiondata(null);
+        }
       })
-      .catch(() => {
-        setIsLoggedIn(false);
+      .catch((error) => {
+        // 오류 처리
+        console.error("서버 요청 오류:", error);
+        setSessiondata(null);
       });
   }, []);
   //로그인 확인
@@ -72,12 +81,14 @@ function App() {
         console.error("로그아웃 오류:", error);
       });
   };
-
   return (
     <div className="App">
       <div className="wrap">
         <SideMenu onLogout={handleLogout} isLoggedIn={isLoggedIn}></SideMenu>
-        <PageContent isLoggedIn={isLoggedIn}></PageContent>
+        <PageContent
+          isLoggedIn={isLoggedIn}
+          sessiondata={sessiondata}
+        ></PageContent>
         <SideContent
           isLoggedIn={isLoggedIn}
           onLogin={handleLogin}

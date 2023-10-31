@@ -19,8 +19,19 @@ const cors = require("cors"); // CORS 미들웨어를 추가
 const fs = require("fs");
 const path = require("path"); // path 모듈
 const cookieParser = require("cookie-parser");
-const users = require("./db.json").user; // db.json 파일에서 사용자 정보를 가져와 변수에 저장
-const groups = require("./db.json").group; // db.json파일에서 그룹 정보를 가져와 변수에 저장
+//const users = require("./db.json").user; // db.json 파일에서 사용자 정보를 가져와 변수에 저장
+//const groups = require("./db.json").group; // db.json파일에서 그룹 정보를 가져와 변수에 저장
+async function Datafc() {
+  try {
+    const jsonData = await fs.promises.readFile("./db.json", "utf8");
+    const data = JSON.parse(jsonData);
+    return data;
+  } catch (error) {
+    console.error("Error reading data:", error);
+    throw error;
+  }
+}
+
 app.use(express.json()); // Express 앱이 JSON 요청을 처리할 수 있도록 미들웨어를 추가
 app.use(
   cors({
@@ -43,31 +54,25 @@ app.use(
 //비동기적으로
 //Login
 app.post("/login", async (req, res) => {
-  try {
-    const jsonData = await fs.promises.readFile("./db.json", "utf8");
-    const data = JSON.parse(jsonData);
-    const users = data.user;
-    const { id, pw } = req.body;
-    const user = users.find((u) => u.id === id && u.pw === pw);
-    if (user) {
-      // 로그인 성공 시 쿠키에 사용자 정보 저장
-      req.session.user = user;
-      //res.send(req.session.user);
-      res.cookie("sessionId", req.session.id, {
-        path: "/",
-        httpOnly: true,
-        secure: true,
-        maxAge: 1800000,
-      }); // 0.5시간 동안 유효
+  const data = await Datafc();
+  const users = data.user;
+  const { id, pw } = req.body;
+  const user = users.find((u) => u.id === id && u.pw === pw);
+  if (user) {
+    // 로그인 성공 시 쿠키에 사용자 정보 저장
+    req.session.user = user;
+    //res.send(req.session.user);
+    res.cookie("sessionId", req.session.id, {
+      path: "/",
+      httpOnly: true,
+      secure: true,
+      maxAge: 1800000,
+    }); // 0.5시간 동안 유효
 
-      //res.cookie('user', JSON.stringify(user), { maxAge: 900000, httpOnly: true }); //쿠키 저장, 15분
-      res.status(200).json({ message: "로그인 성공", user });
-    } else {
-      res.status(401).json({ message: "로그인 실패" });
-    }
-  } catch (error) {
-    console.error("파일 작업 중 오류 발생:", error);
-    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
+    //res.cookie('user', JSON.stringify(user), { maxAge: 900000, httpOnly: true }); //쿠키 저장, 15분
+    res.status(200).json({ message: "로그인 성공" });
+  } else {
+    res.status(401).json({ message: "로그인 실패" });
   }
 });
 //Logout
@@ -88,25 +93,37 @@ app.get("/logout", (req, res) => {
 app.get("/cookie", (req, res) => {
   if (req.cookies.sessionId) {
     // 로그인한 사용자만 액세스 가능
-    res.status(200).json({ message: "로그인가능상태" });
+    res.status(200).json({ message: "로그인상태" });
   } else {
-    res.status(403).json({ message: "액세스 거부" });
+    res.status(403).json({ message: "로그아웃" });
   }
 });
-
+app.get("/get-session", (req, res) => {
+  if (req.session.user) {
+    const id = req.session.user.id;
+    // 세션에 사용자 정보가 있는 경우
+    res.status(200).json(id);
+  } else {
+    // 세션에 사용자 정보가 없는 경우
+    res.status(401).json({ message: "세션에 사용자 정보가 없습니다" });
+  }
+});
 //GoalSet.js 사용자 목표설정 db.json에 추가기능
 app.patch("/user/:id", async (req, res) => {
   const userId = req.params.id;
   const { weight, exercise, diet } = req.body;
   try {
     // db.json 파일 읽어오기
-    const data = await fs.promises.readFile("./db.json", "utf8");
+    //const data = await fs.promises.readFile("./db.json", "utf8");
     // db.json 파일을 자바스크립트 객체화
-    const jsonData = JSON.parse(data);
+    //const jsonData = JSON.parse(data);
     // db.json 파일에서 user 정보만 users 정보에 담기
-    const users = jsonData.user;
+
+    const data = await Datafc();
+
+    const users = data.user;
     //console.log(users);
-    const groups = jsonData.group;
+    const groups = data.group;
     //console.log(groups);
     const user = users.find((u) => u.id === userId);
 
@@ -140,11 +157,7 @@ app.patch("/user/:id", async (req, res) => {
 //그룹을 요청처리하는 라우트
 app.get("/group", async (req, res) => {
   try {
-    // JSON 파일을 읽어와서 데이터 객체로 파싱
-    const jsonData = await fs.promises.readFile("./db.json", "utf8");
-    const data = JSON.parse(jsonData);
-    //console.log(data);
-
+    const data = await Datafc();
     // 읽어온 데이터 객체를 클라이언트로 반환
     res.json(data.group);
   } catch (error) {
@@ -156,9 +169,7 @@ app.get("/group", async (req, res) => {
 app.post("/groupadd", async (req, res) => {
   const newGroup = req.body;
   try {
-    //파일 불러오기
-    const jsonData = await fs.promises.readFile("./db.json", "utf8");
-    const data = JSON.parse(jsonData);
+    const data = await Datafc();
     //console.log(data);
     const nextGroupId = data.group.length + 1;
     const newgroupData = {
@@ -171,11 +182,8 @@ app.post("/groupadd", async (req, res) => {
     };
     // 데이터 객체에 새로운 그룹 추가
     data.group.push(newgroupData);
-    //console.log(data.group);
     const updatedDataGroup = JSON.stringify(data, null, 2);
-    //console.log(updatedDataGroup);
     await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
-    //console.log(groups);
     res.status(200).json({ message: "그룹생성성공" }); // 새로운 그룹의 ID 반환
   } catch (error) {
     console.error("파일 작업 중 오류 발생:", error);
@@ -187,8 +195,7 @@ app.post("/Signup", async (req, res) => {
   try {
     console.log(newuser);
     //파일 불러오기
-    const jsonData = await fs.promises.readFile("./db.json", "utf8");
-    const data = JSON.parse(jsonData);
+    const data = await Datafc();
     const newuserindex = data.user.length + 1;
     const newuserData = {
       index: newuserindex,
@@ -205,9 +212,7 @@ app.post("/Signup", async (req, res) => {
     };
     data.user.push(newuserData);
     const updatedDataGroup = JSON.stringify(data, null, 2);
-    // console.log(updatedDataGroup);
     await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
-    //console.log(users);
     res.status(200).json({ message: "회원가입 되셨습니다." }); // 새로운 그룹의 ID 반환
   } catch (error) {
     console.error("파일 작업 중 오류 발생:", error);

@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-function GoalSet() {
+function GoalSet(sess) {
   const [goal, setGoal] = useState({
     weight: "",
     exercise: "",
@@ -26,7 +26,7 @@ function GoalSet() {
     setGoal({ ...goal, [name]: value });
   };
   const handleGoalSet = () => {
-    const userId = "wpgud";
+    const userId = "session";
     fetch(`http://localhost:3003/user/${userId}`, {
       method: "PATCH",
       headers: {
