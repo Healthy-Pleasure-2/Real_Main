@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
 import ReactCalendar from "./Calendar";
 
-function LeftContents() {
+function LeftContents({ sessiondata }) {
   const [date, dateChange] = useState(new Date());
   // 날짜 형식 예시: 231010
   const fullDate = `${date.getFullYear()}` + `${date.getMonth() + 1}` + `${date.getDate()}`
@@ -18,11 +18,13 @@ function LeftContents() {
   const [todoList, setTodoList] = useState([]);
   // db.json에서 todo 테이블에서 불러오는 값 
   const [data, setData] = useState(null);
+  // 완료, 미완료 표시 
+  const [done, setDone] = useState(false);
 
   // 화면 로딩 및 날짜가 변할때마다 db.json todo 테이블 불러오기 
   useEffect(() => {
     fetchData()
-  }, [fullDate])
+  }, [fullDate, text])
 
   //db.json 파일 불러오기 
   const fetchData = () => {
@@ -43,11 +45,11 @@ function LeftContents() {
       });
   }
   // todolist에 들어갈 데이터 
-  const toDo = { "id": "wpgud", "date": `${fullDate}`, "content": [text] }
-  console.log(toDo)
+  const toDo = { "id": sessiondata, "date": `${fullDate}`, "content": [text], "done": done }
 
   // todolist 추가 
   const submitInput = () => {
+    console.log(data.length)
     if (data.length === 0) {
       fetch("http://localhost:3003/todo", {
         // 요청방법
@@ -105,6 +107,7 @@ function LeftContents() {
           });
       }
     }
+    setText('')
   }
 
   // todo list input 값 저장 함수
@@ -129,6 +132,7 @@ function LeftContents() {
       return item.id === id ? { ...item, checked: !item.checked } : item;
     });
     // todolist 값 업데이트
+    setDone(true);
     setTodoList(newTodo);
   };
 

@@ -205,7 +205,7 @@ app.patch("/todo/:date", async (req, res) => {
 
     // 데이터 업데이트 
     const todoItem = todos.find((item) => item.date === date);
-    todoItem.content.push(content);
+    todoItem.content.push(content[0]);
 
     // JSON 문자열로 변환
     const updatedData = JSON.stringify(
