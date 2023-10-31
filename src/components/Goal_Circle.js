@@ -23,6 +23,7 @@ import React, { useState, useEffect } from "react";
 import "./Goal_Circle.css";
 
 function Goal_Circle({ sessiondata }) {
+  const [User_Name, setuserName] = useState("");
   //입력
   const [input_weight, setWeight] = useState("0");
   const [input_exercise, setExercise] = useState("0");
@@ -46,7 +47,8 @@ function Goal_Circle({ sessiondata }) {
         throw new Error("네트워크 에러");
       })
       .then((userData) => {
-        const { weight, exercise, diet } = userData;
+        const { name, weight, exercise, diet } = userData;
+        setuserName(name);
         setmaxWeight(weight);
         setmaxExercise(exercise);
         setmaxDiet(diet);
@@ -119,7 +121,7 @@ function Goal_Circle({ sessiondata }) {
 
   return (
     <div className="flex-wrapper">
-      <div className="title">안녕하세요! 김멀플님</div>
+      <div className="title">안녕하세요! {User_Name}님</div>
       <div className="single-chart">
         <svg viewBox="0 0 36 36" className="circular-chart orange">
           <text x="10.2" y="15" fontSize="2.5px" className="percentage"></text>

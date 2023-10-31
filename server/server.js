@@ -225,8 +225,8 @@ app.get("/user_Goal/:id", async (req, res) => {
     //있으면, 해당 user정보를 가져옴
     if (user) {
       //user정보중 몸무게, 운동, 식단 정보를 추출 후 반환
-      const { weight, exercise, diet } = user;
-      res.status(200).json({ weight, exercise, diet });
+      const { name, weight, exercise, diet } = user;
+      res.status(200).json({ name, weight, exercise, diet });
     } else {
       res.status(404).json({ message: "사용자를 찾을 수 없습니다" });
     }
