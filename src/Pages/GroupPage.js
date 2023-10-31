@@ -21,16 +21,16 @@ function GroupPage({ isLoggedIn }) {
   // 댓글입력 및 삭제
   const [comments, setComments] = useState([]);
   const [newCommentAuthor, setNewCommentAuthor] = useState("");
-  const [newComment, setNewComment] = useState("");
+  const [newCommentText, setNewCommentText] = useState("");
 
   const addComment = () => {
-    if (newCommentAuthor && newComment) {
+    if (newCommentAuthor && newCommentText) {
       setComments([
         ...comments,
-        { author: newCommentAuthor, text: newComment, id: Date.now() },
+        { author: newCommentAuthor, text: newCommentText, id: Date.now() },
       ]);
       setNewCommentAuthor("");
-      setNewComment("");
+      setNewCommentText("");
     }
   };
 
@@ -38,6 +38,8 @@ function GroupPage({ isLoggedIn }) {
     const updatedComments = comments.filter((comment) => comment.id !== id);
     setComments(updatedComments);
   };
+
+  // 닉네임값 불러오기 작업하기
 
   //-----------23.10.17 / 정은정 / 그룹연결--------
   const { groupID } = useParams();
@@ -49,18 +51,14 @@ function GroupPage({ isLoggedIn }) {
       try {
         const data = await getGroupData(); // getGroupData 함수로 그룹 데이터 가져오기
         const group = data.find((item) => item.id === parseInt(groupID, 10));
-        console.log("그룹의 값은", groupID);
-        console.log("데이트 find값", data);
         if (group) {
           setGroupInfo(group);
           // 그룹 정보를 이용한 다른 로직 처리
         } else {
           setErrorMessage("그룹 데이터를 찾을 수 없습니다.");
-          setErrorMessage("그룹 데이터를 찾을 수 없습니다.");
         }
       } catch (error) {
         // 에러 핸들링
-        setErrorMessage("그룹 데이터를 불러오는 중에 문제가 발생했습니다.");
         setErrorMessage("그룹 데이터를 불러오는 중에 문제가 발생했습니다.");
         console.error(error);
       }
@@ -144,8 +142,8 @@ function GroupPage({ isLoggedIn }) {
                   type="text"
                   maxLength="100"
                   placeholder="댓글달기"
-                  value={newComment}
-                  onChange={(e) => setNewComment(e.target.value)}
+                  value={newCommentText}
+                  onChange={(e) => setNewCommentText(e.target.value)}
                 />
                 <button onClick={addComment}>게시</button>
               </div>
