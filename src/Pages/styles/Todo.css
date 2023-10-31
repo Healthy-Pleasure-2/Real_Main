@@ -236,12 +236,12 @@ button {
   margin-left: 5%;
   overflow: hidden;
   box-shadow: inset -1.5px -1.5px 2px 0px rgb(56, 102, 65, 0.5);
-  border: 1px solid #386641;
+  border: 1px solid rgb(56, 102, 65, 0.5);
 }
 
 .todo_health:hover {
-  transform: scale(1.05);
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
+  box-shadow: inset 2px 2px 2px 0px rgb(56, 102, 65, 0.3);
 }
 
 .todo_health:first-child {
@@ -643,10 +643,6 @@ button {
   .todo_data_leftSide {
     height: 100%;
     margin: 0;
-  }
-
-  .todo_health:hover {
-    transform: scale(1);
   }
 
   /* 위젯 안의 콘텐츠 */
