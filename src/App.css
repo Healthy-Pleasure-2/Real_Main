@@ -322,24 +322,26 @@
   height: 90%;
   margin: 0 auto;
   padding: 10px;
-  overflow: auto;
-}
-
-.news-container::-webkit-scrollbar {
-  width: 0;
+  overflow: hidden;
 }
 
 .news-title {
   font-size: 20px;
   margin: 10px 0;
   color: #386641;
+  height: 15%;
 }
 
 .news-list {
   list-style: none;
   padding: 0;
   font-size: 13px;
-  height: 80%;
+  height: 85%;
+  overflow: auto;
+}
+
+.news-list::-webkit-scrollbar {
+  width: 0;
 }
 
 .news-item {
