@@ -59,6 +59,8 @@ app.post("/login", async (req, res) => {
   const { id, pw } = req.body;
   const user = users.find((u) => u.id === id && u.pw === pw);
   if (user) {
+    const usernickname = user.nickname;
+    const userid = user.id;
     // 로그인 성공 시 쿠키에 사용자 정보 저장
     req.session.user = user;
     //res.send(req.session.user);
@@ -68,9 +70,8 @@ app.post("/login", async (req, res) => {
       secure: true,
       maxAge: 1800000,
     }); // 0.5시간 동안 유효
-
     //res.cookie('user', JSON.stringify(user), { maxAge: 900000, httpOnly: true }); //쿠키 저장, 15분
-    res.status(200).json({ message: "로그인 성공" });
+    res.status(200).json({ message: "로그인 성공", userid });
   } else {
     res.status(401).json({ message: "로그인 실패" });
   }
@@ -96,16 +97,6 @@ app.get("/cookie", (req, res) => {
     res.status(200).json({ message: "로그인상태" });
   } else {
     res.status(403).json({ message: "로그아웃" });
-  }
-});
-app.get("/get-session", (req, res) => {
-  if (req.session.user) {
-    const id = req.session.user.id;
-    // 세션에 사용자 정보가 있는 경우
-    res.status(200).json(id);
-  } else {
-    // 세션에 사용자 정보가 없는 경우
-    res.status(401).json({ message: "세션에 사용자 정보가 없습니다" });
   }
 });
 //GoalSet.js 사용자 목표설정 db.json에 추가기능

@@ -2,7 +2,7 @@ import React from "react";
 import GoalCircle from "./Goal_Circle"; //Goal_Circle 컴포넌트 임포트
 import News from "./News";
 import Login from "./Login";
-function SideContent({ isLoggedIn, onLogin }) {
+function SideContent({ isLoggedIn, onLogin, sessiondata }) {
   // 로그인 상태를 관리
   return (
     <div id="SideContent">
@@ -12,7 +12,7 @@ function SideContent({ isLoggedIn, onLogin }) {
           <div id="daily-box">
             {/* <p style={{ fontWeight: "bold" }}>안녕하세요! 김멀플님</p> */}
             {/* 위 코드는 <Goal_Circle.js>로 이동 */}
-            <GoalCircle />
+            <GoalCircle sessiondata={sessiondata} />
             {/* 일일 목표랑 그래프 */}
             {/* <div id="graph"></div> */}
             {/* 일일 목표량 확인란 */}

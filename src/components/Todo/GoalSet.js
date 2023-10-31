@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-function GoalSet(sess) {
+function GoalSet({ sessiondata }) {
   const [goal, setGoal] = useState({
     weight: "",
     exercise: "",
@@ -26,7 +26,8 @@ function GoalSet(sess) {
     setGoal({ ...goal, [name]: value });
   };
   const handleGoalSet = () => {
-    const userId = "session";
+    const userId = sessiondata;
+    console.log(userId);
     fetch(`http://localhost:3003/user/${userId}`, {
       method: "PATCH",
       headers: {
@@ -36,7 +37,7 @@ function GoalSet(sess) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         setGoal(goal);
       })
       .catch((error) => {
