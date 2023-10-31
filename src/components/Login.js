@@ -2,6 +2,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -14,23 +16,33 @@ function Login({ onLogin }) {
     <div id="daily-box">
       <div className="Loginbox">
         <div className="LoginTitle">
-          <h1>Hello!</h1>
+          <h1>Welcome!</h1>
         </div>
         <div className="LoginIdPw">
-          <input
-            className="Logininputid"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="사용자명"
-          ></input>
-          <input
-            className="Logininputpassword"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="비밀번호"
-          ></input>
+          <div className="LoginID">
+            <div className="LoginIcon">
+              <FontAwesomeIcon icon={faUser} />
+            </div>
+            <input
+              className="Logininputid"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="사용자명"
+            ></input>
+          </div>
+          <div className="LoginPW">
+            <div className="LoginIcon">
+              <FontAwesomeIcon icon={faLock} />{" "}
+            </div>
+            <input
+              className="Logininputpassword"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="비밀번호"
+            ></input>
+          </div>
         </div>
         <div>
           <label className="LoginCheckbox">

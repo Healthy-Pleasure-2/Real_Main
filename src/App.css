@@ -200,28 +200,40 @@
   text-align: center;
   height: 120px;
   line-height: 120px;
+  -webkit-text-stroke: 1px #386641;
 }
 
-.LoginIdPw {
+.LoginID,
+.LoginPW {
   width: 220px;
+  display: flex;
+  background-color: #F3F5EF;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.LoginIcon {
+  width: 40px;
+  height: 30px;
+  color: #A7C957;
+  line-height: 30px;
+  text-align: center;
 }
 
 .Logininputid,
 .Logininputpassword {
-  width: 220px;
+  width: 180px;
   height: 30px;
   background-color: #F3F5EF;
   border: none;
-  border-radius: 15px;
   font-size: 16px;
-  padding-left: 10px;
   color: #386641;
-  margin-bottom: 10px;
 }
 
 .Logininputid:focus,
 .Logininputpassword:focus {
-  border: 2px solid #A7C957;
+  /* border: 2px solid #A7C957; */
   outline: none;
 }
 
