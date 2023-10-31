@@ -16,13 +16,19 @@ import axios from "axios";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [sessiondata, setSessiondata] = useState();
   //쿠키값이 남아있으면 로그인 유지
   useEffect(() => {
     // 컴포넌트가 마운트될 때, 로그인 상태 확인
     axios
       .get("http://localhost:3003/cookie", { withCredentials: true })
-      .then(() => {
-        setIsLoggedIn(true);
+      .then((response) => response.data)
+      .then((data) => {
+        //console.log(data);
+        if (data.message === "로그인상태") {
+          setIsLoggedIn(true);
+          setSessiondata(data.userid);
+        }
       })
       .catch(() => {
         setIsLoggedIn(false);
@@ -48,6 +54,7 @@ function App() {
         .then((data) => {
           if (data.message === "로그인 성공") {
             setIsLoggedIn(true);
+            setSessiondata(data.userid);
           } else {
             alert("로그인 실패");
           }
@@ -67,20 +74,24 @@ function App() {
       .get("http://localhost:3003/logout", { withCredentials: true })
       .then(() => {
         setIsLoggedIn(false);
+        setSessiondata("");
       })
       .catch((error) => {
         console.error("로그아웃 오류:", error);
       });
   };
-
   return (
     <div className="App">
       <div className="wrap">
         <SideMenu onLogout={handleLogout} isLoggedIn={isLoggedIn}></SideMenu>
-        <PageContent isLoggedIn={isLoggedIn}></PageContent>
+        <PageContent
+          isLoggedIn={isLoggedIn}
+          sessiondata={sessiondata}
+        ></PageContent>
         <SideContent
           isLoggedIn={isLoggedIn}
           onLogin={handleLogin}
+          sessiondata={sessiondata}
         ></SideContent>
       </div>
     </div>
