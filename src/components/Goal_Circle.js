@@ -19,40 +19,99 @@
 
 import React, { useState, useEffect } from "react";
 import "./Goal_Circle.css";
+import { useSelector } from 'react-redux';
+
+const Profile = () => {
+  const user = useSelector((state) => state.user.user); // 사용자 정보 가져오기
+
+  if (user) {
+    return (
+      <div>
+        <h2>{user.name}</h2>
+        <p>Email: {user.email}</p>
+        {/* 다른 사용자 정보 출력 */}
+      </div>
+    );
+  } else {
+    return <div>No user information available.</div>;
+  }
+};
 
 function Goal_Circle() {
-  const [weight, setWeight] = useState("0");
-  const [exercise, setExercise] = useState("0");
-  const [diet, setDiet] = useState("0");
+  const [input_weight, setWeight] = useState("0");
+  const [input_exercise, setExercise] = useState("0");
+  const [input_diet, setDiet] = useState("0");
+
   const [weightStrokeDasharray, setWeightStrokeDasharray] = useState("0");
   const [exerciseStrokeDasharray, setExerciseStrokeDasharray] = useState("0");
   const [dietStrokeDasharray, setDietStrokeDasharray] = useState("0");
-  const [username, setUsername] = useState("");
+  const [user_max, setUserdata] = useState("");
 
-  const BaseValue = (weightValue) => {
-    const maxWeight = 100;
+    // 서버에서 사용자 데이터를 가져오는 네트워크 요청
+  useEffect(() => {
+    fetch("http://localhost:3003/Goal")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setUserdata(user_max.name);
+        setWeightStrokeDasharray(BaseValue_weight(parseFloat(data.weight)));
+        setExerciseStrokeDasharray(BaseValue_exercise(parseFloat(data.exercise)));
+        setDietStrokeDasharray(BaseValue_diet(parseFloat(data.diet)));
+      });
+  }, []);
+
+//체중
+  const BaseValue_weight = (weightValue) => {
+    const maxWeight = 1000;
     const minWeight = 0;
-    const maxStrokeDasharray = 100;
-    const minStrokeDasharray = 0;
+    const maxWeightStrokeDasharray = 100;
+    const minWeightStrokeDasharray = 0;
 
     return weightValue >= maxWeight
-      ? maxStrokeDasharray
+      ? maxWeightStrokeDasharray
       : weightValue <= minWeight
-      ? minStrokeDasharray
-      : ((weightValue - minWeight) / (maxWeight - minWeight)) *
-        maxStrokeDasharray;
+      ? minWeightStrokeDasharray
+      : ((weightValue - minWeight) / (maxWeight - minWeight)) * maxWeightStrokeDasharray;
+  };
+
+  //운동
+  const BaseValue_exercise = (exerciseValue) => {
+    const maxExercise = 1000;
+    const minExercise = 0;
+    const maxExerciseStrokeDasharray = 100;
+    const minExerciseStrokeDasharray = 0;
+
+    return exerciseValue >= maxExercise
+      ? maxExerciseStrokeDasharray
+      : exerciseValue <= minExercise
+      ? minExerciseStrokeDasharray
+      : ((exerciseValue - minExercise) / (maxExercise - minExercise)) *maxExerciseStrokeDasharray;
+  };
+
+  //식단
+  const BaseValue_diet = (dietValue) => {
+    const maxDiet = 1000;
+    const minDiet = 0;
+    const maxDietStrokeDasharray = 100;
+    const minDietStrokeDasharray = 0;
+
+    return dietValue >= maxDiet
+      ? maxDietStrokeDasharray
+      : dietValue <= minDiet
+      ? minDietStrokeDasharray
+      : ((dietValue - minDiet) / (maxDiet - minDiet)) *maxDietStrokeDasharray;
   };
 
   const handleInputChange = (inputType, inputValue) => {
-    if (inputType === "weight") {
+    if (inputType === "input_weight") {
       setWeight(inputValue);
-      setWeightStrokeDasharray(BaseValue(parseFloat(inputValue)));
-    } else if (inputType === "exercise") {
+      setWeightStrokeDasharray(BaseValue_weight(parseFloat(inputValue)));
+    } else if (inputType === "input_exercise") {
       setExercise(inputValue);
-      setExerciseStrokeDasharray(BaseValue(parseFloat(inputValue)));
-    } else if (inputType === "diet") {
+      setExerciseStrokeDasharray(BaseValue_exercise(parseFloat(inputValue)));
+    } else if (inputType === "input_diet") {
       setDiet(inputValue);
-      setDietStrokeDasharray(BaseValue(parseFloat(inputValue)));
+      setDietStrokeDasharray(BaseValue_diet(parseFloat(inputValue)));
     }
   };
 
@@ -99,8 +158,8 @@ function Goal_Circle() {
             className="inputbox1"
             type="text"
             placeholder="0"
-            value={weight}
-            onChange={(e) => handleInputChange("weight", e.target.value)}
+            value={input_weight}
+            onChange={(e) => handleInputChange("input_weight", e.target.value)}
           />
           <br></br>
           kg
@@ -111,8 +170,8 @@ function Goal_Circle() {
             className="inputbox2"
             type="text"
             placeholder="0"
-            value={exercise}
-            onChange={(e) => handleInputChange("exercise", e.target.value)}
+            value={input_exercise}
+            onChange={(e) => handleInputChange("input_exercise", e.target.value)}
           />{" "}
           <br></br>
           kcal
@@ -123,8 +182,8 @@ function Goal_Circle() {
             className="inputbox3"
             type="text"
             placeholder="0"
-            value={diet}
-            onChange={(e) => handleInputChange("diet", e.target.value)}
+            value={input_diet}
+            onChange={(e) => handleInputChange("input_diet", e.target.value)}
           />{" "}
           <br></br>
           kcal
