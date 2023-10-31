@@ -10,8 +10,8 @@ import {
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-
 function GoalSet({ sessiondata }) {
+  //console.log(sessiondata);
   const [goal, setGoal] = useState({
     weight: "",
     exercise: "",

@@ -3,6 +3,7 @@ import GoalCircle from "./Goal_Circle"; //Goal_Circle 컴포넌트 임포트
 import News from "./News";
 import Login from "./Login";
 function SideContent({ isLoggedIn, onLogin, sessiondata }) {
+  //console.log(sessiondata);
   // 로그인 상태를 관리
   return (
     <div id="SideContent">

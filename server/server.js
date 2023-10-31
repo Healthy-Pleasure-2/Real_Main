@@ -17,7 +17,7 @@ const app = express(); // Express 앱을 생성
 const port = 3003; // 서버가 사용할 포트 번호를 정의
 const cors = require("cors"); // CORS 미들웨어를 추가
 const fs = require("fs");
-const path = require("path"); // path 모듈
+//const path = require("path"); // path 모듈
 const cookieParser = require("cookie-parser");
 //const users = require("./db.json").user; // db.json 파일에서 사용자 정보를 가져와 변수에 저장
 //const groups = require("./db.json").group; // db.json파일에서 그룹 정보를 가져와 변수에 저장
@@ -59,7 +59,6 @@ app.post("/login", async (req, res) => {
   const { id, pw } = req.body;
   const user = users.find((u) => u.id === id && u.pw === pw);
   if (user) {
-    const usernickname = user.nickname;
     const userid = user.id;
     // 로그인 성공 시 쿠키에 사용자 정보 저장
     req.session.user = user;
@@ -94,7 +93,8 @@ app.get("/logout", (req, res) => {
 app.get("/cookie", (req, res) => {
   if (req.cookies.sessionId) {
     // 로그인한 사용자만 액세스 가능
-    res.status(200).json({ message: "로그인상태" });
+    const userid = req.session.user.id;
+    res.status(200).json({ message: "로그인상태", userid });
   } else {
     res.status(403).json({ message: "로그아웃" });
   }

@@ -21,7 +21,7 @@ import React, { useState, useEffect } from "react";
 import "./Goal_Circle.css";
 
 function Goal_Circle({ sessiondata }) {
-  console.log(sessiondata);
+  //console.log(sessiondata);
   const [weight, setWeight] = useState("0");
   const [exercise, setExercise] = useState("0");
   const [diet, setDiet] = useState("0");

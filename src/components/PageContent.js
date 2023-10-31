@@ -1,7 +1,7 @@
 import AppRoutes from "./AppRoutes";
 
 function PageContent({ isLoggedIn, sessiondata }) {
-  console.log(sessiondata);
+  //console.log(sessiondata);
   return (
     <div id="PageContent">
       <AppRoutes isLoggedIn={isLoggedIn} sessiondata={sessiondata} />
