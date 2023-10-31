@@ -22,8 +22,13 @@ function App() {
     // 컴포넌트가 마운트될 때, 로그인 상태 확인
     axios
       .get("http://localhost:3003/cookie", { withCredentials: true })
-      .then(() => {
-        setIsLoggedIn(true);
+      .then((response) => response.data)
+      .then((data) => {
+        //console.log(data);
+        if (data.message === "로그인상태") {
+          setIsLoggedIn(true);
+          setSessiondata(data.userid);
+        }
       })
       .catch(() => {
         setIsLoggedIn(false);
@@ -78,11 +83,7 @@ function App() {
   return (
     <div className="App">
       <div className="wrap">
-        <SideMenu
-          onLogout={handleLogout}
-          isLoggedIn={isLoggedIn}
-          sessiondata={sessiondata}
-        ></SideMenu>
+        <SideMenu onLogout={handleLogout} isLoggedIn={isLoggedIn}></SideMenu>
         <PageContent
           isLoggedIn={isLoggedIn}
           sessiondata={sessiondata}
@@ -90,6 +91,7 @@ function App() {
         <SideContent
           isLoggedIn={isLoggedIn}
           onLogin={handleLogin}
+          sessiondata={sessiondata}
         ></SideContent>
       </div>
     </div>
