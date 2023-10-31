@@ -9,6 +9,7 @@ import React, { useState, useEffect } from "react";
 import "./styles/GroupPage.css";
 import { useParams } from "react-router-dom";
 import getGroupData from "../components/Community/getGroupData";
+import errorImage from "../asset/error.png";
 
 function GroupPage({ isLoggedIn }) {
   // 버튼 클릭시 댓글창 보이기
@@ -35,8 +36,9 @@ function GroupPage({ isLoggedIn }) {
 
   //-----------23.10.17 / 정은정 / 그룹연결--------
   const { groupID } = useParams();
-  console.log("그룹 아이디는", groupID);
   const [groupInfo, setGroupInfo] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
+
   useEffect(() => {
     const fetchGroupData = async () => {
       try {
@@ -48,10 +50,11 @@ function GroupPage({ isLoggedIn }) {
           setGroupInfo(group);
           // 그룹 정보를 이용한 다른 로직 처리
         } else {
-          // 해당 그룹이 없을 때의 처리
+          setErrorMessage("그룹 데이터를 찾을 수 없습니다.");
         }
       } catch (error) {
         // 에러 핸들링
+        setErrorMessage("그룹 데이터를 불러오는 중에 문제가 발생했습니다.");
         console.error(error);
       }
     };
@@ -60,70 +63,78 @@ function GroupPage({ isLoggedIn }) {
 
   return (
     <div id="GroupPage">
-      <div id="frame">
-        <div className="top">
-          {isLoggedIn && <button onClick={toggleDiv}>참여하기</button>}
-          <h2>{groupInfo.name}</h2>
-          <div id="category">{groupInfo.category}</div>
-        </div>
-
-        <div className="intro">
-          <div className="goal">
-            <div id="title1">목 표</div>
-            <div className="content">{groupInfo.goal}</div>
-          </div>
-          <div className="groupIntro">
-            <div id="title2">소 개</div>
-            <div className="content">{groupInfo.groupintro}</div>
+      {errorMessage ? (
+        <div className="GroupPage-error">
+          <div className="error-container">
+            <img src={errorImage} alt="Error" />
+            <h1>{errorMessage}</h1>
           </div>
         </div>
+      ) : (
+        <div id="frame">
+          <div className="top">
+            {isLoggedIn && <button onClick={toggleDiv}>참여하기</button>}
+            <h2>{groupInfo.name}</h2>
+            <div id="category">{groupInfo.category}</div>
+          </div>
 
-        {/* 댓글 기능 */}
-        {showDiv && (
-          <div className="comment">
-            <div className="commentTitle">소통해요</div>
-
-            {/* 댓글 리스트 */}
-            <div className="commentList">
-              {comments.map((comment) => (
-                <div key={comment.id} className="commentIndex">
-                  <h4>{comment.author}</h4>
-                  <p>{comment.text}</p>
-                  <button
-                    className="delete"
-                    onClick={() => deleteComment(comment.id)}
-                  >
-                    X
-                  </button>
-                </div>
-              ))}
+          <div className="intro">
+            <div className="goal">
+              <div id="title1">목 표</div>
+              <div className="content">{groupInfo.goal}</div>
             </div>
-
-            {/* 댓글 작성란 */}
-            <div className="commentInput">
-              <input
-                type="text"
-                maxlength="4"
-                placeholder="닉네임"
-                value={newComment.author}
-                onChange={(e) =>
-                  setNewComment({ ...newComment, author: e.target.value })
-                }
-              />
-              <input
-                type="text"
-                maxlength="100"
-                placeholder="댓글달기"
-                value={newComment.text}
-                onChange={(e) =>
-                  setNewComment({ ...newComment, text: e.target.value })
-                }
-              />
-              <button onClick={addComment}>게시</button>
+            <div className="groupIntro">
+              <div id="title2">소 개</div>
+              <div className="content">{groupInfo.groupintro}</div>
             </div>
           </div>
-        )}
-      </div>
+
+          {/* 댓글 기능 */}
+          {showDiv && (
+            <div className="comment">
+              <div className="commentTitle">소통해요</div>
+
+              {/* 댓글 리스트 */}
+              <div className="commentList">
+                {comments.map((comment) => (
+                  <div key={comment.id} className="commentIndex">
+                    <h4>{comment.author}</h4>
+                    <p>{comment.text}</p>
+                    <button
+                      className="delete"
+                      onClick={() => deleteComment(comment.id)}
+                    >
+                      X
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              {/* 댓글 작성란 */}
+              <div className="commentInput">
+                <input
+                  type="text"
+                  maxLength="4"
+                  value={newComment.author}
+                  onChange={(e) =>
+                    setNewComment({ ...newComment, author: e.target.value })
+                  }
+                />
+                <input
+                  type="text"
+                  maxLength="100"
+                  placeholder="댓글달기"
+                  value={newComment.text}
+                  onChange={(e) =>
+                    setNewComment({ ...newComment, text: e.target.value })
+                  }
+                />
+                <button onClick={addComment}>게시</button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

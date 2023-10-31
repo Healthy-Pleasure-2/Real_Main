@@ -61,20 +61,6 @@
   text-align: left;
 }
 
-/* #tab1:checked ~ #notice_N,   
-#tab2:checked ~ #notice_ask,
-#tab3:checked ~ #notice_inquiry { 
-  display: block;
-} */
-/* 
-.notice-title,
-#notice_ask p {
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: #01352C;
-  /* padding-top: 40px; */
-/* } */
-
 .tabcontent {
   display: none;
 }
@@ -122,7 +108,7 @@
 
 .Inquiry_left .icon {
   width: 100%;
-  background-image: url(../../ask2.png);
+  background-image: url(../../asset/ask2.png);
   background-size: contain;
   background-repeat: no-repeat;
   height: 60%;
