@@ -7,6 +7,8 @@ import React, { useState, useEffect } from "react";
 import "../../Pages/styles/Community.css";
 import { Link } from "react-router-dom";
 import throttle from "lodash/throttle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 function Groupintro({ groupData, selectedCategory }) {
   const [itemsCount, setItemsCount] = useState(6); // 초기 갤러리 아이템 수
@@ -89,6 +91,7 @@ function Groupintro({ groupData, selectedCategory }) {
                     <h2>{group.name}</h2>
                     <h3>{group.goal}</h3>
                     <p>{group.grouptotal}명</p>
+                    <FontAwesomeIcon icon={faUser} />
                   </div>
                   {/* <div className="Community_caption">
                   <p className="Community_captionname">{group.name}</p>

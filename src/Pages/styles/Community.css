@@ -287,12 +287,11 @@
 
 
 .Community_Gitem .Community_cardcontent {
-    width: 60%;
+    width: 65%;
     height: 100%;
     float: left;
     overflow: hidden;
     white-space: nowrap;
-    /* 왜 안될까여... */
     text-overflow: ellipsis;
     padding: 2% 0 0 3%;
     color: #386641;
@@ -312,10 +311,21 @@
 }
 
 .Community_Gitem .Community_cardcontent p {
+    width: 15%;
     font-size: 10%;
     color: #686868;
-    line-height: 0.6rem;
     text-align: end;
+    height: 20%;
+    float: right;
+    margin-right: 2%;
+}
+
+.Community_Gitem .Community_cardcontent svg {
+    width: 10%;
+    float: right;
+    color: #686868;
+    height: 13%;
+    min-height: 11px;
 }
 
 /*캡션*/
