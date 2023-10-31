@@ -19,25 +19,8 @@
 
 import React, { useState, useEffect } from "react";
 import "./Goal_Circle.css";
-import { useSelector } from 'react-redux';
 
-const Profile = () => {
-  const user = useSelector((state) => state.user.user); // 사용자 정보 가져오기
-
-  if (user) {
-    return (
-      <div>
-        <h2>{user.name}</h2>
-        <p>Email: {user.email}</p>
-        {/* 다른 사용자 정보 출력 */}
-      </div>
-    );
-  } else {
-    return <div>No user information available.</div>;
-  }
-};
-
-function Goal_Circle() {
+function Goal_Circle({ sessiondata }) {
   const [input_weight, setWeight] = useState("0");
   const [input_exercise, setExercise] = useState("0");
   const [input_diet, setDiet] = useState("0");
@@ -193,8 +176,6 @@ function Goal_Circle() {
   );
 }
 export default Goal_Circle;
-
-
 
 /*초안*/
 /*
