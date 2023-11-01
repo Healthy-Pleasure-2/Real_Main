@@ -202,16 +202,16 @@
 .LoginTitle h1 {
   height: 50px;
   line-height: 50px;
-  color: #386641;
+  color: #1f3d25;
   font-size: 1.7rem;
-  -webkit-text-stroke: 1px #386641;
+  -webkit-text-stroke: 0.6px #1f3d25;
   margin-top: 30px;
 }
 
 .LoginTitle h5 {
   width: 100%;
   height: 80px;
-  color: #636764;
+  color: #828683;
 }
 
 .LoginID,

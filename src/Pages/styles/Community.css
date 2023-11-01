@@ -129,13 +129,11 @@
     border-radius: 10px;
     border: none;
     font-weight: 600;
-    box-shadow: inset 1.5px 1.5px 2px 0px rgba(255, 255, 255, .5);
 }
 
 .Community_groupbtn button:hover {
     background-color: #A7C957;
     transition: 0.2s ease-in-out;
-    box-shadow: inset 1.5px 1.5px 2px 0px rgba(27, 86, 3, 0.5);
 }
 
 
