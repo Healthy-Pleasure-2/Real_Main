@@ -51,8 +51,7 @@ app.use(
     cookie: { secure: false }, // 클라이언트와 서버간의 HTTPS 통신에서만 쿠키 전송
   })
 );
-//비동기적으로
-//Login
+//APP.js 에서 불러옴
 app.post("/login", async (req, res) => {
   const data = await Datafc();
   const users = data.user;
@@ -66,7 +65,7 @@ app.post("/login", async (req, res) => {
     res.cookie("sessionId", req.session.id, {
       path: "/",
       httpOnly: true,
-      secure: true,
+      //secure: true,
       maxAge: 1800000,
     }); // 0.5시간 동안 유효
     //res.cookie('user', JSON.stringify(user), { maxAge: 900000, httpOnly: true }); //쿠키 저장, 15분
@@ -75,7 +74,7 @@ app.post("/login", async (req, res) => {
     res.status(401).json({ message: "로그인 실패" });
   }
 });
-//Logout
+//Logout  //APP.js 에서 불러옴
 app.get("/logout", (req, res) => {
   // 세션 쿠키 삭제
   req.session.destroy((err) => {
@@ -89,16 +88,24 @@ app.get("/logout", (req, res) => {
     }
   });
 });
-//쿠키 설정으로 쿠키 로그 확인
-app.get("/cookie", (req, res) => {
-  if (req.cookies.sessionId) {
-    // 로그인한 사용자만 액세스 가능
-    const userid = req.session.user.id;
-    res.status(200).json({ message: "로그인상태", userid });
-  } else {
-    res.status(403).json({ message: "로그아웃" });
-  }
-});
+//쿠키 설정으로 쿠키 로그 확인    //APP.js 에서 불러옴
+app.get(
+  "/cookie",
+  (req, res) => {
+    if (req.cookies.sessionId) {
+      // 로그인한 사용자만 액세스 가능
+      if (req.session.user) {
+        // 로그인한 사용자만 액세스 가능
+        const userid = req.session.user.id;
+        res.status(200).json({ message: "로그인상태", userid });
+      } /*else {
+      // 로그인하지 않은 경우
+      res.status(403).json({ message: "로그인하지 않았습니다." });*/
+    }
+  } /*else {
+    res.status(403).json({ message: "세션 ID가 없습니다." });
+  }  이코드를 추가 하니까 오류칸에 오류로 설정된다.*/
+);
 //GoalSet.js 사용자 목표설정 db.json에 추가기능
 app.patch("/user/:id", async (req, res) => {
   const userId = req.params.id;
@@ -111,7 +118,6 @@ app.patch("/user/:id", async (req, res) => {
     // db.json 파일에서 user 정보만 users 정보에 담기
 
     const data = await Datafc();
-
     const users = data.user;
     //console.log(users);
     const groups = data.group;
@@ -145,7 +151,31 @@ app.patch("/user/:id", async (req, res) => {
   }
 });
 
-//그룹을 요청처리하는 라우트
+//Slide에서 불러옴
+app.get("/mygroup/:id", async (req, res) => {
+  const userId = req.params.id;
+  try {
+    // 읽어온 데이터 객체를 클라이언트로 반환
+    const data = await Datafc();
+    const users = data.user;
+    const groups = data.group;
+    const user = users.find((u) => u.id === userId); //로그인한 유저찾기
+    if (user) {
+      const userGroupIds = user.group; // 사용자의 그룹 아이디 배열
+      // userGroupIds와 groups에서 일치하는 그룹을 찾음
+      const userGroups = groups.filter((group) =>
+        userGroupIds.includes(group.id)
+      );
+      res.json(userGroups);
+    } else {
+      res.status(404).json({ message: "사용자를 찾을 수 없습니다." });
+    }
+  } catch (error) {
+    console.error("파일 작업 중 오류 발생:", error);
+    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
+  }
+});
+//그룹을 요청처리하는 라우트  //Community.js에서 불러옴
 app.get("/group", async (req, res) => {
   try {
     const data = await Datafc();
@@ -156,7 +186,7 @@ app.get("/group", async (req, res) => {
     res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
   }
 });
-//그룹 추가하는 라우트
+//그룹 추가하는 라우트  //Groupcreate.js에서 불러옴
 app.post("/groupadd", async (req, res) => {
   const newGroup = req.body;
   try {
@@ -181,6 +211,7 @@ app.post("/groupadd", async (req, res) => {
     res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
   }
 });
+//Signup.js에서 불러옴 회원가입하는 API
 app.post("/Signup", async (req, res) => {
   const newuser = req.body;
   try {
@@ -196,7 +227,7 @@ app.post("/Signup", async (req, res) => {
       gende: newuser.gende,
       nickname: newuser.nickname,
       email: newuser.email,
-      group: "",
+      group: [],
       weight: "",
       exercise: "",
       diet: "",
