@@ -10,8 +10,9 @@ import "./styles/GroupPage.css";
 import { useParams } from "react-router-dom";
 import getGroupData from "../components/Community/getGroupData";
 import errorImage from "../asset/error.png";
+import axios from "axios";
 
-function GroupPage({ isLoggedIn }) {
+function GroupPage({ isLoggedIn, sessiondata }) {
   // 버튼 클릭시 댓글창 보이기
   const [showDiv, setShowDiv] = useState(false);
   const toggleDiv = () => {
@@ -20,16 +21,17 @@ function GroupPage({ isLoggedIn }) {
 
   // 댓글입력 및 삭제
   const [comments, setComments] = useState([]);
-  const [newCommentAuthor, setNewCommentAuthor] = useState("");
+  // const [newCommentAuthor, setNewCommentAuthor] = useState("");
   const [newCommentText, setNewCommentText] = useState("");
+  const [nickName, setNickName] = useState("");
 
   const addComment = () => {
-    if (newCommentAuthor && newCommentText) {
+    if (newCommentText) {
       setComments([
         ...comments,
-        { author: newCommentAuthor, text: newCommentText, id: Date.now() },
+        { author: nickName, text: newCommentText, id: Date.now() },
       ]);
-      setNewCommentAuthor("");
+      setNickName("");
       setNewCommentText("");
     }
   };
@@ -38,8 +40,6 @@ function GroupPage({ isLoggedIn }) {
     const updatedComments = comments.filter((comment) => comment.id !== id);
     setComments(updatedComments);
   };
-
-  // 닉네임값 불러오기 작업하기
 
   //-----------23.10.17 / 정은정 / 그룹연결--------
   const { groupID } = useParams();
@@ -64,7 +64,23 @@ function GroupPage({ isLoggedIn }) {
       }
     };
     fetchGroupData();
-  }, [groupID]);
+
+    // 닉네임값 불러오기 작업
+    if (sessiondata) {
+      const userid = sessiondata;
+      // 데이터를 비동기적으로 가져옵니다.
+      axios
+        .get(`http://localhost:3003/groupPage/${groupID}/${userid}`)
+        .then((response) => {
+          const responseData = response.data;
+          // 데이터가 정상적으로 로드됨
+          setNickName(responseData.nickname);
+        })
+        .catch((error) => {
+          console.error("데이터를 가져오지 못함", error);
+        });
+    }
+  }, [groupID, sessiondata]);
 
   return (
     <div id="GroupPage">
@@ -131,13 +147,7 @@ function GroupPage({ isLoggedIn }) {
 
               {/* 댓글 작성란 */}
               <div className="commentInput">
-                <input
-                  type="text"
-                  maxLength="4"
-                  placeholder="닉네임"
-                  value={newCommentAuthor}
-                  onChange={(e) => setNewCommentAuthor(e.target.value)}
-                />
+                <div>{nickName}</div>
                 <input
                   type="text"
                   maxLength="100"

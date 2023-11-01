@@ -90,15 +90,15 @@ app.get("/logout", (req, res) => {
   });
 });
 //쿠키 설정으로 쿠키 로그 확인
-app.get("/cookie", (req, res) => {
-  if (req.cookies.sessionId) {
-    // 로그인한 사용자만 액세스 가능
-    const userid = req.session.user.id;
-    res.status(200).json({ message: "로그인상태", userid });
-  } else {
-    res.status(403).json({ message: "로그아웃" });
-  }
-});
+// app.get("/cookie", (req, res) => {
+//   if (req.cookies.sessionId) {
+//     // 로그인한 사용자만 액세스 가능
+//     const userid = req.session.user.id;
+//     res.status(200).json({ message: "로그인상태", userid });
+//   } else {
+//     res.status(403).json({ message: "로그아웃" });
+//   }
+// });
 //GoalSet.js 사용자 목표설정 db.json에 추가기능
 app.patch("/user/:id", async (req, res) => {
   const userId = req.params.id;
@@ -213,4 +213,22 @@ app.post("/Signup", async (req, res) => {
 //실행중
 app.listen(port, () => {
   console.log(`서버가 ${port} 포트에서 실행 중입니다.`);
+});
+
+app.get("/groupPage/:id", async (req, res) => {
+  const userId = req.params.id;
+  try {
+    const jsonData = await fs.promises.readFile("./db.json", "utf8");
+    const data = JSON.parse(jsonData);
+    const user = data.user.find((u) => u.id === userId);
+    if (user) {
+      const nickname = user.nickname;
+      res.status(200).json({ nickname });
+    } else {
+      res.status(404).json({ message: "사용자를 찾을 수 없습니다" });
+    }
+  } catch (error) {
+    console.error("server.js 파일 처리 오류:", error);
+    res.status(500).json({ message: "서버 오류" });
+  }
 });
