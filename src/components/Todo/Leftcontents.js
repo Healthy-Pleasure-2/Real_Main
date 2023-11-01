@@ -91,6 +91,7 @@ function LeftContents() {
                 </p>
                 <button
                   className="todo_delete"
+                  style={{ background: item.checked ? "#a2a1a1" : "#f84949" }}
                   onClick={() => {
                     remove(item.id);
                   }}
