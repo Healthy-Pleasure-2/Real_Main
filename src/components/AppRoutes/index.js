@@ -9,11 +9,11 @@ import Mypage from "../../Pages/Mypage";
 import Signup from "../../Pages/Signup";
 import IdPw from "../../Pages/Id_pw";
 
-function AppRoutes({ isLoggedIn }) {
+function AppRoutes({ isLoggedIn, sessiondata }) {
   return (
     <Routes>
       <Route path="/" element={<Main />}></Route>
-      <Route path="/todo" element={<Todo />}></Route>
+      <Route path="/todo" element={<Todo sessiondata={sessiondata} />}></Route>
       <Route
         path="/community"
         element={<Community isLoggedIn={isLoggedIn} />}

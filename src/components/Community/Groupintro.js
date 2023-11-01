@@ -79,18 +79,18 @@ function Groupintro({ groupData, selectedCategory }) {
           {visibleGalleryItems.length === 0 ? (
             <p>No groups found</p>
           ) : (
-            visibleGalleryItems.map((group) => (
-              <div className="Community_Gitem" key={group.id}>
-                <Link to={`/GroupPage/${group.id}`} key={group.id}>
+            visibleGalleryItems.map((item_group) => (
+              <div className="Community_Gitem" key={item_group.id}>
+                <Link to={`/GroupPage/${item_group.id}`}>
                   <img
                     className="Community_Gcardimg"
-                    src={group.img}
-                    alt={group.name}
+                    src={item_group.img}
+                    alt={item_group.name}
                   />
                   <div className="Community_cardcontent">
-                    <h2>{group.name}</h2>
-                    <h3>{group.goal}</h3>
-                    <p>{group.grouptotal}명</p>
+                    <h2>{item_group.name}</h2>
+                    <h3>{item_group.goal}</h3>
+                    <p>{item_group.grouptotal}명</p>
                     <FontAwesomeIcon icon={faUser} />
                   </div>
                   {/* <div className="Community_caption">
@@ -105,12 +105,12 @@ function Groupintro({ groupData, selectedCategory }) {
         </div>
       </div>
       <div className="Community_Grouplistbtn">
-        {Array.from({ length: endPage - startPage + 1 }).map((_, index) => (
+        {Array.from({ length: endPage - startPage + 1 }).map((_, btn_index) => (
           <button
-            key={startPage + index}
-            onClick={() => handlePageClick(startPage + index)}
+            key={startPage + btn_index}
+            onClick={() => handlePageClick(startPage + btn_index)}
           >
-            {startPage + index}
+            {startPage + btn_index}
           </button>
         ))}
       </div>

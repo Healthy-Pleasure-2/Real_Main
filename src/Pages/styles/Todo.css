@@ -750,3 +750,9 @@ button {
 }
 
 @media screen and (max-width:767px) {}
+
+/*그룹 관련 스타일*/
+.slide_nodataGroup{
+  padding: 35px;
+  padding-top: 75px;
+}
