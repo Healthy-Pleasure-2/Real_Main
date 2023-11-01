@@ -14,8 +14,6 @@ import React, { useState, useEffect } from "react";
 import "./styles/main.css";
 import PopularRank from "../components/Community/PopularRank";
 import getGroupData from "../components/Community/getGroupData";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBullhorn, faComments } from "@fortawesome/free-solid-svg-icons";
 // 배너
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -44,7 +42,7 @@ function Main() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4000,
     pauseOnHover: true,
     arrow: false,
   };
@@ -57,9 +55,9 @@ function Main() {
           <div className="banner_inner">
             <div className="banner_image"></div>
             <div className="banner_title">
-              <h3>목표 달성을 위한 커뮤니티</h3>
+              <h3>Everyday! WE RUN!</h3>
               <h1>Healthy Pleasure</h1>
-              <p>커뮤니티를 통해 크루들과 함께하는 즐겁고 지속적인 건강관리</p>
+              <p>건강한 삶을 향한 즐거운 여정, 헬시플레저와 함께!</p>
               <div className="bt1">
                 <button>Show Now</button>
               </div>
@@ -70,9 +68,9 @@ function Main() {
           <div className="banner_inner">
             <div className="banner_image"></div>
             <div className="banner_title">
-              <h3>나만의 건강관리를 공유해보세요</h3>
+              <h3>목표 달성을 위한 커뮤니티</h3>
               <h1>Healthy Pleasure</h1>
-              <p>커뮤니티를 통해 크루들과 함께하는 즐겁고 지속적인 건강관리</p>
+              <p>성취감의 즐거움으로 더 건강하게! 헬시플레저와 함께!</p>
               <div className="bt1">
                 <button>Show Now</button>
               </div>
@@ -85,7 +83,7 @@ function Main() {
             <div className="banner_title">
               <h3>오늘도 다함께 GO! GO!</h3>
               <h1>Healthy Pleasure</h1>
-              <p>커뮤니티를 통해 크루들과 함께하는 즐겁고 지속적인 건강관리</p>
+              <p>건강한 습관을 즐거운 습관으로 바꾸는 곳, 헬시플레저!</p>
               <div className="bt1">
                 <button>Show Now</button>
               </div>
@@ -96,9 +94,9 @@ function Main() {
           <div className="banner_inner">
             <div className="banner_image"></div>
             <div className="banner_title">
-              <h3>Everyday! WE RUN!</h3>
+              <h3>나만의 건강관리를 공유해보세요</h3>
               <h1>Healthy Pleasure</h1>
-              <p>커뮤니티를 통해 크루들과 함께하는 즐겁고 지속적인 건강관리</p>
+              <p>크루들과 함께하는 더욱 즐거운 건강습관 헬씨플레져!</p>
               <div className="bt1">
                 <button>Show Now</button>
               </div>
@@ -111,7 +109,7 @@ function Main() {
         <div className="title">
           <div className="title_inner">
             <h3>
-              TOP <span>3</span>
+              인기 그룹 TOP <span>3</span>
             </h3>
             <p>크루가 많은 상위 커뮤니티</p>
             <p>지금 참가해 보세요.</p>
@@ -127,7 +125,7 @@ function Main() {
         <div className="Notice">
           <div className="etc_content">
             <h3>NOTICE</h3>
-            <p>다양한 소식, 뉴스, 이벤트등을 볼 수 있습니다.</p>
+            <p>다양한 소식, 뉴스, 이벤트등을 확인 할 수 있습니다.</p>
           </div>
           <div className="etc_icon1">
             <img src={notice} alt="공지사항" />
@@ -137,7 +135,7 @@ function Main() {
         <div className="Question">
           <div className="etc_content">
             <h3>FAQ</h3>
-            <p>다양한 소식, 뉴스, 이벤트등을 볼 수 있습니다.</p>
+            <p>궁금한 사항이 있다면 자주 묻는 질문을 확인해 보세요.</p>
           </div>
           <div className="etc_icon2">
             <img src={FAQ} alt="자주묻는질문" />

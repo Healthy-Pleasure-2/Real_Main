@@ -176,12 +176,13 @@
 }
 
 .right-sidebar {
-  margin: 30px;
+  padding: 30px;
+  height: 100%;
 }
 
 /******* 데일리 상태 박스 *******/
 #daily-box {
-  height: 350px;
+  height: 400px;
   background-color: #fff;
   box-shadow: 5px 5px 15px rgba(8, 28, 21, 0.25);
   border-radius: 15px;
@@ -194,38 +195,60 @@
   height: 100%;
 }
 
-.LoginTitle h1 {
-  color: #386641;
-  font-size: 1.7rem;
+.LoginTitle {
   text-align: center;
-  height: 120px;
-  line-height: 120px;
 }
 
-.LoginIdPw {
+.LoginTitle h1 {
+  height: 50px;
+  line-height: 50px;
+  color: #386641;
+  font-size: 1.7rem;
+  -webkit-text-stroke: 1px #386641;
+  margin-top: 30px;
+}
+
+.LoginTitle h5 {
+  width: 100%;
+  height: 80px;
+  color: #636764;
+}
+
+.LoginID,
+.LoginPW {
   width: 220px;
+  display: flex;
+  background-color: #F3F5EF;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.LoginIcon {
+  width: 40px;
+  height: 30px;
+  color: #A7C957;
+  line-height: 30px;
+  text-align: center;
 }
 
 .Logininputid,
 .Logininputpassword {
-  width: 220px;
+  width: 180px;
   height: 30px;
   background-color: #F3F5EF;
   border: none;
-  border-radius: 15px;
   font-size: 16px;
-  padding-left: 10px;
   color: #386641;
-  margin-bottom: 10px;
 }
 
 .Logininputid:focus,
 .Logininputpassword:focus {
-  border: 2px solid #A7C957;
+  /* border: 2px solid #A7C957; */
   outline: none;
 }
 
-.LoginCheckbox {
+/* .LoginCheckbox {
   color: #386641;
   font-size: 12px;
   float: right;
@@ -235,24 +258,50 @@
 .LoginCheckbox input {
   margin-right: 5px;
   accent-color: #A7C957;
-}
+} */
 
 .Loginbtn {
   width: 220px;
   height: 40px;
   border-radius: 20px;
-  background-color: #fff;
-  border: 1px solid #A7C957;
-  color: #A7C957;
+  background: #A7C957;
+  border: none;
+  color: #fff;
   font-size: 15px;
   font-weight: bold;
   text-align: center;
+  margin-top: 10px;
 }
 
 .Loginbtn:hover {
-  background-color: #A7C957;
+  background-color: #386641;
   color: #fff;
   transition: 0.3s ease-in-out;
+}
+
+.LoginSns {
+  width: 220px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid #A7C957;
+  color: #A7C957;
+  line-height: 30px;
+  text-align: center;
+  display: flex;
+  margin-top: 10px;
+}
+
+.LoginSns p:first-child {
+  width: 50%;
+  border-right: 1px solid #A7C957;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.LoginSns p {
+  width: 16%;
+  cursor: pointer;
+
 }
 
 .LoginFind {
@@ -263,23 +312,18 @@
 
 .LoginFind button {
   background: none;
-  padding-right: 5px;
-  padding-left: 5px;
   font-size: 0.75rem;
 }
 
 .LoginbtnLink {
   text-decoration: none;
-  /* 밑줄 제거 */
   color: inherit;
+  padding-right: 5px;
 }
 
 .LoginIdPwFind {
   height: 20px;
-  border-left: none;
-  border-top: none;
-  border-right: 1px solid #386641;
-  border-bottom: none;
+  border: none;
   color: #386641;
 }
 
@@ -287,6 +331,7 @@
   border: none;
   color: #386641;
   font-weight: 600;
+  padding-left: 5px;
 }
 
 /******* 로그인 끝 *******/
@@ -296,7 +341,8 @@
 
 /******* 뉴스 *******/
 #news {
-  height: 200px;
+  height: calc(100% - 500px);
+  min-height: 130px;
   background-color: #fff;
   box-shadow: 5px 5px 15px rgba(8, 28, 21, 0.25);
   margin-top: 20px;
@@ -310,24 +356,26 @@
   height: 90%;
   margin: 0 auto;
   padding: 10px;
-  overflow: auto;
-}
-
-.news-container::-webkit-scrollbar {
-  width: 0;
+  overflow: hidden;
 }
 
 .news-title {
   font-size: 20px;
   margin: 10px 0;
   color: #386641;
+  height: 15%;
 }
 
 .news-list {
   list-style: none;
   padding: 0;
   font-size: 13px;
-  height: 80%;
+  height: 85%;
+  overflow: auto;
+}
+
+.news-list::-webkit-scrollbar {
+  width: 0;
 }
 
 .news-item {
@@ -359,6 +407,7 @@
   border-top: 1px solid #7b7b7b;
   padding: 15px 30px 30px;
   font-size: 12px;
+  height: 80px;
 }
 
 /************* PageContent 끝 *************/
