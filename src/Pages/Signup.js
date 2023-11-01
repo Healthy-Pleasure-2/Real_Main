@@ -7,6 +7,7 @@
 import React, { useState } from "react";
 import "./styles/Signup.css";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Signup() {
   const navigate = useNavigate();
@@ -86,11 +87,20 @@ function Signup() {
         body: JSON.stringify(formData),
       })
         .then(() => {
-          window.alert("회원가입 성공! HP에 오신걸 환영합니다.");
-          navigate("/");
+          Swal.fire({
+            icon: "success",
+            title: "환영합니다",
+            text: "회원가입 성공!!",
+          }).then(() => {
+            navigate("/");
+          });
         })
         .catch((error) => {
-          window.alert("회원가입이 정상적으로 되지 않았습니다.");
+          Swal.fire({
+            icon: "error",
+            title: "죄송합니다.",
+            text: "회원가입이 정상적으로 되지 않았습니다.",
+          });
           console.log(error);
         });
     }

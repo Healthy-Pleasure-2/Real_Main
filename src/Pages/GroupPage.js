@@ -10,8 +10,9 @@ import "./styles/GroupPage.css";
 import { useParams } from "react-router-dom";
 import getGroupData from "../components/Community/getGroupData";
 import errorImage from "../asset/error.png";
+import axios from "axios";
 
-function GroupPage({ isLoggedIn }) {
+function GroupPage({ isLoggedIn, sessiondata }) {
   // 버튼 클릭시 댓글창 보이기
   const [showDiv, setShowDiv] = useState(false);
   const toggleDiv = () => {
@@ -20,12 +21,18 @@ function GroupPage({ isLoggedIn }) {
 
   // 댓글입력 및 삭제
   const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState({ author: "", text: "" });
+  // const [newCommentAuthor, setNewCommentAuthor] = useState("");
+  const [newCommentText, setNewCommentText] = useState("");
+  const [nickName, setNickName] = useState("");
 
   const addComment = () => {
-    if (newComment.author && newComment.text) {
-      setComments([...comments, { ...newComment, id: Date.now() }]);
-      setNewComment({ author: "", text: "" });
+    if (newCommentText) {
+      setComments([
+        ...comments,
+        { author: nickName, text: newCommentText, id: Date.now() },
+      ]);
+      setNickName("");
+      setNewCommentText("");
     }
   };
 
@@ -44,8 +51,6 @@ function GroupPage({ isLoggedIn }) {
       try {
         const data = await getGroupData(); // getGroupData 함수로 그룹 데이터 가져오기
         const group = data.find((item) => item.id === parseInt(groupID, 10));
-        console.log("그룹의 값은", groupID);
-        console.log("데이트 find값", data);
         if (group) {
           setGroupInfo(group);
           // 그룹 정보를 이용한 다른 로직 처리
@@ -59,7 +64,23 @@ function GroupPage({ isLoggedIn }) {
       }
     };
     fetchGroupData();
-  }, [groupID]);
+
+    // 닉네임값 불러오기 작업
+    if (sessiondata) {
+      const userid = sessiondata;
+      // 데이터를 비동기적으로 가져옵니다.
+      axios
+        .get(`http://localhost:3003/groupPage/${groupID}/${userid}`)
+        .then((response) => {
+          const responseData = response.data;
+          // 데이터가 정상적으로 로드됨
+          setNickName(responseData.nickname);
+        })
+        .catch((error) => {
+          console.error("데이터를 가져오지 못함", error);
+        });
+    }
+  }, [groupID, sessiondata]);
 
   return (
     <div id="GroupPage">
@@ -73,7 +94,11 @@ function GroupPage({ isLoggedIn }) {
       ) : (
         <div id="frame">
           <div className="top">
-            {isLoggedIn && <button onClick={toggleDiv}>참여하기</button>}
+            {isLoggedIn && (
+              <button onClick={toggleDiv}>
+                {showDiv ? "탈퇴하기" : "참여하기"}
+              </button>
+            )}
             <h2>{groupInfo.name}</h2>
             <div id="category">{groupInfo.category}</div>
           </div>
@@ -90,6 +115,16 @@ function GroupPage({ isLoggedIn }) {
           </div>
 
           {/* 댓글 기능 */}
+          {!showDiv && (
+            <div className="comment">
+              <div className="commentTitle">소통해요</div>
+              <div className="comment-error">
+                <img src={errorImage} alt="Error" />
+                <h3>해당 서비스는 커뮤니티 참여시 이용 가능합니다. </h3>
+              </div>
+            </div>
+          )}
+
           {showDiv && (
             <div className="comment">
               <div className="commentTitle">소통해요</div>
@@ -112,22 +147,13 @@ function GroupPage({ isLoggedIn }) {
 
               {/* 댓글 작성란 */}
               <div className="commentInput">
-                <input
-                  type="text"
-                  maxLength="4"
-                  value={newComment.author}
-                  onChange={(e) =>
-                    setNewComment({ ...newComment, author: e.target.value })
-                  }
-                />
+                <div>{nickName}</div>
                 <input
                   type="text"
                   maxLength="100"
                   placeholder="댓글달기"
-                  value={newComment.text}
-                  onChange={(e) =>
-                    setNewComment({ ...newComment, text: e.target.value })
-                  }
+                  value={newCommentText}
+                  onChange={(e) => setNewCommentText(e.target.value)}
                 />
                 <button onClick={addComment}>게시</button>
               </div>

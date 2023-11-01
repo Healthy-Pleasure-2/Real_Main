@@ -1,8 +1,9 @@
 // src/components/GroupCreate.js
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./styles/GroupCreate.css";
 //import getGroupData from "../components/Community/getGroupData";
+
 function GroupCreate() {
   /* 수정전
   const [groupName, setGroupName] = useState("");
@@ -22,13 +23,27 @@ function GroupCreate() {
     groupintro: "",
     img: "",
   });
+
+  // 이미지 미리보기
+  const [imgFile, setImgFile] = useState("");
+  const imgRef = useRef();
+
   const handleGroupDataChange = (event) => {
     const { name, value } = event.target;
     setGroupData({
       ...groupData,
       [name]: value,
     });
+
+    // 이미지 업로드 input의 onChange
+    const file = imgRef.current.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImgFile(reader.result);
+    };
   };
+
   const handleCreateGroup = () => {
     // POST 요청 보내기
     fetch("http://localhost:3003/groupadd", {
@@ -97,14 +112,21 @@ function GroupCreate() {
           </div>
           <div className="rep_img">
             <p>대표이미지</p>
-            <div className="file_img"></div>
-            <label>
+            <div className="file_img">
+              <img
+                src={imgFile ? imgFile : `/images/icon/user.png`}
+                alt="프로필 이미지"
+              />
+            </div>
+            <label htmlFor="profileImg">
               파일 선택
               <input
                 type="file"
                 name="img"
                 value={groupData.img}
                 onChange={handleGroupDataChange}
+                id="profileImg"
+                ref={imgRef}
               ></input>
             </label>
           </div>
