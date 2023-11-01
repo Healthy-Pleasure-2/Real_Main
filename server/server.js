@@ -10,6 +10,7 @@
 231025 이제형, 김장훈 - GoalSet.js 목표설정 업로드기능 구현(수정필요)
 231026 정은정, 김장훈 - 로그인 상태관리 수정
 231029 김장훈 -로그인 시 쿠키에 사용자 이름, 목표값 저장되도록 수정
+231031 김장훈 -Goal_Circle 목표값 처리 추가
 --------------------------------------------------------------------------------------------------------------*/
 const express = require("express");
 const session = require("express-session");
@@ -241,6 +242,31 @@ app.post("/Signup", async (req, res) => {
     res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
   }
 });
+
+// Goal_Circle, 사용자 weight, exercise, diet 값 처리
+app.get("/user_Goal/:id", async (req, res) => {
+  const userId = req.params.id; // Goal_Circle에서 전달된 사용자 ID
+  try {
+    // db.json 파일 읽어오기
+    const jsonData = await fs.promises.readFile("./db.json", "utf8");
+    // db.json 파일을 자바스크립트 객체로 파싱
+    const data = JSON.parse(jsonData);
+    //db에 저장된 사용자 id와 전달된 id 같은지 찾기
+    const user = data.user.find((u) => u.id === userId);
+    //있으면, 해당 user정보를 가져옴
+    if (user) {
+      //user정보중 몸무게, 운동, 식단 정보를 추출 후 반환
+      const { name, weight, exercise, diet } = user;
+      res.status(200).json({ name, weight, exercise, diet });
+    } else {
+      res.status(404).json({ message: "사용자를 찾을 수 없습니다" });
+    }
+  } catch (error) {
+    console.error("server.js 파일 처리 오류:", error);
+    res.status(500).json({ message: "서버 오류" });
+  }
+});
+
 //실행중
 app.listen(port, () => {
   console.log(`서버가 ${port} 포트에서 실행 중입니다.`);
