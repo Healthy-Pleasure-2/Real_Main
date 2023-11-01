@@ -145,6 +145,25 @@ app.patch("/user/:id", async (req, res) => {
   }
 });
 
+// db.json에서 todo 테이블 데이터 가져오기 
+app.get("/todo", async (req, res) => {
+  try {
+    const { date } = req.query;
+    const data = await fs.promises.readFile("./db.json", "utf8");
+    const jsonData = JSON.parse(data);
+
+    // res.json(jsonData.todo);
+    // jsonData.todo에서 date 필드를 기반으로 필터링하여 선택한 날짜에 해당하는 할 일 목록을 반환합니다.
+    const filteredTodoList = jsonData.todo.filter((item) => item.date === date);
+    res.json(filteredTodoList);
+    console.log("todolist 필터", filteredTodoList)
+  }
+  catch (error) {
+    console.error("파일 작업 중 오류 발생:", error);
+    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
+  }
+})
+
 // db.json에서 todo 테이블에 데이터 추가 
 app.post("/todo", async (req, res) => {
   try {
@@ -171,19 +190,6 @@ app.post("/todo", async (req, res) => {
 });
 
 
-// db.json에서 todo 테이블 데이터 가져오기 
-app.get("/todo", async (req, res) => {
-  try {
-    const data = await fs.promises.readFile("./db.json", "utf8");
-    const jsonData = JSON.parse(data);
-
-    res.json(jsonData.todo);
-  }
-  catch (error) {
-    console.error("파일 작업 중 오류 발생:", error);
-    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
-  }
-})
 
 // db.json에서 todo 테이블 데이터 수정하기 
 app.patch("/todo/update/:date", async (req, res) => {
@@ -293,8 +299,8 @@ app.patch("/todo/complete/contents", async (req, res) => {
     const todoItem = todos[0].contents.filter((item) => {
       return item.content === text
     });
-    todoItem[0].complete = !(todoItem[0].complete)
     console.log(todoItem)
+    todoItem[0].complete = !(todoItem[0].complete)
 
     // JSON 문자열로 변환
     const updatedData = JSON.stringify(

@@ -26,9 +26,11 @@ function LeftContents({ sessiondata }) {
     fetchData()
   }, [fullDate, text])
 
+
   //db.json 파일 불러오기 
   const fetchData = () => {
-    fetch("http://localhost:3003/todo")
+    const dateQueryParam = fullDate
+    fetch(`http://localhost:3003/todo?date=${dateQueryParam}`)
       .then((response) => {
         if (response.ok) {
           return response.json()
@@ -37,6 +39,7 @@ function LeftContents({ sessiondata }) {
       }).then((responseData) => {
         // 성공적으로 응답을 처리하고 상태를 업데이트
         setData(responseData);
+        console.log(responseData)
         console.log("데이터 불러오기 성공")
       })
       .catch((error) => {
