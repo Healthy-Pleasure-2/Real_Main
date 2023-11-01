@@ -529,9 +529,13 @@ button {
     flex-direction: column;
   }
 
-  .todo_health:hover {
-    transform: scale(1.05);
-    transition: 0.5s ease-in-out;
+  .todo_title h2 {
+    font-size: 1.4em;
+    margin-bottom: 5px
+  }
+
+  .todo_title p {
+    font-size: 0.7em;
   }
 
   .todo_health:first-child {
@@ -592,6 +596,12 @@ button {
     font-size: 25px;
   }
 
+  .todo_complete {
+    width: 100%;
+    height: 10%;
+    margin: 0;
+  }
+
   /* 나의 그룹 & 목표설정 컨텐츠 위젯들 영역 */
   #todo_container #todo_right_contents {
     float: none;
@@ -619,7 +629,7 @@ button {
 
   .todo_goal .todo_title {
     height: 30%;
-    margin-bottom: 6px;
+    margin-bottom: 0;
   }
 
   #todo_data_container {
@@ -640,7 +650,7 @@ button {
   }
 
   .todo_health:nth-child(2) {
-    margin: 10px 0;
+    margin: 7px 0;
   }
 
   .todo_data_leftSide {

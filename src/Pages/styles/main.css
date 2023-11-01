@@ -89,20 +89,23 @@
 
 
 /* .banner2 */
+.banner2 {
+    background: radial-gradient(circle, rgb(191, 226, 109) 40%, rgba(105, 172, 98, 1) 100%);
+}
+
 .banner2 .banner_image {
     background-image: url(../../asset/main4.png);
     animation: post-ani 4s linear infinite;
 }
 
-
 /* .banner3 */
-.banner3 {
-    background: rgb(181, 218, 94);
-    background: radial-gradient(circle, rgb(191, 226, 109) 40%, rgba(105, 172, 98, 1) 100%);
-}
-
 .banner3 .banner_image {
     background-image: url(../../asset/main2.png);
+}
+
+/* .banner4 */
+.banner4 {
+    background: radial-gradient(circle, rgb(191, 226, 109) 40%, rgba(105, 172, 98, 1) 100%);
 }
 
 .banner4 .banner_image {

@@ -7,12 +7,6 @@
   transition: 0.38s;
 }
 
-#calendar_container:hover {
-  transform: scale(1.1);
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 #calendar_container:hover .todo_checkLists {
   margin-top: 20px;
 }
@@ -24,10 +18,10 @@
   height: 100%;
 }
 
-/* height: 100%;
-  display: flex;
-  flex-direction: column;
-}*/
+.react-calendar:hover {
+  box-shadow: 0 0 20px #A7C957;
+  transition: all 0.5s ease-out;
+}
 
 /* 연도와 버튼이 들어가 있는 네비게이션바 */
 .react-calendar__navigation {
@@ -311,13 +305,5 @@
     margin: 0;
     float: left;
     margin: 20px 22px 0 0;
-  }
-
-  #calendar_container:hover {
-    transform: scale(1);
-  }
-
-  #calendar_container:hover .todo_checkLists {
-    margin-top: 20px;
   }
 }

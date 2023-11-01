@@ -114,15 +114,15 @@
   transition: all 0.4s ease;
 }
 
-.nav-list li a:hover,
-.nav-list li a:focus {
-  background: #FFF;
+.selected {
+  background-color: white;
+  border-radius: 10px;
 }
 
-.nav-list li a:hover svg,
-.nav-list li a:focus svg {
+.selected svg {
   color: #8CBA51;
 }
+
 
 /* 로그아웃 */
 #navigation .logout {
