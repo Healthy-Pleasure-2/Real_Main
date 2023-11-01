@@ -48,7 +48,7 @@ function GoalSet({ sessiondata }) {
     <div id="todo_goal">
       <div className="todo_goal">
         <div className="todo_title">
-          <h2>DAILY</h2>
+          <h2>목표 설정</h2>
           <p>
             현재의 체중, 운동량, 식사량을 입력하여 설정한 목표의 달성률을
             확인하세요!

@@ -11,7 +11,7 @@ function Mygroup({ sessiondata }) {
     <div id="todo_my_group">
       <div className="todo_my_group">
         <div className="todo_title">
-          <h2>MY GROUP</h2>
+          <h2>나의 그룹</h2>
           <p>
             함께할 때, 더 많이 이룰 수 있어요. 그룹에서 힘을 모아 함께
             활동해보세요!💪

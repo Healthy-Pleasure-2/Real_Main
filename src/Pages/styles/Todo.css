@@ -17,7 +17,6 @@
 .todo_title {
   margin-bottom: 15px;
   text-align: center;
-  color: #386641;
   height: 10%;
 }
 
@@ -25,10 +24,13 @@
   font-family: 'SUITE-Heavy';
   font-size: 1.7rem;
   margin-bottom: 8px;
+  color: #1f3d25;
+  -webkit-text-stroke: 0.6px #1f3d25;
 }
 
 .todo_title p {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  color: #386641;
 }
 
 button {
@@ -752,7 +754,7 @@ button {
 @media screen and (max-width:767px) {}
 
 /*그룹 관련 스타일*/
-.slide_nodataGroup{
+.slide_nodataGroup {
   padding: 35px;
   padding-top: 75px;
 }

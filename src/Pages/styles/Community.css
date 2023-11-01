@@ -8,9 +8,9 @@
 
 /************* 인기랭크 **************/
 .Community_rank {
-    height: 30%;
+    height: 35%;
     width: 100%;
-    margin-bottom: 7%;
+    margin-bottom: 2.5%;
     box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
     border-radius: 15px;
     background: linear-gradient(-45deg, #a7c95784 50%, #F3F5EF 50%);
@@ -21,15 +21,15 @@
     height: 100%;
     float: left;
     font-size: 1.3rem;
-    color: #386641;
+    color: #1f3d25;
     font-weight: bold;
     padding-left: 1.5em;
     position: relative;
 }
 
 .Community_title .title_inner p {
-    font-size: 0.8rem;
-    font-weight: 400;
+    font-size: 0.85rem;
+    /* font-weight: 400; */
     line-height: 0.9rem;
 }
 
@@ -89,35 +89,55 @@
     overflow: hidden;
 }
 
+/* 중간부분 */
+.group_middle {
+    width: 100%;
+    height: 4%;
+    margin-bottom: 0.5%;
+    display: flex;
+}
+
+.group_list_subTitle {
+    width: 90%;
+    height: 100%;
+    color: #386641;
+    position: relative;
+}
+
+.group_list_subTitle h5 {
+    position: absolute;
+    bottom: 0;
+    padding-left: 10px;
+}
+
 /*그룹 생성 버튼*/
 .Community_groupbtn {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-bottom: 1%;
+    width: 10%;
+}
+
+.Community_link {
+    width: 100%;
+    height: 100%;
 }
 
 .Community_groupbtn button {
-    width: 100px;
-    height: 10%;
-    font-size: 1rem;
+    width: 100%;
+    height: 100%;
+    font-size: 0.9rem;
     background-color: #386641;
-    text-decoration: none;
     color: #ffffff;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
-    font-weight: 700;
+    font-weight: 600;
+    box-shadow: inset 1.5px 1.5px 2px 0px rgba(255, 255, 255, .5);
 }
 
 .Community_groupbtn button:hover {
     background-color: #A7C957;
     transition: 0.2s ease-in-out;
+    box-shadow: inset 1.5px 1.5px 2px 0px rgba(27, 86, 3, 0.5);
 }
 
-.Community_link {
-    text-decoration: none;
-    color: inherit;
-}
 
 
 /************ 그룹 목록 /*************/
@@ -175,7 +195,7 @@
     justify-content: center;
     width: 100%;
     height: 95%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
     overflow: hidden;
 }
 
