@@ -21,7 +21,6 @@ function Notice1() {
           </li>
           <li className="notice_List_neyong">
             <div className="notice_flex-item">
-              {" "}
               <span>공지</span>
             </div>
             <div className="notice_flex-item">휴먼계정 별도 보관 안내</div>
@@ -29,7 +28,6 @@ function Notice1() {
           </li>
           <li className="notice_List_neyong">
             <div className="notice_flex-item">
-              {" "}
               <span>공지</span>
             </div>
             <div className="notice_flex-item">
@@ -39,7 +37,6 @@ function Notice1() {
           </li>
           <li className="notice_List_neyong">
             <div className="notice_flex-item">
-              {" "}
               <span>공지</span>
             </div>
             <div className="notice_flex-item">이용약관 변경 안내</div>
@@ -47,7 +44,6 @@ function Notice1() {
           </li>
           <li className="notice_List_neyong">
             <div className="notice_flex-item">
-              {" "}
               <span>이벤트</span>
             </div>
             <div className="notice_flex-item">당첨자 발표</div>
