@@ -186,11 +186,11 @@ app.get("/todo", async (req, res) => {
 })
 
 // db.json에서 todo 테이블 데이터 수정하기 
-app.patch("/todo/:date", async (req, res) => {
+app.patch("/todo/update/:date", async (req, res) => {
   // 클라이언트로부터 전달받은 날짜 
   const { date } = req.params;
-  const { content } = req.body;
-
+  const contents = req.body;
+  console.log(contents)
   try {
     // db.json 파일 읽어오기
     const data = await fs.promises.readFile("./db.json", "utf8");
@@ -205,7 +205,7 @@ app.patch("/todo/:date", async (req, res) => {
 
     // 데이터 업데이트 
     const todoItem = todos.find((item) => item.date === date);
-    todoItem.content.push(content[0]);
+    todoItem.contents.push(contents);
 
     // JSON 문자열로 변환
     const updatedData = JSON.stringify(
@@ -222,7 +222,96 @@ app.patch("/todo/:date", async (req, res) => {
     res.status(200).json({ message: "사용자 투두리스트가 업데이트되었습니다" });
   }
   catch (error) {
-    console.error("파일 처리 오류: ", err);
+    console.error("파일 처리 오류 발생: ", error);
+    res.status(500).json({ message: "서버 오류" });
+  }
+})
+
+// db.json에서 삭제기능 
+app.patch("/todo/delete/contents", async (req, res) => {
+  const text = req.body
+  console.log(text)
+  try {
+    // db.json 파일 읽어오기
+    const data = await fs.promises.readFile("./db.json", "utf8");
+    // db.json 파일을 자바스크립트 객체화
+    const jsonData = JSON.parse(data);
+    // db.json 파일에서 user 정보만 users 정보에 담기
+    const users = jsonData.user;
+    //console.log(users);
+    const groups = jsonData.group;
+    //console.log(groups);
+    const todos = jsonData.todo;
+
+    console.log(todos[0].contents)
+    // 데이터 업데이트 
+    const todoItem = todos[0].contents.filter((item) => {
+      return item.content !== text.content
+    });
+    console.log(todoItem)
+    todos[0].contents = todoItem
+
+
+    // JSON 문자열로 변환
+    const updatedData = JSON.stringify(
+      {
+        user: users,
+        group: groups,
+        todo: todos
+      },
+      null,
+      2
+    );
+    await fs.promises.writeFile("./db.json", updatedData, "utf8");
+    console.log("업데이트 결과", updatedData);
+    res.status(200).json({ message: "사용자 투두리스트가 업데이트되었습니다" });
+  }
+  catch (error) {
+    console.error("파일 처리 오류: ", error);
+    res.status(500).json({ message: "서버 오류" });
+  }
+})
+
+// db.json에서 완료버튼 값 변경하는 라우트 
+app.patch("/todo/complete/contents", async (req, res) => {
+  const { complete, text } = req.body
+  console.log("done", complete)
+  console.log("text", text)
+  try {
+    // db.json 파일 읽어오기
+    const data = await fs.promises.readFile("./db.json", "utf8");
+    // db.json 파일을 자바스크립트 객체화
+    const jsonData = JSON.parse(data);
+    // db.json 파일에서 user 정보만 users 정보에 담기
+    const users = jsonData.user;
+    //console.log(users);
+    const groups = jsonData.group;
+    //console.log(groups);
+    const todos = jsonData.todo;
+
+    // 데이터 업데이트 
+    const todoItem = todos[0].contents.filter((item) => {
+      return item.content === text
+    });
+    todoItem[0].complete = !(todoItem[0].complete)
+    console.log(todoItem)
+
+    // JSON 문자열로 변환
+    const updatedData = JSON.stringify(
+      {
+        user: users,
+        group: groups,
+        todo: todos
+      },
+      null,
+      2
+    );
+    await fs.promises.writeFile("./db.json", updatedData, "utf8");
+    console.log("업데이트 결과", updatedData);
+    res.status(200).json({ message: "사용자 투두리스트가 업데이트되었습니다" });
+  }
+  catch (error) {
+    console.error("파일 처리 오류: ", error);
     res.status(500).json({ message: "서버 오류" });
   }
 })
