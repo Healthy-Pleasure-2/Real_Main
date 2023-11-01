@@ -70,7 +70,12 @@ function App() {
         });
     } catch (error) {
       console.error("로그인 요청 실패:", error);
-      alert("로그인 요청 실패");
+      Swal.fire(
+        "로그인 요청 실패",
+        "죄송합니다. 현재 서버문제로 로그인 요청이 불가합니다.",
+        "warning"
+      );
+      // alert("로그인 요청 실패");
     }
   };
 

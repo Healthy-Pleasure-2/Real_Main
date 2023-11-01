@@ -107,7 +107,7 @@
 .group_list_subTitle h5 {
     position: absolute;
     bottom: 0;
-    padding-left: 10px;
+    padding-left: 2%;
 }
 
 /*그룹 생성 버튼*/
@@ -126,7 +126,7 @@
     font-size: 0.9rem;
     background-color: #386641;
     color: #ffffff;
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
     font-weight: 600;
 }
@@ -150,9 +150,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 3%;
+    padding: 0 2%;
     margin-bottom: 1%;
-    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
 }
 
 
