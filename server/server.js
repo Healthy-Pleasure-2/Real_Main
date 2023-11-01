@@ -144,7 +144,7 @@ app.patch("/user/:id", async (req, res) => {
       2
     );
     await fs.promises.writeFile("./db.json", updatedData, "utf8");
-    console.log("업데이트 결과", updatedData);
+    //console.log("업데이트 결과", updatedData);
     res.status(200).json({ message: "사용자 정보가 업데이트되었습니다", user });
   } catch (err) {
     console.error("파일 처리 오류: ", err);
@@ -165,7 +165,7 @@ app.get("/mygroup/:id", async (req, res) => {
       const userGroupIds = user.group; // 사용자의 그룹 아이디 배열
       // userGroupIds와 groups에서 일치하는 그룹을 찾음
       const userGroups = groups.filter((group) =>
-        userGroupIds.includes(group.id)
+        userGroupIds.includes(group.id.toString())
       );
       res.json(userGroups);
     } else {
@@ -207,6 +207,51 @@ app.post("/groupadd", async (req, res) => {
     const updatedDataGroup = JSON.stringify(data, null, 2);
     await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
     res.status(200).json({ message: "그룹생성성공" }); // 새로운 그룹의 ID 반환
+  } catch (error) {
+    console.error("파일 작업 중 오류 발생:", error);
+    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
+  }
+});
+app.get("/groupjoin/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const { groupId } = req.body;
+    const data = await Datafc();
+    const user = data.user.find((u) => u.id === userId);
+    if (user) {
+      if (user.group.includes(groupId.toString())) {
+        // 읽어온 데이터 객체를 클라이언트로 반환
+        res.json({ message: "true" });
+      } else {
+        res.json({ message: "false" });
+      }
+    }
+  } catch (error) {
+    console.error("파일 작업 중 오류 발생:", error);
+    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
+  }
+});
+//Grouppage.js에서 불러옴, 참여하기 누르면 user정보 변경
+app.post("/communicate/:id", async (req, res) => {
+  const userId = req.params.id;
+  const { groupId } = req.body;
+  try {
+    const data = await Datafc();
+    const users = data.user;
+    const user = users.find((u) => u.id === userId);
+    if (user) {
+      if (user.group.includes(groupId.toString())) {
+        res.json({ message: "이미 그룹에 속해 있습니다." });
+      } else {
+        // 새로운 값(groupId)을 배열에 추가합니다.
+        user.group.push(groupId);
+        const updatedDataGroup = JSON.stringify(data, null, 2);
+        await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
+        res.json({ message: "데이터가 업데이트되었습니다." });
+      }
+    } else {
+      res.status(404).json({ message: "사용자를 찾을 수 없습니다." });
+    }
   } catch (error) {
     console.error("파일 작업 중 오류 발생:", error);
     res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });

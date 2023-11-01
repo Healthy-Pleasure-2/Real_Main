@@ -11,11 +11,65 @@ import { useParams } from "react-router-dom";
 import getGroupData from "../components/Community/getGroupData";
 import errorImage from "../asset/error.png";
 
-function GroupPage({ isLoggedIn }) {
+function GroupPage({ isLoggedIn, sessiondata }) {
   // 버튼 클릭시 댓글창 보이기
+  const { groupID } = useParams();
+  const [groupInfo, setGroupInfo] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
   const [showDiv, setShowDiv] = useState(false);
+  const userid = sessiondata;
+  useEffect(() => {
+    const fetchGroupData = async () => {
+      try {
+        const data = await getGroupData(); // getGroupData 함수로 그룹 데이터 가져오기
+        const group = data.find((item) => item.id === parseInt(groupID, 10));
+        if (group) {
+          setGroupInfo(group);
+          // 그룹 정보를 이용한 다른 로직 처리
+        } else {
+          setErrorMessage("그룹 데이터를 찾을 수 없습니다.");
+        }
+      } catch (error) {
+        // 에러 핸들링
+        setErrorMessage("그룹 데이터를 불러오는 중에 문제가 발생했습니다.");
+        console.error(error);
+      }
+    };
+    const groupjoin = () => {
+      fetch(`http://localhost:3003/groupjoin/${userid}?groupId=${groupID}`, {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.message === "true") {
+            setShowDiv(true);
+          }
+        });
+    };
+    fetchGroupData();
+    groupjoin();
+  }, [groupID]);
+  console.log(sessiondata);
   const toggleDiv = () => {
-    setShowDiv(!showDiv);
+    fetch(`http://localhost:3003/communicate/${userid}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ groupId: groupID }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("데이터가 업데이트되었습니다.", data);
+        setShowDiv(true);
+        window.alert("그룹에 참여하였습니다.");
+      })
+      .catch((error) => {
+        console.error("서버 요청 오류:", error);
+      });
   };
 
   // 댓글입력 및 삭제
@@ -33,33 +87,6 @@ function GroupPage({ isLoggedIn }) {
     const updatedComments = comments.filter((comment) => comment.id !== id);
     setComments(updatedComments);
   };
-
-  //-----------23.10.17 / 정은정 / 그룹연결--------
-  const { groupID } = useParams();
-  const [groupInfo, setGroupInfo] = useState({});
-  const [errorMessage, setErrorMessage] = useState("");
-
-  useEffect(() => {
-    const fetchGroupData = async () => {
-      try {
-        const data = await getGroupData(); // getGroupData 함수로 그룹 데이터 가져오기
-        const group = data.find((item) => item.id === parseInt(groupID, 10));
-        console.log("그룹의 값은", groupID);
-        console.log("데이트 find값", data);
-        if (group) {
-          setGroupInfo(group);
-          // 그룹 정보를 이용한 다른 로직 처리
-        } else {
-          setErrorMessage("그룹 데이터를 찾을 수 없습니다.");
-        }
-      } catch (error) {
-        // 에러 핸들링
-        setErrorMessage("그룹 데이터를 불러오는 중에 문제가 발생했습니다.");
-        console.error(error);
-      }
-    };
-    fetchGroupData();
-  }, [groupID]);
 
   return (
     <div id="GroupPage">

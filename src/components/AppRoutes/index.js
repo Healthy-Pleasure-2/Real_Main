@@ -21,7 +21,9 @@ function AppRoutes({ isLoggedIn, sessiondata }) {
       <Route path="/groupCreate" element={<GroupCreate />}></Route>
       <Route
         path="/groupPage/:groupID"
-        element={<GroupPage isLoggedIn={isLoggedIn} />}
+        element={
+          <GroupPage isLoggedIn={isLoggedIn} sessiondata={sessiondata} />
+        }
       ></Route>
       <Route path="/ask" element={<Ask />}></Route>
       <Route path="/mypage" element={<Mypage />}></Route>
