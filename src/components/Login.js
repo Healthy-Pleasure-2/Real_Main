@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGoogle,
+  faFacebook,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -17,6 +22,9 @@ function Login({ onLogin }) {
       <div className="Loginbox">
         <div className="LoginTitle">
           <h1>Welcome!</h1>
+          <h5>
+            목표달성을 위한 커뮤니티 <br></br>헬시플레저에 오신걸 환영합니다
+          </h5>
         </div>
         <div className="LoginIdPw">
           <div className="LoginID">
@@ -33,7 +41,7 @@ function Login({ onLogin }) {
           </div>
           <div className="LoginPW">
             <div className="LoginIcon">
-              <FontAwesomeIcon icon={faLock} />{" "}
+              <FontAwesomeIcon icon={faLock} />
             </div>
             <input
               className="Logininputpassword"
@@ -44,15 +52,27 @@ function Login({ onLogin }) {
             ></input>
           </div>
         </div>
-        <div>
+        {/* <div>
           <label className="LoginCheckbox">
             <input type="checkbox" />
             로그인 상태 유지
           </label>
-        </div>
+        </div> */}
         <button className="Loginbtn" onClick={handleLogin}>
           Login
         </button>
+        <div className="LoginSns">
+          <p>간편 로그인</p>
+          <p>
+            <FontAwesomeIcon icon={faGoogle} />
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faFacebook} />
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faTwitter} />
+          </p>
+        </div>
         <div className="LoginFind">
           <button className="LoginIdPwFind">
             <Link to="/idpw" className="LoginbtnLink">
