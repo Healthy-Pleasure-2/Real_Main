@@ -9,8 +9,9 @@
 231025 정은정 - cooki, session 을 이용한 상태관리 구현(수정필요)
 231025 이제형, 김장훈 - GoalSet.js 목표설정 업로드기능 구현(수정필요)
 231026 정은정, 김장훈 - 로그인 상태관리 수정
-231029 김장훈 -로그인 시 쿠키에 사용자 이름, 목표값 저장되도록 수정
-231031 김장훈 -Goal_Circle 목표값 처리 추가
+231029 김장훈 -로그인 시 쿠키에 사용자 이름, 목표값 저장되도록 수정 --> 삭제
+231031 김장훈 -Goal_Circle 목표값 처리 핸들러 추가
+231031 김장훈 -ID, PW 찾기 핸들러 추가
 --------------------------------------------------------------------------------------------------------------*/
 const express = require("express");
 const session = require("express-session");
@@ -264,6 +265,44 @@ app.get("/user_Goal/:id", async (req, res) => {
   } catch (error) {
     console.error("server.js 파일 처리 오류:", error);
     res.status(500).json({ message: "서버 오류" });
+  }
+});
+
+// id_pw.js -> ID 찾기 요청 핸들러
+app.post('/Find_id', async (req, res) => {
+  const data = await Datafc();
+  const users = data.user;
+  const { name, email } = req.body;
+
+  //console.log(name);
+  //console.log(email);
+  const user = users.find(u => u.name === name && u.email === email);
+  if (user) {
+    const userid = user.id;
+
+    // ID를 클라이언트에게 반환
+    res.status(200).json({ message: 'ID 찾기 성공', userid });
+  } else {
+    res.status(401).json({ message: 'ID를 찾을 수 없습니다.' });
+  }
+});
+
+// id_pw.js -> PW찾기 요청 핸들러
+app.post('/Find_pw', async (req, res) => {
+  const data = await Datafc();
+  const users = data.user;
+  const { id, email } = req.body;
+
+  //console.log(id);
+  //console.log(email);
+  const user = users.find(u => u.id === id && u.email === email);
+  if (user) {
+    const userpw = user.pw;
+
+    // ID를 클라이언트에게 반환
+    res.status(200).json({ message: 'PW 찾기 성공', userpw });
+  } else {
+    res.status(401).json({ message: 'PW를 찾을 수 없습니다.' });
   }
 });
 
