@@ -135,6 +135,8 @@
 .banner_title p {
     font-size: 0.9rem;
     margin-top: 0.5em;
+    font-weight: 600;
+    color: rgba(31, 61, 37, 0.7);
 }
 
 /* 배너 버튼 */
@@ -245,8 +247,9 @@
 
 .title_inner h3 {
     font-family: 'SUITE-Heavy';
-    -webkit-text-stroke: 0.6px #1f3d25;
+    -webkit-text-stroke: 0.5px #1f3d25;
     margin-bottom: 6%;
+
 }
 
 .title_inner h3 span {
@@ -258,6 +261,7 @@
 .rank .title p {
     font-size: 0.8rem;
     line-height: 0.9rem;
+    font-weight: 600;
 }
 
 .rank .title .bt2 button {

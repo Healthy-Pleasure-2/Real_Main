@@ -62,7 +62,6 @@ function Goal_Circle({ sessiondata }) {
     fetchUserData(sessiondata);
   }, [sessiondata]);
 
-
   //체중값 설정 및 계산
   const BaseValue_weight = (weightValue) => {
     const maxWeight = max_weight;
@@ -74,7 +73,8 @@ function Goal_Circle({ sessiondata }) {
       ? maxWeightStrokeDasharray
       : weightValue <= minWeight
       ? minWeightStrokeDasharray
-      : ((weightValue - minWeight) / (maxWeight - minWeight)) * maxWeightStrokeDasharray;
+      : ((weightValue - minWeight) / (maxWeight - minWeight)) *
+        maxWeightStrokeDasharray;
   };
 
   //운동값 설정 및 계산
@@ -88,7 +88,8 @@ function Goal_Circle({ sessiondata }) {
       ? maxExerciseStrokeDasharray
       : exerciseValue <= minExercise
       ? minExerciseStrokeDasharray
-      : ((exerciseValue - minExercise) / (maxExercise - minExercise)) * maxExerciseStrokeDasharray;
+      : ((exerciseValue - minExercise) / (maxExercise - minExercise)) *
+        maxExerciseStrokeDasharray;
   };
 
   //식단값 설정 및 계산
@@ -121,7 +122,8 @@ function Goal_Circle({ sessiondata }) {
 
   return (
     <div className="flex-wrapper">
-      <div className="title">안녕하세요! {User_Name}님</div>
+      <div className="title">안녕하세요! {User_Name}님 😊</div>
+
       <div className="single-chart">
         <svg viewBox="0 0 36 36" className="circular-chart orange">
           <text x="10.2" y="15" fontSize="2.5px" className="percentage"></text>
@@ -155,6 +157,11 @@ function Goal_Circle({ sessiondata }) {
         </svg>
       </div>
 
+      <div className="subTitle">
+        현재 체중, 운동량, 식사량을 입력하여 <br></br>
+        <span>목표 달성률</span>을 확인하세요!
+      </div>
+
       <div className="inputbox">
         <div className="input_inner">
           <div className="input_title">체중</div>
@@ -175,7 +182,9 @@ function Goal_Circle({ sessiondata }) {
             type="text"
             placeholder="0"
             value={input_exercise}
-            onChange={(e) => handleInputChange("input_exercise", e.target.value)}
+            onChange={(e) =>
+              handleInputChange("input_exercise", e.target.value)
+            }
           />{" "}
           <br></br>
           kcal

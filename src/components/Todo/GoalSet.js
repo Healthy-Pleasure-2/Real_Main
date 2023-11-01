@@ -26,7 +26,7 @@ function GoalSet({ sessiondata }) {
   const [GoalWeight, setGoalWeight] = useState("");
   const [GoalExercise, setGoalExercise] = useState("");
   const [GoalDiet, setGoalDiet] = useState("");
-  
+
   // 클라이언트에서 사용자 정보 가져오기
   const fetchUserData = (userid) => {
     fetch(`http://localhost:3003/user_Goal/${userid}`)
@@ -56,9 +56,9 @@ function GoalSet({ sessiondata }) {
   }, [sessiondata]);
 
   const [goal, setGoal] = useState({
-    weight: "",    // weight 값을 초기값으로 설정
-    exercise: "",  // exercise 값을 초기값으로 설정
-    diet: "",        // diet 값을 초기값으로 설정
+    weight: "", // weight 값을 초기값으로 설정
+    exercise: "", // exercise 값을 초기값으로 설정
+    diet: "", // diet 값을 초기값으로 설정
   });
 
   // input 값의 변동이 일어날때 일어나는 함수(onchange 함수)
@@ -92,20 +92,13 @@ function GoalSet({ sessiondata }) {
       <div className="todo_goal">
         <div className="todo_title">
           <h2>목표 설정</h2>
-          <p>
-            현재의 체중, 운동량, 식사량을 입력하여 설정한 목표의 달성률을
-            확인하세요!
-          </p>
+          <p>체중, 운동량, 식사량에 대한 목표값을 작성해주세요.</p>
         </div>
         <div id="todo_data_container">
           {/* 체중 */}
           <div className="todo_health">
             <div className="todo_data_leftSide">
-              <div className="todo_icon todo_weight">
-                {/* <FontAwesomeIcon icon={faPerson} /> */}
-                <img src=""></img>
-              </div>
-              {/* <div>체중</div> */}
+              <div className="todo_icon todo_weight"></div>
             </div>
             <div className="todo_data_rightSide">
               <input
@@ -122,10 +115,7 @@ function GoalSet({ sessiondata }) {
           {/* 운동 */}
           <div className="todo_health">
             <div className="todo_data_leftSide">
-              <div className="todo_icon todo_exercise">
-                {/* <FontAwesomeIcon icon={faDumbbell} /> */}
-              </div>
-              {/* <div>운동</div> */}
+              <div className="todo_icon todo_exercise"></div>
             </div>
             <div className="todo_data_rightSide">
               <input
@@ -142,10 +132,7 @@ function GoalSet({ sessiondata }) {
           {/* 식단 */}
           <div className="todo_health">
             <div className="todo_data_leftSide">
-              <div className="todo_icon todo_diet">
-                {/* <FontAwesomeIcon icon={faUtensils} /> */}
-              </div>
-              {/* <div>식단</div> */}
+              <div className="todo_icon todo_diet"></div>
             </div>
             <div className="todo_data_rightSide">
               <input
@@ -170,4 +157,3 @@ function GoalSet({ sessiondata }) {
 }
 
 export default GoalSet;
-

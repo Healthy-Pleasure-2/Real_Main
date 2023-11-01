@@ -13,9 +13,11 @@ import React, { useState } from "react";
 import "./styles/Id_pw.css";
 import { Link } from "react-router-dom";
 import idpw from "../asset/idpw.png";
+import Swal from "sweetalert2";
 
 // ID 찾기 요청
-const handleFindId = async (name, email) => { // email 변수명 수정
+const handleFindId = async (name, email) => {
+  // email 변수명 수정
   try {
     const userData = {
       name: name,
@@ -32,16 +34,36 @@ const handleFindId = async (name, email) => { // email 변수명 수정
     if (response.ok) {
       const data = await response.json();
       if (data.message === "ID 찾기 성공") {
-        alert(`${name} 회원님의 ID는: ${data.userid}입니다.`); // 변수명 수정
+        Swal.fire({
+          icon: "success",
+          title: "ID 찾기 성공",
+          text: `${name} 회원님의 ID는: ${data.userid}입니다.`,
+        });
+        // alert(`${name} 회원님의 ID는: ${data.userid}입니다.`); // 변수명 수정
       } else {
-        alert("ID를 찾을 수 없습니다.");
+        Swal.fire({
+          icon: "error",
+          title: "ID 찾기 실패",
+          text: "입력하신 정보와 일치하는 ID를 찾을 수 없습니다.",
+        });
+        // alert("ID를 찾을 수 없습니다.");
       }
     } else {
-      alert("입력정보를 다시 확인해주세요.");
+      Swal.fire({
+        icon: "warning",
+        title: "입력 정보 에러",
+        text: "입력정보를 다시 확인해주세요.",
+      });
+      // alert("입력정보를 다시 확인해주세요.");
     }
   } catch (error) {
     console.error("ID 찾기 요청 실패:", error);
-    alert("ID 찾기 요청 실패");
+    Swal.fire({
+      icon: "warning",
+      title: "ID 찾기 요청 실패",
+      text: "죄송합니다. 현재 서버의 문제로 요청이 불가합니다.",
+    });
+    // alert("ID 찾기 요청 실패");
   }
 };
 
@@ -65,16 +87,36 @@ const handleFindPw = async (id, email) => {
     if (response.ok) {
       const data = await response.json();
       if (data.message === "PW 찾기 성공") {
-        alert(`${id} 회원님의 임시 비밀번호는: ${data.userpw}입니다.`);
+        Swal.fire({
+          icon: "success",
+          title: "비밀번호 찾기 성공",
+          text: `${id} 회원님의 임시 비밀번호는: ${data.userpw}입니다.`,
+        });
+        // alert(`${id} 회원님의 임시 비밀번호는: ${data.userpw}입니다.`);
       } else {
-        alert("비밀번호를 찾을 수 없습니다.");
+        Swal.fire({
+          icon: "error",
+          title: "PW 찾기 실패",
+          text: "입력하신 정보와 일치하는 정보를 찾을 수 없습니다.",
+        });
+        // alert("비밀번호를 찾을 수 없습니다.");
       }
     } else {
-      alert("입력정보를 다시 확인해주세요.");
+      Swal.fire({
+        icon: "warning",
+        title: "입력 정보 에러",
+        text: "입력정보를 다시 확인해주세요.",
+      });
+      // alert("입력정보를 다시 확인해주세요.");
     }
   } catch (error) {
     console.error("PW 찾기 요청 실패:", error);
-    alert("PW 찾기 요청 실패");
+    Swal.fire({
+      icon: "warning",
+      title: "PW 찾기 요청 실패",
+      text: "죄송합니다. 현재 서버의 문제로 요청이 불가합니다.",
+    });
+    // alert("PW 찾기 요청 실패");
   }
 };
 
@@ -84,7 +126,17 @@ function IdFind() {
     <div id="idFind">
       <input type="text" id="name" placeholder="Name" maxLength={5} />
       <input type="email" id="Find_Id_email" placeholder="Email" />
-      <button id="send" onClick={() => handleFindId(document.getElementById("name").value, document.getElementById("Find_Id_email").value)}>ID 찾기</button>
+      <button
+        id="send"
+        onClick={() =>
+          handleFindId(
+            document.getElementById("name").value,
+            document.getElementById("Find_Id_email").value
+          )
+        }
+      >
+        ID 찾기
+      </button>
       <div>
         아직 회원이 아니신가요? <Link to="/signup">회원가입</Link>
       </div>
@@ -98,7 +150,17 @@ function PwFind() {
     <div id="pwFind">
       <input type="text" id="user-id" placeholder="ID" maxLength={10} />
       <input type="email" id="Find_Pw_email" placeholder="Email" />
-      <button id="send" onClick={() => handleFindPw(document.getElementById("user-id").value, document.getElementById("Find_Pw_email").value)}>PW 찾기</button>
+      <button
+        id="send"
+        onClick={() =>
+          handleFindPw(
+            document.getElementById("user-id").value,
+            document.getElementById("Find_Pw_email").value
+          )
+        }
+      >
+        PW 찾기
+      </button>
       <div>
         아직 회원이 아니신가요? <Link to="/signup">회원가입</Link>
       </div>

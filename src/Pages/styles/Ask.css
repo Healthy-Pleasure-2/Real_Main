@@ -78,7 +78,7 @@
   background: rgba(167, 201, 87, 0.1);
   text-align: left;
   font-size: 0.85rem;
-  color: #1f3d25;
+  color: #17594A;
   margin-top: 40px;
   width: calc(100% - 20px);
   height: calc(100% - 100px);
@@ -152,7 +152,7 @@
   height: 55%;
   border: 1px solid #A7C957;
   border-radius: 5px;
-  color: #1f3d25;
+  color: #17594A;
   background: #fff;
   padding-left: 5px;
 }
@@ -224,7 +224,7 @@
   width: 100%;
   height: calc(100% - 100px);
   padding-top: 40px;
-  color: #1f3d25;
+  color: #17594A;
 }
 
 .notice-container {
@@ -371,7 +371,7 @@
   width: 100%;
   height: calc(100% - 100px);
   padding-top: 40px;
-  color: #1f3d25;
+  color: #17594A;
 }
 
 .ask-container {
