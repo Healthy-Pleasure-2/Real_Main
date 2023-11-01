@@ -9,6 +9,7 @@ import Notice1 from "../components/Notice1";
 import FAQ from "../components/FAQ";
 import React, { Component } from "react";
 // import dummy from "../../public/notice.json"
+import Swal from "sweetalert2";
 
 class Ask extends Component {
   constructor(props) {
@@ -22,7 +23,8 @@ class Ask extends Component {
 
   handleTabClickl = () => {
     // 버튼이 클릭되면 "문의 완료되었습니다" 메시지를 상태에 저장
-    this.setState({ message: "문의 완료되었습니다" });
+    // this.setState({ message: "문의 완료되었습니다" });
+    Swal.fire("문의 완료", "빠른 시일내에 답변 드리겠습니다.", "success");
   };
 
   // componentDidMount() {

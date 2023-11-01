@@ -6,6 +6,7 @@
 
 import React, { useState } from "react";
 import "./styles/Mypage.css";
+import Swal from "sweetalert2";
 
 function Mypage() {
   const [formData, setFormData] = useState({
@@ -70,17 +71,33 @@ function Mypage() {
 
     if (Object.values(newErrors).every((error) => error === "")) {
       console.log("Form data submitted:", formData);
-      alert("수정이 완료되었습니다.");
+      Swal.fire({
+        icon: "success",
+        title: "수정 완료",
+        text: "요청하신 정보로 수정이 완료되었습니다.",
+      });
     }
   };
 
   const withdrawal = () => {
-    if (window.confirm("정말 회원 탈퇴를 하시겠습니까?")) {
-      alert("탈퇴 완료되었습니다.");
-      window.location = "http://localhost:3000/";
-    } else {
-      alert("취소합니다.");
-    }
+    Swal.fire({
+      title: "회원 탈퇴",
+      text: "탈퇴 하시겠습니까?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#A7C957",
+      cancelButtonColor: "#ccc",
+      confirmButtonText: "Yes!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "회원탈퇴 완료",
+          text: "GOODBAY~ 다음에 다시 만나요.",
+          icon: "success",
+          confirmButtonColor: "#A7C957",
+        });
+      }
+    });
   };
 
   return (

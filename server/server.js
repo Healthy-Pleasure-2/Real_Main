@@ -212,16 +212,17 @@ app.post("/groupadd", async (req, res) => {
     res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
   }
 });
-app.get("/groupjoin/:id", async (req, res) => {
+app.get("/groupjoin/:userid", async (req, res) => {
   try {
-    const userId = req.params.id;
-    const { groupId } = req.body;
+    const userid = req.params.userid;
+    const groupId = req.query.groupId;
     const data = await Datafc();
-    const user = data.user.find((u) => u.id === userId);
+    const user = data.user.find((u) => u.id === userid);
     if (user) {
+      const nickname = user.nickname;
       if (user.group.includes(groupId.toString())) {
         // 읽어온 데이터 객체를 클라이언트로 반환
-        res.json({ message: "true" });
+        res.json({ message: "true", nickname });
       } else {
         res.json({ message: "false" });
       }
@@ -241,13 +242,16 @@ app.post("/communicate/:id", async (req, res) => {
     const user = users.find((u) => u.id === userId);
     if (user) {
       if (user.group.includes(groupId.toString())) {
-        res.json({ message: "이미 그룹에 속해 있습니다." });
+        user.group = user.group.filter((groupItem) => groupItem !== groupId);
+        const updatedDataGroup = JSON.stringify(data, null, 2);
+        await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
+        res.json({ message: "false" });
       } else {
         // 새로운 값(groupId)을 배열에 추가합니다.
         user.group.push(groupId);
         const updatedDataGroup = JSON.stringify(data, null, 2);
         await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
-        res.json({ message: "데이터가 업데이트되었습니다." });
+        res.json({ message: "true" });
       }
     } else {
       res.status(404).json({ message: "사용자를 찾을 수 없습니다." });
