@@ -38,17 +38,17 @@ function PopularRank({ groupData }) {
 
   return (
     <div className="Community_popularRank">
-      {groups.map((group) => (
-        <div className="Community_Rgroup" key={group}>
+      {groups.map((Rank_group) => (
+        <div className="Community_Rgroup" key={Rank_group.id}>
           <div className="Community_item">
-            <Link to={`/GroupPage/${group.id}`} key={group.id}>
+            <Link to={`/GroupPage/${Rank_group.id}`}>
               <img
                 className="Community_cardimg"
-                src={group.img}
-                alt={group.name}
+                src={Rank_group.img}
+                alt={Rank_group.name}
               />
               <div className="Community_cardcontent">
-                <h1 className="Community_Groupname">{group.name}</h1>
+                <h1 className="Community_Groupname">{Rank_group.name}</h1>
               </div>
             </Link>
           </div>

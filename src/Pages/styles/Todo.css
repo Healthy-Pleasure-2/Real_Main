@@ -17,7 +17,6 @@
 .todo_title {
   margin-bottom: 15px;
   text-align: center;
-  color: #386641;
   height: 10%;
 }
 
@@ -25,10 +24,13 @@
   font-family: 'SUITE-Heavy';
   font-size: 1.7rem;
   margin-bottom: 8px;
+  color: #1f3d25;
+  -webkit-text-stroke: 0.6px #1f3d25;
 }
 
 .todo_title p {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  color: #386641;
 }
 
 button {
@@ -229,12 +231,19 @@ button {
 
 /* 몸무게, 운동, 식단 위젯 */
 .todo_health {
-  border: 2px solid #386641;
   background-color: #fff;
   border-radius: 15px;
   width: 30%;
   height: 100%;
   margin-left: 5%;
+  overflow: hidden;
+  box-shadow: inset -1.5px -1.5px 2px 0px rgb(56, 102, 65, 0.5);
+  border: 1px solid rgb(56, 102, 65, 0.5);
+}
+
+.todo_health:hover {
+  transition: 0.3s ease-in-out;
+  box-shadow: inset 2px 2px 2px 0px rgb(56, 102, 65, 0.3);
 }
 
 .todo_health:first-child {
@@ -246,19 +255,16 @@ button {
 /* rightSide: 위젯안의 데이터와 단위 감싸고 있는 영역 설정 */
 
 .todo_data_leftSide {
-  height: 60%;
-  background-color: #386641;
-  text-align: center;
-  border-radius: 11px;
-  padding: 5px 0;
+  height: 40%;
+  margin: 10% 0 0 0;
 }
 
 /* 아이콘 */
 .todo_icon {
   height: 100%;
-  background-size: 100%;
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: 50%;
+  background-position: 50% 150%;
 }
 
 .todo_weight {
@@ -281,7 +287,7 @@ button {
 } */
 
 .todo_data_rightSide {
-  height: 40%;
+  height: 50%;
   /* min-height: calc(100% - 78px) */
 }
 
@@ -289,12 +295,13 @@ button {
 .todo_data_rightSide .todo_data_record {
   border: none;
   width: 100%;
-  height: 75%;
-  color: #386641;
+  height: 65%;
   font-weight: bold;
   font-size: 1.5rem;
   text-align: center;
   padding-top: 1%;
+  background: none;
+  color: #386641;
 }
 
 .todo_data_record:focus {
@@ -308,13 +315,13 @@ button {
   font-size: 1rem;
   line-height: 0.1rem;
   text-align: center;
-  height: 20%;
+  height: 30%;
 }
 
 /* 완료 버튼 */
 .todo_complete {
   width: 80%;
-  height: 10%;
+  height: 12%;
   position: absolute;
   bottom: 0;
   display: flex;
@@ -521,6 +528,23 @@ button {
     flex-direction: column;
   }
 
+  .todo_health:hover {
+    transform: scale(1.05);
+    transition: 0.5s ease-in-out;
+  }
+
+  .todo_health:first-child {
+    margin-left: 0;
+  }
+
+  /* 위젯 안의 콘텐츠 */
+  /* leftSide: 위젯안의 아이콘과 옆의 타이틀을 감싸고 있는 영역  */
+  /* rightSide: 위젯안의 데이터와 단위 감싸고 있는 영역 설정 */
+
+  .todo_health {
+    border-radius: 10px;
+  }
+
   /* todo list 작성공간 */
   #todo_container #todo_left_contents {
     width: 100%;
@@ -618,6 +642,11 @@ button {
     margin: 10px 0;
   }
 
+  .todo_data_leftSide {
+    height: 100%;
+    margin: 0;
+  }
+
   /* 위젯 안의 콘텐츠 */
   /* leftSide: 위젯안의 아이콘과 옆의 타이틀을 감싸고 있는 영역  */
   /* rightSide: 위젯안의 데이터와 단위 감싸고 있는 영역 설정 */
@@ -632,7 +661,6 @@ button {
 
   /* 아이콘 */
   .todo_icon {
-    background-size: 80%;
     background-repeat: no-repeat;
     background-position: 50%;
   }
@@ -724,3 +752,9 @@ button {
 }
 
 @media screen and (max-width:767px) {}
+
+/*그룹 관련 스타일*/
+.slide_nodataGroup {
+  padding: 35px;
+  padding-top: 75px;
+}

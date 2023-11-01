@@ -1,7 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import axios from "axios";
@@ -18,21 +18,36 @@ const StyledSlider = styled(Slider)`
   // box-shadow: 3px 3px 7px rgb(131, 131, 131);
 `;
 
-function SimpleSlider() {
+function SimpleSlider({ sessiondata }) {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
-    // 데이터를 비동기적으로 가져옵니다.
-    axios
-      .get("/group.json")
-      .then((result) => {
-        // 데이터가 정상적으로 로드됨
-        setData(result.data.group);
-      })
-      .catch((error) => {
-        console.error("데이터를 가져오지 못함", error);
-      });
-  }, []);
+    if (sessiondata === false) {
+      axios
+        .get("/group.json")
+        .then((result) => {
+          // 데이터가 정상적으로 로드됨
+          setData(result.data.group);
+        })
+        .catch((error) => {
+          console.error("데이터를 가져오지 못함", error);
+        });
+    } else {
+      const userid = sessiondata;
+      // 데이터를 비동기적으로 가져옵니다.
+      axios
+        .get(`http://localhost:3003/mygroup/${userid}`)
+        .then((response) => {
+          console.log(response);
+          const responseData = response.data;
+          // 데이터가 정상적으로 로드됨
+          setData(responseData);
+        })
+        .catch((error) => {
+          console.error("데이터를 가져오지 못함", error);
+        });
+    }
+  }, [sessiondata]);
 
   const settings = {
     dots: false,
@@ -50,7 +65,7 @@ function SimpleSlider() {
 
   // 데이터를 로드하고 있다면, 데이터가 로드될 때까지 대기
   if (data.length === 0) {
-    return <p>Loading...</p>;
+    return <p className="slide_nodataGroup">참여 그룹이 없습니다.</p>;
   }
 
   // 데이터가 있는 경우 데이터를 매핑하여 렌더링
