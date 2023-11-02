@@ -60,7 +60,7 @@ class Ask extends Component {
             onChange={() => this.handleTabClick("notice_N")}
           />
           <label htmlFor="tab1">
-            <div>공지사항</div>
+            <div>공지사항 &gt;</div>
             <p>Healthy Pleasure에서 전하는 새로운 소식을 확인하세요.</p>
           </label>
 
@@ -72,7 +72,7 @@ class Ask extends Component {
             onChange={() => this.handleTabClick("notice_ask")}
           />
           <label htmlFor="tab2">
-            <div> 자주묻는질문</div>
+            <div> 자주묻는질문 &gt;</div>
             <p>궁금한 사항이 있다면 자주 묻는 질문을 확인해 보세요.</p>
           </label>
           <input
@@ -83,7 +83,7 @@ class Ask extends Component {
             onChange={() => this.handleTabClick("notice_inquiry")}
           />
           <label htmlFor="tab3">
-            <div>1 : 1 문의</div>
+            <div>1 : 1 문의 &gt;</div>
             <p>그 밖에도 궁금하신 것이 있으신가요?</p>
           </label>
         </div>

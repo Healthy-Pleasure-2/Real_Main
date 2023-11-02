@@ -124,7 +124,7 @@
 }
 
 .banner_title h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: #386641;
 }
@@ -137,14 +137,14 @@
 }
 
 .banner_title p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-top: 0.5em;
     color: #fff;
 }
 
 /* 배너 버튼 */
 .bt1 {
-    margin-top: 1.5em;
+    margin-top: 3%;
 }
 
 .bt1 button {

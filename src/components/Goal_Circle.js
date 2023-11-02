@@ -134,7 +134,7 @@ function Goal_Circle({ sessiondata }) {
         <div className="flip-card-front">
           <div className="title">
             안녕하세요 <br></br>
-            {User_Name}님
+            <span>{User_Name}</span> 님
           </div>
           <div className="subTitle">
             현재 체중, 운동량, 식사량을 입력하여 <br></br>

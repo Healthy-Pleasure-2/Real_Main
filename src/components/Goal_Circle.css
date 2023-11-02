@@ -49,10 +49,14 @@
   font-weight: bold;
   font-size: 1.7rem;
   color: #1f3d25;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 30px;
   line-height: 2.5rem;
+}
+
+.flip-card-front .title span {
+  -webkit-text-stroke: 1px #1f3d25;
+  letter-spacing: 4px;
+  border-bottom: 3px solid #A7C957;
 }
 
 .flip-card-front .subTitle {
