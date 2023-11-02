@@ -127,7 +127,7 @@ function Main() {
       <div className="etc">
         <Link to="/notice1" className="Notice">
           <div className="etc_content">
-            <h3>NOTICE</h3>
+            <h3>NOTICE &gt;</h3>
             <p>다양한 소식, 뉴스, 이벤트등을 확인 할 수 있습니다.</p>
           </div>
           <div className="etc_icon1">
@@ -137,7 +137,7 @@ function Main() {
 
         <Link to="/faq" className="Question">
           <div className="etc_content">
-            <h3>FAQ</h3>
+            <h3>FAQ &gt;</h3>
             <p>궁금한 사항이 있다면 자주 묻는 질문을 확인해 보세요.</p>
           </div>
           <div className="etc_icon2">

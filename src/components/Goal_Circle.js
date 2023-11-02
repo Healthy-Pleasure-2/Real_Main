@@ -22,7 +22,7 @@
 import React, { useState, useEffect } from "react";
 import "./Goal_Circle.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 
 function Goal_Circle({ sessiondata }) {
   const [User_Name, setuserName] = useState("");
@@ -141,10 +141,11 @@ function Goal_Circle({ sessiondata }) {
             <span>목표 달성률</span>을 확인하세요!
           </div>
           <div className="subTitle2">
-            목표설정은 "개인별 목표설정" 페이지에서 <br></br>작성 가능합니다.
+            * 목표설정은 "개인별 목표설정" 에서 작성
           </div>
           <button className="flip-button" onClick={flipCard}>
             입력하기
+            <FontAwesomeIcon icon={faAnglesRight} />
           </button>
         </div>
 
@@ -245,7 +246,7 @@ function Goal_Circle({ sessiondata }) {
           </div>
 
           <button className="flip-button" onClick={flipCard}>
-            <FontAwesomeIcon icon={faArrowRight} />{" "}
+            <FontAwesomeIcon icon={faAngleRight} />
           </button>
         </div>
       </div>
