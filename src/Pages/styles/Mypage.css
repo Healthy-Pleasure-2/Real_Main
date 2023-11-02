@@ -53,12 +53,19 @@
   font-weight: 400;
 }
 
+/* 오른쪽 부분 */
+#Mypage .Mypage_wrap {
+  width: 70%;
+  height: 100%;
+  padding: 5% 10%;
+  /* margin: 5% 5% 0; */
+
+}
+
 /* 회원정보 수정 입력란 */
 #Mypage form {
-  width: 50%;
-  height: 100%;
-  padding: 5% 0;
-  margin: 0 10%;
+  width: 100%;
+  height: 95%;
   position: relative;
 }
 
@@ -128,7 +135,7 @@
 #Mypage .signbtn {
   display: flex;
   position: absolute;
-  bottom: 10%;
+  bottom: 0;
   width: 100%;
   height: 7%;
 }
@@ -144,7 +151,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  /* position: absolute; */
   bottom: 5%;
 }
 
