@@ -181,6 +181,7 @@ function LeftContents({ sessiondata }) {
                 <p className={`${item.done ? "done" : ""}`} style={{ color: item.done ? '#fff' : '#386641' }}>{item.text}</p>
                 <button
                   className="todo_delete"
+                  style={{ background: item.checked ? "#a2a1a1" : "#f84949" }}
                   onClick={() => {
                     remove(item);
                   }}

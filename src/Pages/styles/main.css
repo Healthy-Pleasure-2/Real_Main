@@ -41,13 +41,14 @@
 .banner2,
 .banner3,
 .banner4 {
-    background:
+    /* background:
         radial-gradient(ellipse at 20% 20%, #A7C957 0%, transparent 80%),
         radial-gradient(ellipse at 55% 50%, #90b833 0%, transparent 70%),
         radial-gradient(ellipse at 100% 10%, #e4e46d 0%, transparent 70%),
         radial-gradient(ellipse at 100% 100%, #82ba57 0%, transparent 80%),
         radial-gradient(ellipse at 20% 100%, #4b800a 0%, transparent 90%);
-    background-blend-mode: screen;
+    background-blend-mode: screen; */
+    background: #A7C957;
     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
     border-radius: 15px;
 }
@@ -70,8 +71,7 @@
 
 /* .banner 이미지 */
 .banner .banner_image {
-    background-image: url(../../asset/main4.png);
-    animation: post-ani 2s linear infinite;
+    background-image: url(../../asset/main1.png);
 }
 
 @keyframes post-ani {
@@ -90,23 +90,27 @@
 
 
 /* .banner2 */
+.banner2 {
+    /* background: radial-gradient(circle, rgb(191, 226, 109) 40%, rgba(105, 172, 98, 1) 100%); */
+}
+
 .banner2 .banner_image {
+    background-image: url(../../asset/main4.png);
+    animation: post-ani 4s linear infinite;
+}
+
+/* .banner3 */
+.banner3 .banner_image {
     background-image: url(../../asset/main2.png);
 }
 
-
-/* .banner3 */
-.banner3 {
-    background: rgb(181, 218, 94);
-    background: radial-gradient(circle, rgb(191, 226, 109) 40%, rgba(105, 172, 98, 1) 100%);
-}
-
-.banner3 .banner_image {
-    background-image: url(../../asset/main3.png);
+/* .banner4 */
+.banner4 {
+    /* background: radial-gradient(circle, rgb(191, 226, 109) 40%, rgba(105, 172, 98, 1) 100%); */
 }
 
 .banner4 .banner_image {
-    background-image: url(../../asset/main1.png);
+    background-image: url(../../asset/main3.png);
 }
 
 /* 배너 글자 */
@@ -115,27 +119,28 @@
     top: 20%;
     left: 45%;
     /* transform: translateY(-50%); */
-    color: #386641;
+    color: #1f3d25;
     width: 60%;
 }
 
 .banner_title h3 {
     font-size: 1.2rem;
     font-weight: 600;
-    color: rgba(56, 102, 65, 0.8);
+    color: rgba(31, 61, 37, 0.8);
 }
 
 .banner_title h1 {
     text-shadow: .1em .1em 1px #fff;
-    -webkit-text-stroke: 1px #386641;
+    -webkit-text-stroke: 1px #1f3d25;
     font-size: 2.5em;
     font-family: 'SUITE-Heavy';
 }
 
 .banner_title p {
     font-size: 0.9rem;
-    font-weight: 400;
     margin-top: 0.5em;
+    font-weight: 600;
+    color: rgba(31, 61, 37, 0.7);
 }
 
 /* 배너 버튼 */
@@ -231,10 +236,11 @@
     height: 100%;
     float: left;
     font-size: 1.3rem;
-    color: #386641;
+    color: #1f3d25;
     font-weight: bold;
     padding-left: 1.5em;
     position: relative;
+
 }
 
 .title_inner {
@@ -244,8 +250,10 @@
 }
 
 .title_inner h3 {
-    -webkit-text-stroke: 1px #386641;
+    font-family: 'SUITE-Heavy';
+    -webkit-text-stroke: 0.5px #1f3d25;
     margin-bottom: 6%;
+
 }
 
 .title_inner h3 span {
@@ -256,8 +264,8 @@
 
 .rank .title p {
     font-size: 0.8rem;
-    font-weight: 400;
     line-height: 0.9rem;
+    font-weight: 600;
 }
 
 .rank .title .bt2 button {

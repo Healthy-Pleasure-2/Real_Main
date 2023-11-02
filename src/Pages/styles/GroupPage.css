@@ -43,8 +43,8 @@
 
 }
 
-#GroupPage .top #category {
-  width: 80px;
+#GroupPage .top #goal {
+  width: 150px;
   height: 25px;
   background-color: rgba(167, 201, 87, 0.6);
   border-radius: 15px;
@@ -53,6 +53,8 @@
   font-weight: bold;
   line-height: 25px;
 }
+
+#GroupPage .top #goal span {}
 
 #GroupPage .top button {
   float: right;
@@ -157,6 +159,19 @@
   border: 2px solid #386641;
   border-radius: 10px;
   padding: 7px;
+}
+
+/* 초기 화면, 안내 사항 */
+#GroupPage .comment .comment-error {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+}
+
+#GroupPage .comment .comment-error img {
+  width: 10%;
 }
 
 .commentTitle {
