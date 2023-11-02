@@ -21,6 +21,8 @@
 
 import React, { useState, useEffect } from "react";
 import "./Goal_Circle.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function Goal_Circle({ sessiondata }) {
   const [User_Name, setuserName] = useState("");
@@ -120,89 +122,135 @@ function Goal_Circle({ sessiondata }) {
     }
   };
 
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const flipCard = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   return (
-    <div className="flex-wrapper">
-      <div className="title">안녕하세요! {User_Name}님 😊</div>
-
-      <div className="single-chart">
-        <svg viewBox="0 0 36 36" className="circular-chart orange">
-          <text x="10.2" y="15" fontSize="2.5px" className="percentage"></text>
-          <path
-            className="circle"
-            strokeDasharray={`${weightStrokeDasharray}, 100`}
-            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-          />
-        </svg>
-      </div>
-
-      <div className="single-chart1">
-        <svg viewBox="0 0 36 36" className="circular-chart1 green">
-          <path
-            className="circle1"
-            strokeDasharray={`${exerciseStrokeDasharray}, 100`}
-            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-          />
-          <text x="8.5" y="18.8" fontSize="3px" className="percentage1"></text>
-        </svg>
-      </div>
-
-      <div className="single-chart2">
-        <svg viewBox="0 0 36 36" className="circular-chart2 blue">
-          <path
-            className="circle2"
-            strokeDasharray={`${dietStrokeDasharray}, 100`}
-            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-          />
-          <text x="7" y="25" fontSize="3.5px" className="percentage2"></text>
-        </svg>
-      </div>
-
-      <div className="subTitle">
-        현재 체중, 운동량, 식사량을 입력하여 <br></br>
-        <span>목표 달성률</span>을 확인하세요!
-      </div>
-
-      <div className="inputbox">
-        <div className="input_inner">
-          <div className="input_title">체중</div>
-          <input
-            className="inputbox1"
-            type="text"
-            placeholder="0"
-            value={input_weight}
-            onChange={(e) => handleInputChange("input_weight", e.target.value)}
-          />
-          <br></br>
-          kg
+    <div className={`flip-card ${isFlipped ? "flipped" : ""}`}>
+      <div className="flip-card-inner">
+        <div className="flip-card-front">
+          <div className="title">
+            안녕하세요 <br></br>
+            {User_Name}님
+          </div>
+          <div className="subTitle">
+            현재 체중, 운동량, 식사량을 입력하여 <br></br>
+            <span>목표 달성률</span>을 확인하세요!
+          </div>
+          <div className="subTitle2">
+            목표설정은 "개인별 목표설정" 페이지에서 <br></br>작성 가능합니다.
+          </div>
+          <button className="flip-button" onClick={flipCard}>
+            입력하기
+          </button>
         </div>
-        <div className="input_inner">
-          <div className="input_title">운동</div>
-          <input
-            className="inputbox2"
-            type="text"
-            placeholder="0"
-            value={input_exercise}
-            onChange={(e) =>
-              handleInputChange("input_exercise", e.target.value)
-            }
-          />{" "}
-          <br></br>
-          kcal
-        </div>
-        <div className="input_inner">
-          <div className="input_title">식단</div>
-          <input
-            className="inputbox3"
-            type="text"
-            placeholder="0"
-            value={input_diet}
-            onChange={(e) => handleInputChange("input_diet", e.target.value)}
-          />{" "}
-          <br></br>
-          kcal
+
+        <div className="flip-card-back">
+          <div className="backTitle">현재 상태값</div>
+          <div className="backSubTitle">목표 달성률을 확인해보세요!</div>
+          <div className="single-chart">
+            <svg viewBox="0 0 36 36" className="circular-chart orange">
+              <text
+                x="10.2"
+                y="15"
+                fontSize="2.5px"
+                className="percentage"
+              ></text>
+              <path
+                className="circle"
+                strokeDasharray={`${weightStrokeDasharray}, 100`}
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+            </svg>
+          </div>
+
+          <div className="single-chart1">
+            <svg viewBox="0 0 36 36" className="circular-chart1 green">
+              <path
+                className="circle1"
+                strokeDasharray={`${exerciseStrokeDasharray}, 100`}
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text
+                x="8.5"
+                y="18.8"
+                fontSize="3px"
+                className="percentage1"
+              ></text>
+            </svg>
+          </div>
+
+          <div className="single-chart2">
+            <svg viewBox="0 0 36 36" className="circular-chart2 blue">
+              <path
+                className="circle2"
+                strokeDasharray={`${dietStrokeDasharray}, 100`}
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text
+                x="7"
+                y="25"
+                fontSize="3.5px"
+                className="percentage2"
+              ></text>
+            </svg>
+          </div>
+
+          <div className="inputbox">
+            <div className="input_inner">
+              <div className="input_title">체중</div>
+              <input
+                className="inputbox1"
+                type="text"
+                placeholder="0"
+                value={input_weight}
+                onChange={(e) =>
+                  handleInputChange("input_weight", e.target.value)
+                }
+              />
+              <br></br>
+              kg
+            </div>
+            <div className="input_inner">
+              <div className="input_title">운동</div>
+              <input
+                className="inputbox2"
+                type="text"
+                placeholder="0"
+                value={input_exercise}
+                onChange={(e) =>
+                  handleInputChange("input_exercise", e.target.value)
+                }
+              />{" "}
+              <br></br>
+              kcal
+            </div>
+            <div className="input_inner">
+              <div className="input_title">식단</div>
+              <input
+                className="inputbox3"
+                type="text"
+                placeholder="0"
+                value={input_diet}
+                onChange={(e) =>
+                  handleInputChange("input_diet", e.target.value)
+                }
+              />{" "}
+              <br></br>
+              kcal
+            </div>
+          </div>
+
+          <button className="flip-button" onClick={flipCard}>
+            <FontAwesomeIcon icon={faArrowRight} />{" "}
+          </button>
         </div>
       </div>
     </div>
   );
 }
+
 export default Goal_Circle;
