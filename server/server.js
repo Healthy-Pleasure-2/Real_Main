@@ -12,6 +12,7 @@
 231029 김장훈 -로그인 시 쿠키에 사용자 이름, 목표값 저장되도록 수정 --> 삭제
 231031 김장훈 -Goal_Circle 목표값 처리 핸들러 추가
 231031 김장훈 -ID, PW 찾기 핸들러 추가
+231102 김장훈 -회원탈퇴 라우터 추가
 --------------------------------------------------------------------------------------------------------------*/
 const express = require("express");
 const session = require("express-session");
@@ -303,6 +304,36 @@ app.post('/Find_pw', async (req, res) => {
     res.status(200).json({ message: 'PW 찾기 성공', userpw });
   } else {
     res.status(401).json({ message: 'PW를 찾을 수 없습니다.' });
+  }
+});
+
+// Mypage.js 회원탈퇴 라우터
+app.get("/Delete_user/:id", async (req, res) => {
+  const userId = req.params.id;
+  try {
+    // db.json 파일 읽어오기
+    const jsonData = await fs.promises.readFile("./db.json", "utf8");
+    // db.json 파일을 자바스크립트 객체로 파싱
+    const data = JSON.parse(jsonData);
+
+    // db에서 사용자 id와 전달된 id가 같은 사용자를 찾음
+    const userIndex = data.user.findIndex((u) => u.id === userId);
+
+    if (userIndex !== -1) { // 사용자를 찾았을 때
+      // 사용자 데이터를 배열에서 삭제
+      data.user.splice(userIndex, 1);
+
+      // 변경된 데이터를 다시 파일로 씀
+      const updatedJsonData = JSON.stringify(data, null, 2);
+      await fs.promises.writeFile("./db.json", updatedJsonData);
+
+      res.status(200).json({ message: "사용자 삭제 성공" });
+    } else {
+      res.status(404).json({ message: "사용자를 찾을 수 없습니다" });
+    }
+  } catch (error) {
+    console.error("서버 파일 처리 오류:", error);
+    res.status(500).json({ message: "서버 오류" });
   }
 });
 

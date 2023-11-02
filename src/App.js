@@ -6,6 +6,7 @@
 -로그
 2310__  _____ - 최초생성
 231024 김장훈 - db.json 파일을 이용한 로그인 요청 기능 구현
+231102 김장훈 - Mypage 연결 추가
 --------------------------------------------------------------------------------------------------------------*/
 import "./App.css";
 import React, { useState, useEffect } from "react";
@@ -14,6 +15,7 @@ import SideMenu from "./components/SideMenu";
 import SideContent from "./components/SideCotent";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Mypage from "./Pages/Mypage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -104,6 +106,9 @@ function App() {
           onLogin={handleLogin}
           sessiondata={sessiondata}
         ></SideContent>
+        <Mypage 
+          sessiondata={sessiondata}
+          ></Mypage>
       </div>
     </div>
   );
