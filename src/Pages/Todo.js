@@ -9,7 +9,7 @@ import GoalSet from "../components/Todo/GoalSet";
 import Mygroup from "../components/Todo/Mygroup";
 
 function Todo({ sessiondata }) {
-  console.log(sessiondata);
+  //console.log(sessiondata);
   return (
     <div id="todo_container">
       <LeftContents sessiondata={sessiondata} />
