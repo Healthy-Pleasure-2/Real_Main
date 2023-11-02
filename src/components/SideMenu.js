@@ -25,6 +25,7 @@ function SideMenu({ isLoggedIn, onLogout }) {
     onLogout();
   };
 
+  //네비 눌렀을떄 흰색 박스 유지
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
 
   const handleMenuItemClick = (menuItem) => {
