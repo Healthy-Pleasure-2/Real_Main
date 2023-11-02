@@ -1,14 +1,27 @@
-// 소스명 : Mypage.js
-// 작성자 : 이진경
-// 이 페이지 용도 : 회원정보 수정, 마이페이지
-// 수정일자 : 23.10.16
-// 수정일자 : 23.10.17 / 코드 전면 수정, 에러메시지 출력, 회원 탈퇴시 확인창 선택후 메인 페이지 이동
+/*
+-소스명 : Mypage.js
+-작성자 : 이진경
+-이 페이지 용도 : 회원정보 수정, 마이페이지
+-생성일자(수정일자) : 231016
+--------------------------------------------------------------------------------------------------------------
+-로그
+231017 이진경 - 코드 전면 수정, 에러메시지 출력, 회원 탈퇴 시 확인창 선택 후 메인 페이지 이동
+231102 김장훈 - 회원탈퇴 기능 추가
+--------------------------------------------------------------------------------------------------------------
+*/
 
 import React, { useState } from "react";
 import "./styles/Mypage.css";
 import Swal from "sweetalert2";
+import axios from "axios"; // axios 추가
 
-function Mypage() {
+function Mypage(props) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [sessiondata, setSessiondata] = useState(false);
+  //console.log("sessiondata:", sessiondata);
+  //const userId = sessiondata.sessiondata;
+  const userId = props.sessiondata;
+
   const [formData, setFormData] = useState({
     id: "",
     password: "",
@@ -79,6 +92,60 @@ function Mypage() {
     }
   };
 
+<<<<<<< HEAD
+    // 로그아웃 함수
+    const handleLogout = async () => {
+      axios
+        .get("http://localhost:3003/logout", { withCredentials: true })
+        .then(() => {
+          // 로그아웃 성공 시 클라이언트 상태 업데이트
+          // 여기에서는 예시로 setIsLoggedIn과 setSessiondata를 사용했지만, 실제로는 해당하는 클라이언트 상태를 업데이트하세요.
+          setIsLoggedIn(false); // 로그인 상태를 false로 설정
+          setSessiondata(null); // 세션 데이터 초기화
+        })
+        .catch((error) => {
+          console.error("로그아웃 오류:", error);
+        });
+    };
+
+    const handleWithdrawal = () => {
+        Swal
+            .fire({
+                title: "회원 탈퇴",
+                text: "탈퇴 하시겠습니까?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#A7C957",
+                cancelButtonColor: "#ccc",
+                confirmButtonText: "Yes!"
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    // 사용자가 확인하면 서버에 탈퇴 요청을 보냄
+                    fetch(`http://localhost:3003/Delete_user/${userId}`, { // 유저 ID를 요청에 추가
+                        method: "GET",
+                        credentials: "include", //쿠키포함.
+                    })
+                        .then((response) => {
+                            if (response.status === 200) {
+                                // 회원 탈퇴 성공
+                                Swal
+                                    .fire("회원탈퇴 완료", "GOODBAY~ 다음에 다시 만나요.", "success")
+                                    .then(() => {
+                                      handleLogout()
+                                      window.location.href = 'http://localhost:3000';
+                                    })
+                            } else {
+                                console.error("회원 탈퇴 실패");
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("오류 발생: " + error);
+                        });
+                }
+            });
+    };
+=======
   const withdrawal = () => {
     Swal.fire({
       title: "회원 탈퇴",
@@ -99,6 +166,7 @@ function Mypage() {
       }
     });
   };
+>>>>>>> f1a82b314293b66653cfdcd8eccd7cef59845138
 
   return (
     <div id="Mypage">
@@ -203,10 +271,10 @@ function Mypage() {
           <div className="signbtn">
             <button type="submit">수정하기</button>
           </div>
-          <div className="withdrawal" onClick={withdrawal}>
-            <button>회원탈퇴</button>
-          </div>
         </form>
+        <div className="withdrawal" onClick={handleWithdrawal}>
+            <button>회원탈퇴</button>
+        </div>
       </div>
     </div>
   );
