@@ -23,7 +23,7 @@
     font-size: 1.3rem;
     color: #1f3d25;
     font-weight: bold;
-    padding-left: 1.5em;
+    padding-left: 4%;
     position: relative;
 }
 
@@ -412,4 +412,24 @@
 .Community_Grouplistbtn button:focus {
     background: #A7C957;
     border-radius: 10px;
+}
+
+@media (max-width: 1500px) {
+    .group_list_subTitle {
+        width: 87%;
+    }
+
+    .Community_groupbtn {
+        width: 13%;
+    }
+
+    .Community_groupbtn button {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 1250px) {
+    .Community_title .title_inner p {
+        font-size: 0.8rem
+    }
 }
