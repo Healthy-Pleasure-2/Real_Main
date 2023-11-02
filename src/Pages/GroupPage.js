@@ -135,10 +135,10 @@ function GroupPage({ isLoggedIn, sessiondata }) {
               </button>
             )}
             <h2>{groupInfo.name}</h2>
-            {!showDiv && <div id="goal">나의 달성률을 확인하세요!</div>}
+            {!showDiv && <div id="goal">나의 달성일을 확인하세요!</div>}
             {showDiv && (
               <div id="goal">
-                나의 목표 달성률 <span>95%</span>
+                나의 목표 달성일: <span>1일</span>
               </div>
             )}
           </div>
