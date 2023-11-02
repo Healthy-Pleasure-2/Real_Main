@@ -160,7 +160,10 @@ function GroupPage({ isLoggedIn, sessiondata }) {
               <div className="commentTitle">소통해요</div>
               <div className="comment-error">
                 <img src={errorImage} alt="Error" />
-                <h3>해당 서비스는 커뮤니티 참여시 이용 가능합니다. </h3>
+                <h3>
+                  해당 서비스는 커뮤니티 참여시 이용 가능합니다.<br></br>
+                  <span>* 로그인 후 이용해주세요 😊 *</span>
+                </h3>
               </div>
             </div>
           )}
@@ -187,7 +190,7 @@ function GroupPage({ isLoggedIn, sessiondata }) {
 
               {/* 댓글 작성란 */}
               <div className="commentInput">
-                <input type="text" maxLength="4" value={nickname} />
+                <input type="text" value={nickname} />
                 <input
                   type="text"
                   maxLength="100"
