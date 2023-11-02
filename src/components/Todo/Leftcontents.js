@@ -60,7 +60,7 @@ function LeftContents() {
     <div id="todo_left_contents">
       <div className="todo_title">
         <h2>To do List</h2>
-        <p>오늘의 할 일을 기록해보세요!</p>
+        <p>오늘의 할 일을 리스트에 작성하여 완료해보세요!</p>
       </div>
 
       <ReactCalendar />
