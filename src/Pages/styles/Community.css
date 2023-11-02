@@ -87,6 +87,7 @@
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
+    letter-spacing: 2px;
 }
 
 /* 중간부분 */
@@ -165,6 +166,7 @@
     border-radius: 50px;
     font-weight: 600;
     padding: 1%;
+    letter-spacing: 1px;
 }
 
 .Community_groupcreate button:last-child {
@@ -318,6 +320,7 @@
     height: 20%;
     font-size: 100%;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .Community_Gitem .Community_cardcontent h3 {

@@ -73,7 +73,7 @@ class Ask extends Component {
           />
           <label htmlFor="tab2">
             <div> 자주묻는질문</div>
-            <p>궁금한게 있다면 자주 묻는 질문을 확인해 보세요.</p>
+            <p>궁금한 사항이 있다면 자주 묻는 질문을 확인해 보세요.</p>
           </label>
           <input
             type="radio"

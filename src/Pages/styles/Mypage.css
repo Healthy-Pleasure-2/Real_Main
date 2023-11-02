@@ -51,6 +51,8 @@
 
 #Mypage h3 {
   font-weight: 400;
+  line-height: 1.4rem;
+  padding-top: 5%;
 }
 
 /* 오른쪽 부분 */
@@ -78,7 +80,8 @@
   display: block;
   font-weight: 800;
   padding-bottom: 1%;
-  height: 40%;
+  height: 35%;
+  letter-spacing: 2px;
 }
 
 #Mypage form .input {
@@ -89,6 +92,7 @@
   border-radius: 5px;
   padding-left: 10px;
   color: #17594A;
+  font-size: 0.9rem;
 }
 
 #Mypage form input:focus {
@@ -117,6 +121,7 @@
   width: 80%;
   border-radius: 5px;
   color: #17594A;
+  font-size: 0.9rem;
 }
 
 /* 중복확인 버튼 */
@@ -126,6 +131,11 @@
   border: none;
   background: #A7C957;
   color: #fff;
+}
+
+.input_check button:hover {
+  background: #386641;
+  transition: 0.3s ease-in-out;
 }
 
 /* 에러 메세지- 회원가입 공통 */

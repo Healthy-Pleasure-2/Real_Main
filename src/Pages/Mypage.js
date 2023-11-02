@@ -152,7 +152,9 @@ function Mypage(props) {
         <div className="Mypage_left">
           <div className="icon"></div>
           <h1>회원 정보 수정</h1>
-          <h3>회원 정보 수정 페이지 입니다.</h3>
+          <h3>
+            비밀번호, 닉네임, 이메일<br></br>수정이 가능합니다.
+          </h3>
         </div>
         <div className="Mypage_wrap">
           <form onSubmit={handleSubmit}>
