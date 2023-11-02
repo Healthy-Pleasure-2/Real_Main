@@ -20,7 +20,6 @@ import Mypage from "./Pages/Mypage";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [sessiondata, setSessiondata] = useState(false);
-  console.log("세션값", sessiondata);
   //쿠키값이 남아있으면 로그인 유지
   useEffect(() => {
     // 컴포넌트가 마운트될 때, 로그인 상태 확인

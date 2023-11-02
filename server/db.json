@@ -9,11 +9,11 @@
       "nickname": "진경1234",
       "email": "wlsrud1234@naver.com",
       "group": [
-        1,
-        2,
-        22,
-        17,
-        34
+        "11",
+        "12",
+        "3",
+        "2",
+        "1"
       ],
       "weight": "10",
       "exercise": "1500",
@@ -28,9 +28,10 @@
       "nickname": "제형1234",
       "email": "wpgud1234@naver.com",
       "group": [
-        8,
-        18,
-        28
+        "8",
+        "18",
+        "28",
+        "10"
       ],
       "weight": "",
       "exercise": "",
@@ -45,11 +46,11 @@
       "nickname": "은정1234",
       "email": "dmswjd1234@naver.com",
       "group": [
-        1,
-        11,
-        21,
-        31,
-        36
+        "1",
+        "11",
+        "21",
+        "31",
+        "36"
       ],
       "weight": "20",
       "exercise": "1500",
@@ -64,10 +65,10 @@
       "nickname": "수진1234",
       "email": "tnwls1234@naver.com",
       "group": [
-        5,
-        15,
-        25,
-        35
+        "5",
+        "15",
+        "25",
+        "35"
       ],
       "weight": "30",
       "exercise": "1600",
@@ -82,36 +83,24 @@
       "nickname": "장훈1234",
       "email": "wkdgns1234@naver.com",
       "group": [
-        10,
-        20,
-        30
+        "10",
+        "20",
+        "30"
       ],
-      "weight": "1500",
-      "exercise": "1522",
-      "diet": "6300"
-    },
-    {
-      "index": 6,
-      "id": "wjddmswjd",
-      "pw": "a123456789",
-      "name": "wjddmswjd",
-      "nickname": "멀캠은정",
-      "email": "wjddmswjd@naver.com",
-      "group": [],
-      "weight": "",
-      "exercise": "",
-      "diet": ""
+      "weight": "60",
+      "exercise": "2600",
+      "diet": "2700"
     }
   ],
   "group": [
     {
       "id": 1,
-      "name": "채소도 맛있다!",
+      "name": "하루채소",
       "category": "식단",
       "img": "https://i.pinimg.com/564x/85/ae/36/85ae360b73b8dd10f7f0c8ca1aacf658.jpg",
-      "goal": "일주일에 3번 채소 먹기",
+      "goal": "하루 권장 섭취량 채우기",
       "grouptotal": 86,
-      "groupintro": "일주일에 3번 채소 먹기 일주일에 3번 채소 먹기 일주일에 3번 채소 먹기 일주일에 3번 채소 먹기 일주일에 3번 채소 먹기"
+      "groupintro": " 오늘 채소 얼마나 드셨나요? 한국영양학회는 성인 남자를 기준으로 하루 채소 7회를 섭취하도록 권장하며 채소의 1회 분량은 70g으로 하루 채소 권장량은 490g이라고 하네요.. 건강한 삶을 위해 채소 섭취가 필수인건 알지만 챙겨먹기 쉽지 않잖아요? 자연 바람과 햇살 가득 머금은 제철 채소를 섭취하여 우리 모두 영양 Level up! 지금 부터 함께 시작해요!! "
     },
     {
       "id": 2,
@@ -127,25 +116,25 @@
       "name": "크로스핏",
       "category": "운동",
       "img": "https://cdn.pixabay.com/photo/2017/01/09/11/30/dumbbell-1966247_1280.jpg",
-      "goal": "매일 2시간 크로스핏 운동하기",
+      "goal": "주 4일 크로스핏 운동하기",
       "grouptotal": 55,
-      "groupintro": "매일 2시간 크로스핏 운동하기 매일 2시간 크로스핏 운동하기 매일 2시간 크로스핏 운동하기 매일 2시간 크로스핏 운동하기매일 2시간 크로스핏 운동하기"
+      "groupintro": "주 4일 크로스핏 운동하기"
     },
     {
       "id": 4,
       "name": "Tennis Club",
       "category": "다이어트",
       "img": "https://i.pinimg.com/564x/a8/89/79/a88979e9c87d9928e97dbc05cfcb34d8.jpg",
-      "goal": "건강을 위해 체중 감량",
+      "goal": "건강을 위한 테니스 모임",
       "grouptotal": 72,
-      "groupintro": "다이어트가 아닌 건강을 목적으로 함께 체중 감량하실분!"
+      "groupintro": "다이어트가 아닌 건강을 목적으로 함께 체중 감량하실분! 테니스에 흥미가 있으신분! 함께 해요."
     },
     {
       "id": 5,
       "name": "저탄고지식단",
       "category": "식단",
       "img": "https://i.pinimg.com/564x/f6/7e/ca/f67eca0632a625c78e56b2064199c6fb.jpg",
-      "goal": "당뇨 식단 관리",
+      "goal": "식단으로 건강관리 하기",
       "grouptotal": 18,
       "groupintro": "당뇨 식단 관리 당뇨 식단 관리 당뇨 식단 관리 당뇨 식단 관리 당뇨 식단 관리 당뇨 식단 관리 "
     },

@@ -16,6 +16,7 @@
 --------------------------------------------------------------------------------------------------------------*/
 const express = require("express");
 const session = require("express-session");
+const bodyParser = require("body-parser");
 const app = express(); // Express 앱을 생성
 const port = 3003; // 서버가 사용할 포트 번호를 정의
 const cors = require("cors"); // CORS 미들웨어를 추가
@@ -34,7 +35,8 @@ async function Datafc() {
     throw error;
   }
 }
-
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(express.json()); // Express 앱이 JSON 요청을 처리할 수 있도록 미들웨어를 추가
 app.use(
   cors({
@@ -146,7 +148,7 @@ app.patch("/user/:id", async (req, res) => {
       2
     );
     await fs.promises.writeFile("./db.json", updatedData, "utf8");
-    console.log("업데이트 결과", updatedData);
+    //console.log("업데이트 결과", updatedData);
     res.status(200).json({ message: "사용자 정보가 업데이트되었습니다", user });
   } catch (err) {
     console.error("파일 처리 오류: ", err);
@@ -167,7 +169,7 @@ app.get("/mygroup/:id", async (req, res) => {
       const userGroupIds = user.group; // 사용자의 그룹 아이디 배열
       // userGroupIds와 groups에서 일치하는 그룹을 찾음
       const userGroups = groups.filter((group) =>
-        userGroupIds.includes(group.id)
+        userGroupIds.includes(group.id.toString())
       );
       res.json(userGroups);
     } else {
@@ -190,10 +192,13 @@ app.get("/group", async (req, res) => {
   }
 });
 //그룹 추가하는 라우트  //Groupcreate.js에서 불러옴
-app.post("/groupadd", async (req, res) => {
+app.post("/groupadd/:userId", async (req, res) => {
   const newGroup = req.body;
+  const userId = req.params.userId;
   try {
     const data = await Datafc();
+    const users = data.user;
+    const user = users.find((u) => u.id === userId);
     //console.log(data);
     const nextGroupId = data.group.length + 1;
     const newgroupData = {
@@ -202,13 +207,66 @@ app.post("/groupadd", async (req, res) => {
       category: newGroup.category,
       img: newGroup.img,
       goal: newGroup.goal,
+      grouptotal: 0,
       groupintro: newGroup.groupintro,
     };
-    // 데이터 객체에 새로운 그룹 추가
-    data.group.push(newgroupData);
-    const updatedDataGroup = JSON.stringify(data, null, 2);
-    await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
-    res.status(200).json({ message: "그룹생성성공" }); // 새로운 그룹의 ID 반환
+    if (user) {
+      data.group.push(newgroupData);
+      const updatedDataGroup = JSON.stringify(data, null, 2);
+      await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
+      res.status(200).json({ message: "그룹생성성공" }); // 새로운 그룹의 ID 반환
+      // 데이터 객체에 새로운 그룹 추가
+    }
+  } catch (error) {
+    //console.error("파일 작업 중 오류 발생:", error);
+    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
+  }
+});
+//GroupPage.js에서 Effect에서 사용
+app.get("/groupjoin/:userid", async (req, res) => {
+  try {
+    const userid = req.params.userid;
+    const groupId = req.query.groupId;
+    const data = await Datafc();
+    const user = data.user.find((u) => u.id === userid);
+    if (user) {
+      const nickname = user.nickname;
+      if (user.group.includes(groupId.toString())) {
+        // 읽어온 데이터 객체를 클라이언트로 반환
+        res.json({ message: "true", nickname });
+      } else {
+        res.json({ message: "false" });
+      }
+    }
+  } catch (error) {
+    console.error("파일 작업 중 오류 발생:", error);
+    res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
+  }
+});
+//Grouppage.js에서 불러옴, 참여하기 누르면 user정보 변경
+app.post("/communicate/:id", async (req, res) => {
+  const userId = req.params.id;
+  const { groupId } = req.body;
+  try {
+    const data = await Datafc();
+    const users = data.user;
+    const user = users.find((u) => u.id === userId);
+    if (user) {
+      if (user.group.includes(groupId.toString())) {
+        user.group = user.group.filter((groupItem) => groupItem !== groupId);
+        const updatedDataGroup = JSON.stringify(data, null, 2);
+        await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
+        res.json({ message: "false" });
+      } else {
+        // 새로운 값(groupId)을 배열에 추가합니다.
+        user.group.push(groupId);
+        const updatedDataGroup = JSON.stringify(data, null, 2);
+        await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
+        res.json({ message: "true" });
+      }
+    } else {
+      res.status(404).json({ message: "사용자를 찾을 수 없습니다." });
+    }
   } catch (error) {
     console.error("파일 작업 중 오류 발생:", error);
     res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
@@ -270,40 +328,40 @@ app.get("/user_Goal/:id", async (req, res) => {
 });
 
 // id_pw.js -> ID 찾기 요청 핸들러
-app.post('/Find_id', async (req, res) => {
+app.post("/Find_id", async (req, res) => {
   const data = await Datafc();
   const users = data.user;
   const { name, email } = req.body;
 
   //console.log(name);
   //console.log(email);
-  const user = users.find(u => u.name === name && u.email === email);
+  const user = users.find((u) => u.name === name && u.email === email);
   if (user) {
     const userid = user.id;
 
     // ID를 클라이언트에게 반환
-    res.status(200).json({ message: 'ID 찾기 성공', userid });
+    res.status(200).json({ message: "ID 찾기 성공", userid });
   } else {
-    res.status(401).json({ message: 'ID를 찾을 수 없습니다.' });
+    res.status(401).json({ message: "ID를 찾을 수 없습니다." });
   }
 });
 
 // id_pw.js -> PW찾기 요청 핸들러
-app.post('/Find_pw', async (req, res) => {
+app.post("/Find_pw", async (req, res) => {
   const data = await Datafc();
   const users = data.user;
   const { id, email } = req.body;
 
   //console.log(id);
   //console.log(email);
-  const user = users.find(u => u.id === id && u.email === email);
+  const user = users.find((u) => u.id === id && u.email === email);
   if (user) {
     const userpw = user.pw;
 
     // ID를 클라이언트에게 반환
-    res.status(200).json({ message: 'PW 찾기 성공', userpw });
+    res.status(200).json({ message: "PW 찾기 성공", userpw });
   } else {
-    res.status(401).json({ message: 'PW를 찾을 수 없습니다.' });
+    res.status(401).json({ message: "PW를 찾을 수 없습니다." });
   }
 });
 

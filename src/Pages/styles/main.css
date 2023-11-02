@@ -41,13 +41,14 @@
 .banner2,
 .banner3,
 .banner4 {
-    background:
+    /* background:
         radial-gradient(ellipse at 20% 20%, #A7C957 0%, transparent 80%),
         radial-gradient(ellipse at 55% 50%, #90b833 0%, transparent 70%),
         radial-gradient(ellipse at 100% 10%, #e4e46d 0%, transparent 70%),
         radial-gradient(ellipse at 100% 100%, #82ba57 0%, transparent 80%),
         radial-gradient(ellipse at 20% 100%, #4b800a 0%, transparent 90%);
-    background-blend-mode: screen;
+    background-blend-mode: screen; */
+    background: #A7C957;
     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
     border-radius: 15px;
 }
@@ -89,20 +90,23 @@
 
 
 /* .banner2 */
+.banner2 {
+    /* background: radial-gradient(circle, rgb(191, 226, 109) 40%, rgba(105, 172, 98, 1) 100%); */
+}
+
 .banner2 .banner_image {
     background-image: url(../../asset/main4.png);
     animation: post-ani 4s linear infinite;
 }
 
-
 /* .banner3 */
-.banner3 {
-    background: rgb(181, 218, 94);
-    background: radial-gradient(circle, rgb(191, 226, 109) 40%, rgba(105, 172, 98, 1) 100%);
-}
-
 .banner3 .banner_image {
     background-image: url(../../asset/main2.png);
+}
+
+/* .banner4 */
+.banner4 {
+    /* background: radial-gradient(circle, rgb(191, 226, 109) 40%, rgba(105, 172, 98, 1) 100%); */
 }
 
 .banner4 .banner_image {

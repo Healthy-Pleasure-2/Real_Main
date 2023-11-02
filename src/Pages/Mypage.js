@@ -92,6 +92,7 @@ function Mypage(props) {
     }
   };
 
+<<<<<<< HEAD
     // 로그아웃 함수
     const handleLogout = async () => {
       axios
@@ -144,6 +145,28 @@ function Mypage(props) {
                 }
             });
     };
+=======
+  const withdrawal = () => {
+    Swal.fire({
+      title: "회원 탈퇴",
+      text: "탈퇴 하시겠습니까?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#A7C957",
+      cancelButtonColor: "#ccc",
+      confirmButtonText: "Yes!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "회원탈퇴 완료",
+          text: "GOODBAY~ 다음에 다시 만나요.",
+          icon: "success",
+          confirmButtonColor: "#A7C957",
+        });
+      }
+    });
+  };
+>>>>>>> f1a82b314293b66653cfdcd8eccd7cef59845138
 
   return (
     <div id="Mypage">

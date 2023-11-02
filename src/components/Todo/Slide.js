@@ -1,11 +1,11 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const StyledSlider = styled(Slider)`
   border: 1px solid #386641;
@@ -21,6 +21,8 @@ const StyledSlider = styled(Slider)`
 function SimpleSlider({ sessiondata }) {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedItem, setSelectedItem] = useState(null);
+
   useEffect(() => {
     if (sessiondata === false) {
       axios
@@ -67,7 +69,10 @@ function SimpleSlider({ sessiondata }) {
   if (data.length === 0) {
     return <p className="slide_nodataGroup">참여 그룹이 없습니다.</p>;
   }
-
+  // 목표 달성 클릭시 초록색으로 변경
+  const handleItemClick = (GoalItem) => {
+    setSelectedItem(GoalItem);
+  };
   // 데이터가 있는 경우 데이터를 매핑하여 렌더링
   return (
     <div className="todo_slider_container">
@@ -81,7 +86,15 @@ function SimpleSlider({ sessiondata }) {
             <div className="todo_group_content2">
               <p className="todo_group_data_name">{item.name}</p>
               <p className="todo_group_data_goal">{item.goal}</p>
-              <button>댓글달기</button>
+              <Link to={`/GroupPage/${item.id}`}>
+                <button className="goal_btn1">소통하기</button>
+              </Link>
+              <button
+                className={selectedItem === "item" ? "selected" : ""}
+                onClick={() => handleItemClick("item")}
+              >
+                목표달성
+              </button>
             </div>
           </div>
         ))}

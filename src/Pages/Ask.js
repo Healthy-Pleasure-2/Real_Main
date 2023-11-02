@@ -130,13 +130,13 @@ class Ask extends Component {
               </h3>
             </div>
             <div className="form_wrap">
-              <div className="notice_email">
-                <p>이메일</p>
-                <input type="email" size={90} />
-              </div>
               <div className="notice_name">
                 <p>이름</p>
                 <input type="text" size={90}></input>
+              </div>
+              <div className="notice_email">
+                <p>이메일</p>
+                <input type="email" size={90} />
               </div>
               <div className="notice_number">
                 <p>휴대전화번호(선택)</p>
