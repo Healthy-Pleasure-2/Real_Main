@@ -21,6 +21,7 @@ import Slider from "react-slick";
 // 이미지
 import notice from "../asset/notice.png";
 import FAQ from "../asset/FAQ.png";
+import { Link } from "react-router-dom";
 
 function Main() {
   const [groupData, setGroupData] = useState([]);
@@ -114,7 +115,9 @@ function Main() {
             <p>크루가 많은 상위 커뮤니티</p>
             <p>지금 참가해 보세요.</p>
             <div className="bt2">
-              <button>More</button>
+              <Link to="/community" className="MianLink">
+                <button>More</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -122,7 +125,7 @@ function Main() {
       </div>
 
       <div className="etc">
-        <div className="Notice">
+        <Link to="/notice1" className="Notice">
           <div className="etc_content">
             <h3>NOTICE</h3>
             <p>다양한 소식, 뉴스, 이벤트등을 확인 할 수 있습니다.</p>
@@ -130,9 +133,9 @@ function Main() {
           <div className="etc_icon1">
             <img src={notice} alt="공지사항" />
           </div>
-        </div>
+        </Link>
 
-        <div className="Question">
+        <Link to="/faq" className="Question">
           <div className="etc_content">
             <h3>FAQ</h3>
             <p>궁금한 사항이 있다면 자주 묻는 질문을 확인해 보세요.</p>
@@ -140,7 +143,7 @@ function Main() {
           <div className="etc_icon2">
             <img src={FAQ} alt="자주묻는질문" />
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );

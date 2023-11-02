@@ -90,7 +90,12 @@ function Mypage() {
       confirmButtonText: "Yes!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("회원탈퇴 완료", "GOODBAY~ 다음에 다시 만나요.", "success");
+        Swal.fire({
+          title: "회원탈퇴 완료",
+          text: "GOODBAY~ 다음에 다시 만나요.",
+          icon: "success",
+          confirmButtonColor: "#A7C957",
+        });
       }
     });
   };

@@ -454,8 +454,12 @@ button {
   transition: 0.3s ease-in-out;
 }
 
-.todo_group_content2 .goal_btn2 {
-  background-color: #A7C957;
+.todo_group_content2 .selected svg {
+  background-color: #f2ffd3;
+  color: #fff;
+}
+.todo_group_content2 .selected {
+  background-color: #386641;
   color: #fff;
 }
 

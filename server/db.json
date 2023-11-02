@@ -9,11 +9,11 @@
       "nickname": "진경1234",
       "email": "wlsrud1234@naver.com",
       "group": [
-        1,
-        2,
-        22,
-        17,
-        34
+        "11",
+        "12",
+        "3",
+        "2",
+        "1"
       ],
       "weight": "10",
       "exercise": "1500",
@@ -28,9 +28,10 @@
       "nickname": "제형1234",
       "email": "wpgud1234@naver.com",
       "group": [
-        8,
-        18,
-        28
+        "8",
+        "18",
+        "28",
+        "10"
       ],
       "weight": "",
       "exercise": "",
@@ -45,11 +46,11 @@
       "nickname": "은정1234",
       "email": "dmswjd1234@naver.com",
       "group": [
-        1,
-        11,
-        21,
-        31,
-        36
+        "1",
+        "11",
+        "21",
+        "31",
+        "36"
       ],
       "weight": "20",
       "exercise": "1500",
@@ -64,10 +65,10 @@
       "nickname": "수진1234",
       "email": "tnwls1234@naver.com",
       "group": [
-        5,
-        15,
-        25,
-        35
+        "5",
+        "15",
+        "25",
+        "35"
       ],
       "weight": "30",
       "exercise": "1600",
@@ -82,25 +83,13 @@
       "nickname": "장훈1234",
       "email": "wkdgns1234@naver.com",
       "group": [
-        10,
-        20,
-        30
+        "10",
+        "20",
+        "30"
       ],
-      "weight": "1500",
-      "exercise": "1522",
-      "diet": "6300"
-    },
-    {
-      "index": 6,
-      "id": "wjddmswjd",
-      "pw": "a123456789",
-      "name": "wjddmswjd",
-      "nickname": "멀캠은정",
-      "email": "wjddmswjd@naver.com",
-      "group": [],
-      "weight": "",
-      "exercise": "",
-      "diet": ""
+      "weight": "60",
+      "exercise": "2600",
+      "diet": "2700"
     }
   ],
   "group": [
