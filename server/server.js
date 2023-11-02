@@ -99,6 +99,7 @@ app.get("/cookie", (req, res) => {
     res.status(403).json({ message: "로그아웃" });
   }
 });
+
 //GoalSet.js 사용자 목표설정 db.json에 추가기능
 app.patch("/user/:id", async (req, res) => {
   const userId = req.params.id;
@@ -146,17 +147,17 @@ app.patch("/user/:id", async (req, res) => {
 });
 
 // db.json에서 todo 테이블 데이터 가져오기 
-app.get("/todo", async (req, res) => {
+app.get("/todo/:id", async (req, res) => {
   try {
+    const userId = req.params.id;
     const { date } = req.query;
     const data = await fs.promises.readFile("./db.json", "utf8");
     const jsonData = JSON.parse(data);
 
     // res.json(jsonData.todo);
     // jsonData.todo에서 date 필드를 기반으로 필터링하여 선택한 날짜에 해당하는 할 일 목록을 반환합니다.
-    const filteredTodoList = jsonData.todo.filter((item) => item.date === date);
+    const filteredTodoList = jsonData.todo.filter((item) => item.userId === userId && item.date === date);
     res.json(filteredTodoList);
-    console.log("todolist 필터", filteredTodoList)
   }
   catch (error) {
     console.error("파일 작업 중 오류 발생:", error);
@@ -167,14 +168,32 @@ app.get("/todo", async (req, res) => {
 // db.json에서 todo 테이블에 데이터 추가 
 app.post("/todo", async (req, res) => {
   try {
-    const toDo = req.body;
+    const dataToSubmit = req.body;
+    const toDo = dataToSubmit.toDo
+    const userId = dataToSubmit.userId
+    const date = toDo.date
     // JSON 파일 읽기
     const data = await fs.promises.readFile("./db.json", "utf8");
-    // 기존 데이터 파싱
     const existingData = JSON.parse(data);
 
-    // 할 일 데이터 추가
-    existingData.todo.push(toDo);
+    // 해당 userId에 대한 할일 목록을 찾아서 데이터 추가 
+    const userTodoList = existingData.todo.find((user) => user[userId]);
+    console.log(userTodoList);
+    const userTodo = userTodoList[userId];
+    console.log("usertodo", userTodo)
+    const matchingTodo = userTodo.find((item) => item.date === date);
+    console.log("날짜와 일치하는 배열", matchingTodo)
+
+    // 해당 userId에 해당되는 할일 목록이 없으면 그냥 todo push
+    // 기존 배열과 날짜가 일치하면 contents에만 push  
+    // 만약에 날짜에 해당되는 배열이 없으면 그냥 push  
+    if (userTodo.length === 0 || matchingTodo === undefined) {
+      console.log("todo: ", toDo)
+      userTodoList[userId].push(toDo)
+    } else if (matchingTodo.length !== 0) {
+      // 날짜가 겹치는 배열이 있으면 그 배열의 contents 값에 contents만 push   
+      matchingTodo.contents.push(toDo.contents[0]);
+    }
 
     // 업데이트된 데이터 JSON 문자열로 변환
     const updatedDataGroup = JSON.stringify(existingData, null, 2);
@@ -189,55 +208,13 @@ app.post("/todo", async (req, res) => {
   }
 });
 
-
-
-// db.json에서 todo 테이블 데이터 수정하기 
-app.patch("/todo/update/:date", async (req, res) => {
-  // 클라이언트로부터 전달받은 날짜 
-  const { date } = req.params;
-  const contents = req.body;
-  console.log(contents)
-  try {
-    // db.json 파일 읽어오기
-    const data = await fs.promises.readFile("./db.json", "utf8");
-    // db.json 파일을 자바스크립트 객체화
-    const jsonData = JSON.parse(data);
-    // db.json 파일에서 user 정보만 users 정보에 담기
-    const users = jsonData.user;
-    //console.log(users);
-    const groups = jsonData.group;
-    //console.log(groups);
-    const todos = jsonData.todo;
-
-    // 데이터 업데이트 
-    const todoItem = todos.find((item) => item.date === date);
-    todoItem.contents.push(contents);
-
-    // JSON 문자열로 변환
-    const updatedData = JSON.stringify(
-      {
-        user: users,
-        group: groups,
-        todo: todos
-      },
-      null,
-      2
-    );
-    await fs.promises.writeFile("./db.json", updatedData, "utf8");
-    console.log("업데이트 결과", updatedData);
-    res.status(200).json({ message: "사용자 투두리스트가 업데이트되었습니다" });
-  }
-  catch (error) {
-    console.error("파일 처리 오류 발생: ", error);
-    res.status(500).json({ message: "서버 오류" });
-  }
-})
-
 // db.json에서 삭제기능 
 app.patch("/todo/delete/contents", async (req, res) => {
-  const text = req.body
-  console.log(text)
   try {
+    const item = req.body;
+    const userId = item.id;
+    const date = item.fullDate;
+    const text = item.text;
     // db.json 파일 읽어오기
     const data = await fs.promises.readFile("./db.json", "utf8");
     // db.json 파일을 자바스크립트 객체화
@@ -249,28 +226,29 @@ app.patch("/todo/delete/contents", async (req, res) => {
     //console.log(groups);
     const todos = jsonData.todo;
 
-    console.log(todos[0].contents)
-    // 데이터 업데이트 
-    const todoItem = todos[0].contents.filter((item) => {
-      return item.content !== text.content
-    });
-    console.log(todoItem)
-    todos[0].contents = todoItem
+    // todo 배열에서 삭제 대상 식별
+    const userTodo = todos.find(obj => userId in obj);
 
+    if (userTodo) {
+      // 클릭한 날짜와 같은 데이터 추출 
+      const dateTodo = userTodo[userId].find(obj => obj.date === date);
+      if (dateTodo) {
+        // 클릭한 todolist의 text와 같은 것을 제외하고 보여주기(filter 함수 이용)
+        dateTodo.contents = dateTodo.contents.filter(obj => obj.content !== text);
 
-    // JSON 문자열로 변환
-    const updatedData = JSON.stringify(
-      {
-        user: users,
-        group: groups,
-        todo: todos
-      },
-      null,
-      2
-    );
-    await fs.promises.writeFile("./db.json", updatedData, "utf8");
-    console.log("업데이트 결과", updatedData);
-    res.status(200).json({ message: "사용자 투두리스트가 업데이트되었습니다" });
+        // JSON 문자열로 변환
+        const updatedData = JSON.stringify(jsonData, null, 2);
+
+        // 데이터 업데이트
+        await fs.promises.writeFile("./db.json", updatedData, "utf8");
+        console.log("업데이트 결과", updatedData);
+        res.status(200).json({ message: "사용자 투두리스트가 업데이트되었습니다" });
+      } else {
+        res.status(404).json({ message: "해당 날짜에 대한 항목을 찾을 수 없습니다" });
+      }
+    } else {
+      res.status(404).json({ message: "해당 사용자에 대한 항목을 찾을 수 없습니다" });
+    }
   }
   catch (error) {
     console.error("파일 처리 오류: ", error);
@@ -280,10 +258,12 @@ app.patch("/todo/delete/contents", async (req, res) => {
 
 // db.json에서 완료버튼 값 변경하는 라우트 
 app.patch("/todo/complete/contents", async (req, res) => {
-  const { complete, text } = req.body
-  console.log("done", complete)
-  console.log("text", text)
   try {
+    const item = req.body;
+    const userId = item.id;
+    const date = item.fullDate;
+    const text = item.text;
+
     // db.json 파일 읽어오기
     const data = await fs.promises.readFile("./db.json", "utf8");
     // db.json 파일을 자바스크립트 객체화
@@ -296,25 +276,35 @@ app.patch("/todo/complete/contents", async (req, res) => {
     const todos = jsonData.todo;
 
     // 데이터 업데이트 
-    const todoItem = todos[0].contents.filter((item) => {
-      return item.content === text
-    });
-    console.log(todoItem)
-    todoItem[0].complete = !(todoItem[0].complete)
+    // todo 배열에서 삭제 대상 식별
+    const userTodo = todos.find(obj => userId in obj);
 
-    // JSON 문자열로 변환
-    const updatedData = JSON.stringify(
-      {
-        user: users,
-        group: groups,
-        todo: todos
-      },
-      null,
-      2
-    );
-    await fs.promises.writeFile("./db.json", updatedData, "utf8");
-    console.log("업데이트 결과", updatedData);
-    res.status(200).json({ message: "사용자 투두리스트가 업데이트되었습니다" });
+    if (userTodo) {
+      const dateTodo = userTodo[userId].find(obj => obj.date === date);
+      if (dateTodo) {
+        // 클릭한 todolist의 text와 같은 항목을 찾기
+        const todoItem = dateTodo.contents.find(obj => obj.content === text);
+
+        if (todoItem) {
+          // complete 값을 반대로 변경 (true -> false 또는 false -> true)
+          todoItem.complete = !todoItem.complete;
+
+          // JSON 문자열로 변환
+          const updatedData = JSON.stringify(jsonData, null, 2);
+
+          // 데이터 업데이트
+          await fs.promises.writeFile("./db.json", updatedData, "utf8");
+          console.log("업데이트 결과", updatedData);
+          res.status(200).json({ message: "사용자 투두리스트가 업데이트되었습니다" });
+        } else {
+          res.status(404).json({ message: "해당 항목을 찾을 수 없습니다" });
+        }
+      } else {
+        res.status(404).json({ message: "해당 날짜에 대한 항목을 찾을 수 없습니다" });
+      }
+    } else {
+      res.status(404).json({ message: "해당 사용자에 대한 항목을 찾을 수 없습니다" });
+    }
   }
   catch (error) {
     console.error("파일 처리 오류: ", error);
