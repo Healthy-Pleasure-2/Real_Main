@@ -2,9 +2,10 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./styles/GroupCreate.css";
+import Swal from "sweetalert2";
 //import getGroupData from "../components/Community/getGroupData";
 
-function GroupCreate() {
+function GroupCreate({ sessiondata }) {
   /* 수정전
   const [groupName, setGroupName] = useState("");
   const handleGroupNameChange = (event) => {
@@ -30,32 +31,69 @@ function GroupCreate() {
 
   const handleGroupDataChange = (event) => {
     const { name, value } = event.target;
-    setGroupData({
-      ...groupData,
-      [name]: value,
-    });
 
     // 이미지 업로드 input의 onChange
-    const file = imgRef.current.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setImgFile(reader.result);
-    };
+    if (name === "img") {
+      const file = imgRef.current.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+          setImgFile(reader.result);
+          setGroupData((prevGroupData) => ({
+            ...prevGroupData,
+            img: reader.result,
+          }));
+        };
+      } else {
+        // 파일이 선택되지 않았을 때 또는 file이 null인 경우 처리
+        setImgFile(""); // 빈 문자열로 초기화 또는 다른 기본 이미지 처리
+        setGroupData((prevGroupData) => ({
+          ...prevGroupData,
+          [name]: value,
+        }));
+      }
+    } else {
+      setGroupData((prevGroupData) => ({
+        ...prevGroupData,
+        [name]: value,
+      }));
+    }
   };
 
   const handleCreateGroup = () => {
+    const userId = sessiondata;
+    console.log(userId);
     // POST 요청 보내기
-    fetch("http://localhost:3003/groupadd", {
+    fetch(`http://localhost:3003/groupadd/${userId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(groupData),
-    }).catch((error) => {
-      console.error("서버 요청 오류:", error);
-    });
-    window.alert("새로운 그룹이 생성되었습니다.");
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === "그룹생성성공") {
+          Swal.fire({
+            title: "생성완료",
+            text: "새로운 그룹을 생성하셨습니다.",
+            icon: "success",
+            confirmButtonColor: "#A7C957",
+          });
+        } else {
+          Swal.fire({
+            title: "생성실패",
+            text: "다시 생성해주세요.",
+            icon: "error",
+            confirmButtonColor: "#A7C957",
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("서버 요청 오류:", error);
+      });
   };
 
   return (
@@ -123,7 +161,7 @@ function GroupCreate() {
               <input
                 type="file"
                 name="img"
-                value={groupData.img}
+                //value={groupData.img}
                 onChange={handleGroupDataChange}
                 id="profileImg"
                 ref={imgRef}

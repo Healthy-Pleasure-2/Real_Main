@@ -20,7 +20,10 @@ function AppRoutes({ isLoggedIn, sessiondata }) {
         path="/community"
         element={<Community isLoggedIn={isLoggedIn} />}
       ></Route>
-      <Route path="/groupCreate" element={<GroupCreate />}></Route>
+      <Route
+        path="/groupCreate"
+        element={<GroupCreate sessiondata={sessiondata} />}
+      ></Route>
       <Route
         path="/groupPage/:groupID"
         element={
