@@ -6,56 +6,154 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
-import Calendar from "react-calendar";
 import ReactCalendar from "./Calendar";
-import styled from "styled-components";
-// import ReactCalendar from "./Calendar";
 
-function LeftContents() {
-  let [text, setText] = useState("");
-  let [todoList, setTodoList] = useState([]);
+function LeftContents({ sessiondata }) {
+  const [date, dateChange] = useState(new Date());
+  // 날짜 형식 예시: 231010
+  const fullDate = `${date.getFullYear()}` + `${date.getMonth() + 1}` + `${date.getDate()}`
+  // input 값 
+  const [text, setText] = useState("");
+  // text가 추가되는 todolist 배열 
+  const [todoList, setTodoList] = useState([]);
+  // db.json에서 todo 테이블에서 불러오는 값 
+  const [data, setData] = useState(null);
+  // 완료, 미완료 표시 
+  const [done, setDone] = useState(false);
+  // 로그인된 유저의 아이디 
+  const userId = sessiondata;
+  console.log(userId)
+  // 화면 로딩 및 날짜가 변할때마다 db.json todo 테이블 불러오기 
+  useEffect(() => {
+    fetchData()
+  }, [fullDate, text])
+
+
+  //db.json 파일 불러오기 
+  const fetchData = () => {
+    fetch(`http://localhost:3003/todo/${userId}?date=${fullDate}`)
+      .then((response) => {
+        if (response.ok) {
+          return response.json()
+        }
+        throw new Error("네트워크 에러");
+      }).then((responseData) => {
+        // 성공적으로 응답을 처리하고 상태를 업데이트
+        setData(responseData);
+        console.log(responseData)
+        console.log("데이터 불러오기 성공")
+      })
+      .catch((error) => {
+        // 에러 처리
+        console.error("에러:", error);
+      });
+  }
+  // todolist에 들어갈 데이터 
+  // const toDo = { "Id": `${userId}`, "date": `${fullDate}`, "contents": [{ "content": text, "complete": done }] }
+  const dataToSubmit = {
+    toDo: {
+      date: fullDate,
+      contents: [{ content: text, complete: done }]
+    },
+    userId: userId
+  };
+
+  // todolist json 서버에 저장 
+  const submitInput = () => {
+    console.log(data.length)
+    // json 서버의 todo 테이블이 빈값이면 값 post 
+    fetch("http://localhost:3003/todo", {
+      // 요청방법
+      method: "POST",
+      // 전송할 데이터 
+      body: JSON.stringify(dataToSubmit),
+      headers: {
+        "content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then((response) => {
+        if (response.ok) {
+          // 성공적으로 업데이트된 경우에 할 일 목록을 업데이트
+          setTodoList([...todoList, { id: sessiondata, text, done, fullDate }]);
+        } else {
+          console.error("데이터 업데이트 실패");
+        }
+      })
+      .catch((error) => {
+        console.error("에러:", error);
+      })
+    setText('')
+  };
+  console.log(todoList)
 
   // todo list input 값 저장 함수
   const changeInput = (e) => {
     setText(e.target.value);
   };
 
-  // todo list 추가 함수
-  const submitInput = (e) => {
-    // todolist에 값 추가하는 방법
-    const newTodoList = [...todoList].concat({
-      id: todoList.length,
-      text,
-      checked: false,
-    });
-    // submit의 default 동작인 페이지 새로고침 막아주는 역할
-    e.preventDefault();
-    // todolist 배열값 업데이트
-    setTodoList(newTodoList);
-    //+ 버튼 누른후 todo list 추가되면 input 값 비워주기
-    setText("");
-  };
-
   // to do list 삭제
-  const remove = (id) => {
+  const remove = (item) => {
+    console.log(item)
     // filter 함수 이용해서 item.id와 일치하는 값 제외하고 화면 출력
-    setTodoList(
-      todoList.filter((item) => {
-        return item.id !== id;
+    fetch(`http://localhost:3003/todo/delete/contents`, {
+      method: "PATCH",
+      body: JSON.stringify(item),
+      headers: {
+        "content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then((response) => {
+        if (response.ok) {
+          setTodoList(
+            todoList.filter((todo) => {
+              return item.text !== todo.text;
+            })
+          );
+        } else {
+          console.error("데이터 업데이트 실패");
+        }
       })
-    );
+      .catch((error) => {
+        console.error("에러:", error);
+      });
   };
 
   // to do list 완료
-  const complete = (id) => {
-    let newTodo = todoList.map((item) => {
-      // 클릭한 요소 찾으면 ... 전개 연산자 활용하여 item.checked의 값을 true로 수정
-      return item.id === id ? { ...item, checked: !item.checked } : item;
-    });
+  const complete = (item) => {
+    console.log(item)
     // todolist 값 업데이트
-    setTodoList(newTodo);
+    setDone(!done);
+    fetch(`http://localhost:3003/todo/complete/contents`, {
+      // 요청방법
+      method: "PATCH",
+      // 전송할 데이터 
+      body: JSON.stringify(item),
+      headers: {
+        "content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then((response) => {
+        if (response.ok) {
+          // 클릭한 텍스트와 기존의 todolist를 비교하여서 클릭한 todolist 항목을 추출 
+          // 해당 항목을 찾으면 전개연산자를 사용하여 기존 항목에 클릭한 항목의 done 값을 반대로 변경 
+          // 클릭 항목과 같은 텍스트값 못찾으면 그대로 todolist 유지 
+          const updatedTodoList = todoList.map((element) => {
+            if (element.text === item.text) {
+              return { ...element, done: !element.done };
+            } else {
+              return element;
+            }
+          });
+          setTodoList(updatedTodoList)
+        } else {
+          console.error("데이터 업데이트 실패");
+        }
+      })
+      .catch((error) => {
+        console.error("에러:", error);
+      });
   };
-
+  console.log(todoList)
   return (
     <div id="todo_left_contents">
       <div className="todo_title">
@@ -63,37 +161,29 @@ function LeftContents() {
         <p>오늘의 할 일을 기록해보세요!</p>
       </div>
 
-      <ReactCalendar />
+      <ReactCalendar date={date} dateChange={dateChange} />
 
       <div className="todo_checkLists">
         {todoList.map((item, i) => {
-          console.log(todoList);
+          { console.log(item) }
           return (
             <>
-              <div
-                className="todo_checkList"
-                style={{ background: item.checked ? "#A7C957" : "#F3F5EF" }}
-              >
+              <div key={item.id} className="todo_checkList" style={{ background: item.done ? '#A7C957' : '#F3F5EF' }}>
                 <button
                   className="todo_checked"
-                  style={{ background: item.checked ? "#386641" : "#a2a1a1" }}
+                  style={{ background: item.done ? '#386641' : '#a2a1a1' }}
                   onClick={() => {
-                    complete(item.id);
+                    complete(item);
                   }}
                 >
                   <FontAwesomeIcon icon={faCheck} />
                 </button>
-                <p
-                  className={`${item.checked ? "done" : ""}`}
-                  style={{ color: item.checked ? "#fff" : "#386641" }}
-                >
-                  {item.text}
-                </p>
+                <p className={`${item.done ? "done" : ""}`} style={{ color: item.done ? '#fff' : '#386641' }}>{item.text}</p>
                 <button
                   className="todo_delete"
                   style={{ background: item.checked ? "#a2a1a1" : "#f84949" }}
                   onClick={() => {
-                    remove(item.id);
+                    remove(item);
                   }}
                 >
                   <FontAwesomeIcon icon={faX} />

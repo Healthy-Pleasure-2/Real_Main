@@ -12,7 +12,7 @@ function Todo({ sessiondata }) {
   console.log(sessiondata);
   return (
     <div id="todo_container">
-      <LeftContents />
+      <LeftContents sessiondata={sessiondata} />
       <div id="todo_right_contents">
         <GoalSet sessiondata={sessiondata} />
         <Mygroup sessiondata={sessiondata} />
