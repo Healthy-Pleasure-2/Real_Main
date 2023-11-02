@@ -67,11 +67,14 @@
     background-repeat: no-repeat;
     height: 100%;
     background-position: 50%;
+    /* animation: post-ani 4s linear infinite; */
+
 }
 
 /* .banner 이미지 */
 .banner .banner_image {
     background-image: url(../../asset/main1.png);
+
 }
 
 @keyframes post-ani {
@@ -96,7 +99,6 @@
 
 .banner2 .banner_image {
     background-image: url(../../asset/main4.png);
-    animation: post-ani 4s linear infinite;
 }
 
 /* .banner3 */
@@ -447,4 +449,12 @@
         padding: 2px 7px;
     }
 
+}
+
+.slick-slider:hover,
+.rank:hover,
+.Notice:hover,
+.Question:hover {
+    transform: scale(1.01);
+    transition: all 0.3s ease-in-out;
 }
