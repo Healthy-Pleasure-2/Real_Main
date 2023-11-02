@@ -68,11 +68,11 @@ function SimpleSlider({ sessiondata }) {
   }
 
   // 목표 달성 클릭시 초록색으로 변경
-  const [selectedItem, setSelectedItem] = useState(null);
+  // const [selectedItem, setSelectedItem] = useState(null);
 
-  const handleItemClick = (GoalItem) => {
-    setSelectedItem(GoalItem);
-  };
+  // const handleItemClick = (GoalItem) => {
+  //   setSelectedItem(GoalItem);
+  // };
 
   // 데이터가 있는 경우 데이터를 매핑하여 렌더링
   return (
