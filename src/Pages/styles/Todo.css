@@ -25,12 +25,13 @@
   font-size: 1.7rem;
   margin-bottom: 8px;
   color: #1f3d25;
-  -webkit-text-stroke: 0.6px #1f3d25;
+  -webkit-text-stroke: 0.4px #1f3d25;
 }
 
 .todo_title p {
   font-size: 0.85rem;
   color: #386641;
+  font-weight: 600;
 }
 
 button {

@@ -13,6 +13,7 @@ import PageContent from "./components/PageContent";
 import SideMenu from "./components/SideMenu";
 import SideContent from "./components/SideCotent";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -56,7 +57,11 @@ function App() {
             setIsLoggedIn(true);
             setSessiondata(data.userid);
           } else {
-            alert("로그인 실패");
+            Swal.fire(
+              "로그인 실패",
+              "일치하는 정보가 없습니다. 아이디 또는 비밀번호를 확인해주세요",
+              "error"
+            );
           }
         })
         .catch((error) => {
@@ -64,7 +69,12 @@ function App() {
         });
     } catch (error) {
       console.error("로그인 요청 실패:", error);
-      alert("로그인 요청 실패");
+      Swal.fire(
+        "로그인 요청 실패",
+        "죄송합니다. 현재 서버문제로 로그인 요청이 불가합니다.",
+        "warning"
+      );
+      // alert("로그인 요청 실패");
     }
   };
 
