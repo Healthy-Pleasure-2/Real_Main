@@ -27,9 +27,9 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 function Goal_Circle({ sessiondata }) {
   const [User_Name, setuserName] = useState("");
   //입력
-  const [input_weight, setWeight] = useState("0");
-  const [input_exercise, setExercise] = useState("0");
-  const [input_diet, setDiet] = useState("0");
+  const [input_weight, setWeight] = useState("");
+  const [input_exercise, setExercise] = useState("");
+  const [input_diet, setDiet] = useState("");
   //목표
   const [max_weight, setmaxWeight] = useState("0");
   const [max_exercise, setmaxExercise] = useState("0");
