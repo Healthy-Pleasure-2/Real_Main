@@ -105,9 +105,6 @@ function App() {
           onLogin={handleLogin}
           sessiondata={sessiondata}
         ></SideContent>
-        <Mypage 
-          sessiondata={sessiondata}
-          ></Mypage>
       </div>
     </div>
   );

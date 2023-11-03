@@ -19,15 +19,16 @@
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
-  font-size: 0.8rem;
+
   color: #386641;
 }
 
 .group_create h1 {
   text-align: center;
-  color: #386641;
+  color: #1f3d25;
   font-size: 1.7rem;
   height: 13%;
+  letter-spacing: 2px;
 }
 
 /* 그룹 입력 칸 */
@@ -41,24 +42,9 @@
   width: 30%;
   font-size: 1rem;
   font-weight: bold;
+  letter-spacing: 2px;
 
 }
-
-/* 
-.group input {
-  width: 5%;
-  border-radius: 5px;
-  border: 1px solid #A7C957;
-  padding-left: 10px;
-  color: #386641;
-  font-weight: 500;
-}
-
-.group input:focus {
-  border: 2px solid #397242;
-  outline: none;
-} */
-
 
 /*그룹명, 카테고리, 목표*/
 .group_name,
@@ -88,6 +74,8 @@
   height: 100%;
   border: none;
   padding: 0 10px;
+  font-size: 1rem;
+  color: #386641;
 }
 
 .group_name input:focus,
@@ -105,6 +93,7 @@
   background-color: #A7C957;
   color: #fff;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .group_name button:hover {
@@ -122,7 +111,7 @@
   padding: 0 10px;
   font-weight: 500;
   min-height: 30px;
-
+  font-size: 1rem;
   /* appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none; */
@@ -149,6 +138,7 @@
   font-weight: 500;
   resize: none;
   min-height: 30px;
+  font-size: 1rem;
 }
 
 /*그룹 소개 */
