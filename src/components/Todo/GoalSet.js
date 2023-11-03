@@ -19,16 +19,13 @@ import {
 import { useState, useEffect } from "react";
 
 function GoalSet({ sessiondata }) {
-  const [weight, setWeight] = useState("0");
-  const [exercise, setExercise] = useState("0");
-  const [diet, setDiet] = useState("0");
-
   const [GoalWeight, setGoalWeight] = useState("");
   const [GoalExercise, setGoalExercise] = useState("");
   const [GoalDiet, setGoalDiet] = useState("");
+  const userid = sessiondata;
 
   // 클라이언트에서 사용자 정보 가져오기
-  const fetchUserData = (userid) => {
+  const fetchUserData = () => {
     fetch(`http://localhost:3003/user_Goal/${userid}`)
       .then((response) => {
         if (response.ok) {
