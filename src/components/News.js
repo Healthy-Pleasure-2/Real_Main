@@ -1,4 +1,3 @@
-// src/components/News.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -7,13 +6,8 @@ function News() {
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_NEWS_API_KEY;
-    // console.log(apiKey)
 
     const apiUrl = `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}`;
-    // console.log(apiUrl)
-    // useEffect(() => {
-
-    //   const apiUrl = `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${apiKey}`;
 
     axios
       .get(apiUrl)

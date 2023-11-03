@@ -1,15 +1,3 @@
-/* 
--소스명 : main.js
--작성자 : 김장훈
--이 페이지 용도 : 메인페이지
--생성일자(수정일자) : 231016
---------------------------------------------------------------------------------------------------------------
--로그
-231016 김장훈 - 최초작성
-231020 이진경 - 수정
-231027 이진경 - 캐러셀 추가
-*/
-
 import React, { useState, useEffect } from "react";
 import "./styles/main.css";
 import PopularRank from "../components/Community/PopularRank";

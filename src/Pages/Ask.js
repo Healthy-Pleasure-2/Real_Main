@@ -1,14 +1,7 @@
-/* 소스명 : Ask.js */
-/* 작성자: 강수진 */
-/* 이 페이지 용도 : 공지사항 페이지 */
-/* 생성일자(수정일자) : 
-  - 23.10.16: 생성_강수진 */
-
 import "./styles/Ask.css";
 import Notice1 from "../components/Notice1";
 import FAQ from "../components/FAQ";
 import React, { Component } from "react";
-// import dummy from "../../public/notice.json"
 import Swal from "sweetalert2";
 
 class Ask extends Component {
@@ -22,25 +15,8 @@ class Ask extends Component {
   }
 
   handleTabClickl = () => {
-    // 버튼이 클릭되면 "문의 완료되었습니다" 메시지를 상태에 저장
-    // this.setState({ message: "문의 완료되었습니다" });
     Swal.fire("문의 완료", "빠른 시일내에 답변 드리겠습니다.", "success");
   };
-
-  // componentDidMount() {
-  //   // JSON 파일 경로를 설정합니다.
-  //   const jsonFilePath = '../public/notice.json'; // JSON 파일
-
-  //   // JSON 데이터를 가져옵니다.
-  //   fetch(jsonFilePath)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       this.setState({ notices: data });
-  //     })
-  //     .catch((error) => {
-  //       console.error('JSON 데이터를 가져오는 중 오류가 발생했습니다: ', error);
-  //     });
-  // }
 
   handleTabClick = (tabId) => {
     this.setState({ activeTab: tabId });
@@ -89,36 +65,23 @@ class Ask extends Component {
         </div>
         <div
           id="notice_N"
-          className={`tabcontent ${
-            this.state.activeTab === "notice_N" ? "active" : ""
-          }`}
+          className={`tabcontent ${this.state.activeTab === "notice_N" ? "active" : ""
+            }`}
         >
           <Notice1 />
-          {/* JSON 데이터를 사용하여 공지사항을 표시합니다. */}
-          {/* <ul>
-              {notices.map((notice) => (
-                <li key={notice.id}>
-                  <h3>{notice.title}</h3>
-                  <p>{notice.content}</p>
-                  <p>Date: {notice.date}</p>
-                </li>
-              ))}
-            </ul> */}
         </div>
         <div
           id="notice_ask"
-          className={`tabcontent ${
-            this.state.activeTab === "notice_ask" ? "active" : ""
-          }`}
+          className={`tabcontent ${this.state.activeTab === "notice_ask" ? "active" : ""
+            }`}
         >
           <FAQ />
         </div>
 
         <div
           id="notice_inquiry"
-          className={`tabcontent ${
-            this.state.activeTab === "notice_inquiry" ? "active" : ""
-          }`}
+          className={`tabcontent ${this.state.activeTab === "notice_inquiry" ? "active" : ""
+            }`}
         >
           <div className="form">
             <div className="Inquiry_left">
@@ -152,7 +115,6 @@ class Ask extends Component {
               </div>
               <div className="notice_btn">
                 <button onClick={this.handleTabClickl}>문의하기</button>
-                {/* <p>{message}</p> */}
               </div>
               <p>{message}</p>
             </div>

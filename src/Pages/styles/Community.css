@@ -2,7 +2,6 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    /* min-height: 700px; */
 }
 
 
@@ -29,7 +28,6 @@
 
 .Community_title .title_inner p {
     font-size: 0.85rem;
-    /* font-weight: 400; */
     line-height: 0.9rem;
 }
 
@@ -67,7 +65,6 @@
 .Community_item:hover {
     transform: translateY(-0.5%);
     box-shadow: 0px 0px 7px 5px rgba(239, 255, 20, 0.5);
-    /* outline: 2px solid #FFED8F; */
 }
 
 .Community_cardimg {
@@ -182,7 +179,6 @@
 .Community_GroupList {
     height: 50%;
     border-radius: 10px;
-    /* min-height: 300px; */
 }
 
 
@@ -236,7 +232,6 @@
     overflow: hidden;
     cursor: pointer;
     position: relative;
-    /* transition: 0.2s; */
     padding: 7px;
     width: 100%;
     height: 100%;
@@ -344,52 +339,6 @@
     height: 13%;
     min-height: 11px;
 }
-
-/*캡션*/
-/* .Community_caption {
-    position: absolute;
-    width: calc(100% - 14px);
-    height: calc(100% - 14px);
-    background-color: rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    z-index: 10;
-    font-size: 12px;
-    padding: 10px;
-}
-
-.Community_Gitem:hover {
-    transform: translateY(-0.5%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.Community_Gitem:hover .Community_caption {
-    opacity: 1;
-    transform: translateY(-200px);
-    -moz-transform: translateY(-140px);
-    -webkit-transform: translateY(-101%);
-    -o-transform: translateY(-200px);
-    -ms-transform: translateY(-500px);
-}
-
-.Community_captionname {
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-.Community_captionname,
-.Community_caption p {
-    color: #fff;
-    text-align: center;
-} */
-
-
-
 
 /*이동 버튼*/
 .Community_Grouplistbtn {

@@ -5,8 +5,6 @@ import Community from "../../Pages/Community";
 import GroupCreate from "../../Pages/GroupCreate";
 import GroupPage from "../../Pages/GroupPage";
 import Ask from "../../Pages/Ask";
-import Notice1 from "../Notice1";
-import FAQ from "../FAQ";
 import Mypage from "../../Pages/Mypage";
 import Signup from "../../Pages/Signup";
 import IdPw from "../../Pages/Id_pw";

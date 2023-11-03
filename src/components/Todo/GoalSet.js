@@ -1,34 +1,13 @@
-/*
--소스명 : Goal_Set.js
--작성자 : 이제형
--이 페이지 용도 : 개인별 목표 페이지 (목표 설정 위젯)
--생성일자(수정일자) : 231020
---------------------------------------------------------------------------------------------------------------
--로그
-231020 이제형 - 최초생성 및 수정
-231031 김장훈 - 시작 시 목표값 받아오는 기능 추가
---------------------------------------------------------------------------------------------------------------
-*/
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPerson,
-  faDumbbell,
-  faUtensils,
-} from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 
 function GoalSet({ sessiondata }) {
-  const [weight, setWeight] = useState("0");
-  const [exercise, setExercise] = useState("0");
-  const [diet, setDiet] = useState("0");
-
   const [GoalWeight, setGoalWeight] = useState("");
   const [GoalExercise, setGoalExercise] = useState("");
   const [GoalDiet, setGoalDiet] = useState("");
+  const userid = sessiondata;
 
   // 클라이언트에서 사용자 정보 가져오기
-  const fetchUserData = (userid) => {
+  const fetchUserData = () => {
     fetch(`http://localhost:3003/user_Goal/${userid}`)
       .then((response) => {
         if (response.ok) {
@@ -41,9 +20,6 @@ function GoalSet({ sessiondata }) {
         setGoalWeight(weight);
         setGoalExercise(exercise);
         setGoalDiet(diet);
-        console.log(weight);
-        console.log(exercise);
-        console.log(diet);
       })
       .catch((error) => {
         console.error("에러:", error);

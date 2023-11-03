@@ -30,12 +30,11 @@
       "group": [
         "8",
         "18",
-        "28",
         "10"
       ],
-      "weight": "",
-      "exercise": "",
-      "diet": ""
+      "weight": "111",
+      "exercise": "222",
+      "diet": "333"
     },
     {
       "index": 3,

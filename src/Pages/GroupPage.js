@@ -1,10 +1,3 @@
-// 소스명 : GroupPage.js
-// 작성자 : 이진경
-// 이 페이지 용도 : 그룹 페이지
-// 생성일자 : 23.10.13
-// 수정일자: 수정 내용 별도 컴포넌트가 아닌 해당 파일에서 해결
-// 수정 일자: 23.10.17 / 정은정 / 그룹 연결
-
 import React, { useState, useEffect } from "react";
 import "./styles/GroupPage.css";
 import { useParams } from "react-router-dom";
@@ -68,7 +61,6 @@ function GroupPage({ isLoggedIn, sessiondata }) {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.message);
           if (data.message === "true") {
             setShowDiv(true);
             Swal.fire({

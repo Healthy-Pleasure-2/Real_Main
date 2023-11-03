@@ -1,13 +1,3 @@
-/*
--소스명 : app.js
--작성자 :_______ 
--이 페이지 용도 : app.js
--생성일자(수정일자) : 2310__ 최초생성
--로그
-2310__  _____ - 최초생성
-231024 김장훈 - db.json 파일을 이용한 로그인 요청 기능 구현
-231102 김장훈 - Mypage 연결 추가
---------------------------------------------------------------------------------------------------------------*/
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import PageContent from "./components/PageContent";
@@ -27,7 +17,6 @@ function App() {
       .get("http://localhost:3003/cookie", { withCredentials: true })
       .then((response) => response.data)
       .then((data) => {
-        //console.log(data);
         if (data.message === "로그인상태") {
           setIsLoggedIn(true);
           setSessiondata(data.userid);
@@ -105,9 +94,9 @@ function App() {
           onLogin={handleLogin}
           sessiondata={sessiondata}
         ></SideContent>
-        <Mypage 
+        <Mypage
           sessiondata={sessiondata}
-          ></Mypage>
+        ></Mypage>
       </div>
     </div>
   );
