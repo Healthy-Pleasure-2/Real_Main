@@ -8,6 +8,7 @@ import getGroupData from "../components/Community/getGroupData";
 function Community({ isLoggedIn }) {
   const [selectedCategory, setSelectedCategory] = useState(""); // 추가: 선택된 카테고리 상태
   const [groupData, setGroupData] = useState([]); //그룹관련 json파일 상태
+  const [mainNumber, setMainNumber] = useState(3); // 화면 크기에 따른 배너의 TOP 숫자 변경 
 
   //그룹 json 파일 관련
   useEffect(() => {
@@ -16,6 +17,20 @@ function Community({ isLoggedIn }) {
       setGroupData(result);
     };
     fetchGroupData();
+    const handleResize = () => {
+      if (window.innerWidth < 1500) {
+        setMainNumber(2);
+      } else {
+        setMainNumber(3);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // 컴포넌트 언마운트 시 리스너 제거
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   //카테고리 선택시 카테고리  setSelectedCategory에 값 입력
@@ -30,7 +45,7 @@ function Community({ isLoggedIn }) {
         <div className="Community_title">
           <div className="title_inner">
             <h3>
-              인기 그룹 TOP <span>3</span>
+              인기 그룹 TOP <span>{mainNumber}</span>
             </h3>
             <p>크루가 많은 상위 커뮤니티 </p>
             <p>지금 참가해 보세요.</p>

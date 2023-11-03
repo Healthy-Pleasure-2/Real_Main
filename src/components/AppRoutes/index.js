@@ -31,7 +31,10 @@ function AppRoutes({ isLoggedIn, sessiondata }) {
       <Route path="/ask" element={<Ask />}></Route>
       <Route path="/notice1" element={<Ask />}></Route>
       <Route path="/faq" element={<Ask />}></Route>
-      <Route path="/mypage" element={<Mypage />}></Route>
+      <Route
+        path="/mypage"
+        element={<Mypage sessiondata={sessiondata} />}
+      ></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/idPw" element={<IdPw />}></Route>
     </Routes>

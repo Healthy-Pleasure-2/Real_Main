@@ -13,15 +13,16 @@
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
-  font-size: 0.8rem;
+
   color: #386641;
 }
 
 .group_create h1 {
   text-align: center;
-  color: #386641;
+  color: #1f3d25;
   font-size: 1.7rem;
   height: 13%;
+  letter-spacing: 2px;
 }
 
 /* 그룹 입력 칸 */
@@ -35,7 +36,7 @@
   width: 30%;
   font-size: 1rem;
   font-weight: bold;
-
+  letter-spacing: 2px;
 }
 
 /*그룹명, 카테고리, 목표*/
@@ -66,6 +67,8 @@
   height: 100%;
   border: none;
   padding: 0 10px;
+  font-size: 1rem;
+  color: #386641;
 }
 
 .group_name input:focus,
@@ -83,6 +86,7 @@
   background-color: #A7C957;
   color: #fff;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .group_name button:hover {
@@ -100,6 +104,7 @@
   padding: 0 10px;
   font-weight: 500;
   min-height: 30px;
+  font-size: 1rem;
 }
 
 .category select option {
@@ -123,6 +128,7 @@
   font-weight: 500;
   resize: none;
   min-height: 30px;
+  font-size: 1rem;
 }
 
 /*그룹 소개 */

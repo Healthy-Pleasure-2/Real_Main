@@ -31,6 +31,7 @@ function LeftContents({ sessiondata }) {
   // 화면 로딩 및 날짜가 변할때마다 db.json todo 테이블 불러오기
   useEffect(() => {
     if (sessiondata === false) {
+      return;
     } else {
       setTodoList([]);
       fetch(`http://localhost:3003/todo/${userId}?date=${fullDate}`)
@@ -39,19 +40,16 @@ function LeftContents({ sessiondata }) {
           if (data.message === "해당 날짜에 데이터를 찾았습니다.") {
             // 데이터 변수에 할당 
             const contentsArray = data.contents;
-            // 현재 todoList에 새로운 항목 추가
-            contentsArray.forEach((contentItem) => {
-              const { content, complete } = contentItem;
-              const id = sessiondata; // 세션 데이터나 다른 ID 값을 설정하세요
-              const text = content; // content 값을 text로 설정
-              const done = complete;
 
-              // 현재 todoList에 새로운 항목 추가(전개연산자 활용)
-              setTodoList((prevTodoList) => [
-                ...prevTodoList,
-                { id, text, done, fullDate },
-              ]);
+            const updatedTodoList = contentsArray.map((contentItem) => {
+              const { content, complete } = contentItem;
+              const id = sessiondata;
+              const text = content; // content 값을 text로 설정
+              const done = complete; // done 값을 complet 값으로 설정
+              return { id, text, done, fullDate };
             });
+            // 한 번에 Todo 리스트 업데이트
+            setTodoList(updatedTodoList);
           } else if (data.message === "해당 날짜를 찾지 못했습니다.") {
             setTodoList([]);
           }
@@ -61,8 +59,7 @@ function LeftContents({ sessiondata }) {
           console.error("에러:", error);
         });
     }
-  }, [fullDate, userId]);
-
+  }, [fullDate, sessiondata]);
 
   // 서버에 보낼 데이터 형식 
   const dataToSubmit = {
@@ -185,7 +182,7 @@ function LeftContents({ sessiondata }) {
     <div id="todo_left_contents">
       <div className="todo_title">
         <h2>To do List</h2>
-        <p>오늘의 할 일을 기록해보세요!</p>
+        <p>오늘의 할 일을 리스트에 작성하여 완료해보세요!</p>
       </div>
       <ReactCalendar date={date} dateChange={dateChange} />
       <div className="todo_checkLists">

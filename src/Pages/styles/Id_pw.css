@@ -31,9 +31,10 @@
 }
 
 .IdPw_left h3 {
-  font-size: 1em;
+  font-size: 1.1em;
   font-weight: 500;
   padding-top: 5%;
+  line-height: 1.7rem;
 }
 
 #IdPw #frame {
@@ -71,6 +72,7 @@
   color: white;
   text-align: center;
   line-height: 70px;
+  letter-spacing: 2px;
 }
 
 #IdPw #buttons>div:hover {
@@ -100,6 +102,9 @@
   border: 1px solid #A7C957;
   border-radius: 10px;
   padding: 3%;
+  font-size: 1rem;
+  color: #386641;
+  font-weight: 600;
 }
 
 #IdPw #frame input:first-child {
@@ -127,6 +132,7 @@
   color: #fff;
   font-size: 1.2em;
   font-weight: bold;
+  letter-spacing: 2px;
 }
 
 #IdPw #frame button:hover {
@@ -153,6 +159,7 @@
 
   .IdPw_left h3 {
     font-size: 0.75em;
+    line-height: 1.2rem;
   }
 
   #IdPw #frame {

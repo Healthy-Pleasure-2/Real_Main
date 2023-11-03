@@ -1,6 +1,8 @@
 import SimpleSlider from "./Slide";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 
 function Mygroup({ sessiondata }) {
   return (
@@ -13,7 +15,9 @@ function Mygroup({ sessiondata }) {
             활동해보세요!💪
           </p>
         </div>
-
+        <div className="ellipsis">
+          <FontAwesomeIcon icon={faEllipsisVertical} />
+        </div>
         <SimpleSlider sessiondata={sessiondata} />
       </div>
     </div>

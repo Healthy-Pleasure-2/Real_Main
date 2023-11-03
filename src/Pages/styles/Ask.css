@@ -25,15 +25,14 @@
   margin: 0 10px;
   padding: 25px 10px;
   background: rgba(167, 201, 87, 0.2);
-  color: rgba(56, 102, 65, 0.7);
+  color: rgba(56, 102, 65, 0.8);
   border-radius: 10px;
   font-size: 1.1rem;
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
-
 }
 
 .notice label:hover {
-  background-color: rgba(167, 201, 87, 0.5);
+  background-color: rgba(167, 201, 87, 0.6);
   cursor: pointer;
 }
 
@@ -47,11 +46,13 @@
   text-align: left;
   width: 100%;
   font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .notice label p {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   text-align: left;
+  letter-spacing: 0.5px;
 }
 
 .tabcontent {
@@ -70,7 +71,7 @@
   border-radius: 20px;
   background: rgba(167, 201, 87, 0.1);
   text-align: left;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #17594A;
   margin-top: 40px;
   width: calc(100% - 20px);
@@ -117,6 +118,7 @@
 #notice_inquiry h3 {
   color: #fff;
   font-weight: 400;
+  line-height: 1.5rem;
 }
 
 /* 작성란 */
@@ -134,6 +136,7 @@
 .notice_tittle {
   height: 11%;
   margin-bottom: 2%;
+  letter-spacing: 2px;
 }
 
 #notice_inquiry p {
@@ -148,10 +151,13 @@
   color: #17594A;
   background: #fff;
   padding-left: 5px;
+  font-size: 1rem;
+  letter-spacing: 1px;
 }
 
 #notice_inquiry .notice_qu {
   height: 21%;
+  letter-spacing: 2px;
 }
 
 #notice_inquiry .notice_qu textarea {
@@ -201,13 +207,17 @@
   font: bolder;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1350px) {
+  .Inquiry_left {
+    padding: 3%;
+  }
+
   #notice_inquiry h1 {
     font-size: 1.8rem;
   }
 
   #notice_inquiry h3 {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 }
 

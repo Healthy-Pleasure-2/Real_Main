@@ -28,12 +28,17 @@ app.use(
     credentials: true, // 쿠키 전송을 위한 설정
   })
 ); // CORS 활성화
-
+//세션키 암호화
+const crypto = require("crypto");
+const generateRandomKey = (length) => {
+  return crypto.randomBytes(length).toString("hex");
+};
+const sessionKey = generateRandomKey(32);
 // 쿠키설정
 app.use(cookieParser());
 app.use(
   session({
-    secret: "mysecretkey", // 세션 암호화 키
+    secret: sessionKey, // 세션 암호화 키
     resave: false, // 세션 데이터를 강제로 저장하지 않음
     saveUninitialized: true, // 초기화되지 않은 세션을 저장
     cookie: { secure: false }, // 클라이언트와 서버간의 HTTPS 통신에서만 쿠키 전송

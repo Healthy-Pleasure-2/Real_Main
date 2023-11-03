@@ -4,11 +4,16 @@ function GoalSet({ sessiondata }) {
   const [GoalWeight, setGoalWeight] = useState("");
   const [GoalExercise, setGoalExercise] = useState("");
   const [GoalDiet, setGoalDiet] = useState("");
-  const userid = sessiondata;
+  const userId = sessiondata;
+
+  // 초기 실행 시 필요
+  useEffect(() => {
+    fetchUserData(sessiondata);
+  }, [sessiondata]);
 
   // 클라이언트에서 사용자 정보 가져오기
   const fetchUserData = () => {
-    fetch(`http://localhost:3003/user_Goal/${userid}`)
+    fetch(`http://localhost:3003/user_Goal/${userId}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -26,10 +31,6 @@ function GoalSet({ sessiondata }) {
       });
   };
 
-  // 초기 실행 시 필요
-  useEffect(() => {
-    fetchUserData(sessiondata);
-  }, [sessiondata]);
 
   const [goal, setGoal] = useState({
     weight: "", // weight 값을 초기값으로 설정

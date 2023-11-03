@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 
 function Main() {
   const [groupData, setGroupData] = useState([]);
+  const [mainNumber, setMainNumber] = useState(3);
 
   useEffect(() => {
     const fetchGroupData = async () => {
@@ -20,6 +21,20 @@ function Main() {
       setGroupData(result);
     };
     fetchGroupData();
+    const handleResize = () => {
+      if (window.innerWidth < 1500) {
+        setMainNumber(2);
+      } else {
+        setMainNumber(3);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // 컴포넌트 언마운트 시 리스너 제거
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   // 캐러셀 세팅값
@@ -32,8 +47,17 @@ function Main() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
-    pauseOnHover: true,
     arrow: false,
+    pauseOnFocus: false,
+    pauseOnHover: false,
+  };
+
+  // Show now 클릭시 새창 열기
+  const handleShowNowClick = () => {
+    const url = "https://www.naver.com";
+    const windowName = "Popup";
+    const windowFeatures = "width=600,height=400";
+    window.open(url, windowName, windowFeatures);
   };
 
   return (
@@ -48,7 +72,7 @@ function Main() {
               <h1>Healthy Pleasure</h1>
               <p>건강한 삶을 향한 즐거운 여정, 헬시플레저와 함께!</p>
               <div className="bt1">
-                <button>Show Now</button>
+                <button onClick={handleShowNowClick}>Show Now</button>
               </div>
             </div>
           </div>
@@ -61,7 +85,7 @@ function Main() {
               <h1>Healthy Pleasure</h1>
               <p>성취감의 즐거움으로 더 건강하게! 헬시플레저와 함께!</p>
               <div className="bt1">
-                <button>Show Now</button>
+                <button onClick={handleShowNowClick}>Show Now</button>
               </div>
             </div>
           </div>
@@ -74,7 +98,7 @@ function Main() {
               <h1>Healthy Pleasure</h1>
               <p>건강한 습관을 즐거운 습관으로 바꾸는 곳, 헬시플레저!</p>
               <div className="bt1">
-                <button>Show Now</button>
+                <button onClick={handleShowNowClick}>Show Now</button>
               </div>
             </div>
           </div>
@@ -87,7 +111,7 @@ function Main() {
               <h1>Healthy Pleasure</h1>
               <p>크루들과 함께하는 더욱 즐거운 건강습관 헬씨플레져!</p>
               <div className="bt1">
-                <button>Show Now</button>
+                <button onClick={handleShowNowClick}>Show Now</button>
               </div>
             </div>
           </div>
@@ -98,7 +122,7 @@ function Main() {
         <div className="title">
           <div className="title_inner">
             <h3>
-              인기 그룹 TOP <span>3</span>
+              인기 그룹 TOP <span>{mainNumber}</span>
             </h3>
             <p>크루가 많은 상위 커뮤니티</p>
             <p>지금 참가해 보세요.</p>
@@ -115,7 +139,7 @@ function Main() {
       <div className="etc">
         <Link to="/notice1" className="Notice">
           <div className="etc_content">
-            <h3>NOTICE</h3>
+            <h3>NOTICE &gt;</h3>
             <p>다양한 소식, 뉴스, 이벤트등을 확인 할 수 있습니다.</p>
           </div>
           <div className="etc_icon1">
@@ -125,7 +149,7 @@ function Main() {
 
         <Link to="/faq" className="Question">
           <div className="etc_content">
-            <h3>FAQ</h3>
+            <h3>FAQ &gt;</h3>
             <p>궁금한 사항이 있다면 자주 묻는 질문을 확인해 보세요.</p>
           </div>
           <div className="etc_icon2">
@@ -136,4 +160,5 @@ function Main() {
     </div>
   );
 }
+
 export default Main;

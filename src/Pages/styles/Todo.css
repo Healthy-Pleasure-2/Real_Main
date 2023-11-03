@@ -26,10 +26,11 @@
   margin-bottom: 8px;
   color: #1f3d25;
   -webkit-text-stroke: 0.4px #1f3d25;
+  letter-spacing: 2px;
 }
 
 .todo_title p {
-  font-size: 0.85rem;
+  font-size: 0.9em;
   color: #386641;
   font-weight: 600;
 }
@@ -308,6 +309,7 @@ button {
   line-height: 0.1rem;
   text-align: center;
   height: 30%;
+  letter-spacing: 2px;
 }
 
 /* 완료 버튼 */
@@ -359,6 +361,15 @@ button {
   height: 20%;
 }
 
+.todo_my_group .ellipsis {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #386641;
+  cursor: pointer;
+}
+
 /* 버튼 포함 나의 그룹 슬라이더 영역 */
 .todo_slider_container {
   height: 70%;
@@ -405,15 +416,16 @@ button {
 }
 
 .todo_group_data_name {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: bold;
   color: #386641;
   margin-bottom: 8px;
+  letter-spacing: 1px;
 }
 
 .todo_group_data_goal {
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #555;
 }
 

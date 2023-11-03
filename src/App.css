@@ -211,7 +211,7 @@
 .LoginIcon {
   width: 40px;
   height: 30px;
-  color: #A7C957;
+  color: #386641;
   line-height: 30px;
   text-align: center;
 }
@@ -248,7 +248,7 @@
   width: 220px;
   height: 40px;
   border-radius: 20px;
-  background: #A7C957;
+  background: #386641;
   border: none;
   color: #fff;
   font-size: 15px;
@@ -258,7 +258,7 @@
 }
 
 .Loginbtn:hover {
-  background-color: #386641;
+  background-color: #A7C957;
   color: #fff;
   transition: 0.3s ease-in-out;
 }
@@ -281,7 +281,8 @@
   border-right: 1px solid #A7C957;
   font-size: 0.8em;
   font-weight: 600;
-  background: rgba(167, 201, 87, 0.1);
+  background: #A7C957;
+  color: #fff;
 }
 
 .LoginSns p {

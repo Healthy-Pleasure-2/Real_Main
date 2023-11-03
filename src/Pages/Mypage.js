@@ -93,41 +93,42 @@ function Mypage(props) {
   };
 
   const handleWithdrawal = () => {
-    Swal
-      .fire({
-        title: "회원 탈퇴",
-        text: "탈퇴 하시겠습니까?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#A7C957",
-        cancelButtonColor: "#ccc",
-        confirmButtonText: "Yes!"
-      })
-      .then((result) => {
-        if (result.isConfirmed) {
-          // 사용자가 확인하면 서버에 탈퇴 요청을 보냄
-          fetch(`http://localhost:3003/Delete_user/${userId}`, { // 유저 ID를 요청에 추가
-            method: "GET",
-            credentials: "include", //쿠키포함.
+    Swal.fire({
+      title: "회원 탈퇴",
+      text: "탈퇴 하시겠습니까?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#A7C957",
+      cancelButtonColor: "#ccc",
+      confirmButtonText: "Yes!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // 사용자가 확인하면 서버에 탈퇴 요청을 보냄
+        fetch(`http://localhost:3003/Delete_user/${userId}`, {
+          // 유저 ID를 요청에 추가
+          method: "GET",
+          credentials: "include", //쿠키포함.
+        })
+          .then((response) => {
+            if (response.status === 200) {
+              // 회원 탈퇴 성공
+              Swal.fire(
+                "회원탈퇴 완료",
+                "GOODBAY~ 다음에 다시 만나요.",
+                "success"
+              ).then(() => {
+                handleLogout();
+                window.location.href = "http://localhost:3000";
+              });
+            } else {
+              console.error("회원 탈퇴 실패");
+            }
           })
-            .then((response) => {
-              if (response.status === 200) {
-                // 회원 탈퇴 성공
-                Swal
-                  .fire("회원탈퇴 완료", "GOODBAY~ 다음에 다시 만나요.", "success")
-                  .then(() => {
-                    handleLogout()
-                    window.location.href = 'http://localhost:3000';
-                  })
-              } else {
-                console.error("회원 탈퇴 실패");
-              }
-            })
-            .catch((error) => {
-              console.error("오류 발생: " + error);
-            });
-        }
-      });
+          .catch((error) => {
+            console.error("오류 발생: " + error);
+          });
+      }
+    });
   };
 
   return (
@@ -136,106 +137,115 @@ function Mypage(props) {
         <div className="Mypage_left">
           <div className="icon"></div>
           <h1>회원 정보 수정</h1>
-          <h3>회원 정보 수정 페이지 입니다.</h3>
+          <h3>
+            비밀번호, 닉네임, 이메일<br></br>수정이 가능합니다.
+          </h3>
         </div>
-
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>아이디</label>
-            <input
-              type="text"
-              name="id"
-              placeholder="admin ID"
-              disabled
-              value={formData.id}
-              onChange={handleChange}
-              required
-              className="input"
-            />
-          </div>
-          <div>
-            <label>비밀번호</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="영문+숫자 조합으로 6~20글자 입력해주세요."
-              value={formData.password}
-              onChange={handleChange}
-              required
-              ref={InputRef}
-              className="input"
-            />
-            <p className="error-message">{errors.password}</p>
-          </div>
-          <div>
-            <label>비밀번호 확인</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
-              ref={InputRef}
-              className="input"
-            />
-            <p className="error-message">{errors.confirmPassword}</p>
-          </div>
-
-          <div>
-            <label>이름</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="admin name"
-              disabled
-              value={formData.name}
-              onChange={handleChange}
-              className="input"
-            />
-          </div>
-          <div className="gender">
-            <label>성별</label>
-            <div className="gender_radio">
-              <input type="radio" name="gender" value="male" checked disabled />
-              <span>남자</span>
-              <input type="radio" name="gender" value="female" disabled />
-              <span>여자</span>
-            </div>
-          </div>
-          <div>
-            <label>닉네임</label>
-            <div className="input_check">
+        <div className="Mypage_wrap">
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label>아이디</label>
               <input
                 type="text"
-                name="nickname"
-                value={formData.nickname}
+                name="id"
+                placeholder="admin ID"
+                disabled
+                value={formData.id}
                 onChange={handleChange}
                 required
-                className="nick_input"
+                className="input"
               />
-              <button>중복확인</button>
             </div>
+            <div>
+              <label>비밀번호</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="영문+숫자 조합으로 6~20글자 입력해주세요."
+                value={formData.password}
+                onChange={handleChange}
+                required
+                ref={InputRef}
+                className="input"
+              />
+              <p className="error-message">{errors.password}</p>
+            </div>
+            <div>
+              <label>비밀번호 확인</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+                ref={InputRef}
+                className="input"
+              />
+              <p className="error-message">{errors.confirmPassword}</p>
+            </div>
+
+            <div>
+              <label>이름</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="admin name"
+                disabled
+                value={formData.name}
+                onChange={handleChange}
+                className="input"
+              />
+            </div>
+            <div className="gender">
+              <label>성별</label>
+              <div className="gender_radio">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="male"
+                  checked
+                  disabled
+                />
+                <span>남자</span>
+                <input type="radio" name="gender" value="female" disabled />
+                <span>여자</span>
+              </div>
+            </div>
+            <div>
+              <label>닉네임</label>
+              <div className="input_check">
+                <input
+                  type="text"
+                  name="nickname"
+                  value={formData.nickname}
+                  onChange={handleChange}
+                  required
+                  className="nick_input"
+                />
+                <button>중복확인</button>
+              </div>
+            </div>
+            <div>
+              <label>이메일</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="aaa@test.com"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                ref={InputRef}
+                className="input"
+              />
+              <p className="error-message">{errors.email}</p>
+            </div>
+            <div className="signbtn">
+              <button type="submit">수정하기</button>
+            </div>
+          </form>
+          <div className="withdrawal" onClick={handleWithdrawal}>
+            <button>회원탈퇴</button>
           </div>
-          <div>
-            <label>이메일</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="aaa@test.com"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              ref={InputRef}
-              className="input"
-            />
-            <p className="error-message">{errors.email}</p>
-          </div>
-          <div className="signbtn">
-            <button type="submit">수정하기</button>
-          </div>
-        </form>
-        <div className="withdrawal" onClick={handleWithdrawal}>
-          <button>회원탈퇴</button>
         </div>
       </div>
     </div>
