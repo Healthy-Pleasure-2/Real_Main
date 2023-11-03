@@ -69,18 +69,7 @@ function Main() {
               <h1>Healthy Pleasure</h1>
               <p>건강한 삶을 향한 즐거운 여정, 헬시플레저와 함께!</p>
               <div className="bt1">
-                {/* <Link to="/community"> */}
-                <button
-                  onClick={handleShowNowClick}
-                  // onClick={window.open(
-                  //   "https://www.naver.com",
-                  //   "_blank",
-                  //   "네이버"
-                  // )}
-                >
-                  Show Now
-                </button>
-                {/* </Link> */}
+                <button onClick={handleShowNowClick}>Show Now</button>
               </div>
             </div>
           </div>
@@ -93,7 +82,7 @@ function Main() {
               <h1>Healthy Pleasure</h1>
               <p>성취감의 즐거움으로 더 건강하게! 헬시플레저와 함께!</p>
               <div className="bt1">
-                <button>Show Now</button>
+                <button onClick={handleShowNowClick}>Show Now</button>
               </div>
             </div>
           </div>
@@ -106,7 +95,7 @@ function Main() {
               <h1>Healthy Pleasure</h1>
               <p>건강한 습관을 즐거운 습관으로 바꾸는 곳, 헬시플레저!</p>
               <div className="bt1">
-                <button>Show Now</button>
+                <button onClick={handleShowNowClick}>Show Now</button>
               </div>
             </div>
           </div>
@@ -119,7 +108,7 @@ function Main() {
               <h1>Healthy Pleasure</h1>
               <p>크루들과 함께하는 더욱 즐거운 건강습관 헬씨플레져!</p>
               <div className="bt1">
-                <button>Show Now</button>
+                <button onClick={handleShowNowClick}>Show Now</button>
               </div>
             </div>
           </div>
