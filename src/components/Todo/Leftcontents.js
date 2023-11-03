@@ -11,26 +11,51 @@ import ReactCalendar from "./Calendar";
 function LeftContents({ sessiondata }) {
   const [date, dateChange] = useState(new Date());
   // 날짜 형식 예시: 231010
+  // if(date.getFullYear() < 10){
+  //   return date.getFullYear + '0' 
+  // }
   const fullDate = `${date.getFullYear()}` + `${date.getMonth() + 1}` + `${date.getDate()}`
   // input 값 
   const [text, setText] = useState("");
   // text가 추가되는 todolist 배열 
   const [todoList, setTodoList] = useState([]);
-  // db.json에서 todo 테이블에서 불러오는 값 
-  const [data, setData] = useState(null);
-  // 완료, 미완료 표시 
+  // 완료, 미완료 표시
   const [done, setDone] = useState(false);
   // 로그인된 유저의 아이디 
   const userId = sessiondata;
-  console.log(userId)
+
   // 화면 로딩 및 날짜가 변할때마다 db.json todo 테이블 불러오기 
+  // useEffect(() => {
+  //   if (sessiondata === false) {
+  //     console.log("로그인을 부탁드립니다.");
+  //   } else {
+  //     console.log("로그인 함");
+  //     fetch(`http://localhost:3003/todo/${userId}?date=${fullDate}`)
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         if (data.message === "해당 날짜에 데이터를 찾았습니다.") {
+  //           // 성공적으로 응답을 처리하고 상태를 업데이트
+  //           console.log("데이터 불러오기 성공", data.matchingDate);
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         // 에러 처리
+  //         console.error("에러:", error);
+  //       });
+  //   }
+  //   //}
+  // }, [fullDate, userId]);
+
   useEffect(() => {
-    fetchData()
-  }, [fullDate, text])
+    fetchTodoListByDate()
+  }, [fullDate, userId])
 
-
-  //db.json 파일 불러오기 
-  const fetchData = () => {
+  const fetchTodoListByDate = async () => {
+    if (userId === false) {
+      alert("로그인을 부탁드립니다")
+    } else {
+      console.log("로그인함")
+    }
     fetch(`http://localhost:3003/todo/${userId}?date=${fullDate}`)
       .then((response) => {
         if (response.ok) {
@@ -39,7 +64,7 @@ function LeftContents({ sessiondata }) {
         throw new Error("네트워크 에러");
       }).then((responseData) => {
         // 성공적으로 응답을 처리하고 상태를 업데이트
-        setData(responseData);
+        setTodoList(responseData);
         console.log(responseData)
         console.log("데이터 불러오기 성공")
       })
@@ -47,9 +72,9 @@ function LeftContents({ sessiondata }) {
         // 에러 처리
         console.error("에러:", error);
       });
-  }
-  // todolist에 들어갈 데이터 
-  // const toDo = { "Id": `${userId}`, "date": `${fullDate}`, "contents": [{ "content": text, "complete": done }] }
+  };
+
+  //todolist에 들어갈 데이터 
   const dataToSubmit = {
     toDo: {
       date: fullDate,
@@ -60,7 +85,6 @@ function LeftContents({ sessiondata }) {
 
   // todolist json 서버에 저장 
   const submitInput = () => {
-    console.log(data.length)
     // json 서버의 todo 테이블이 빈값이면 값 post 
     fetch("http://localhost:3003/todo", {
       // 요청방법
@@ -84,7 +108,6 @@ function LeftContents({ sessiondata }) {
       })
     setText('')
   };
-  console.log(todoList)
 
   // todo list input 값 저장 함수
   const changeInput = (e) => {
@@ -93,7 +116,6 @@ function LeftContents({ sessiondata }) {
 
   // to do list 삭제
   const remove = (item) => {
-    console.log(item)
     // filter 함수 이용해서 item.id와 일치하는 값 제외하고 화면 출력
     fetch(`http://localhost:3003/todo/delete/contents`, {
       method: "PATCH",
@@ -120,7 +142,6 @@ function LeftContents({ sessiondata }) {
 
   // to do list 완료
   const complete = (item) => {
-    console.log(item)
     // todolist 값 업데이트
     setDone(!done);
     fetch(`http://localhost:3003/todo/complete/contents`, {
@@ -153,19 +174,15 @@ function LeftContents({ sessiondata }) {
         console.error("에러:", error);
       });
   };
-  console.log(todoList)
   return (
     <div id="todo_left_contents">
       <div className="todo_title">
         <h2>To do List</h2>
         <p>오늘의 할 일을 기록해보세요!</p>
       </div>
-
       <ReactCalendar date={date} dateChange={dateChange} />
-
       <div className="todo_checkLists">
         {todoList.map((item, i) => {
-          { console.log(item) }
           return (
             <>
               <div key={item.id} className="todo_checkList" style={{ background: item.done ? '#A7C957' : '#F3F5EF' }}>
