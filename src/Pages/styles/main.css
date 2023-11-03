@@ -147,6 +147,7 @@
 /* 배너 버튼 */
 .bt1 {
     margin-top: 3%;
+
 }
 
 .bt1 button {
@@ -158,6 +159,7 @@
     border-radius: 50px;
     font-weight: 600;
     font-size: 0.8rem;
+    z-index: 10000;
 }
 
 

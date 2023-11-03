@@ -44,8 +44,17 @@ function Main() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
-    pauseOnHover: true,
     arrow: false,
+    pauseOnFocus: false,
+    pauseOnHover: false,
+  };
+
+  // Show now 클릭시 새창 열기
+  const handleShowNowClick = () => {
+    const url = "https://www.naver.com";
+    const windowName = "Popup";
+    const windowFeatures = "width=600,height=400";
+    window.open(url, windowName, windowFeatures);
   };
 
   return (
@@ -60,7 +69,18 @@ function Main() {
               <h1>Healthy Pleasure</h1>
               <p>건강한 삶을 향한 즐거운 여정, 헬시플레저와 함께!</p>
               <div className="bt1">
-                <button>Show Now</button>
+                {/* <Link to="/community"> */}
+                <button
+                  onClick={handleShowNowClick}
+                  // onClick={window.open(
+                  //   "https://www.naver.com",
+                  //   "_blank",
+                  //   "네이버"
+                  // )}
+                >
+                  Show Now
+                </button>
+                {/* </Link> */}
               </div>
             </div>
           </div>
@@ -148,4 +168,5 @@ function Main() {
     </div>
   );
 }
+
 export default Main;
