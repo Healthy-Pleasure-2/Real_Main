@@ -1,11 +1,11 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const StyledSlider = styled(Slider)`
   border: 1px solid #386641;
@@ -18,21 +18,38 @@ const StyledSlider = styled(Slider)`
   // box-shadow: 3px 3px 7px rgb(131, 131, 131);
 `;
 
-function SimpleSlider() {
+function SimpleSlider({ sessiondata }) {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedItem, setSelectedItem] = useState(null);
+
   useEffect(() => {
-    // 데이터를 비동기적으로 가져옵니다.
-    axios
-      .get("/group.json")
-      .then((result) => {
-        // 데이터가 정상적으로 로드됨
-        setData(result.data.group);
-      })
-      .catch((error) => {
-        console.error("데이터를 가져오지 못함", error);
-      });
-  }, []);
+    if (sessiondata === false) {
+      axios
+        .get("/group.json")
+        .then((result) => {
+          // 데이터가 정상적으로 로드됨
+          setData(result.data.group);
+        })
+        .catch((error) => {
+          console.error("데이터를 가져오지 못함", error);
+        });
+    } else {
+      const userid = sessiondata;
+      // 데이터를 비동기적으로 가져옵니다.
+      axios
+        .get(`http://localhost:3003/mygroup/${userid}`)
+        .then((response) => {
+          console.log(response);
+          const responseData = response.data;
+          // 데이터가 정상적으로 로드됨
+          setData(responseData);
+        })
+        .catch((error) => {
+          console.error("데이터를 가져오지 못함", error);
+        });
+    }
+  }, [sessiondata]);
 
   const settings = {
     dots: false,
@@ -50,9 +67,12 @@ function SimpleSlider() {
 
   // 데이터를 로드하고 있다면, 데이터가 로드될 때까지 대기
   if (data.length === 0) {
-    return <p>Loading...</p>;
+    return <p className="slide_nodataGroup">참여 그룹이 없습니다.</p>;
   }
-
+  // 목표 달성 클릭시 초록색으로 변경
+  const handleItemClick = (GoalItem) => {
+    setSelectedItem(GoalItem);
+  };
   // 데이터가 있는 경우 데이터를 매핑하여 렌더링
   return (
     <div className="todo_slider_container">
@@ -66,7 +86,15 @@ function SimpleSlider() {
             <div className="todo_group_content2">
               <p className="todo_group_data_name">{item.name}</p>
               <p className="todo_group_data_goal">{item.goal}</p>
-              <button>댓글달기</button>
+              <Link to={`/GroupPage/${item.id}`}>
+                <button className="goal_btn1">소통하기</button>
+              </Link>
+              <button
+                className={selectedItem === "item" ? "selected" : ""}
+                onClick={() => handleItemClick("item")}
+              >
+                목표달성
+              </button>
             </div>
           </div>
         ))}

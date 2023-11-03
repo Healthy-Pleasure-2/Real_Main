@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import '../../Pages/styles/Calendar_custom.css'; // css import
 
-function ReactCalendar() {
-  const [value, onChange] = useState(new Date());
+function ReactCalendar({ date, dateChange }) {
+  // const [value, onChange] = useState(new Date());
   const [screenMinSize, setScreenMinSize] = useState(window.matchMedia("(max-width: 1200px)").matches)
-  console.log(screenMinSize)
+  // console.log(screenMinSize)
 
   useEffect(() => {
     // 화면 크기 변경 이벤트 리스너 등록
@@ -25,8 +25,8 @@ function ReactCalendar() {
   return (
     <div id='calendar_container'>
       <Calendar
-        onChange={onChange}
-        value={value}
+        onChange={dateChange}
+        value={date}
         minDetail='year'
         formatDay={(locale, date) => date.toLocaleString("en", { day: "numeric" })}
         showNeighboringMonth={false}

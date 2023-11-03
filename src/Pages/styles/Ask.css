@@ -61,20 +61,6 @@
   text-align: left;
 }
 
-/* #tab1:checked ~ #notice_N,   
-#tab2:checked ~ #notice_ask,
-#tab3:checked ~ #notice_inquiry { 
-  display: block;
-} */
-/* 
-.notice-title,
-#notice_ask p {
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: #01352C;
-  /* padding-top: 40px; */
-/* } */
-
 .tabcontent {
   display: none;
 }
@@ -92,9 +78,8 @@
   background: rgba(167, 201, 87, 0.1);
   text-align: left;
   font-size: 0.85rem;
-  color: #386641;
+  color: #17594A;
   margin-top: 40px;
-
   width: calc(100% - 20px);
   height: calc(100% - 100px);
   position: relative;
@@ -122,7 +107,7 @@
 
 .Inquiry_left .icon {
   width: 100%;
-  background-image: url(../../ask2.png);
+  background-image: url(../../asset/ask2.png);
   background-size: contain;
   background-repeat: no-repeat;
   height: 60%;
@@ -159,7 +144,6 @@
 }
 
 #notice_inquiry p {
-  font-weight: 800;
   height: 20px;
 }
 
@@ -168,8 +152,9 @@
   height: 55%;
   border: 1px solid #A7C957;
   border-radius: 5px;
-  color: #386641;
+  color: #17594A;
   background: #fff;
+  padding-left: 5px;
 }
 
 #notice_inquiry .notice_qu {
@@ -183,6 +168,7 @@
   border: 1px solid #A7C957;
   border-radius: 5px;
   background: #fff;
+  padding-left: 5px;
 }
 
 #notice_inquiry input:focus,
@@ -204,7 +190,7 @@
   height: 100%;
   background-color: #A7C957;
   border: none;
-  border-radius: 25px;
+  border-radius: 50px;
   cursor: pointer;
   color: #fff;
   font-size: 1rem;
@@ -238,7 +224,7 @@
   width: 100%;
   height: calc(100% - 100px);
   padding-top: 40px;
-  color: #386641;
+  color: #17594A;
 }
 
 .notice-container {
@@ -321,6 +307,13 @@
   font-size: 0.7rem;
 }
 
+.notice_List_neyong .notice_flex-item:nth-child(2) {
+  font-weight: 900;
+}
+
+.notice-container .notice_List_neyong:nth-child(n+8):nth-child(-n+11) .notice_flex-item:nth-child(2) {
+  font-weight: 500;
+}
 
 .notice_flex-item:nth-child(2) {
   flex: 3;
@@ -378,7 +371,7 @@
   width: 100%;
   height: calc(100% - 100px);
   padding-top: 40px;
-  color: #386641;
+  color: #17594A;
 }
 
 .ask-container {

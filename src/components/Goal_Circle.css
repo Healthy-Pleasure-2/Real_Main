@@ -16,23 +16,129 @@
 3. https://blog.naver.com/rdh6327/222587794846 = 참고용
 */
 
-.flex-wrapper {
-  position: relative;
+
+.flip-card {
+  width: 100%;
   height: 100%;
-  /* left:10px; */
+  perspective: 1000px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
 }
 
-.flex-wrapper .title {
-  height: 16%;
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-card-front {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  text-align: center;
+  position: absolute;
+  padding: 30px 20px;
+  border-radius: 15px;
+}
+
+.flip-card-front .title {
+  height: 48%;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.7rem;
+  color: #1f3d25;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 2.5rem;
+}
+
+.flip-card-front .subTitle {
+  width: 100%;
+  height: 18%;
+  font-size: 0.9em;
   color: #386641;
-  padding: 15px 0 0 15px;
-  margin-bottom: 15px;
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+
+.flip-card-front .subTitle2 {
+  font-size: 0.75em;
+  height: 20%;
+  color: #386641;
+}
+
+.flip-card-front .subTitle span {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #386641;
+  background-color: rgba(167, 201, 87, 0.4);
+  padding: 0 5px;
+}
+
+.flip-card-front .flip-button {
+  width: 100%;
+  height: 15%;
+  background: #A7C957;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.flip-card-front .flip-button:hover {
+  background: #386641;
+  transition: 0.2s ease-in-out;
+}
+
+.flip-card-front {
+  transform: rotateY(0deg);
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.flipped .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
 
+.flip-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  text-align: center;
+  padding: 30px 0;
+  color: #386641;
+}
 
+.flip-card-back .backTitle {
+  height: 10%;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.flip-card-back .backSubTitle {
+  height: 14%;
+}
+
+.flip-card-back .flip-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: #A7C957;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+/* 그래프 */
 .single-chart {
   position: absolute;
   left: 50px;
@@ -86,6 +192,8 @@
   stroke: #ff3da8;
 }
 
+
+/* 입력 input */
 .inputbox {
   position: absolute;
   flex-direction: row;
@@ -98,7 +206,7 @@
   width: 70px;
   height: 75px;
   border: 2px solid #A7C957;
-  border-radius: 15px;
+  border-radius: 12px;
   margin-right: 10px;
   overflow: hidden;
   color: #A7C957;
@@ -121,9 +229,6 @@
   font-size: 0.8rem;
   font-weight: bold;
   line-height: 25px;
-  border-radius: 15px 15px 0 0;
-  box-shadow: inset 1px 1px 2px 0px rgba(255, 255, 255, .5);
-
 }
 
 

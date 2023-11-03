@@ -7,14 +7,13 @@
 import React, { useState } from "react";
 import "./styles/Signup.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import Swal from "sweetalert2";
 
 function Signup() {
   const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     id: "",
-    password: "",
+    pw: "",
     confirmPassword: "",
     name: "",
     gender: "",
@@ -24,7 +23,7 @@ function Signup() {
   });
 
   const [errors, setErrors] = useState({
-    password: "",
+    pw: "",
     confirmPassword: "",
     name: "",
     email: "",
@@ -55,13 +54,13 @@ function Signup() {
     //   newErrors.id = "";
     // }
 
-    if (!passwordRegex.test(formData.password)) {
-      newErrors.password = "올바른 형식으로 입력해주세요.";
+    if (!passwordRegex.test(formData.pw)) {
+      newErrors.pw = "올바른 형식으로 입력해주세요.";
     } else {
-      newErrors.password = "";
+      newErrors.pw = "";
     }
 
-    if (formData.password !== formData.confirmPassword) {
+    if (formData.pw !== formData.confirmPassword) {
       newErrors.confirmPassword = "비밀번호가 일치하지 않습니다.";
     } else {
       newErrors.confirmPassword = "";
@@ -80,63 +79,50 @@ function Signup() {
     setErrors(newErrors);
 
     if (Object.values(newErrors).every((error) => error === "")) {
-      console.log("Form data submitted:", formData);
-      alert("회원가입 성공! HP에 오신걸 환영합니다.");
-      navigate("/");
-    }
-  };
-
-  // 회원가입 요청(request, 클라이언트 -> 서버) 미들웨어
-  const signupAPI = (email, password, username) => {
-    return function (dispatch, getState, { history }) {
-      console.log(email, password, username);
-
-      const API = "http://localhost:3000/signup";
-      console.log(API);
-
-      axios
-        .post(
-          API,
-          // 클라이언트에서 서버로 request(요청)하며 보내주는 데이터
-          // 회원가입창에서 클라이언트가 입력하는 데이터
-          {
-            email: email,
-            password: password, // 숫자, 영어 대문자, 소문자, 특수기호, 8-20자  1234567#Aaa
-            username: username, // id개념, 한글이 아니라 영어로 보내기, 영어+숫자, 4-12글자
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        // 그러면 서버에서 클라이언트로 response(응답)으로
-        // {ok: true} 아니면 {ok: false}가 온다.
-        // .then((response) => {
-        //   console.log(response); // response.data로 해야?
-        // })
-        .then((result) => {
-          console.log(result);
-          console.log("singupDB!");
-          window.alert("회원가입이 되었습니다! 로그인 해주세요.");
-          history.replace("/login");
+      fetch("http://localhost:3003/Signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+        .then(() => {
+          Swal.fire({
+            icon: "success",
+            title: "환영합니다",
+            text: "회원가입 성공!!",
+          }).then(() => {
+            navigate("/");
+          });
         })
         .catch((error) => {
-          window.alert("회원가입이 정상적으로 되지 않았습니다.");
+          Swal.fire({
+            icon: "error",
+            title: "죄송합니다.",
+            text: "회원가입이 정상적으로 되지 않았습니다.",
+          });
           console.log(error);
         });
-    };
+    }
   };
 
   return (
     <div id="Signup">
       <div id="frame">
-        <h1>회원가입</h1>
+        <div className="Signup_left">
+          <div className="icon"></div>
+          <h1>회원가입</h1>
+          <h3>
+            Healthy Pleasure의
+            <br></br>
+            다양한 서비스를 경험해보세요.
+          </h3>
+        </div>
 
         <form onSubmit={handleSubmit}>
-          <div className="input_check">
+          <div>
             <label>아이디</label>
-            <div className="input_check_btn">
+            <div className="Signup_check">
               <input
                 type="text"
                 name="id"
@@ -152,14 +138,14 @@ function Signup() {
             <label>비밀번호</label>
             <input
               type="password"
-              name="password"
+              name="pw"
               placeholder="영문+숫자 조합으로 6~20글자 입력해주세요."
-              value={formData.password}
+              value={formData.pw}
               onChange={handleChange}
               required
               className="input"
             />
-            <p className="error-message">{errors.password}</p>
+            <p className="error-message">{errors.pw}</p>
           </div>
           <div>
             <label>비밀번호 확인</label>
@@ -187,15 +173,17 @@ function Signup() {
           </div>
           <div className="gender">
             <label>성별</label>
-            <input type="radio" name="gender" value="male" checked />
-            <span>남자</span>
-            <input type="radio" name="gender" value="female" />
-            <span>여자</span>
+            <div className="gender_radio">
+              <input type="radio" name="gender" value="male" checked />
+              <span>남자</span>
+              <input type="radio" name="gender" value="female" />
+              <span>여자</span>
+            </div>
           </div>
 
-          <div className="input_check">
+          <div>
             <label>닉네임</label>
-            <div className="input_check_btn">
+            <div className="Signup_check">
               <input
                 type="text"
                 name="nickname"

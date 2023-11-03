@@ -1,9 +1,11 @@
 // src/components/GroupCreate.js
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./styles/GroupCreate.css";
+import Swal from "sweetalert2";
+//import getGroupData from "../components/Community/getGroupData";
 
-function GroupCreate() {
+function GroupCreate({ sessiondata }) {
   /* 수정전
   const [groupName, setGroupName] = useState("");
   const handleGroupNameChange = (event) => {
@@ -14,7 +16,6 @@ function GroupCreate() {
     // 그룹 생성 로직을 구현하세요.
     console.log(`그룹 "${groupName}"을(를) 생성했습니다.`);
   };*/
-  const [createdGroup, setCreatedGroup] = useState(null);
   const [groupData, setGroupData] = useState({
     name: "",
     category: "",
@@ -23,16 +24,49 @@ function GroupCreate() {
     groupintro: "",
     img: "",
   });
+
+  // 이미지 미리보기
+  const [imgFile, setImgFile] = useState("");
+  const imgRef = useRef();
+
   const handleGroupDataChange = (event) => {
     const { name, value } = event.target;
-    setGroupData({
-      ...groupData,
-      [name]: value,
-    });
+
+    // 이미지 업로드 input의 onChange
+    if (name === "img") {
+      const file = imgRef.current.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+          setImgFile(reader.result);
+          setGroupData((prevGroupData) => ({
+            ...prevGroupData,
+            img: reader.result,
+          }));
+        };
+      } else {
+        // 파일이 선택되지 않았을 때 또는 file이 null인 경우 처리
+        setImgFile(""); // 빈 문자열로 초기화 또는 다른 기본 이미지 처리
+        setGroupData((prevGroupData) => ({
+          ...prevGroupData,
+          [name]: value,
+        }));
+      }
+    } else {
+      setGroupData((prevGroupData) => ({
+        ...prevGroupData,
+        [name]: value,
+      }));
+    }
   };
+
   const handleCreateGroup = () => {
-    // JSON Server에 POST 요청 보내기
-    fetch("http://localhost:3003/groupadd", {
+    const userId = sessiondata;
+    console.log(userId);
+    // POST 요청 보내기
+    fetch(`http://localhost:3003/groupadd/${userId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,18 +75,27 @@ function GroupCreate() {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.id) {
-          // 서버 응답에서 ID를 가져올 수 있다면
-          console.log("값", data); // 서버 응답 데이터를 확인
-          setCreatedGroup(data.id); // 서버 응답에서 얻은 ID를 설정
+        if (data.message === "그룹생성성공") {
+          Swal.fire({
+            title: "생성완료",
+            text: "새로운 그룹을 생성하셨습니다.",
+            icon: "success",
+            confirmButtonColor: "#A7C957",
+          });
         } else {
-          console.error("서버 응답에 ID가 없습니다.");
+          Swal.fire({
+            title: "생성실패",
+            text: "다시 생성해주세요.",
+            icon: "error",
+            confirmButtonColor: "#A7C957",
+          });
         }
       })
       .catch((error) => {
         console.error("서버 요청 오류:", error);
       });
   };
+
   return (
     <div className="group_create">
       <div id="frame">
@@ -60,14 +103,16 @@ function GroupCreate() {
         <div className="group">
           <div className="group_name">
             <p>그룹 명</p>
-            <input
-              type="text"
-              size={90}
-              name="name"
-              value={groupData.name}
-              onChange={handleGroupDataChange}
-            />
-            <button onClick={handleCreateGroup}>중복확인</button>
+            <div className="group_name_check">
+              <input
+                type="text"
+                size={90}
+                name="name"
+                value={groupData.name}
+                onChange={handleGroupDataChange}
+              />
+              <button>중복확인</button>
+            </div>
           </div>
           <div className="category">
             <p>카테고리</p>
@@ -95,28 +140,38 @@ function GroupCreate() {
           </div>
           <div className="group_int">
             <p>그룹소개</p>
-            <input
+            <textarea
               type="text"
               name="groupintro"
               size={90}
               value={groupData.groupintro}
               onChange={handleGroupDataChange}
-            ></input>
+            ></textarea>
           </div>
           <div className="rep_img">
             <p>대표이미지</p>
-            <input
-              type="image"
-              name="img"
-              value={groupData.img}
-              onChange={handleGroupDataChange}
-            ></input>
-            <button onClick={handleCreateGroup}>파일선택</button>
+            <div className="file_img">
+              <img
+                src={imgFile ? imgFile : `/images/icon/user.png`}
+                alt="프로필 이미지"
+              />
+            </div>
+            <label htmlFor="profileImg">
+              파일 선택
+              <input
+                type="file"
+                name="img"
+                //value={groupData.img}
+                onChange={handleGroupDataChange}
+                id="profileImg"
+                ref={imgRef}
+              ></input>
+            </label>
           </div>
         </div>
         <div className="create">
-          <Link to={`/GroupPage/37`} onClick={handleCreateGroup}>
-            생성하기
+          <Link to={`/community`}>
+            <button onClick={handleCreateGroup}>생성하기</button>
           </Link>
         </div>
       </div>

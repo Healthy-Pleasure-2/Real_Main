@@ -34,23 +34,28 @@ function Community({ isLoggedIn }) {
       <div className="Community_rank">
         <div className="Community_title">
           <div className="title_inner">
-            <h3>인기 상승 그룹</h3>
-            <p>크루가 많은 TOP3 </p>
+            <h3>
+              인기 그룹 TOP <span>3</span>
+            </h3>
+            <p>크루가 많은 상위 커뮤니티 </p>
             <p>지금 참가해 보세요.</p>
           </div>
         </div>
         <PopularRank groupData={groupData} />
       </div>
-      {/*로그인 상태여야 그룹만들기 버튼 활성화*/}
-      {isLoggedIn && (
-        <div className="Community_groupbtn">
-          <button>
-            <Link to="/GroupCreate" className="Community_link">
-              +
-            </Link>
-          </button>
+      <div className="group_middle">
+        <div className="group_list_subTitle">
+          <h5>다른사용자의 그룹에도 참여해보세요!😊</h5>
         </div>
-      )}
+        {/*로그인 상태여야 그룹만들기 버튼 활성화*/}
+        {isLoggedIn && (
+          <div className="Community_groupbtn">
+            <Link to="/GroupCreate" className="Community_link">
+              <button>그룹 생성</button>
+            </Link>
+          </div>
+        )}
+      </div>
 
       {/*그룹목록*/}
       <div className="groupintro">

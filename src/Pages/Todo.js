@@ -1,34 +1,21 @@
-// 작성자: 이제형 
+// 작성자: 이제형
 // 소스명 Todo.js
-// 페이지 용도: 개인별 목표 페이지 
+// 페이지 용도: 개인별 목표 페이지
 // 생성 일자(수정 용도): 10/18 (JSON 파일 끌고오기)
 
-
-import './styles/Todo.css'
-import axios from "axios";
+import "./styles/Todo.css";
 import LeftContents from "../components/Todo/Leftcontents";
-import GoalSet from '../components/Todo/GoalSet';
-import Mygroup from '../components/Todo/Mygroup';
-import { useEffect, useState } from 'react';
+import GoalSet from "../components/Todo/GoalSet";
+import Mygroup from "../components/Todo/Mygroup";
 
-function Todo() {
-  const [groupinfo, setGroupInfo] = useState([]);
-  useEffect(() => {
-    axios.get('/group.json').then((result) => {
-      setGroupInfo(result.data);
-    })
-      .catch((error) => {
-        console.error('데이터를 가져오지 못함', error)
-      })
-  }, [])
-
-
+function Todo({ sessiondata }) {
+  //console.log(sessiondata);
   return (
     <div id="todo_container">
-      <LeftContents />
+      <LeftContents sessiondata={sessiondata} />
       <div id="todo_right_contents">
-        <GoalSet />
-        <Mygroup groupinfo={groupinfo} />
+        <GoalSet sessiondata={sessiondata} />
+        <Mygroup sessiondata={sessiondata} />
       </div>
     </div>
   );
