@@ -162,13 +162,12 @@ function Signup() {
           <div className="gender">
             <label>성별</label>
             <div className="gender_radio">
-              <input type="radio" name="gender" value="male" checked />
+              <input type="radio" name="gender" value="male" defaultChecked />
               <span>남자</span>
               <input type="radio" name="gender" value="female" />
               <span>여자</span>
             </div>
           </div>
-
           <div>
             <label>닉네임</label>
             <div className="Signup_check">

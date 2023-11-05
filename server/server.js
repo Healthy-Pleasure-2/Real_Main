@@ -440,7 +440,13 @@ app.post("/Signup", async (req, res) => {
       exercise: "",
       diet: "",
     };
+    const newTodoUser = newuser.id
+    const newTodoData = {
+      [newTodoUser]: []
+    }
     data.user.push(newuserData);
+    // todolist에 새로운 테이블 생성 
+    data.todo.push(newTodoData);
     const updatedDataGroup = JSON.stringify(data, null, 2);
     await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
     res.status(200).json({ message: "회원가입 되셨습니다." }); // 새로운 그룹의 ID 반환
@@ -519,12 +525,14 @@ app.get("/Delete_user/:id", async (req, res) => {
 
     // db에서 사용자 id와 전달된 id가 같은 사용자를 찾음
     const userIndex = data.user.findIndex((u) => u.id === userId);
+    const todoIndex = data.todo.findIndex((u) => u.id === userId);
 
     if (userIndex !== -1) {
       // 사용자를 찾았을 때
       // 사용자 데이터를 배열에서 삭제
       data.user.splice(userIndex, 1);
-
+      // 사용자 데이터를 배열에서 삭제 
+      data.todo.splice(todoIndex, 1);
       // 변경된 데이터를 다시 파일로 씀
       const updatedJsonData = JSON.stringify(data, null, 2);
       await fs.promises.writeFile("./db.json", updatedJsonData);

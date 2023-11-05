@@ -410,94 +410,10 @@
   ],
   "todo": [
     {
-      "wlsrud": [
-        {
-          "date": "20231103",
-          "contents": [
-            {
-              "content": "11111",
-              "complete": false
-            },
-            {
-              "content": "3333",
-              "complete": false
-            }
-          ]
-        },
-        {
-          "date": "20231118",
-          "contents": [
-            {
-              "content": "11111",
-              "complete": false
-            },
-            {
-              "content": "22222",
-              "complete": false
-            }
-          ]
-        },
-        {
-          "date": "20231110",
-          "contents": [
-            {
-              "content": "1111",
-              "complete": false
-            },
-            {
-              "content": "2222",
-              "complete": false
-            }
-          ]
-        }
-      ]
+      "wlsrud": []
     },
     {
-      "wpgud": [
-        {
-          "date": "20231103",
-          "contents": [
-            {
-              "content": "1111",
-              "complete": false
-            },
-            {
-              "content": "2222",
-              "complete": false
-            }
-          ]
-        },
-        {
-          "date": "20231117",
-          "contents": [
-            {
-              "content": "11111",
-              "complete": false
-            },
-            {
-              "content": "22222",
-              "complete": false
-            }
-          ]
-        },
-        {
-          "date": "20231118",
-          "contents": [
-            {
-              "content": "11111",
-              "complete": true
-            },
-            {
-              "content": "2222",
-              "complete": false
-            },
-            {
-              "content": "33333",
-              "complete": true
-            }
-          ]
-        }
-      ]
+      "wpgud": []
     },
     {
       "dmswjd": []
