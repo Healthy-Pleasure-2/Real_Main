@@ -1,21 +1,9 @@
-// src/components/GroupCreate.js
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./styles/GroupCreate.css";
 import Swal from "sweetalert2";
-//import getGroupData from "../components/Community/getGroupData";
 
 function GroupCreate({ sessiondata }) {
-  /* 수정전
-  const [groupName, setGroupName] = useState("");
-  const handleGroupNameChange = (event) => {
-    setGroupName(event.target.value);
-  };
-  
-  const handleCreateGroup = () => {
-    // 그룹 생성 로직을 구현하세요.
-    console.log(`그룹 "${groupName}"을(를) 생성했습니다.`);
-  };*/
   const [groupData, setGroupData] = useState({
     name: "",
     category: "",
@@ -64,7 +52,6 @@ function GroupCreate({ sessiondata }) {
 
   const handleCreateGroup = () => {
     const userId = sessiondata;
-    console.log(userId);
     // POST 요청 보내기
     fetch(`http://localhost:3003/groupadd/${userId}`, {
       method: "POST",
@@ -161,7 +148,6 @@ function GroupCreate({ sessiondata }) {
               <input
                 type="file"
                 name="img"
-                //value={groupData.img}
                 onChange={handleGroupDataChange}
                 id="profileImg"
                 ref={imgRef}

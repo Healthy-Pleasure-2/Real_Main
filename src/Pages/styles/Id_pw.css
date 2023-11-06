@@ -1,188 +1,182 @@
- /* 소스명 : Id_pw.css
- 작성자 : 이진경
- 이 페이지 용도 : ID/PW 찾기 페이지 css
- 작성일자 : 23.10.18  */
+#IdPw {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#IdPw .container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.IdPw_left {
+  width: 35%;
+  height: 70%;
+  background-color: #A7C957;
+  border-radius: 20px 0 0 20px;
+  box-shadow: 10px 10px 30px #3866416b, inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  z-index: 100;
+}
 
 
- #IdPw {
-   width: 100%;
-   height: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
- }
+.IdPw_left img {
+  width: 90%;
+}
 
- #IdPw .container {
-   position: absolute;
-   top: 50%;
-   transform: translateY(-50%);
-   width: 100%;
- }
+.IdPw_left h3 {
+  font-size: 1.1em;
+  font-weight: 500;
+  padding-top: 5%;
+  line-height: 1.7rem;
+}
 
- .IdPw_left {
-   width: 35%;
-   height: 70%;
-   background-color: #A7C957;
-   border-radius: 20px 0 0 20px;
-   box-shadow: 10px 10px 30px #3866416b, inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
-   color: #fff;
-   text-align: center;
-   position: relative;
-   z-index: 100;
- }
+#IdPw #frame {
+  width: 50%;
+  height: 70%;
+  background-color: rgba(167, 201, 87, 0.1);
+  border-radius: 0 20px 20px 0;
+  box-shadow: 10px 10px 50px #3866416b, inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
+  font-size: 0.85rem;
+  color: #313131;
+  position: relative;
+}
 
+/* ID, PW 버튼 */
+#IdPw .green {
+  background-color: #A7C957;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #38664126;
+}
 
- .IdPw_left img {
-   width: 90%;
- }
+#IdPw #buttons {
+  width: 80%;
+  height: 70px;
+  margin: 20px auto;
+  border-radius: 10px;
+  background: rgba(167, 201, 87, 0.488);
+}
 
- .IdPw_left h3 {
-   font-size: 1.1em;
-   font-weight: 500;
-   padding-top: 5%;
-   line-height: 1.7rem;
- }
+#IdPw #buttons>div {
+  width: 49.95%;
+  height: 100%;
+  float: left;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  line-height: 70px;
+  letter-spacing: 2px;
+}
 
- #IdPw #frame {
-   width: 50%;
-   height: 70%;
-   background-color: rgba(167, 201, 87, 0.1);
-   border-radius: 0 20px 20px 0;
-   box-shadow: 10px 10px 50px #3866416b, inset 2px 2px 2px 0px rgba(255, 255, 255, .5);
-   font-size: 0.85rem;
-   color: #313131;
-   position: relative;
- }
+#IdPw #buttons>div:hover {
+  background: #386641;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
 
- /* ID, PW 버튼 */
- #IdPw .green {
-   background-color: #A7C957;
-   border-radius: 5px;
-   box-shadow: 0 0 5px #38664126;
- }
+/* ID, PW 작성란 */
+#idpw_content {
+  height: calc(100% - 110px);
+}
 
- #IdPw #buttons {
-   width: 80%;
-   height: 70px;
-   margin: 20px auto;
-   border-radius: 10px;
-   background: rgba(167, 201, 87, 0.488);
- }
+#idFind,
+#pwFind {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
 
- #IdPw #buttons>div {
-   width: 49.95%;
-   height: 100%;
-   float: left;
-   font-size: 1.4em;
-   font-weight: bold;
-   color: white;
-   text-align: center;
-   line-height: 70px;
-   letter-spacing: 2px;
- }
+/* ID, PW 작성란 */
+#IdPw #frame input {
+  width: 100%;
+  height: 15%;
+  margin: 2% 0;
+  border: 1px solid #A7C957;
+  border-radius: 10px;
+  padding: 3%;
+  font-size: 1rem;
+  color: #386641;
+  font-weight: 600;
+}
 
- #IdPw #buttons>div:hover {
-   background: #386641;
-   border-radius: 10px;
-   cursor: pointer;
-   transition: 0.3s ease-in-out;
- }
+#IdPw #frame input:first-child {
+  margin-top: 10%;
+}
 
- /* ID, PW 작성란 */
- #idpw_content {
-   height: calc(100% - 110px);
- }
+#IdPw #frame button {
+  width: 100%;
+  height: 15%;
+  border: 1px solid #A7C957;
+  border-radius: 10px;
+  padding: 3%;
+  margin-bottom: 2%;
+}
 
- #idFind,
- #pwFind {
-   width: 80%;
-   height: 100%;
-   margin: 0 auto;
- }
+#IdPw #frame input:focus {
+  border: 2px solid #386641;
+  outline: none;
+}
 
- /* ID, PW 작성란 */
- #IdPw #frame input {
-   width: 100%;
-   height: 15%;
-   margin: 2% 0;
-   border: 1px solid #A7C957;
-   border-radius: 10px;
-   padding: 3%;
-   font-size: 1rem;
-   color: #386641;
-   font-weight: 600;
- }
+/* ID, PW 찾기 버튼 */
+#IdPw #frame button {
+  margin-top: 10%;
+  background-color: #A7C957;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
 
- #IdPw #frame input:first-child {
-   margin-top: 10%;
- }
+#IdPw #frame button:hover {
+  background: #386641;
+  transition: 0.3s ease-in-out;
+}
 
- #IdPw #frame button {
-   width: 100%;
-   height: 15%;
-   border: 1px solid #A7C957;
-   border-radius: 10px;
-   padding: 3%;
-   margin-bottom: 2%;
- }
+#idFind>div,
+#pwFind>div {
+  text-align: center;
+  margin-top: 2%;
+}
 
- #IdPw #frame input:focus {
-   border: 2px solid #386641;
-   outline: none;
- }
+#idFind>div a,
+#pwFind>div a {
+  font-weight: bold;
+}
 
- /* ID, PW 찾기 버튼 */
- #IdPw #frame button {
-   margin-top: 10%;
-   background-color: #A7C957;
-   color: #fff;
-   font-size: 1.2em;
-   font-weight: bold;
-   letter-spacing: 2px;
- }
+/**************** 미디어 쿼리 *****************/
+@media (max-width: 1200px) {
+  .IdPw_left {
+    height: 60%;
+  }
 
- #IdPw #frame button:hover {
-   background: #386641;
-   transition: 0.3s ease-in-out;
- }
+  .IdPw_left h3 {
+    font-size: 0.75em;
+    line-height: 1.2rem;
+  }
 
- #idFind>div,
- #pwFind>div {
-   text-align: center;
-   margin-top: 2%;
- }
+  #IdPw #frame {
+    width: 80%;
+    height: 60%;
+  }
 
- #idFind>div a,
- #pwFind>div a {
-   font-weight: bold;
- }
+  #IdPw #buttons {
+    height: 60px;
+    margin: 10px auto;
+  }
 
- /**************** 미디어 쿼리 *****************/
- @media (max-width: 1200px) {
-   .IdPw_left {
-     height: 60%;
-   }
+  #IdPw #buttons>div {
+    line-height: 60px;
+  }
 
-   .IdPw_left h3 {
-     font-size: 0.75em;
-     line-height: 1.2rem;
-   }
-
-   #IdPw #frame {
-     width: 80%;
-     height: 60%;
-   }
-
-   #IdPw #buttons {
-     height: 60px;
-     margin: 10px auto;
-   }
-
-   #IdPw #buttons>div {
-     line-height: 60px;
-   }
-
-   #idpw_content {
-     height: calc(100% - 80px);
-   }
- }
+  #idpw_content {
+    height: calc(100% - 80px);
+  }
+}

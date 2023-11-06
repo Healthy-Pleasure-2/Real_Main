@@ -1,8 +1,3 @@
-/*소스명 : Groupintro.js
-작성자 : 정은정
-이 페이지 용도 : 그룹 목록 화면
-생성일자(수정일자) 231026 -21번줄 주석처리, 22번 줄 9로 변경 :*/
-
 import React, { useState, useEffect } from "react";
 import "../../Pages/styles/Community.css";
 import { Link } from "react-router-dom";
@@ -61,7 +56,6 @@ function Groupintro({ groupData, selectedCategory }) {
   // 그룹리스트 버튼 클릭 시 페이지 번호 업데이트
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
-
     // 페이지 버튼을 최대 5개까지만 표시
   };
   const totalPages = Math.ceil(filteredGroups.length / itemsPerPage);
@@ -93,11 +87,6 @@ function Groupintro({ groupData, selectedCategory }) {
                     <p>{item_group.grouptotal}명</p>
                     <FontAwesomeIcon icon={faUser} />
                   </div>
-                  {/* <div className="Community_caption">
-                  <p className="Community_captionname">{group.name}</p>
-                  <p>{group.goal}</p>
-                  <p>{group.grouptotal}명</p>
-                </div> */}
                 </Link>
               </div>
             ))
