@@ -98,6 +98,7 @@ app.get(
 );
 
 //GoalSet.js 사용자 목표설정 db.json에 추가기능
+//GoalSet.js 사용자 목표설정 db.json에 추가기능
 app.patch("/user/:id", async (req, res) => {
   const userId = req.params.id;
   const { weight, exercise, diet } = req.body;
@@ -105,22 +106,20 @@ app.patch("/user/:id", async (req, res) => {
     const data = await Datafc();
     const users = data.user;
     const groups = data.group;
+    const todos = data.todo;
     const user = users.find((u) => u.id === userId);
-
     if (!user) {
       res.status(404).json({ message: "사용자를 찾을 수 없습니다" });
       return;
     }
-    //데이터 업데이트
     user.weight = weight;
     user.exercise = exercise;
     user.diet = diet;
-
-    // JSON 문자열로 변환
     const updatedData = JSON.stringify(
       {
         user: users,
         group: groups,
+        todo: todos
       },
       null,
       2

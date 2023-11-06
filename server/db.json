@@ -69,9 +69,9 @@
         "25",
         "35"
       ],
-      "weight": "30",
-      "exercise": "1600",
-      "diet": "1700"
+      "weight": "44",
+      "exercise": "1500",
+      "diet": "1500"
     },
     {
       "index": 5,
@@ -89,6 +89,21 @@
       "weight": "60",
       "exercise": "2600",
       "diet": "2700"
+    },
+    {
+      "index": 6,
+      "id": "tnwls12",
+      "pw": "a123456789",
+      "name": "강수진",
+      "nickname": "수진",
+      "email": "aaa@naver.com",
+      "group": [
+        "1",
+        "2"
+      ],
+      "weight": "50",
+      "exercise": "15000",
+      "diet": "15000"
     }
   ],
   "group": [
@@ -406,23 +421,6 @@
       "goal": "소화 건강을 위한 식단 조절",
       "grouptotal": 53,
       "groupintro": "소화 건강을 위한 식단 조절 소화 건강을 위한 식단 조절 소화 건강을 위한 식단 조절 소화 건강을 위한 식단 조절"
-    }
-  ],
-  "todo": [
-    {
-      "wlsrud": []
-    },
-    {
-      "wpgud": []
-    },
-    {
-      "dmswjd": []
-    },
-    {
-      "tnwls": []
-    },
-    {
-      "wkdgns": []
     }
   ]
 }
