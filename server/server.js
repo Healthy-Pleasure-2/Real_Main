@@ -100,6 +100,7 @@ app.patch("/user/:id", async (req, res) => {
     const data = await Datafc();
     const users = data.user;
     const groups = data.group;
+    const todos = data.todo;
     const user = users.find((u) => u.id === userId);
     if (!user) {
       res.status(404).json({ message: "사용자를 찾을 수 없습니다" });
@@ -112,6 +113,7 @@ app.patch("/user/:id", async (req, res) => {
       {
         user: users,
         group: groups,
+        todo: todos,
       },
       null,
       2
@@ -123,7 +125,6 @@ app.patch("/user/:id", async (req, res) => {
     res.status(500).json({ message: "서버 오류" });
   }
 });
-
 // db.json에서 todo 테이블 데이터 가져오기
 app.get("/todo/:id", async (req, res) => {
   try {
