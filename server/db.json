@@ -30,12 +30,11 @@
       "group": [
         "8",
         "18",
-        "28",
         "10"
       ],
-      "weight": "",
-      "exercise": "",
-      "diet": ""
+      "weight": "111",
+      "exercise": "222",
+      "diet": "333"
     },
     {
       "index": 3,
@@ -407,15 +406,23 @@
       "goal": "소화 건강을 위한 식단 조절",
       "grouptotal": 53,
       "groupintro": "소화 건강을 위한 식단 조절 소화 건강을 위한 식단 조절 소화 건강을 위한 식단 조절 소화 건강을 위한 식단 조절"
+    }
+  ],
+  "todo": [
+    {
+      "wlsrud": []
     },
     {
-      "id": 36,
-      "name": "식품레시피",
-      "category": "식단",
-      "img": "https://i.pinimg.com/564x/23/00/dc/2300dcad5f3c33d83a68fbc57bc23fe4.jpg",
-      "goal": "건강한 식품으로 만든 레시피 공유",
-      "grouptotal": 44,
-      "groupintro": "건강한 식품으로 만든 레시피 공유 건강한 식품으로 만든 레시피 공유 건강한 식품으로 만든 레시피 공유 건강한 식품으로 만든 레시피 공유"
+      "wpgud": []
+    },
+    {
+      "dmswjd": []
+    },
+    {
+      "tnwls": []
+    },
+    {
+      "wkdgns": []
     }
   ]
 }

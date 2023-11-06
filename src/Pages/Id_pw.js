@@ -1,14 +1,3 @@
-/*
--소스명 : Id_pw.js
--작성자 : 이진경
--이 페이지 용도 : ID/PW 찾기 페이지
--생성일자(수정일자) : 231018 최초생성
---------------------------------------------------------------------------------------------------------------
--로그
-231018 이진경 - 최초 생성, CSS 디자인 수정
-231031 김장훈 - 서버 요청 작성
---------------------------------------------------------------------------------------------------------------
-*/
 import React, { useState } from "react";
 import "./styles/Id_pw.css";
 import { Link } from "react-router-dom";
@@ -39,14 +28,12 @@ const handleFindId = async (name, email) => {
           title: "ID 찾기 성공",
           text: `${name} 회원님의 ID는: ${data.userid}입니다.`,
         });
-        // alert(`${name} 회원님의 ID는: ${data.userid}입니다.`); // 변수명 수정
       } else {
         Swal.fire({
           icon: "error",
           title: "ID 찾기 실패",
           text: "입력하신 정보와 일치하는 ID를 찾을 수 없습니다.",
         });
-        // alert("ID를 찾을 수 없습니다.");
       }
     } else {
       Swal.fire({
@@ -54,7 +41,6 @@ const handleFindId = async (name, email) => {
         title: "입력 정보 에러",
         text: "입력정보를 다시 확인해주세요.",
       });
-      // alert("입력정보를 다시 확인해주세요.");
     }
   } catch (error) {
     console.error("ID 찾기 요청 실패:", error);
@@ -63,14 +49,11 @@ const handleFindId = async (name, email) => {
       title: "ID 찾기 요청 실패",
       text: "죄송합니다. 현재 서버의 문제로 요청이 불가합니다.",
     });
-    // alert("ID 찾기 요청 실패");
   }
 };
 
 // 비밀번호 찾기 요청
 const handleFindPw = async (id, email) => {
-  console.log(id);
-  console.log(email);
   try {
     const userData = {
       id: id,
@@ -92,14 +75,12 @@ const handleFindPw = async (id, email) => {
           title: "비밀번호 찾기 성공",
           text: `${id} 회원님의 임시 비밀번호는: ${data.userpw}입니다.`,
         });
-        // alert(`${id} 회원님의 임시 비밀번호는: ${data.userpw}입니다.`);
       } else {
         Swal.fire({
           icon: "error",
           title: "PW 찾기 실패",
           text: "입력하신 정보와 일치하는 정보를 찾을 수 없습니다.",
         });
-        // alert("비밀번호를 찾을 수 없습니다.");
       }
     } else {
       Swal.fire({
@@ -107,7 +88,6 @@ const handleFindPw = async (id, email) => {
         title: "입력 정보 에러",
         text: "입력정보를 다시 확인해주세요.",
       });
-      // alert("입력정보를 다시 확인해주세요.");
     }
   } catch (error) {
     console.error("PW 찾기 요청 실패:", error);
@@ -116,7 +96,6 @@ const handleFindPw = async (id, email) => {
       title: "PW 찾기 요청 실패",
       text: "죄송합니다. 현재 서버의 문제로 요청이 불가합니다.",
     });
-    // alert("PW 찾기 요청 실패");
   }
 };
 

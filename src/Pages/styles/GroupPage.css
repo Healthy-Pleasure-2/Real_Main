@@ -1,8 +1,3 @@
-/* 소스명 : GroupPage.css 
-작성자: 이진경
-이 페이지 용도 : 그룹 페이지 CSS
-생성일자(수정일자) : 23.10.13  */
-
 #GroupPage {
   width: 100%;
   height: 100%;
@@ -23,7 +18,7 @@
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(1, 53, 44, 0.25);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #386641;
 }
 
@@ -35,8 +30,8 @@
 }
 
 #GroupPage .top h2 {
-  color: #386641;
-  font-size: 1.5rem;
+  color: #1f3d25;
+  font-size: 1.7rem;
   width: 80%;
   padding-bottom: 8px;
   font-weight: bold;
@@ -44,7 +39,7 @@
 }
 
 #GroupPage .top #goal {
-  width: 150px;
+  width: 180px;
   height: 25px;
   background-color: rgba(167, 201, 87, 0.6);
   border-radius: 15px;
@@ -54,7 +49,6 @@
   line-height: 25px;
 }
 
-#GroupPage .top #goal span {}
 
 #GroupPage .top button {
   float: right;
@@ -64,10 +58,10 @@
   border: none;
   border-radius: 15px;
   cursor: pointer;
-
   color: #fff;
   font-size: 1rem;
   font-weight: 900;
+  letter-spacing: 4px
 }
 
 #GroupPage .top button:hover {
@@ -92,14 +86,17 @@
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 7px;
+  letter-spacing: 4px
 }
 
 #GroupPage .intro #title1 {
   border-right: 1px solid #fff;
   width: 8vw;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
+  letter-spacing: 4px;
+  min-width: 50px;
 }
 
 #GroupPage .intro .goal .content {
@@ -126,8 +123,10 @@
   border-right: 1px solid #386641;
   width: 8vw;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
+  letter-spacing: 4px;
+  min-width: 50px;
 }
 
 #GroupPage .intro .groupIntro .content {
@@ -174,12 +173,22 @@
   width: 10%;
 }
 
+#GroupPage .comment .comment-error h3 {
+  text-align: left;
+  line-height: 1.5rem;
+}
+
+#GroupPage .comment .comment-error h3 span {
+  font-size: 0.8rem;
+}
+
 .commentTitle {
   padding: 0 0 7px 7px;
   border-bottom: 1px solid #A7C957;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1rem;
   height: 10%;
+  letter-spacing: 4px
 }
 
 /* 댓글 리스트 */
@@ -206,20 +215,23 @@
   position: relative;
   display: flex;
   margin-bottom: 10px;
-  background-color: rgba(167, 201, 87, 0.3);
+  background-color: rgba(167, 201, 87, 0.15);
   border-radius: 5px;
-  min-height: 25px;
+  min-height: 30px;
   padding: 3px 0;
+  font-size: 0.8rem;
 }
 
 .commentList .commentIndex h4 {
   width: 80px;
   padding: 0 10px;
+  line-height: 30px;
 }
 
 .commentList .commentIndex p {
   width: 85%;
   word-break: break-all;
+  line-height: 30px;
 }
 
 .commentList .commentIndex .delete {
@@ -250,7 +262,6 @@
   margin-right: 10px;
   border-radius: 5px;
   border: 1px solid #A7C957;
-  padding-left: 10px;
 }
 
 .commentInput input:focus {
@@ -260,10 +271,17 @@
 
 .commentInput input:nth-child(1) {
   width: 15%;
+  background: rgb(166, 200, 86, 0.8);
+  color: #386641;
+  font-weight: 800;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 1px
 }
 
 .commentInput input:nth-child(2) {
   width: 75%;
+  padding-left: 10px;
 }
 
 .commentInput input::placeholder {

@@ -36,13 +36,11 @@ function SimpleSlider({ sessiondata }) {
         });
     } else {
       const userid = sessiondata;
-      // 데이터를 비동기적으로 가져옵니다.
+      // 데이터 가져오는 방식: 비동기
       axios
         .get(`http://localhost:3003/mygroup/${userid}`)
         .then((response) => {
-          console.log(response);
           const responseData = response.data;
-          // 데이터가 정상적으로 로드됨
           setData(responseData);
         })
         .catch((error) => {

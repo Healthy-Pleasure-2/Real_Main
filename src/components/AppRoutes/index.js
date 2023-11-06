@@ -5,8 +5,6 @@ import Community from "../../Pages/Community";
 import GroupCreate from "../../Pages/GroupCreate";
 import GroupPage from "../../Pages/GroupPage";
 import Ask from "../../Pages/Ask";
-import Notice1 from "../Notice1";
-import FAQ from "../FAQ";
 import Mypage from "../../Pages/Mypage";
 import Signup from "../../Pages/Signup";
 import IdPw from "../../Pages/Id_pw";
@@ -33,7 +31,10 @@ function AppRoutes({ isLoggedIn, sessiondata }) {
       <Route path="/ask" element={<Ask />}></Route>
       <Route path="/notice1" element={<Ask />}></Route>
       <Route path="/faq" element={<Ask />}></Route>
-      <Route path="/mypage" element={<Mypage />}></Route>
+      <Route
+        path="/mypage"
+        element={<Mypage sessiondata={sessiondata} />}
+      ></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/idPw" element={<IdPw />}></Route>
     </Routes>

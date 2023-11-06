@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
-import '../../Pages/styles/Calendar_custom.css'; // css import
+import '../../Pages/styles/Calendar_custom.css';
 
 function ReactCalendar({ date, dateChange }) {
-  // const [value, onChange] = useState(new Date());
   const [screenMinSize, setScreenMinSize] = useState(window.matchMedia("(max-width: 1200px)").matches)
-  // console.log(screenMinSize)
 
   useEffect(() => {
     // 화면 크기 변경 이벤트 리스너 등록

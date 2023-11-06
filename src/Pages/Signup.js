@@ -1,9 +1,3 @@
-// 소스명 : Signup.js
-// 작성자 : 이진경
-// 이 페이지 용도 : 회원가입
-// 수정일자 : 23.10.16
-// 수정일자 : 23.10.17 / 코드 전면 수정, 에러메시지 출력, 회원가입시 메인페이지로 이동
-
 import React, { useState } from "react";
 import "./styles/Signup.css";
 import { useNavigate } from "react-router-dom";
@@ -45,14 +39,8 @@ function Signup() {
     const passwordRegex = /^[A-Za-z0-9]{6,20}$/; //영문, 숫자 조합 6글자 이상
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-    // Validate the form data
+    // 폼 데이터 유효성 검사 
     let newErrors = { ...errors };
-
-    // if (!idRegex.test(formData.id)) {
-    //   newErrors.id = "공백없이 숫자, 대소문자만 입력해주세요.";
-    // } else {
-    //   newErrors.id = "";
-    // }
 
     if (!passwordRegex.test(formData.pw)) {
       newErrors.pw = "올바른 형식으로 입력해주세요.";
@@ -174,13 +162,12 @@ function Signup() {
           <div className="gender">
             <label>성별</label>
             <div className="gender_radio">
-              <input type="radio" name="gender" value="male" checked />
+              <input type="radio" name="gender" value="male" defaultChecked />
               <span>남자</span>
               <input type="radio" name="gender" value="female" />
               <span>여자</span>
             </div>
           </div>
-
           <div>
             <label>닉네임</label>
             <div className="Signup_check">
@@ -217,12 +204,10 @@ function Signup() {
                 value={formData.term}
                 onChange={handleChange}
                 type="checkbox"
-                // checked={formData.term.checkboxChecked}
               ></input>
               이용약관 개인정보 수집 및 이용, 마케팅 활용 선택에 모두
               동의합니다.
             </label>
-            {/* <p className="error-message">{errors.term}</p> */}
           </div>
           <div className="signbtn">
             <button type="submit">회원가입 하기</button>

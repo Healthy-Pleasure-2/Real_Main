@@ -1,11 +1,3 @@
-/* 소스명 : App.css
-작성자: 이진경
-이 페이지 용도 : 기본틀 css
-생성일자(수정일자) : 23.10.13
-수정일자 : 23.10.16 (로고수정) 
-수정일자 : 23.10.18 (로그인 추가(정은정), 수정(이진경))
-수정일자 : 231023 색감 및 로그인 부분 수정(이진경) */
-
 /*  import 눈누 fonts */
 @font-face {
   font-family: 'SUITE-Regular';
@@ -219,7 +211,7 @@
 .LoginIcon {
   width: 40px;
   height: 30px;
-  color: #A7C957;
+  color: #386641;
   line-height: 30px;
   text-align: center;
 }
@@ -256,7 +248,7 @@
   width: 220px;
   height: 40px;
   border-radius: 20px;
-  background: #A7C957;
+  background: #386641;
   border: none;
   color: #fff;
   font-size: 15px;
@@ -266,7 +258,7 @@
 }
 
 .Loginbtn:hover {
-  background-color: #386641;
+  background-color: #A7C957;
   color: #fff;
   transition: 0.3s ease-in-out;
 }
@@ -289,7 +281,8 @@
   border-right: 1px solid #A7C957;
   font-size: 0.8em;
   font-weight: 600;
-  background: rgba(167, 201, 87, 0.1);
+  background: #A7C957;
+  color: #fff;
 }
 
 .LoginSns p {
@@ -344,7 +337,6 @@
 }
 
 /* 뉴스 CSS */
-/* 2023.10.16 / 작성자: 강수진, 이진경(수정) */
 .news-container {
   width: 90%;
   height: 90%;

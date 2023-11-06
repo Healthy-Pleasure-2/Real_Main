@@ -1,28 +1,7 @@
-/*
--소스명 : Goal_Circle.js
--작성자 : 김장훈
--이 페이지 용도 : 페이지 우측 원형 시각화, Goal_Circle.js
--생성일자(수정일자) : 231011 최초 HTML로 생성, 231013 캄포넌트 완료
---------------------------------------------------------------------------------------------------------------
--로그
-231013 김장훈 - 차후 DB연결 시 개선 예정.
-231016 김장훈 - 수정중
-231017 김장훈 - 입력창 및 입력버튼을 통한 시각화 변화하도록 수정. UI다듬기 등 추가작업 필요
-231018 김장훈 - 입력버튼 삭제(input 박스에 입력되면 시각화 바로 변화되도록 수정), UI 다듬기, 차후 Todo 페이지에서 최대값 불러오기 추가예정 
-231029 김장훈 - 쿠키에서 사용자정보 불러오기 코드 작성중.
-231030 김장훈 - 가져와지는 목표값 최대값으로 지정하는것 수정
-231031 김장훈 - server.js 목표값 받아오는 기능 수정 (feat.은정)
---------------------------------------------------------------------------------------------------------------
-*참고 사이트
-1. https://medium.com/@pppped/how-to-code-a-responsive-circular-percentage-chart-with-svg-and-css-3632f8cd7705 = 개념
-2. https://codepen.io/sergiopedercini/pen/jmKdbj = 여기 코드 기반으로 시작함.
-3. https://blog.naver.com/rdh6327/222587794846 = 참고용
-*/
-
 import React, { useState, useEffect } from "react";
 import "./Goal_Circle.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 
 function Goal_Circle({ sessiondata }) {
   const [User_Name, setuserName] = useState("");
@@ -74,8 +53,8 @@ function Goal_Circle({ sessiondata }) {
     return weightValue >= maxWeight
       ? maxWeightStrokeDasharray
       : weightValue <= minWeight
-      ? minWeightStrokeDasharray
-      : ((weightValue - minWeight) / (maxWeight - minWeight)) *
+        ? minWeightStrokeDasharray
+        : ((weightValue - minWeight) / (maxWeight - minWeight)) *
         maxWeightStrokeDasharray;
   };
 
@@ -89,8 +68,8 @@ function Goal_Circle({ sessiondata }) {
     return exerciseValue >= maxExercise
       ? maxExerciseStrokeDasharray
       : exerciseValue <= minExercise
-      ? minExerciseStrokeDasharray
-      : ((exerciseValue - minExercise) / (maxExercise - minExercise)) *
+        ? minExerciseStrokeDasharray
+        : ((exerciseValue - minExercise) / (maxExercise - minExercise)) *
         maxExerciseStrokeDasharray;
   };
 
@@ -104,8 +83,8 @@ function Goal_Circle({ sessiondata }) {
     return dietValue >= maxDiet
       ? maxDietStrokeDasharray
       : dietValue <= minDiet
-      ? minDietStrokeDasharray
-      : ((dietValue - minDiet) / (maxDiet - minDiet)) * maxDietStrokeDasharray;
+        ? minDietStrokeDasharray
+        : ((dietValue - minDiet) / (maxDiet - minDiet)) * maxDietStrokeDasharray;
   };
 
   //사용자 입력값 시각화처리
@@ -134,17 +113,18 @@ function Goal_Circle({ sessiondata }) {
         <div className="flip-card-front">
           <div className="title">
             안녕하세요 <br></br>
-            {User_Name}님
+            <span>{User_Name}</span> 님
           </div>
           <div className="subTitle">
             현재 체중, 운동량, 식사량을 입력하여 <br></br>
             <span>목표 달성률</span>을 확인하세요!
           </div>
           <div className="subTitle2">
-            목표설정은 "개인별 목표설정" 페이지에서 <br></br>작성 가능합니다.
+            * 목표설정은 "개인별 목표설정" 에서 작성
           </div>
           <button className="flip-button" onClick={flipCard}>
             입력하기
+            <FontAwesomeIcon icon={faAnglesRight} />
           </button>
         </div>
 
@@ -245,7 +225,7 @@ function Goal_Circle({ sessiondata }) {
           </div>
 
           <button className="flip-button" onClick={flipCard}>
-            <FontAwesomeIcon icon={faArrowRight} />{" "}
+            <FontAwesomeIcon icon={faAngleRight} />
           </button>
         </div>
       </div>
