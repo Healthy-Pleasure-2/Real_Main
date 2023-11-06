@@ -1,15 +1,3 @@
-/*
--소스명 : Mypage.js
--작성자 : 이진경
--이 페이지 용도 : 회원정보 수정, 마이페이지
--생성일자(수정일자) : 231016
---------------------------------------------------------------------------------------------------------------
--로그
-231017 이진경 - 코드 전면 수정, 에러메시지 출력, 회원 탈퇴 시 확인창 선택 후 메인 페이지 이동
-231102 김장훈 - 회원탈퇴 기능 추가
---------------------------------------------------------------------------------------------------------------
-*/
-
 import React, { useState } from "react";
 import "./styles/Mypage.css";
 import Swal from "sweetalert2";
@@ -18,8 +6,6 @@ import axios from "axios"; // axios 추가
 function Mypage(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [sessiondata, setSessiondata] = useState(false);
-  //console.log("sessiondata:", sessiondata);
-  //const userId = sessiondata.sessiondata;
   const userId = props.sessiondata;
 
   const [formData, setFormData] = useState({
@@ -83,7 +69,6 @@ function Mypage(props) {
     setErrors(newErrors);
 
     if (Object.values(newErrors).every((error) => error === "")) {
-      console.log("Form data submitted:", formData);
       Swal.fire({
         icon: "success",
         title: "수정 완료",

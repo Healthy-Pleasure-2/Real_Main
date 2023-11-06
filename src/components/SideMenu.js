@@ -1,9 +1,3 @@
-// 소스명 : SideMenu.js
-// 작성자: 이진경
-// 이 페이지 용도 : 왼쪽 메뉴
-// 생성일자(수정일자) : 23.10.13
-//  생성일자(수정일자) : 23.10.16 (로고수정)
-
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,9 +11,6 @@ import { Link } from "react-router-dom";
 import logo from "../asset/logo.png";
 
 function SideMenu({ isLoggedIn, onLogout }) {
-  // const location = useLocation();
-  // const navigate = useNavigate();
-
   // 로그아웃 버튼을 클릭하면 onLogout 함수를 호출하여 로그아웃 상태를 변경
   const handleLogout = () => {
     onLogout();

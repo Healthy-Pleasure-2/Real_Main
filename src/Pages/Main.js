@@ -1,15 +1,3 @@
-/* 
--소스명 : main.js
--작성자 : 김장훈
--이 페이지 용도 : 메인페이지
--생성일자(수정일자) : 231016
---------------------------------------------------------------------------------------------------------------
--로그
-231016 김장훈 - 최초작성
-231020 이진경 - 수정
-231027 이진경 - 캐러셀 추가
-*/
-
 import React, { useState, useEffect } from "react";
 import "./styles/main.css";
 import PopularRank from "../components/Community/PopularRank";
@@ -25,6 +13,7 @@ import { Link } from "react-router-dom";
 
 function Main() {
   const [groupData, setGroupData] = useState([]);
+  const [mainNumber, setMainNumber] = useState(3);
 
   useEffect(() => {
     const fetchGroupData = async () => {
@@ -32,6 +21,20 @@ function Main() {
       setGroupData(result);
     };
     fetchGroupData();
+    const handleResize = () => {
+      if (window.innerWidth < 1500) {
+        setMainNumber(2);
+      } else {
+        setMainNumber(3);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // 컴포넌트 언마운트 시 리스너 제거
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   // 캐러셀 세팅값
@@ -119,7 +122,7 @@ function Main() {
         <div className="title">
           <div className="title_inner">
             <h3>
-              인기 그룹 TOP <span>3</span>
+              인기 그룹 TOP <span>{mainNumber}</span>
             </h3>
             <p>크루가 많은 상위 커뮤니티</p>
             <p>지금 참가해 보세요.</p>

@@ -1,19 +1,3 @@
-/*
--소스명 : server.js
--작성자 : 김장훈, 정은정, 이제형
--이 페이지 용도 : 서버
--생성일자(수정일자) : 2310__ 최초생성
--로그
-2310__  _____ - 최초생성
-231024 김장훈 - db.json 파일을 이용한 로그인기능 구현
-231025 정은정 - cooki, session 을 이용한 상태관리 구현(수정필요)
-231025 이제형, 김장훈 - GoalSet.js 목표설정 업로드기능 구현(수정필요)
-231026 정은정, 김장훈 - 로그인 상태관리 수정
-231029 김장훈 -로그인 시 쿠키에 사용자 이름, 목표값 저장되도록 수정 --> 삭제
-231031 김장훈 -Goal_Circle 목표값 처리 핸들러 추가
-231031 김장훈 -ID, PW 찾기 핸들러 추가
-231102 김장훈 -회원탈퇴 라우터 추가
---------------------------------------------------------------------------------------------------------------*/
 const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
@@ -21,10 +5,8 @@ const app = express(); // Express 앱을 생성
 const port = 3003; // 서버가 사용할 포트 번호를 정의
 const cors = require("cors"); // CORS 미들웨어를 추가
 const fs = require("fs");
-//const path = require("path"); // path 모듈
 const cookieParser = require("cookie-parser");
-//const users = require("./db.json").user; // db.json 파일에서 사용자 정보를 가져와 변수에 저장
-//const groups = require("./db.json").group; // db.json파일에서 그룹 정보를 가져와 변수에 저장
+
 async function Datafc() {
   try {
     const jsonData = await fs.promises.readFile("./db.json", "utf8");
@@ -98,24 +80,19 @@ app.get("/logout", (req, res) => {
     }
   });
 });
+
 //쿠키 설정으로 쿠키 로그 확인    //APP.js 에서 불러옴
-app.get(
-  "/cookie",
-  (req, res) => {
-    if (req.cookies.sessionId) {
+app.get("/cookie", (req, res) => {
+  if (req.cookies.sessionId) {
+    // 로그인한 사용자만 액세스 가능
+    if (req.session.user) {
       // 로그인한 사용자만 액세스 가능
-      if (req.session.user) {
-        // 로그인한 사용자만 액세스 가능
-        const userid = req.session.user.id;
-        res.status(200).json({ message: "로그인상태", userid });
-      } /*else {
-      // 로그인하지 않은 경우
-      res.status(403).json({ message: "로그인하지 않았습니다." });*/
+      const userid = req.session.user.id;
+      res.status(200).json({ message: "로그인상태", userid });
     }
-  } /*else {
-    res.status(403).json({ message: "세션 ID가 없습니다." });
-  }  이코드를 추가 하니까 오류칸에 오류로 설정된다.*/
-);
+  }
+});
+
 //GoalSet.js 사용자 목표설정 db.json에 추가기능
 app.patch("/user/:id", async (req, res) => {
   const userId = req.params.id;
@@ -168,7 +145,6 @@ app.get("/todo/:id", async (req, res) => {
         res.status(200).json({ message: "해당 날짜를 찾지 못했습니다." });
       }
     } else {
-      console.log("사용자를 찾지 못했습니다.");
     }
   } catch (error) {
     console.error("파일 작업 중 오류 발생:", error);
@@ -189,17 +165,13 @@ app.post("/todo", async (req, res) => {
 
     // 해당 userId에 대한 할일 목록을 찾아서 데이터 추가
     const userTodoList = existingData.todo.find((user) => user[userId]);
-    console.log(userTodoList);
     const userTodo = userTodoList[userId];
-    console.log("usertodo", userTodo);
     const matchingTodo = userTodo.find((item) => item.date === date);
-    console.log("날짜와 일치하는 배열", matchingTodo);
 
     // 해당 userId에 해당되는 할일 목록이 없으면 그냥 todo push
     // 기존 배열과 날짜가 일치하면 contents에만 push
     // 만약에 날짜에 해당되는 배열이 없으면 그냥 push
     if (userTodo.length === 0 || matchingTodo === undefined) {
-      console.log("todo: ", toDo);
       userTodoList[userId].push(toDo);
     } else if (matchingTodo.length !== 0) {
       // 날짜가 겹치는 배열이 있으면 그 배열의 contents 값에 contents만 push
@@ -318,6 +290,7 @@ app.patch("/todo/complete/contents", async (req, res) => {
     res.status(500).json({ message: "서버 오류" });
   }
 });
+
 //Slide에서 불러옴
 app.get("/mygroup/:id", async (req, res) => {
   const userId = req.params.id;
@@ -431,11 +404,11 @@ app.post("/communicate/:id", async (req, res) => {
     res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
   }
 });
+
 //Signup.js에서 불러옴 회원가입하는 API
 app.post("/Signup", async (req, res) => {
   const newuser = req.body;
   try {
-    console.log(newuser);
     //파일 불러오기
     const data = await Datafc();
     const newuserindex = data.user.length + 1;
@@ -452,8 +425,15 @@ app.post("/Signup", async (req, res) => {
       exercise: "",
       diet: "",
     };
+    const newTodoUser = newuser.id;
+    const newTodoData = {
+      [newTodoUser]: [],
+    };
     data.user.push(newuserData);
+    // todolist에 새로운 테이블 생성
+    data.todo.push(newTodoData);
     const updatedDataGroup = JSON.stringify(data, null, 2);
+    console.log(updatedDataGroup);
     await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
     res.status(200).json({ message: "회원가입 되셨습니다." }); // 새로운 그룹의 ID 반환
   } catch (error) {
@@ -527,10 +507,13 @@ app.get("/Delete_user/:id", async (req, res) => {
 
     // db에서 사용자 id와 전달된 id가 같은 사용자를 찾음
     const userIndex = data.user.findIndex((u) => u.id === userId);
+    const todoIndex = data.todo.findIndex((u) => u.id === userId);
+
     if (userIndex !== -1) {
       // 사용자를 찾았을 때 사용자 데이터를 배열에서 삭제
       data.user.splice(userIndex, 1);
-
+      // 사용자 데이터를 배열에서 삭제
+      data.todo.splice(todoIndex, 1);
       // 변경된 데이터를 다시 파일로 씀
       const updatedJsonData = JSON.stringify(data, null, 2);
       await fs.promises.writeFile("./db.json", updatedJsonData);

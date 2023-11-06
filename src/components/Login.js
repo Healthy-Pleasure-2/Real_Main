@@ -1,4 +1,3 @@
-// 231023 이진경 - 수정
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -52,12 +51,6 @@ function Login({ onLogin }) {
             ></input>
           </div>
         </div>
-        {/* <div>
-          <label className="LoginCheckbox">
-            <input type="checkbox" />
-            로그인 상태 유지
-          </label>
-        </div> */}
         <button className="Loginbtn" onClick={handleLogin}>
           Login
         </button>
