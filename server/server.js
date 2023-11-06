@@ -6,8 +6,6 @@ const port = 3003; // 서버가 사용할 포트 번호를 정의
 const cors = require("cors"); // CORS 미들웨어를 추가
 const fs = require("fs");
 const cookieParser = require("cookie-parser");
-
-
 async function Datafc() {
   try {
     const jsonData = await fs.promises.readFile("./db.json", "utf8");
@@ -83,19 +81,16 @@ app.get("/logout", (req, res) => {
 });
 
 //쿠키 설정으로 쿠키 로그 확인    //APP.js 에서 불러옴
-app.get(
-  "/cookie",
-  (req, res) => {
-    if (req.cookies.sessionId) {
+app.get("/cookie", (req, res) => {
+  if (req.cookies.sessionId) {
+    // 로그인한 사용자만 액세스 가능
+    if (req.session.user) {
       // 로그인한 사용자만 액세스 가능
-      if (req.session.user) {
-        // 로그인한 사용자만 액세스 가능
-        const userid = req.session.user.id;
-        res.status(200).json({ message: "로그인상태", userid });
-      }
+      const userid = req.session.user.id;
+      res.status(200).json({ message: "로그인상태", userid });
     }
   }
-);
+});
 
 //GoalSet.js 사용자 목표설정 db.json에 추가기능
 //GoalSet.js 사용자 목표설정 db.json에 추가기능
@@ -119,7 +114,7 @@ app.patch("/user/:id", async (req, res) => {
       {
         user: users,
         group: groups,
-        todo: todos
+        todo: todos,
       },
       null,
       2
@@ -131,7 +126,6 @@ app.patch("/user/:id", async (req, res) => {
     res.status(500).json({ message: "서버 오류" });
   }
 });
-
 // db.json에서 todo 테이블 데이터 가져오기
 app.get("/todo/:id", async (req, res) => {
   try {
@@ -152,14 +146,12 @@ app.get("/todo/:id", async (req, res) => {
         res.status(200).json({ message: "해당 날짜를 찾지 못했습니다." });
       }
     } else {
-
     }
   } catch (error) {
     console.error("파일 작업 중 오류 발생:", error);
     res.status(500).json({ message: "파일 작업 중 오류가 발생했습니다." });
   }
 });
-
 // db.json에서 todo 테이블에 데이터 추가
 app.post("/todo", async (req, res) => {
   try {
@@ -185,13 +177,10 @@ app.post("/todo", async (req, res) => {
       // 날짜가 겹치는 배열이 있으면 그 배열의 contents 값에 contents만 push
       matchingTodo.contents.push(toDo.contents[0]);
     }
-
     // 업데이트된 데이터 JSON 문자열로 변환
     const updatedDataGroup = JSON.stringify(existingData, null, 2);
-
     // JSON 파일에 업데이트된 데이터 쓰기
     await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
-
     res.status(200).json({ message: "데이터가 성공적으로 추가되었습니다." });
   } catch (error) {
     console.error("파일 작업 중 오류 발생:", error);
@@ -212,10 +201,8 @@ app.patch("/todo/delete/contents", async (req, res) => {
     const jsonData = JSON.parse(data);
     // db.json 파일에서 user 정보만 users 정보에 담기
     const todos = jsonData.todo;
-
     // todo 배열에서 삭제 대상 식별
     const userTodo = todos.find((obj) => userId in obj);
-
     if (userTodo) {
       // 클릭한 날짜와 같은 데이터 추출
       const dateTodo = userTodo[userId].find((obj) => obj.date === date);
@@ -224,10 +211,8 @@ app.patch("/todo/delete/contents", async (req, res) => {
         dateTodo.contents = dateTodo.contents.filter(
           (obj) => obj.content !== text
         );
-
         // JSON 문자열로 변환
         const updatedData = JSON.stringify(jsonData, null, 2);
-
         // 데이터 업데이트
         await fs.promises.writeFile("./db.json", updatedData, "utf8");
         res
@@ -248,7 +233,6 @@ app.patch("/todo/delete/contents", async (req, res) => {
     res.status(500).json({ message: "서버 오류" });
   }
 });
-
 // db.json에서 완료버튼 값 변경하는 라우트
 app.patch("/todo/complete/contents", async (req, res) => {
   try {
@@ -256,14 +240,12 @@ app.patch("/todo/complete/contents", async (req, res) => {
     const userId = item.id;
     const date = item.fullDate;
     const text = item.text;
-
     // db.json 파일 읽어오기
     const data = await fs.promises.readFile("./db.json", "utf8");
     // db.json 파일을 자바스크립트 객체화
     const jsonData = JSON.parse(data);
+    // db.json 파일에서 user 정보만 users 정보에 담기
     const todos = jsonData.todo;
-
-    // 데이터 업데이트
     // todo 배열에서 삭제 대상 식별
     const userTodo = todos.find((obj) => userId in obj);
 
@@ -272,14 +254,11 @@ app.patch("/todo/complete/contents", async (req, res) => {
       if (dateTodo) {
         // 클릭한 todolist의 text와 같은 항목을 찾기
         const todoItem = dateTodo.contents.find((obj) => obj.content === text);
-
         if (todoItem) {
           // complete 값을 반대로 변경 (true -> false 또는 false -> true)
           todoItem.complete = !todoItem.complete;
-
           // JSON 문자열로 변환
           const updatedData = JSON.stringify(jsonData, null, 2);
-
           // 데이터 업데이트
           await fs.promises.writeFile("./db.json", updatedData, "utf8");
           res
@@ -378,7 +357,6 @@ app.get("/groupjoin/:userid", async (req, res) => {
     if (user) {
       const nickname = user.nickname;
       if (user.group.includes(groupId.toString())) {
-        // 읽어온 데이터 객체를 클라이언트로 반환
         res.json({ message: "true", nickname });
       } else {
         res.json({ message: "false" });
@@ -439,12 +417,12 @@ app.post("/Signup", async (req, res) => {
       exercise: "",
       diet: "",
     };
-    const newTodoUser = newuser.id
+    const newTodoUser = newuser.id;
     const newTodoData = {
-      [newTodoUser]: []
-    }
+      [newTodoUser]: [],
+    };
     data.user.push(newuserData);
-    // todolist에 새로운 테이블 생성 
+    // todolist에 새로운 테이블 생성
     data.todo.push(newTodoData);
     const updatedDataGroup = JSON.stringify(data, null, 2);
     await fs.promises.writeFile("./db.json", updatedDataGroup, "utf8");
@@ -484,28 +462,23 @@ app.post("/Find_id", async (req, res) => {
   const data = await Datafc();
   const users = data.user;
   const { name, email } = req.body;
-
   const user = users.find((u) => u.name === name && u.email === email);
   if (user) {
     const userid = user.id;
-
     // ID를 클라이언트에게 반환
     res.status(200).json({ message: "ID 찾기 성공", userid });
   } else {
     res.status(401).json({ message: "ID를 찾을 수 없습니다." });
   }
 });
-
 // id_pw.js -> PW찾기 요청 핸들러
 app.post("/Find_pw", async (req, res) => {
   const data = await Datafc();
   const users = data.user;
   const { id, email } = req.body;
-
   const user = users.find((u) => u.id === id && u.email === email);
   if (user) {
     const userpw = user.pw;
-
     // ID를 클라이언트에게 반환
     res.status(200).json({ message: "PW 찾기 성공", userpw });
   } else {
@@ -521,16 +494,13 @@ app.get("/Delete_user/:id", async (req, res) => {
     const jsonData = await fs.promises.readFile("./db.json", "utf8");
     // db.json 파일을 자바스크립트 객체로 파싱
     const data = JSON.parse(jsonData);
-
     // db에서 사용자 id와 전달된 id가 같은 사용자를 찾음
     const userIndex = data.user.findIndex((u) => u.id === userId);
     const todoIndex = data.todo.findIndex((u) => u.id === userId);
-
     if (userIndex !== -1) {
-      // 사용자를 찾았을 때
-      // 사용자 데이터를 배열에서 삭제
+      // 사용자를 찾았을 때 사용자 데이터를 배열에서 삭제
       data.user.splice(userIndex, 1);
-      // 사용자 데이터를 배열에서 삭제 
+      // 사용자 데이터를 배열에서 삭제
       data.todo.splice(todoIndex, 1);
       // 변경된 데이터를 다시 파일로 씀
       const updatedJsonData = JSON.stringify(data, null, 2);
@@ -545,7 +515,6 @@ app.get("/Delete_user/:id", async (req, res) => {
     res.status(500).json({ message: "서버 오류" });
   }
 });
-
 //실행중
 app.listen(port, () => {
   console.log(`서버가 ${port} 포트에서 실행 중입니다.`);
