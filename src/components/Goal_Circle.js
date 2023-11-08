@@ -53,8 +53,8 @@ function Goal_Circle({ sessiondata }) {
     return weightValue >= maxWeight
       ? maxWeightStrokeDasharray
       : weightValue <= minWeight
-        ? minWeightStrokeDasharray
-        : ((weightValue - minWeight) / (maxWeight - minWeight)) *
+      ? minWeightStrokeDasharray
+      : ((weightValue - minWeight) / (maxWeight - minWeight)) *
         maxWeightStrokeDasharray;
   };
 
@@ -68,8 +68,8 @@ function Goal_Circle({ sessiondata }) {
     return exerciseValue >= maxExercise
       ? maxExerciseStrokeDasharray
       : exerciseValue <= minExercise
-        ? minExerciseStrokeDasharray
-        : ((exerciseValue - minExercise) / (maxExercise - minExercise)) *
+      ? minExerciseStrokeDasharray
+      : ((exerciseValue - minExercise) / (maxExercise - minExercise)) *
         maxExerciseStrokeDasharray;
   };
 
@@ -83,8 +83,8 @@ function Goal_Circle({ sessiondata }) {
     return dietValue >= maxDiet
       ? maxDietStrokeDasharray
       : dietValue <= minDiet
-        ? minDietStrokeDasharray
-        : ((dietValue - minDiet) / (maxDiet - minDiet)) * maxDietStrokeDasharray;
+      ? minDietStrokeDasharray
+      : ((dietValue - minDiet) / (maxDiet - minDiet)) * maxDietStrokeDasharray;
   };
 
   //사용자 입력값 시각화처리
@@ -116,7 +116,7 @@ function Goal_Circle({ sessiondata }) {
             <span>{User_Name}</span> 님
           </div>
           <div className="subTitle">
-            현재 체중, 운동량, 식사량을 입력하여 <br></br>
+            데일리 체중, 운동량, 식사량을 입력하여 <br></br>
             <span>목표 달성률</span>을 확인하세요!
           </div>
           <div className="subTitle2">
